@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mindvest Global — Architecting Human Potential</title>
+<meta name="description" content="Mindvest Global is a transformational education enterprise — architecting the conditions for human, leadership, and organisational becoming.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --indigo: #1C1A4A;
+    --indigo-deep: #12103A;
+    --indigo-mid: #28256B;
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-muted: #8A6D2F;
+    --cream: #F7F3EC;
+    --cream-dark: #EDE7DA;
+    --cream-mid: #E4DDD0;
+    --white: #FDFAF5;
+    --ink: #0D0D0D;
+    --muted: #7A7060;
+    --muted-light: #A09580;
+    --text: #2C2820;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 28px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.4s ease;
+  }
+
+  nav.scrolled {
+    background: rgba(253,250,245,0.96);
+    backdrop-filter: blur(12px);
+    padding: 18px 60px;
+    border-bottom: 1px solid var(--cream-dark);
+    box-shadow: 0 2px 40px rgba(28,26,74,0.06);
+  }
+
+  .nav-logo { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+  .nav-logo-main { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--cream); letter-spacing: 1px; line-height: 1; transition: color 0.4s; }
+  nav.scrolled .nav-logo-main { color: var(--indigo); }
+  .nav-logo-sub { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold-muted); }
+
+  .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+  .nav-links a { font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(247,243,236,0.6); text-decoration: none; transition: color 0.2s; }
+  nav.scrolled .nav-links a { color: var(--muted); }
+  .nav-links a:hover { color: var(--gold); }
+  nav.scrolled .nav-links a:hover { color: var(--indigo); }
+
+  .nav-cta { padding: 11px 28px; background: var(--gold); color: var(--indigo-deep) !important; font-size: 12px !important; letter-spacing: 1px; transition: background 0.2s !important; }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--indigo-deep) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--indigo-deep);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-atmosphere {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 100% 0%, rgba(201,168,76,0.08) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 70% at 0% 100%, rgba(28,26,74,0.8) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 50% at 50% 50%, rgba(40,37,107,0.4) 0%, transparent 70%);
+  }
+
+  .hero-lines { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+  .hero-line { position: absolute; background: rgba(201,168,76,0.05); }
+  .hero-line.v { width: 1px; top: 0; bottom: 0; }
+  .hero-line.h { height: 1px; left: 0; right: 0; }
+  .hero-line.v1 { left: 25%; } .hero-line.v2 { left: 50%; } .hero-line.v3 { left: 75%; }
+  .hero-line.h1 { top: 33%; } .hero-line.h2 { top: 66%; }
+
+  .hero-arch {
+    position: absolute; top: 120px; right: 60px;
+    width: 340px; height: 340px;
+    border: 1px solid rgba(201,168,76,0.1);
+    border-radius: 50% 50% 0 0;
+    opacity: 0;
+    animation: archReveal 1.2s ease forwards 1s;
+  }
+  .hero-arch::before { content: ''; position: absolute; inset: 28px; border: 1px solid rgba(201,168,76,0.06); border-radius: 50% 50% 0 0; }
+  .hero-arch::after { content: ''; position: absolute; inset: 56px; border: 1px solid rgba(201,168,76,0.03); border-radius: 50% 50% 0 0; }
+
+  @keyframes archReveal { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+
+  .hero-content { position: relative; z-index: 2; max-width: 1100px; }
+
+  .hero-eyebrow { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.3s; }
+  .eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
+  .eyebrow-text { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); }
+
+  .hero-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 8vw, 110px); font-weight: 300; line-height: 1.0; color: var(--cream); margin-bottom: 32px; opacity: 0; animation: fadeUp 0.9s ease forwards 0.5s; }
+  .hero-headline em { font-style: italic; color: var(--gold-light); display: block; }
+  .hero-headline strong { font-weight: 600; color: var(--white); display: block; }
+
+  .hero-sub { font-size: 16px; color: rgba(247,243,236,0.5); max-width: 560px; line-height: 1.8; margin-bottom: 52px; opacity: 0; animation: fadeUp 0.9s ease forwards 0.7s; }
+
+  .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.9s ease forwards 0.9s; }
+
+  .btn-gold { padding: 16px 40px; background: var(--gold); color: var(--indigo-deep); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; text-decoration: none; transition: all 0.25s; display: inline-block; }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-outline-light { padding: 16px 40px; border: 1px solid rgba(201,168,76,0.3); color: rgba(247,243,236,0.55); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: all 0.25s; display: inline-block; }
+  .btn-outline-light:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-scroll { position: absolute; bottom: 40px; right: 60px; display: flex; flex-direction: column; align-items: center; gap: 10px; opacity: 0; animation: fadeUp 0.8s ease forwards 1.2s; }
+  .scroll-text { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold-muted); writing-mode: vertical-rl; }
+  .scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2s ease infinite; }
+
+  @keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* STRIP */
+  .statement-strip { background: var(--gold); overflow: hidden; }
+  .strip-inner { display: flex; animation: stripScroll 20s linear infinite; white-space: nowrap; }
+  .strip-item { padding: 16px 48px; font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: var(--indigo-deep); flex-shrink: 0; display: flex; align-items: center; gap: 24px; }
+  .strip-dot { width: 5px; height: 5px; background: var(--indigo-deep); border-radius: 50%; opacity: 0.4; }
+  @keyframes stripScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* SHARED */
+  .section-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold-muted); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .section-tag::before { content: ''; width: 24px; height: 1px; background: var(--gold-muted); }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 62px); font-weight: 300; line-height: 1.1; color: var(--indigo); margin-bottom: 40px; }
+  .section-title em { font-style: italic; color: var(--gold-muted); }
+  .gold-divider { width: 60px; height: 1px; background: var(--gold); margin: 40px 0; }
+
+  /* ABOUT */
+  .about { padding: 120px 60px; max-width: 1200px; margin: 0 auto; }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+  .about-body { font-size: 16px; color: var(--muted); line-height: 1.9; margin-bottom: 24px; }
+  .about-body strong { color: var(--text); font-weight: 500; }
+
+  .founder-block { display: flex; gap: 20px; align-items: center; padding: 28px 0; border-top: 1px solid var(--cream-dark); }
+  .founder-initial { width: 52px; height: 52px; background: var(--indigo); color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .founder-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--indigo); margin-bottom: 2px; }
+  .founder-title { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted-light); }
+
+  .about-right { display: flex; flex-direction: column; gap: 2px; }
+  .about-stat-card { background: var(--cream); padding: 32px 36px; border-left: 3px solid transparent; transition: border-color 0.3s; }
+  .about-stat-card:hover { border-left-color: var(--gold); }
+  .about-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; color: var(--indigo); line-height: 1; margin-bottom: 6px; }
+  .about-stat-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted-light); }
+  .about-stat-desc { font-size: 13px; color: var(--muted); margin-top: 8px; line-height: 1.6; }
+
+  /* DIVISIONS */
+  .divisions { background: var(--indigo-deep); padding: 120px 60px; position: relative; overflow: hidden; }
+  .divisions::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+  .divisions-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .divisions-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 80px; }
+  .divisions-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 5vw, 66px); font-weight: 300; color: var(--cream); line-height: 1.05; }
+  .divisions-title em { font-style: italic; color: var(--gold-light); }
+  .divisions-desc { font-size: 15px; color: rgba(247,243,236,0.4); line-height: 1.8; }
+
+  .divisions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+
+  .division-card { padding: 52px 44px; background: rgba(40,37,107,0.25); border: 1px solid rgba(201,168,76,0.07); position: relative; overflow: hidden; transition: background 0.3s; }
+  .division-card:hover { background: rgba(40,37,107,0.45); }
+  .division-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+  .division-card:hover::before { transform: scaleX(1); }
+
+  .division-num { font-family: 'Cormorant Garamond', serif; font-size: 80px; font-weight: 300; color: rgba(201,168,76,0.07); line-height: 1; margin-bottom: 24px; transition: color 0.3s; }
+  .division-card:hover .division-num { color: rgba(201,168,76,0.13); }
+  .division-name { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--cream); margin-bottom: 8px; line-height: 1.2; }
+  .division-sub { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .division-desc { font-size: 14px; color: rgba(247,243,236,0.4); line-height: 1.8; margin-bottom: 24px; }
+  .division-flagship { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--gold-muted); padding-top: 20px; border-top: 1px solid rgba(201,168,76,0.12); }
+  .division-flagship strong { color: var(--gold); display: block; margin-top: 4px; font-size: 12px; letter-spacing: 1px; }
+
+  /* FRAMEWORK */
+  .framework { padding: 120px 60px; background: var(--cream); }
+  .framework-inner { max-width: 1200px; margin: 0 auto; }
+  .framework-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 60px; }
+
+  .arch-diagram { display: flex; flex-direction: column; gap: 3px; }
+  .arch-layer { display: flex; align-items: center; gap: 20px; padding: 20px 28px; background: var(--white); border-left: 3px solid var(--cream-dark); transition: all 0.3s; cursor: default; }
+  .arch-layer:hover { border-left-color: var(--gold); background: var(--cream-dark); transform: translateX(6px); }
+  .arch-layer-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--cream-dark); line-height: 1; min-width: 36px; transition: color 0.3s; }
+  .arch-layer:hover .arch-layer-num { color: var(--gold-muted); }
+  .arch-layer-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--indigo); margin-bottom: 2px; }
+  .arch-layer-sub { font-size: 12px; color: var(--muted-light); font-family: 'DM Mono', monospace; letter-spacing: 1px; }
+  .arch-diagram-label { text-align: center; margin-top: 20px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted-light); }
+
+  .framework-body { font-size: 16px; color: var(--muted); line-height: 1.9; margin-bottom: 20px; }
+  .framework-body strong { color: var(--text); font-weight: 500; }
+
+  .method-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 32px; }
+  .method-card { background: var(--white); padding: 24px 24px; border-bottom: 2px solid transparent; transition: border-color 0.3s; }
+  .method-card:hover { border-bottom-color: var(--gold); }
+  .method-letter { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: var(--indigo); line-height: 1; margin-bottom: 4px; }
+  .method-word { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-muted); margin-bottom: 8px; }
+  .method-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+  /* MASTERCLASS */
+  .masterclass { background: var(--indigo); padding: 120px 60px; position: relative; overflow: hidden; }
+  .masterclass::after { content: '"'; font-family: 'Cormorant Garamond', serif; font-size: 500px; color: rgba(201,168,76,0.04); position: absolute; top: -80px; left: 40px; line-height: 1; pointer-events: none; }
+  .masterclass-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+  .masterclass-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 5vw, 64px); font-weight: 300; color: var(--cream); line-height: 1.1; margin-bottom: 24px; }
+  .masterclass-title em { font-style: italic; color: var(--gold-light); }
+  .masterclass-body { font-size: 15px; color: rgba(247,243,236,0.45); line-height: 1.8; margin-bottom: 40px; }
+
+  .event-card { background: rgba(40,37,107,0.4); border: 1px solid rgba(201,168,76,0.15); padding: 40px; }
+  .event-date { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .event-date::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+  .event-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--white); margin-bottom: 24px; line-height: 1.2; }
+
+  .event-details { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+  .event-detail { display: flex; gap: 16px; align-items: center; font-size: 13px; color: rgba(247,243,236,0.5); }
+  .event-detail-icon { width: 28px; height: 28px; background: rgba(201,168,76,0.1); display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; }
+
+  .event-price { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; color: var(--gold-light); margin-bottom: 24px; line-height: 1; }
+  .event-price span { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--gold-muted); display: block; margin-top: 4px; }
+
+  /* AUDIENCE */
+  .audience { padding: 120px 60px; background: var(--white); }
+  .audience-inner { max-width: 1200px; margin: 0 auto; }
+  .audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 60px; }
+
+  .persona-card { padding: 48px 40px; background: var(--cream); position: relative; overflow: hidden; transition: background 0.3s; }
+  .persona-card:hover { background: var(--cream-dark); }
+  .persona-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background: var(--gold); transition: width 0.5s ease; }
+  .persona-card:hover::after { width: 100%; }
+
+  .persona-age { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold-muted); margin-bottom: 12px; }
+  .persona-archetype { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; color: var(--indigo); line-height: 1.1; margin-bottom: 6px; }
+  .persona-type { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-style: italic; color: var(--muted-light); margin-bottom: 24px; }
+  .persona-truth { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--muted); line-height: 1.7; padding-left: 16px; border-left: 2px solid var(--cream-dark); margin-bottom: 20px; font-style: italic; transition: border-color 0.3s; }
+  .persona-card:hover .persona-truth { border-left-color: var(--gold); }
+  .persona-want { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--indigo); text-transform: uppercase; }
+
+  /* MANIFESTO */
+  .manifesto { background: var(--cream); padding: 120px 60px; }
+  .manifesto-inner { max-width: 900px; margin: 0 auto; }
+  .manifesto-lines { margin-top: 60px; }
+  .manifesto-line { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3vw, 34px); font-weight: 300; color: var(--indigo); line-height: 1.4; padding: 24px 0 24px 32px; border-bottom: 1px solid var(--cream-dark); border-left: 2px solid transparent; transition: all 0.3s; }
+  .manifesto-line:hover { border-left-color: var(--gold); padding-left: 40px; }
+  .manifesto-line strong { font-weight: 600; color: var(--gold-muted); }
+
+  /* ZEKI */
+  .zeki-section { background: var(--indigo-deep); padding: 120px 60px; }
+  .zeki-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+
+  .zeki-quote { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 3.5vw, 44px); font-weight: 300; font-style: italic; color: var(--cream); line-height: 1.4; margin-bottom: 32px; padding-left: 32px; border-left: 2px solid var(--gold); }
+  .zeki-body { font-size: 15px; color: rgba(247,243,236,0.4); line-height: 1.8; margin-bottom: 32px; }
+  .zeki-credentials { display: flex; flex-direction: column; gap: 12px; }
+  .credential { display: flex; gap: 16px; align-items: flex-start; font-size: 13px; color: rgba(247,243,236,0.4); line-height: 1.5; }
+  .credential::before { content: '◆'; color: var(--gold-muted); font-size: 8px; margin-top: 4px; flex-shrink: 0; }
+
+  .zeki-name-block { padding: 52px 48px; background: rgba(40,37,107,0.4); border: 1px solid rgba(201,168,76,0.12); }
+  .zeki-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .zeki-name { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; color: var(--cream); line-height: 1; margin-bottom: 8px; }
+  .zeki-name em { font-style: italic; color: var(--gold-light); }
+  .zeki-title { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; color: var(--gold-muted); margin-bottom: 32px; text-transform: uppercase; }
+
+  .zeki-brands { display: flex; flex-direction: column; gap: 0; }
+  .zeki-brand-item { padding: 14px 0; border-bottom: 1px solid rgba(201,168,76,0.08); display: flex; justify-content: space-between; align-items: center; }
+  .zeki-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--cream); }
+  .zeki-brand-role { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; color: var(--gold-muted); text-transform: uppercase; }
+
+  /* CTA */
+  .cta-section { padding: 120px 60px; background: var(--white); text-align: center; position: relative; overflow: hidden; }
+  .cta-section::before { content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%); border-radius: 50%; }
+  .cta-inner { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+  .cta-eyebrow { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold-muted); margin-bottom: 24px; }
+  .cta-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 6vw, 80px); font-weight: 300; color: var(--indigo); line-height: 1.1; margin-bottom: 24px; }
+  .cta-title em { font-style: italic; color: var(--gold-muted); }
+  .cta-body { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 48px; }
+  .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  .btn-indigo { padding: 16px 40px; background: var(--indigo); color: var(--cream); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: all 0.25s; display: inline-block; }
+  .btn-indigo:hover { background: var(--indigo-mid); transform: translateY(-2px); }
+  .btn-outline-indigo { padding: 16px 40px; border: 1px solid var(--indigo); color: var(--indigo); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: all 0.25s; display: inline-block; }
+  .btn-outline-indigo:hover { background: var(--indigo); color: var(--cream); }
+
+  /* FOOTER */
+  footer { background: var(--indigo-deep); padding: 80px 60px 48px; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(201,168,76,0.08); }
+  .footer-logo-main { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--cream); margin-bottom: 4px; }
+  .footer-logo-sub { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold-muted); margin-bottom: 20px; }
+  .footer-desc { font-size: 13px; color: rgba(247,243,236,0.3); line-height: 1.7; max-width: 280px; margin-bottom: 24px; }
+  .footer-elevation-link { display: inline-flex; align-items: center; gap: 10px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-muted); text-decoration: none; padding: 10px 16px; border: 1px solid rgba(201,168,76,0.18); transition: all 0.2s; }
+  .footer-elevation-link:hover { border-color: var(--gold-muted); color: var(--gold); }
+  .footer-col-title { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: rgba(247,243,236,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--cream); }
+  .footer-contact-item { margin-bottom: 14px; }
+  .footer-contact-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-muted); margin-bottom: 4px; }
+  .footer-contact-value { font-size: 13px; color: rgba(247,243,236,0.4); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-copy { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(247,243,236,0.18); letter-spacing: 1px; }
+  .footer-social { display: flex; gap: 20px; }
+  .footer-social a { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(247,243,236,0.22); text-decoration: none; transition: color 0.2s; }
+  .footer-social a:hover { color: var(--gold); }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    nav, nav.scrolled { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 0 24px 60px; }
+    .hero-arch { display: none; }
+    .about { padding: 80px 24px; }
+    .about-grid, .divisions-header, .framework-grid, .masterclass-inner, .zeki-inner { grid-template-columns: 1fr; gap: 48px; }
+    .divisions { padding: 80px 24px; }
+    .divisions-grid, .audience-grid { grid-template-columns: 1fr; }
+    .framework, .masterclass, .audience, .manifesto, .zeki-section, .cta-section { padding: 80px 24px; }
+    footer { padding: 60px 24px 40px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .method-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .hero-headline { font-size: 48px; }
+    .method-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-main">Mindvest Global</div>
+    <div class="nav-logo-sub">Architecting Human Potential</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#divisions">Divisions</a></li>
+    <li><a href="#framework">Framework</a></li>
+    <li><a href="#masterclass">Masterclass</a></li>
+    <li><a href="#who">Who We Serve</a></li>
+    <li><a href="https://selar.com/543351n531" target="_blank" class="nav-cta">Start Becoming</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-atmosphere"></div>
+  <div class="hero-lines">
+    <div class="hero-line v v1"></div><div class="hero-line v v2"></div><div class="hero-line v v3"></div>
+    <div class="hero-line h h1"></div><div class="hero-line h h2"></div>
+  </div>
+  <div class="hero-arch"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><div class="eyebrow-line"></div><div class="eyebrow-text">Mindvest Global Resources LLC · Est. 2026</div></div>
+    <h1 class="hero-headline">The Architecture<br><em>of Becoming</em><br><strong>Starts Here.</strong></h1>
+    <p class="hero-sub">A transformational education enterprise built on the conviction that the most important structure any human being will ever build is the architecture of who they are becoming.</p>
+    <div class="hero-actions">
+      <a href="https://selar.com/543351n531" target="_blank" class="btn-gold">Join the Masterclass</a>
+      <a href="#divisions" class="btn-outline-light">Explore Our Work</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-text">Scroll</div><div class="scroll-line"></div></div>
+</section>
+
+<!-- STRIP -->
+<div class="statement-strip">
+  <div class="strip-inner">
+    <div class="strip-item">We don't change people <div class="strip-dot"></div></div>
+    <div class="strip-item">We create the conditions in which people finally become who they already are <div class="strip-dot"></div></div>
+    <div class="strip-item">Transformation is not a feeling — it is a structure <div class="strip-dot"></div></div>
+    <div class="strip-item">And structures can be designed <div class="strip-dot"></div></div>
+    <div class="strip-item">We don't change people <div class="strip-dot"></div></div>
+    <div class="strip-item">We create the conditions in which people finally become who they already are <div class="strip-dot"></div></div>
+    <div class="strip-item">Transformation is not a feeling — it is a structure <div class="strip-dot"></div></div>
+    <div class="strip-item">And structures can be designed <div class="strip-dot"></div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about reveal" id="about">
+  <div class="about-grid">
+    <div class="about-left">
+      <div class="section-tag">What We Are</div>
+      <h2 class="section-title">Not a Coaching<br>Company. A<br><em>Transformation Enterprise.</em></h2>
+      <p class="about-body">Mindvest Global Resources LLC is built at the intersection of <strong>identity, design, and human potential.</strong> We operate across three divisions — individual transformation, leadership development, and organisational culture — with one governing conviction:</p>
+      <p class="about-body"><strong>Most people are not broken.</strong> They are simply building on a foundation that was never theirs. Our work is to give them the architectural tools to build again — deliberately, originally, and from the inside out.</p>
+      <div class="gold-divider"></div>
+      <div class="founder-block">
+        <div class="founder-initial">Z</div>
+        <div><div class="founder-name">Zeki Ubor</div><div class="founder-title">Founder · Architect · Transformation Practitioner</div></div>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="about-stat-card"><div class="about-stat-num">3</div><div class="about-stat-label">Operating Divisions</div><div class="about-stat-desc">The Becoming Institute · The Leadership Architecture · Organisational Architecture</div></div>
+      <div class="about-stat-card"><div class="about-stat-num">5</div><div class="about-stat-label">Framework Layers</div><div class="about-stat-desc">The Human Architecture Framework — Identity, Mindset, Systems, Relationships, Expression</div></div>
+      <div class="about-stat-card"><div class="about-stat-num">1</div><div class="about-stat-label">Governing Conviction</div><div class="about-stat-desc">Transformation is not a feeling. It is a structure. And structures can be designed.</div></div>
+      <div class="about-stat-card"><div class="about-stat-num">∞</div><div class="about-stat-label">The Becoming</div><div class="about-stat-desc">Becoming is not a destination. It is the most important work any human being will ever do.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVISIONS -->
+<section class="divisions reveal" id="divisions">
+  <div class="divisions-inner">
+    <div class="divisions-header">
+      <h2 class="divisions-title">Three Divisions.<br><em>One Architecture.</em></h2>
+      <p class="divisions-desc">Every programme, every framework, every conversation inside Mindvest Global is an act of building. We work at the individual, leadership, and institutional level — because transformation that stops at the person rarely reaches the organisation.</p>
+    </div>
+    <div class="divisions-grid">
+      <div class="division-card">
+        <div class="division-num">I</div>
+        <div class="division-sub">Division One</div>
+        <div class="division-name">The Becoming Institute</div>
+        <p class="division-desc">For the individual who has achieved enough to know that achievement alone is not enough. Through the Human Architecture Framework, we walk people through the five layers of their own design — and help them rebuild from the inside out.</p>
+        <div class="division-flagship">Flagship Programme<strong>Becoming a Person of Interest — Monthly Masterclass</strong></div>
+      </div>
+      <div class="division-card">
+        <div class="division-num">II</div>
+        <div class="division-sub">Division Two</div>
+        <div class="division-name">The Leadership Architecture</div>
+        <p class="division-desc">For the leader who manages teams but has never intentionally designed themselves. We bridge the gap between positional leadership and integrated leadership — building the inner architecture that outer influence demands.</p>
+        <div class="division-flagship">Flagship Programme<strong>Leadership Architecture Programme — Executive Cohort</strong></div>
+      </div>
+      <div class="division-card">
+        <div class="division-num">III</div>
+        <div class="division-sub">Division Three</div>
+        <div class="division-name">Organisational Architecture</div>
+        <p class="division-desc">For organisations that sense their culture is not serving their mission. We audit, redesign, and rebuild the human architecture of culture — aligning people, values, and systems toward a common becoming.</p>
+        <div class="division-flagship">Flagship Programme<strong>Organisational Transformation Partnership — 6–12 Months</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRAMEWORK -->
+<section class="framework reveal" id="framework">
+  <div class="framework-inner">
+    <div class="section-tag">Our Methodology</div>
+    <h2 class="section-title">The Human<br><em>Architecture Framework</em></h2>
+    <div class="framework-grid">
+      <div>
+        <div class="arch-diagram">
+          <div class="arch-layer"><div class="arch-layer-num">V</div><div><div class="arch-layer-name">Expression & Impact</div><div class="arch-layer-sub">The Facade — How you show up</div></div></div>
+          <div class="arch-layer"><div class="arch-layer-num">IV</div><div><div class="arch-layer-name">Relationships & Environment</div><div class="arch-layer-sub">The Rooms — Who and what surrounds you</div></div></div>
+          <div class="arch-layer"><div class="arch-layer-num">III</div><div><div class="arch-layer-name">Systems & Habits</div><div class="arch-layer-sub">The Infrastructure — How you operate</div></div></div>
+          <div class="arch-layer"><div class="arch-layer-num">II</div><div><div class="arch-layer-name">Mindset & Beliefs</div><div class="arch-layer-sub">The Structure — What holds you up</div></div></div>
+          <div class="arch-layer"><div class="arch-layer-num">I</div><div><div class="arch-layer-name">Identity & Purpose</div><div class="arch-layer-sub">The Foundation — Who you are</div></div></div>
+          <div class="arch-diagram-label">Human Architecture Framework — © Mindvest Global 2026</div>
+        </div>
+      </div>
+      <div>
+        <p class="framework-body">Every human being is an architecture — <strong>designed with intention, capable of extraordinary things.</strong> The problem is that most people are building their lives on a foundation that was laid by someone else.</p>
+        <p class="framework-body">The Human Architecture Framework gives individuals and organisations a <strong>structured methodology for redesigning from the ground up</strong> — beginning with identity, moving through mindset and systems, into relationships and environment, and finally into expression and impact.</p>
+        <div class="gold-divider"></div>
+        <div class="section-tag">The BUILD Method</div>
+        <p style="font-size:14px; color:var(--muted); line-height:1.7; margin-bottom:16px;">Our five-step transformation process applied across all engagements.</p>
+        <div class="method-grid">
+          <div class="method-card"><div class="method-letter">B</div><div class="method-word">Baseline</div><div class="method-desc">Audit where you are with radical honesty using the Architecture Audit diagnostic.</div></div>
+          <div class="method-card"><div class="method-letter">U</div><div class="method-word">Uncover</div><div class="method-desc">Surface the beliefs, patterns, and foundations that have been driving the architecture.</div></div>
+          <div class="method-card"><div class="method-letter">I</div><div class="method-word">Intentional Design</div><div class="method-desc">Deliberately redesign each layer — starting with identity and moving upward.</div></div>
+          <div class="method-card"><div class="method-letter">L</div><div class="method-word">Layer & Live</div><div class="method-desc">Integrate the new architecture into daily life, leadership, and decision-making.</div></div>
+          <div class="method-card" style="grid-column:span 2;"><div class="method-letter">D</div><div class="method-word">Declare & Deploy</div><div class="method-desc">Step into your expression and impact with the full weight of who you have become. This is not the end — it is the beginning of the next layer.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MASTERCLASS -->
+<section class="masterclass reveal" id="masterclass">
+  <div class="masterclass-inner">
+    <div>
+      <div class="section-tag" style="color:var(--gold);">Next Programme</div>
+      <h2 class="masterclass-title">Becoming a<br><em>Person of Interest</em></h2>
+      <p class="masterclass-body">The flagship monthly masterclass from The Becoming Institute. A live, structured session for people who are ready to stop performing borrowed identities and start designing an original life — deliberately, architecturally, and from the inside out.</p>
+      <a href="https://selar.com/543351n531" target="_blank" class="btn-gold">Reserve Your Seat</a>
+    </div>
+    <div>
+      <div class="event-card">
+        <div class="event-date">Inaugural Session</div>
+        <div class="event-name">Becoming a Person of Interest</div>
+        <div class="event-details">
+          <div class="event-detail"><div class="event-detail-icon">📅</div><span>30th May 2026</span></div>
+          <div class="event-detail"><div class="event-detail-icon">📍</div><span>Virtual — Live & Interactive</span></div>
+          <div class="event-detail"><div class="event-detail-icon">⏱</div><span>3 Hours · Q&A Included</span></div>
+          <div class="event-detail"><div class="event-detail-icon">👥</div><span>Limited Seats — Intimate Session</span></div>
+        </div>
+        <div class="event-price">₦15,000<span>Launch investment · Seats filling fast</span></div>
+        <a href="https://selar.com/543351n531" target="_blank" class="btn-gold" style="width:100%; text-align:center; display:block;">Secure Your Seat →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="audience reveal" id="who">
+  <div class="audience-inner">
+    <div class="section-tag">Who We Serve</div>
+    <h2 class="section-title">Smart enough to know<br>something is wrong.<br><em>Honest enough to change it.</em></h2>
+    <div class="audience-grid">
+      <div class="persona-card">
+        <div class="persona-age">Ages 25 – 34 · Entry Point</div>
+        <div class="persona-archetype">The Awakening</div>
+        <div class="persona-type">Young professional · Early entrepreneur</div>
+        <div class="persona-truth">"I've achieved what I said I wanted. So why does it feel like someone else's life?"</div>
+        <div class="persona-want">Wants → Identity clarity · Direction · A framework for becoming</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-age">Ages 35 – 45 · Core</div>
+        <div class="persona-archetype">The Reconstruction</div>
+        <div class="persona-type">Mid-career leader · Business owner</div>
+        <div class="persona-truth">"I've built something real. But I'm quietly asking whether this is it — and afraid the answer is yes."</div>
+        <div class="persona-want">Wants → Realignment · Deeper leadership · A life that matches their interior</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-age">Ages 45 – 55 · Premium</div>
+        <div class="persona-archetype">The Legacy Maker</div>
+        <div class="persona-type">Senior executive · Institutional leader</div>
+        <div class="persona-truth">"I have the position. But I want my leadership to mean something beyond the metrics."</div>
+        <div class="persona-want">Wants → Legacy architecture · Cultural impact · Integrated leadership</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto reveal">
+  <div class="manifesto-inner">
+    <div class="section-tag">We Believe</div>
+    <h2 class="section-title">The Mindvest<br><em>Manifesto</em></h2>
+    <div class="manifesto-lines">
+      <div class="manifesto-line">That <strong>every human being is an architecture</strong> — designed with intention, capable of extraordinary things.</div>
+      <div class="manifesto-line">That most people are not broken. They are simply <strong>building on a foundation that was never theirs.</strong></div>
+      <div class="manifesto-line">That <strong>transformation is not a feeling.</strong> It is a structure. And structures can be designed.</div>
+      <div class="manifesto-line">That the gap between who you are and who you are becoming is not a failure — it is <strong>an invitation.</strong></div>
+      <div class="manifesto-line">That Africa does not need more performers of borrowed identities. It needs <strong>original architects of original lives.</strong></div>
+      <div class="manifesto-line">That <strong>becoming is not a destination.</strong> It is the most important work any human being will ever do.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ZEKI -->
+<section class="zeki-section reveal">
+  <div class="zeki-inner">
+    <div>
+      <div class="section-tag" style="color:var(--gold);">The Founder</div>
+      <blockquote class="zeki-quote">"You cannot transform others on a foundation you haven't designed yourself. Everything I build, I have first been through."</blockquote>
+      <p class="zeki-body">Zeki Ubor is a licensed architect, BIM specialist, frontend engineer, and transformation practitioner — one of very few people who has formally trained in both the design of physical spaces and the design of human potential.</p>
+      <div class="zeki-credentials">
+        <div class="credential">B.Sc. Architecture — Enugu State University of Science and Technology</div>
+        <div class="credential">BIM Specialist — Revit, AutoCAD, Lumion · Decade of architectural practice</div>
+        <div class="credential">Frontend Engineer — React, Next.js, TypeScript · Tech Studio Academy</div>
+        <div class="credential">Founder — Mindvest Global Resources LLC · Sagamu, Ogun State</div>
+      </div>
+    </div>
+    <div>
+      <div class="zeki-name-block">
+        <div class="zeki-label">Principal & Founder</div>
+        <div class="zeki-name">Zeki<br><em>Ubor</em></div>
+        <div class="zeki-title">Architect of Human Potential</div>
+        <div class="zeki-brands">
+          <div class="zeki-brand-item"><div class="zeki-brand-name">Mindvest Global</div><div class="zeki-brand-role">Founder & Director</div></div>
+          <div class="zeki-brand-item"><div class="zeki-brand-name">The Becoming Institute</div><div class="zeki-brand-role">Lead Practitioner</div></div>
+          <div class="zeki-brand-item"><div class="zeki-brand-name">Elevation Studio</div><div class="zeki-brand-role">Principal Designer</div></div>
+          <div class="zeki-brand-item"><div class="zeki-brand-name">Becoming — Podcast</div><div class="zeki-brand-role">Host</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section reveal" id="contact">
+  <div class="cta-inner">
+    <div class="cta-eyebrow">Begin the Work</div>
+    <h2 class="cta-title">Ready to Start<br><em>Becoming?</em></h2>
+    <p class="cta-body">Whether you're an individual who knows something needs to change, a leader who wants to go deeper, or an organisation ready for transformation — the work starts with one conversation.</p>
+    <div class="cta-actions">
+      <a href="https://selar.com/543351n531" target="_blank" class="btn-indigo">Join May Masterclass</a>
+      <a href="mailto:hello@mindvestglobal.com" class="btn-outline-indigo">Send an Enquiry</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo-main">Mindvest Global</div>
+      <div class="footer-logo-sub">Architecting Human Potential</div>
+      <p class="footer-desc">A transformational education enterprise. Three divisions. One architecture. Sagamu, Ogun State · Nigeria.</p>
+      <a href="https://elevationstudio.vercel.app" target="_blank" class="footer-elevation-link">↗ Elevation Studio</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#divisions">Our Divisions</a></li>
+        <li><a href="#framework">The Framework</a></li>
+        <li><a href="#masterclass">Masterclass</a></li>
+        <li><a href="#who">Who We Serve</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Divisions</div>
+      <ul class="footer-links">
+        <li><a href="#">The Becoming Institute</a></li>
+        <li><a href="#">The Leadership Architecture</a></li>
+        <li><a href="#">Organisational Architecture</a></li>
+        <li><a href="#">Becoming — Podcast</a></li>
+        <li><a href="#">The Architecture Letter</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <div class="footer-contact-item"><div class="footer-contact-label">Email</div><div class="footer-contact-value">hello@mindvestglobal.com</div></div>
+      <div class="footer-contact-item"><div class="footer-contact-label">Location</div><div class="footer-contact-value">Sagamu, Ogun State<br>Nigeria</div></div>
+      <div class="footer-contact-item"><div class="footer-contact-label">Founder</div><div class="footer-contact-value">Zeki Ubor</div></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Mindvest Global Resources LLC · All Rights Reserved</div>
+    <div class="footer-social">
+      <a href="#">LinkedIn</a><a href="#">Instagram</a><a href="#">Twitter / X</a><a href="#">YouTube</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
