@@ -1,9 +1,40 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const steps = [
+  {
+    label: "Phase I: The Blueprint",
+    title: "Foundation of Identity",
+    desc: "Decoupling from external expectations to design your original core identity.",
+    img: "/images/becoming-stage-1.png",
+  },
+  {
+    label: "Phase II: The Alignment",
+    title: "Construction of Habits",
+    desc: "Building daily practices, values, and systems that hold your structure together.",
+    img: "/images/becoming-stage-2.png",
+  },
+  {
+    label: "Phase III: The Elevation",
+    title: "Expression of Impact",
+    desc: "Stepping into original influence and architecting transformational culture.",
+    img: "/images/becoming-stage-3.png",
+  },
+];
 
 export default function Hero() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
+  const [activeStep, setActiveStep] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (isHovered) return;
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % steps.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isHovered]);
 
   useEffect(() => {
     // Parallax on scroll
@@ -24,8 +55,8 @@ export default function Hero() {
         background: "var(--indigo-deep)",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-end",
-        padding: "0 60px 90px",
+        justifyContent: "center",
+        padding: "100px 60px 80px",
         position: "relative",
         overflow: "hidden",
       }}
@@ -145,148 +176,374 @@ export default function Hero() {
       </div>
 
       {/* Main content */}
-      <div style={{ position: "relative", zIndex: 2, maxWidth: 1100 }}>
-        {/* Eyebrow */}
-        <div style={{
-          display: "flex",
+      <div
+        className="hero-grid"
+        style={{
+          position: "relative",
+          zIndex: 2,
+          maxWidth: 1300,
+          width: "100%",
+          margin: "0 auto",
+          display: "grid",
+          gridTemplateColumns: "1.3fr 1fr",
+          gap: 60,
           alignItems: "center",
-          gap: 16,
-          marginBottom: 36,
-          opacity: 0,
-          animation: "fadeUp 0.9s ease forwards 0.3s",
-        }}>
-          <div style={{ width: 48, height: 1, background: "var(--gold)" }} />
-          <span style={{
-            fontFamily: "var(--font-dm-mono), monospace",
-            fontSize: 10,
-            letterSpacing: "5px",
-            textTransform: "uppercase",
-            color: "var(--gold)",
-          }}>
-            Mindvest Global Resources LLC · Est. 2026
-          </span>
-        </div>
-
-        {/* Headline */}
-        <h1
-          ref={headlineRef}
-          style={{
-            fontFamily: "var(--font-cormorant), serif",
-            fontSize: "clamp(54px, 9vw, 120px)",
-            fontWeight: 300,
-            lineHeight: 0.95,
-            color: "var(--cream)",
+        }}
+      >
+        {/* Left Column: Text & CTA */}
+        <div>
+          {/* Eyebrow */}
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 16,
             marginBottom: 36,
             opacity: 0,
-            animation: "fadeUp 1s ease forwards 0.5s",
-            letterSpacing: "-1px",
+            animation: "fadeUp 0.9s ease forwards 0.3s",
+          }}>
+            <div style={{ width: 48, height: 1, background: "var(--gold)" }} />
+            <span style={{
+              fontFamily: "var(--font-dm-mono), monospace",
+              fontSize: 10,
+              letterSpacing: "5px",
+              textTransform: "uppercase",
+              color: "var(--gold)",
+            }}>
+              Mindvest Global Resources LLC · Est. 2026
+            </span>
+          </div>
+
+          {/* Headline */}
+          <h1
+            ref={headlineRef}
+            style={{
+              fontFamily: "var(--font-cormorant), serif",
+              fontSize: "clamp(46px, 6vw, 84px)",
+              fontWeight: 300,
+              lineHeight: 0.98,
+              color: "var(--cream)",
+              marginBottom: 36,
+              opacity: 0,
+              animation: "fadeUp 1s ease forwards 0.5s",
+              letterSpacing: "-1px",
+            }}
+          >
+            The Architecture
+            <br />
+            <em style={{
+              fontStyle: "italic",
+              color: "var(--gold-light)",
+              display: "block",
+            }}>
+              of Becoming
+            </em>
+            <strong style={{
+              fontWeight: 600,
+              color: "var(--white)",
+              display: "block",
+            }}>
+              Starts Here.
+            </strong>
+          </h1>
+
+          {/* Sub */}
+          <p style={{
+            fontSize: 15,
+            color: "rgba(247,243,236,0.5)",
+            maxWidth: 540,
+            lineHeight: 1.8,
+            marginBottom: 48,
+            opacity: 0,
+            animation: "fadeUp 0.9s ease forwards 0.7s",
+          }}>
+            A transformational education enterprise built on the conviction that
+            the most important structure any human being will ever build is the
+            architecture of who they are becoming.
+          </p>
+
+          {/* CTAs */}
+          <div style={{
+            display: "flex",
+            gap: 16,
+            alignItems: "center",
+            flexWrap: "wrap",
+            opacity: 0,
+            animation: "fadeUp 0.9s ease forwards 0.9s",
+          }}>
+            <a
+              href="https://selar.com/543351n531"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                padding: "16px 36px",
+                background: "var(--gold)",
+                color: "var(--indigo-deep)",
+                fontFamily: "var(--font-dm-mono), monospace",
+                fontSize: 11,
+                letterSpacing: "3px",
+                textTransform: "uppercase",
+                fontWeight: 500,
+                textDecoration: "none",
+                transition: "all 0.3s",
+                display: "inline-block",
+                position: "relative",
+                overflow: "hidden",
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.background = "var(--gold-light)";
+                el.style.transform = "translateY(-3px)";
+                el.style.boxShadow = "0 16px 48px rgba(201,168,76,0.3)";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.background = "var(--gold)";
+                el.style.transform = "translateY(0)";
+                el.style.boxShadow = "none";
+              }}
+            >
+              Join the Masterclass
+            </a>
+            <a
+              href="#divisions"
+              style={{
+                padding: "16px 36px",
+                border: "1px solid rgba(201,168,76,0.35)",
+                color: "rgba(247,243,236,0.6)",
+                fontFamily: "var(--font-dm-mono), monospace",
+                fontSize: 11,
+                letterSpacing: "3px",
+                textTransform: "uppercase",
+                textDecoration: "none",
+                transition: "all 0.3s",
+                display: "inline-block",
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.borderColor = "var(--gold)";
+                el.style.color = "var(--gold)";
+                el.style.transform = "translateY(-3px)";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.borderColor = "rgba(201,168,76,0.35)";
+                el.style.color = "rgba(247,243,236,0.6)";
+                el.style.transform = "translateY(0)";
+              }}
+            >
+              Explore Our Work
+            </a>
+          </div>
+        </div>
+
+        {/* Right Column: Swiper */}
+        <div
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          style={{
+            position: "relative",
+            width: "100%",
+            maxWidth: 480,
+            justifySelf: "center",
+            opacity: 0,
+            animation: "fadeUp 1.2s ease forwards 0.8s",
           }}
         >
-          The Architecture
-          <br />
-          <em style={{
-            fontStyle: "italic",
-            color: "var(--gold-light)",
-            display: "block",
-          }}>
-            of Becoming
-          </em>
-          <strong style={{
-            fontWeight: 600,
-            color: "var(--white)",
-            display: "block",
-          }}>
-            Starts Here.
-          </strong>
-        </h1>
-
-        {/* Sub */}
-        <p style={{
-          fontSize: 16,
-          color: "rgba(247,243,236,0.5)",
-          maxWidth: 560,
-          lineHeight: 1.9,
-          marginBottom: 56,
-          opacity: 0,
-          animation: "fadeUp 0.9s ease forwards 0.7s",
-        }}>
-          A transformational education enterprise built on the conviction that
-          the most important structure any human being will ever build is the
-          architecture of who they are becoming.
-        </p>
-
-        {/* CTAs */}
-        <div style={{
-          display: "flex",
-          gap: 16,
-          alignItems: "center",
-          flexWrap: "wrap",
-          opacity: 0,
-          animation: "fadeUp 0.9s ease forwards 0.9s",
-        }}>
-          <a
-            href="https://selar.com/543351n531"
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
             style={{
-              padding: "18px 44px",
-              background: "var(--gold)",
-              color: "var(--indigo-deep)",
-              fontFamily: "var(--font-dm-mono), monospace",
-              fontSize: 11,
-              letterSpacing: "3px",
-              textTransform: "uppercase",
-              fontWeight: 500,
-              textDecoration: "none",
-              transition: "all 0.3s",
-              display: "inline-block",
+              background: "rgba(18, 16, 58, 0.4)",
+              border: "1px solid rgba(201, 168, 76, 0.15)",
+              padding: 24,
               position: "relative",
               overflow: "hidden",
-            }}
-            onMouseEnter={(e) => {
-              const el = e.currentTarget as HTMLElement;
-              el.style.background = "var(--gold-light)";
-              el.style.transform = "translateY(-3px)";
-              el.style.boxShadow = "0 16px 48px rgba(201,168,76,0.3)";
-            }}
-            onMouseLeave={(e) => {
-              const el = e.currentTarget as HTMLElement;
-              el.style.background = "var(--gold)";
-              el.style.transform = "translateY(0)";
-              el.style.boxShadow = "none";
+              display: "flex",
+              flexDirection: "column",
+              gap: 20,
+              boxShadow: "0 24px 80px rgba(18, 16, 58, 0.6)",
             }}
           >
-            Join the Masterclass
-          </a>
-          <a
-            href="#divisions"
-            style={{
-              padding: "18px 44px",
-              border: "1px solid rgba(201,168,76,0.35)",
-              color: "rgba(247,243,236,0.6)",
-              fontFamily: "var(--font-dm-mono), monospace",
-              fontSize: 11,
-              letterSpacing: "3px",
-              textTransform: "uppercase",
-              textDecoration: "none",
-              transition: "all 0.3s",
-              display: "inline-block",
-            }}
-            onMouseEnter={(e) => {
-              const el = e.currentTarget as HTMLElement;
-              el.style.borderColor = "var(--gold)";
-              el.style.color = "var(--gold)";
-              el.style.transform = "translateY(-3px)";
-            }}
-            onMouseLeave={(e) => {
-              const el = e.currentTarget as HTMLElement;
-              el.style.borderColor = "rgba(201,168,76,0.35)";
-              el.style.color = "rgba(247,243,236,0.6)";
-              el.style.transform = "translateY(0)";
-            }}
-          >
-            Explore Our Work
-          </a>
+            {/* Visual decoration top line */}
+            <div style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 2,
+              background: "var(--gold)",
+              opacity: 0.8,
+            }} />
+
+            {/* Image display */}
+            <div style={{
+              position: "relative",
+              width: "100%",
+              aspectRatio: "1.5",
+              overflow: "hidden",
+              border: "1px solid rgba(201, 168, 76, 0.08)",
+              background: "var(--indigo-deep)",
+            }}>
+              {steps.map((step, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    opacity: activeStep === idx ? 1 : 0,
+                    transform: activeStep === idx ? "scale(1)" : "scale(1.05)",
+                    transition: "opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)",
+                  }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={step.img}
+                    alt={step.title}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                  <div style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: "linear-gradient(to bottom, transparent 60%, rgba(18, 16, 58, 0.7) 100%)",
+                    pointerEvents: "none",
+                  }} />
+                </div>
+              ))}
+            </div>
+
+            {/* Description write-up underneath with strict typography hierarchy */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 8, minHeight: 110 }}>
+              {steps.map((step, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    display: activeStep === idx ? "block" : "none",
+                    animation: "fadeIn 0.6s ease forwards",
+                  }}
+                >
+                  <span style={{
+                    fontFamily: "var(--font-dm-mono), monospace",
+                    fontSize: 9,
+                    letterSpacing: "3px",
+                    textTransform: "uppercase",
+                    color: "var(--gold)",
+                    display: "block",
+                    marginBottom: 4,
+                  }}>
+                    {step.label}
+                  </span>
+                  <h4 style={{
+                    fontFamily: "var(--font-cormorant), serif",
+                    fontSize: 22,
+                    fontWeight: 600,
+                    color: "var(--white)",
+                    lineHeight: 1.2,
+                    marginBottom: 8,
+                  }}>
+                    {step.title}
+                  </h4>
+                  <p style={{
+                    fontFamily: "var(--font-dm-sans), sans-serif",
+                    fontSize: 13,
+                    color: "rgba(247, 243, 236, 0.55)",
+                    lineHeight: 1.6,
+                    margin: 0,
+                  }}>
+                    {step.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Dots and Navigation Controls */}
+            <div style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              borderTop: "1px solid rgba(201, 168, 76, 0.1)",
+              paddingTop: 16,
+              marginTop: 4,
+            }}>
+              {/* Dot Indicators */}
+              <div style={{ display: "flex", gap: 8 }}>
+                {steps.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveStep(idx)}
+                    aria-label={`Go to slide ${idx + 1}`}
+                    style={{
+                      width: 8,
+                      height: 8,
+                      borderRadius: "50%",
+                      background: activeStep === idx ? "var(--gold)" : "rgba(201, 168, 76, 0.25)",
+                      border: "none",
+                      cursor: "pointer",
+                      padding: 0,
+                      transition: "all 0.3s ease",
+                    }}
+                  />
+                ))}
+              </div>
+
+              {/* Prev / Next Buttons */}
+              <div style={{ display: "flex", gap: 8 }}>
+                <button
+                  onClick={() => setActiveStep((prev) => (prev - 1 + steps.length) % steps.length)}
+                  aria-label="Previous slide"
+                  style={{
+                    background: "none",
+                    border: "1px solid rgba(201, 168, 76, 0.2)",
+                    color: "var(--gold)",
+                    cursor: "pointer",
+                    padding: "4px 10px",
+                    fontFamily: "var(--font-dm-mono), monospace",
+                    fontSize: 11,
+                    transition: "all 0.25s",
+                  }}
+                  onMouseEnter={(e) => {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.borderColor = "var(--gold)";
+                    el.style.background = "rgba(201, 168, 76, 0.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.borderColor = "rgba(201, 168, 76, 0.2)";
+                    el.style.background = "none";
+                  }}
+                >
+                  ←
+                </button>
+                <button
+                  onClick={() => setActiveStep((prev) => (prev + 1) % steps.length)}
+                  aria-label="Next slide"
+                  style={{
+                    background: "none",
+                    border: "1px solid rgba(201, 168, 76, 0.2)",
+                    color: "var(--gold)",
+                    cursor: "pointer",
+                    padding: "4px 10px",
+                    fontFamily: "var(--font-dm-mono), monospace",
+                    fontSize: 11,
+                    transition: "all 0.25s",
+                  }}
+                  onMouseEnter={(e) => {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.borderColor = "var(--gold)";
+                    el.style.background = "rgba(201, 168, 76, 0.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.borderColor = "rgba(201, 168, 76, 0.2)";
+                    el.style.background = "none";
+                  }}
+                >
+                  →
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -322,7 +579,13 @@ export default function Hero() {
 
       <style>{`
         @media (max-width: 960px) {
-          section { padding: 0 24px 60px !important; }
+          section { padding: 120px 24px 60px !important; min-height: auto !important; }
+          .hero-grid { grid-template-columns: 1fr !important; gap: 48px !important; text-align: center; }
+          .hero-grid > div:first-child { display: flex; flex-direction: column; align-items: center; }
+          .hero-grid > div:first-child h1 { text-align: center; }
+          .hero-grid > div:first-child p { text-align: center; margin-left: auto; margin-right: auto; }
+          .hero-grid > div:first-child div { justify-content: center; }
+          .hero-grid > div:last-child { max-width: 100% !important; }
           section > div:last-child { display: none; }
           h1 { font-size: clamp(42px, 12vw, 80px) !important; }
         }
