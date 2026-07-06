@@ -79,7 +79,7 @@ export default function Footer() {
               marginBottom: 28,
             }}>
               A transformational education enterprise. Three divisions. One architecture.
-              Sagamu, Ogun State · Nigeria.
+              Ogun / Lagos State · Nigeria.
             </p>
             <a
               href="https://elevationstudio.vercel.app"
@@ -205,7 +205,7 @@ export default function Footer() {
 
             {[
               { label: "Email", value: "hello@mindvestglobal.com" },
-              { label: "Location", value: "Sagamu, Ogun State, Nigeria" },
+              { label: "Location", value: "Ogun / Lagos State, Nigeria" },
               { label: "Programmes", value: "selar.com/543351n531" },
             ].map((item, i) => (
               <div key={i} style={{ marginBottom: 18 }}>

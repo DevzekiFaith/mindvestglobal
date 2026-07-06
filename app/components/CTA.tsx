@@ -188,7 +188,7 @@ export default function CTA() {
         }}>
           {[
             { label: "Email", value: "hello@mindvestglobal.com" },
-            { label: "Location", value: "Sagamu, Ogun State · Nigeria" },
+            { label: "Location", value: "Ogun / Lagos State · Nigeria" },
             { label: "Est.", value: "2026" },
           ].map((item, i) => (
             <div key={i} style={{ textAlign: "center" }}>

@@ -6,7 +6,7 @@ const credentials = [
   "B.Sc. Architecture — Enugu State University of Science and Technology",
   "BIM Specialist — Revit, AutoCAD, Lumion · Decade of architectural practice",
   "Frontend Engineer — React, Next.js, TypeScript · Tech Studio Academy",
-  "Founder — Mindvest Global Resources LLC · Sagamu, Ogun State",
+  "Founder — Mindvest Global Resources LLC · Ogun / Lagos State",
 ];
 
 const brands = [
