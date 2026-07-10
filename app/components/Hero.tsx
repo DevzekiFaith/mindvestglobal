@@ -347,6 +347,9 @@ export default function Hero() {
             justifySelf: "center",
             opacity: 0,
             animation: "fadeUp 1.2s ease forwards 0.8s",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "stretch",
           }}
         >
           <div
@@ -544,6 +547,63 @@ export default function Hero() {
               </div>
             </div>
           </div>
+          <div style={{
+            display: "inline-flex",
+            alignSelf: "flex-start",
+            fontFamily: "var(--font-dm-mono), monospace",
+            fontSize: "9px",
+            letterSpacing: "2px",
+            textTransform: "uppercase",
+            color: "#34D399",
+            background: "rgba(16, 185, 129, 0.1)",
+            border: "1px solid rgba(16, 185, 129, 0.3)",
+            padding: "4px 10px",
+            borderRadius: "100px",
+            marginTop: "20px",
+          }}>
+            Educating
+          </div>
+          <a
+            href="https://sof-beta.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "8px",
+              width: "100%",
+              padding: "16px 36px",
+              background: "#10B981",
+              color: "#FDFAF5",
+              fontFamily: "var(--font-dm-mono), monospace",
+              fontSize: "11px",
+              letterSpacing: "3px",
+              textTransform: "uppercase",
+              fontWeight: 700,
+              textDecoration: "none",
+              transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+              border: "1px solid rgba(16, 185, 129, 0.4)",
+              boxShadow: "0 4px 20px rgba(16, 185, 129, 0.15)",
+              marginTop: "8px",
+              textAlign: "center",
+            }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.background = "#059669";
+              el.style.transform = "translateY(-3px)";
+              el.style.boxShadow = "0 12px 30px rgba(16, 185, 129, 0.4)";
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.background = "#10B981";
+              el.style.transform = "translateY(0)";
+              el.style.boxShadow = "0 4px 20px rgba(16, 185, 129, 0.15)";
+            }}
+          >
+            <span style={{ fontWeight: 700 }}>Origin</span>
+            <span style={{ fontSize: "14px" }}>↗</span>
+          </a>
         </div>
       </div>
 

@@ -93,21 +93,26 @@ export default function Footer() {
                 fontSize: 10,
                 letterSpacing: "3px",
                 textTransform: "uppercase",
-                color: "var(--gold-muted)",
+                color: "var(--indigo-deep)",
+                background: "linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%)",
                 textDecoration: "none",
-                padding: "10px 18px",
-                border: "1px solid rgba(201,168,76,0.18)",
-                transition: "all 0.25s",
+                padding: "12px 24px",
+                border: "1px solid rgba(201,168,76,0.4)",
+                fontWeight: 700,
+                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                boxShadow: "0 4px 15px rgba(201, 168, 76, 0.2)",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = "var(--gold-muted)";
-                el.style.color = "var(--gold)";
+                el.style.transform = "translateY(-3px)";
+                el.style.boxShadow = "0 12px 24px rgba(201, 168, 76, 0.4)";
+                el.style.background = "linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = "rgba(201,168,76,0.18)";
-                el.style.color = "var(--gold-muted)";
+                el.style.transform = "translateY(0)";
+                el.style.boxShadow = "0 4px 15px rgba(201, 168, 76, 0.2)";
+                el.style.background = "linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%)";
               }}
             >
               ↗ Elevation Studio
