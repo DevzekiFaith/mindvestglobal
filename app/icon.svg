@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gold-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#A98835" />
+      <stop offset="30%" stop-color="#D7B65E" />
+      <stop offset="50%" stop-color="#FCEAB3" />
+      <stop offset="70%" stop-color="#D7B65E" />
+      <stop offset="100%" stop-color="#A98835" />
+    </linearGradient>
+  </defs>
+  <!-- Background Rounded Rectangle -->
+  <rect width="512" height="512" rx="112" fill="#12103A" />
+  
+  <!-- Outer Arch -->
+  <path d="M 61 441 L 61 256 A 195 195 0 0 1 451 256 L 451 441 L 421 441 L 421 256 A 165 165 0 0 0 91 256 L 91 441 Z" fill="url(#gold-gradient)" />
+  
+  <!-- Middle Arch -->
+  <path d="M 121 441 L 121 256 A 135 135 0 0 1 391 256 L 391 441 L 361 441 L 361 256 A 105 105 0 0 0 151 256 L 151 441 Z" fill="url(#gold-gradient)" />
+  
+  <!-- Inner Arch -->
+  <path d="M 181 441 L 181 256 A 75 75 0 0 1 331 256 L 331 441 L 301 441 L 301 256 A 45 45 0 0 0 211 256 L 211 441 Z" fill="url(#gold-gradient)" />
+  
+  <!-- Inner Column (i) -->
+  <path d="M 241 441 L 241 311 L 256 291 L 271 311 L 271 441 Z" fill="url(#gold-gradient)" />
+  
+  <!-- Dot of the i -->
+  <circle cx="256" cy="256" r="15" fill="url(#gold-gradient)" />
+  
+  <!-- Base Pedestal -->
+  <path d="M 40 447 L 52 441 L 460 441 L 472 447 L 468 450 L 44 450 Z" fill="url(#gold-gradient)" />
+</svg>

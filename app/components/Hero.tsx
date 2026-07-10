@@ -470,23 +470,30 @@ export default function Hero() {
               marginTop: 4,
             }}>
               {/* Dot Indicators */}
-              <div style={{ display: "flex", gap: 8 }}>
+              <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
                 {steps.map((_, idx) => (
                   <button
                     key={idx}
                     onClick={() => setActiveStep(idx)}
                     aria-label={`Go to slide ${idx + 1}`}
                     style={{
-                      width: 8,
-                      height: 8,
-                      borderRadius: "50%",
-                      background: activeStep === idx ? "var(--gold)" : "rgba(201, 168, 76, 0.25)",
+                      background: "none",
                       border: "none",
                       cursor: "pointer",
-                      padding: 0,
-                      transition: "all 0.3s ease",
+                      padding: "10px 6px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
                     }}
-                  />
+                  >
+                    <div style={{
+                      width: activeStep === idx ? 24 : 12,
+                      height: 6,
+                      background: activeStep === idx ? "var(--gold)" : "rgba(201, 168, 76, 0.25)",
+                      borderRadius: "1px",
+                      transition: "all 0.3s ease",
+                    }} />
+                  </button>
                 ))}
               </div>
 
