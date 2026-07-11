@@ -146,39 +146,90 @@ export default function Masterclass() {
               </div>
             ))}
 
-            <a
-              href="https://selar.com/543351n531"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                marginTop: 40,
-                padding: "18px 44px",
-                background: "var(--gold)",
-                color: "var(--indigo-deep)",
-                fontFamily: "var(--font-dm-mono), monospace",
-                fontSize: 11,
-                letterSpacing: "3px",
-                textTransform: "uppercase",
-                fontWeight: 500,
-                textDecoration: "none",
-                transition: "all 0.3s",
-                display: "inline-block",
-              }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.background = "var(--gold-light)";
-                el.style.transform = "translateY(-3px)";
-                el.style.boxShadow = "0 16px 48px rgba(201,168,76,0.25)";
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.background = "var(--gold)";
-                el.style.transform = "translateY(0)";
-                el.style.boxShadow = "none";
-              }}
-            >
-              Reserve Your Seat
-            </a>
+            <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center", marginTop: 40 }}>
+              <a
+                href="https://selar.com/543351n531"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  padding: "18px 44px",
+                  background: "var(--gold)",
+                  color: "var(--indigo-deep)",
+                  fontFamily: "var(--font-dm-mono), monospace",
+                  fontSize: 11,
+                  letterSpacing: "3px",
+                  textTransform: "uppercase",
+                  fontWeight: 500,
+                  textDecoration: "none",
+                  transition: "all 0.3s",
+                  display: "inline-block",
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.background = "var(--gold-light)";
+                  el.style.transform = "translateY(-3px)";
+                  el.style.boxShadow = "0 16px 48px rgba(201,168,76,0.25)";
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.background = "var(--gold)";
+                  el.style.transform = "translateY(0)";
+                  el.style.boxShadow = "none";
+                }}
+              >
+                Reserve Your Seat
+              </a>
+
+              <a
+                href="https://sof-beta.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "8px",
+                  padding: "18px 44px",
+                  background: "#10B981",
+                  color: "#FDFAF5",
+                  fontFamily: "var(--font-dm-mono), monospace",
+                  fontSize: "11px",
+                  letterSpacing: "3px",
+                  textTransform: "uppercase",
+                  fontWeight: 700,
+                  textDecoration: "none",
+                  transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                  border: "1px solid rgba(16, 185, 129, 0.4)",
+                  boxShadow: "0 4px 20px rgba(16, 185, 129, 0.15)",
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.background = "#059669";
+                  el.style.transform = "translateY(-3px)";
+                  el.style.boxShadow = "0 12px 30px rgba(16, 185, 129, 0.4)";
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.background = "#10B981";
+                  el.style.transform = "translateY(0)";
+                  el.style.boxShadow = "0 4px 20px rgba(16, 185, 129, 0.15)";
+                }}
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 512 512"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ flexShrink: 0, marginRight: "2px" }}
+                >
+                  <rect x="16" y="16" width="480" height="480" rx="130" fill="#10B981" stroke="#FDFAF5" strokeWidth="32" />
+                  <circle cx="256" cy="256" r="138" stroke="#FDFAF5" strokeWidth="56" />
+                </svg>
+                <span style={{ fontWeight: 700 }}>Origin</span>
+                <span style={{ fontSize: "14px" }}>↗</span>
+              </a>
+            </div>
           </div>
 
           {/* Event card */}

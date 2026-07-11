@@ -197,14 +197,43 @@ export default function Founder() {
                       transitionDelay: `${i * 100 + 400}ms`,
                     }}
                   >
-                    <div style={{
-                      fontFamily: "var(--font-cormorant), serif",
-                      fontSize: 18,
-                      fontWeight: 600,
-                      color: "var(--cream)",
-                    }}>
-                      {brand.name}
-                    </div>
+                    {brand.name === "Elevation Studio" ? (
+                      <a
+                        href="https://elevationstudio.vercel.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          fontFamily: "var(--font-cormorant), serif",
+                          fontSize: 18,
+                          fontWeight: 600,
+                          color: "var(--cream)",
+                          textDecoration: "none",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "6px",
+                          transition: "all 0.2s",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.color = "var(--gold-light)";
+                          e.currentTarget.style.transform = "translateX(2px)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.color = "var(--cream)";
+                          e.currentTarget.style.transform = "translateX(0)";
+                        }}
+                      >
+                        {brand.name} <span style={{ fontSize: 13, color: "var(--gold)" }}>↗</span>
+                      </a>
+                    ) : (
+                      <div style={{
+                        fontFamily: "var(--font-cormorant), serif",
+                        fontSize: 18,
+                        fontWeight: 600,
+                        color: "var(--cream)",
+                      }}>
+                        {brand.name}
+                      </div>
+                    )}
                     <div style={{
                       fontFamily: "var(--font-dm-mono), monospace",
                       fontSize: 9,
