@@ -53,8 +53,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${cormorant.variable} ${dmSans.variable} ${dmMono.variable}`}
+      suppressHydrationWarning
     >
-      <body style={{ fontFamily: "var(--font-dm-sans), sans-serif" }}>
+      <body style={{ fontFamily: "var(--font-dm-sans), sans-serif" }} suppressHydrationWarning>
         {children}
       </body>
     </html>

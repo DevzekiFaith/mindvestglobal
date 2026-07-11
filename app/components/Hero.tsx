@@ -608,6 +608,17 @@ export default function Hero() {
               el.style.boxShadow = "0 4px 20px rgba(16, 185, 129, 0.15)";
             }}
           >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 512 512"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ flexShrink: 0, marginRight: "6px" }}
+            >
+              <rect x="16" y="16" width="480" height="480" rx="130" fill="#10B981" stroke="#FDFAF5" strokeWidth="32" />
+              <circle cx="256" cy="256" r="138" stroke="#FDFAF5" strokeWidth="56" />
+            </svg>
             <span style={{ fontWeight: 700 }}>Origin</span>
             <span style={{ fontSize: "14px" }}>↗</span>
           </a>
