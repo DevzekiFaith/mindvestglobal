@@ -146,7 +146,7 @@ export default function CTA() {
             Join the Masterclass
           </a>
           <a
-            href="mailto:hello@mindvestglobal.com"
+            href="mailto:unovaconsultingfirstafrica@gmail.com"
             style={{
               padding: "18px 44px",
               border: "1px solid var(--indigo)",
@@ -222,7 +222,7 @@ export default function CTA() {
           flexWrap: "wrap",
         }}>
           {[
-            { label: "Email", value: "hello@mindvestglobal.com" },
+            { label: "Email", value: "unovaconsultingfirstafrica@gmail.com" },
             { label: "Location", value: "Ogun / Lagos State · Nigeria" },
             { label: "Est.", value: "2026" },
           ].map((item, i) => (

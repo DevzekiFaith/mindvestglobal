@@ -209,7 +209,7 @@ export default function Footer() {
             </div>
 
             {[
-              { label: "Email", value: "hello@mindvestglobal.com" },
+              { label: "Email", value: "unovaconsultingfirstafrica@gmail.com" },
               { label: "Location", value: "Ogun / Lagos State, Nigeria" },
               { label: "Programmes", value: "selar.com/543351n531" },
             ].map((item, i) => (
