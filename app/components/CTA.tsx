@@ -175,6 +175,7 @@ export default function CTA() {
             Send an Enquiry
           </a>
           <a
+            id="cta-elevation-btn"
             href="https://elevationstudio.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
@@ -247,6 +248,19 @@ export default function CTA() {
       <style>{`
         @media (max-width: 960px) {
           section { padding: 80px 24px !important; }
+        }
+        @keyframes pulse-gold-highlight {
+          0%, 100% {
+            box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
+            transform: scale(1);
+          }
+          50% {
+            box-shadow: 0 0 0 16px rgba(201, 168, 76, 0.6);
+            transform: scale(1.08);
+          }
+        }
+        .pulse-highlight {
+          animation: pulse-gold-highlight 0.6s ease-in-out 3;
         }
       `}</style>
     </section>
