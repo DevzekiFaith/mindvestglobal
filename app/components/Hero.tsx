@@ -571,6 +571,7 @@ export default function Hero() {
             Educating
           </div>
           <a
+            id="hero-origin-btn"
             href="https://sof-beta.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
@@ -666,6 +667,19 @@ export default function Hero() {
           .hero-grid > div:last-child { max-width: 100% !important; }
           section > div:last-child { display: none; }
           h1 { font-size: clamp(42px, 12vw, 80px) !important; }
+        }
+        @keyframes pulse-green-highlight {
+          0%, 100% {
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+            transform: scale(1);
+          }
+          50% {
+            box-shadow: 0 0 0 16px rgba(16, 185, 129, 0.6);
+            transform: scale(1.08);
+          }
+        }
+        .pulse-highlight {
+          animation: pulse-green-highlight 0.6s ease-in-out 3;
         }
       `}</style>
     </section>

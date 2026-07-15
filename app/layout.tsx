@@ -25,6 +25,7 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mindvestglobal.com"),
   title: "Mindvest Global — Architecting Human Potential",
   description:
     "Mindvest Global is a transformational education enterprise — architecting the conditions for human, leadership, and organisational becoming.",
@@ -35,13 +36,53 @@ export const metadata: Metadata = {
     "masterclass",
     "mindvest global",
     "becoming",
+    "personal growth",
+    "executive coaching",
+    "organizational culture",
   ],
+  alternates: {
+    canonical: "https://mindvestglobal.com",
+  },
   openGraph: {
     title: "Mindvest Global — Architecting Human Potential",
     description:
       "A transformational education enterprise built on the conviction that the most important structure any human being will ever build is the architecture of who they are becoming.",
     type: "website",
+    url: "https://mindvestglobal.com",
+    siteName: "Mindvest Global",
+    locale: "en_US",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mindvest Global — Architecting Human Potential",
+    description:
+      "A transformational education enterprise built on the conviction that the most important structure any human being will ever build is the architecture of who they are becoming.",
+  },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Mindvest Global",
+  "url": "https://mindvestglobal.com",
+  "logo": "https://mindvestglobal.com/icon.svg",
+  "description": "Mindvest Global is a transformational education enterprise — architecting the conditions for human, leadership, and organisational becoming.",
+  "founder": {
+    "@type": "Person",
+    "name": "Zeki Ubor"
+  }
+};
+
+const courseSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Becoming a Person of Interest Masterclass",
+  "description": "The flagship monthly masterclass from The Becoming Institute. A live, structured session for people ready to stop performing borrowed identities and design an original life from the inside out.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Mindvest Global",
+    "sameAs": "https://mindvestglobal.com"
+  }
 };
 
 export default function RootLayout({
@@ -56,6 +97,14 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body style={{ fontFamily: "var(--font-dm-sans), sans-serif" }} suppressHydrationWarning>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+        />
         {children}
       </body>
     </html>

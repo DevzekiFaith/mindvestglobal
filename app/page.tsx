@@ -10,6 +10,7 @@ import Manifesto from "./components/Manifesto";
 import Founder from "./components/Founder";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
+import OriginPopup from "./components/OriginPopup";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
         <CTA />
       </main>
       <Footer />
+      <OriginPopup />
     </>
   );
 }
