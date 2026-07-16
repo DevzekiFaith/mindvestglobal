@@ -147,3 +147,176 @@ body {
   background: rgba(201, 168, 76, 0.25);
   color: var(--indigo-deep);
 }
+
+/* Premium QR Scan Card styles */
+.qr-premium-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(18, 16, 58, 0.45);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  padding: 18px 24px;
+  border-radius: 12px;
+  backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 12px 40px rgba(18, 16, 58, 0.4);
+  width: 100%;
+  max-width: 540px;
+  margin-top: 32px;
+}
+
+.qr-premium-card:hover {
+  border-color: rgba(201, 168, 76, 0.45);
+  box-shadow: 0 20px 50px rgba(201, 168, 76, 0.12);
+  transform: translateY(-3px);
+  background: rgba(18, 16, 58, 0.55);
+}
+
+/* Gold laser scanner beam */
+@keyframes scan-beam {
+  0%, 100% {
+    top: 2%;
+    opacity: 0.2;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+  50% {
+    top: 98%;
+  }
+}
+
+.qr-image-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: #FDFAF5; /* White background for QR code clarity */
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.qr-premium-card:hover .qr-image-container {
+  border-color: var(--gold);
+  transform: scale(1.03);
+}
+
+.qr-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Glowing gold laser scanner line */
+.qr-scanner-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-light), var(--gold), var(--gold-light), transparent);
+  box-shadow: 0 0 10px var(--gold-light), 0 0 16px var(--gold);
+  animation: scan-beam 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.qr-premium-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-grow: 1;
+}
+
+.qr-premium-title {
+  font-family: var(--font-cormorant), serif;
+  font-weight: 600;
+  font-size: 19px;
+  color: var(--cream);
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.qr-premium-subtitle {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 13px;
+  color: rgba(247, 243, 236, 0.5);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.qr-action-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.qr-action-btn {
+  font-family: var(--font-dm-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  color: var(--gold-light);
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-action-btn:hover {
+  background: rgba(201, 168, 76, 0.1);
+  border-color: var(--gold);
+  color: var(--white);
+}
+
+.qr-action-btn-primary {
+  background: var(--gold);
+  color: var(--indigo-deep);
+  border-color: var(--gold);
+  font-weight: 500;
+}
+
+.qr-action-btn-primary:hover {
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+  color: var(--indigo-deep);
+  transform: translateY(-1px);
+}
+
+/* Mobile responsive styles */
+@media (max-width: 640px) {
+  .qr-premium-card {
+    padding: 16px;
+    gap: 16px;
+    margin-top: 24px;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .qr-image-container {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .qr-premium-text-container {
+    align-items: center;
+  }
+  
+  .qr-action-buttons {
+    justify-content: center;
+  }
+}

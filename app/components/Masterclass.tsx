@@ -6,6 +6,13 @@ export default function Masterclass() {
   const sectionRef = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
   const [seatsLeft] = useState(7);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText("https://selar.com/543351n531");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -405,6 +412,63 @@ export default function Masterclass() {
               >
                 Secure Your Seat →
               </a>
+
+              {/* Sleek inline QR display */}
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "16px",
+                marginTop: "24px",
+                paddingTop: "24px",
+                borderTop: "1px solid rgba(201,168,76,0.1)",
+              }}>
+                <div className="qr-image-container" style={{ width: "70px", height: "70px", padding: "4px", borderRadius: "6px" }}>
+                  <img src="/images/mindvest-qr.png" alt="Scan to register" />
+                  <div className="qr-scanner-line" />
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+                  <span style={{
+                    fontFamily: "var(--font-dm-sans), sans-serif",
+                    fontWeight: 600,
+                    fontSize: "13px",
+                    color: "var(--cream)",
+                  }}>
+                    Scan to Register
+                  </span>
+                  <span style={{
+                    fontFamily: "var(--font-dm-sans), sans-serif",
+                    fontSize: "11px",
+                    color: "rgba(247, 243, 236, 0.45)",
+                    lineHeight: "1.3",
+                  }}>
+                    Point your camera to purchase on mobile
+                  </span>
+                  <button
+                    onClick={handleCopyLink}
+                    style={{
+                      background: "none",
+                      border: "none",
+                      color: "var(--gold-light)",
+                      fontFamily: "var(--font-dm-mono), monospace",
+                      fontSize: "9px",
+                      letterSpacing: "1px",
+                      textTransform: "uppercase",
+                      cursor: "pointer",
+                      padding: "4px 0",
+                      textAlign: "left",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "4px",
+                      transition: "color 0.2s",
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "var(--gold-light)")}
+                  >
+                    {copied ? "✓ Link Copied" : "📋 Copy Link Shortcut"}
+                  </button>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

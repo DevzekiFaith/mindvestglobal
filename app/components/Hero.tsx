@@ -27,6 +27,13 @@ export default function Hero() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const [activeStep, setActiveStep] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText("https://selar.com/543351n531");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   useEffect(() => {
     if (isHovered) return;
@@ -334,6 +341,44 @@ export default function Hero() {
               Explore Our Work
             </a>
           </div>
+
+          {/* QR Code Scan Integration */}
+          <div
+            className="qr-premium-card"
+            style={{
+              opacity: 0,
+              animation: "fadeUp 0.9s ease forwards 1.1s",
+            }}
+          >
+            <div className="qr-image-container">
+              <img src="/images/mindvest-qr.png" alt="Mindvest Masterclass QR Code" />
+              <div className="qr-scanner-line" />
+            </div>
+            <div className="qr-premium-text-container">
+              <span className="qr-premium-title">Scan to Register via Mobile</span>
+              <p className="qr-premium-subtitle">
+                Access the Masterclass checkout instantly on your phone or share it with others.
+              </p>
+              <div className="qr-action-buttons">
+                <a
+                  href="https://selar.com/543351n531"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="qr-action-btn qr-action-btn-primary"
+                >
+                  Register Now
+                </a>
+                <button
+                  onClick={handleCopyLink}
+                  className="qr-action-btn"
+                  style={{ minWidth: "110px" }}
+                >
+                  {copied ? "✓ Copied!" : "📋 Copy Link"}
+                </button>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         {/* Right Column: Swiper */}
