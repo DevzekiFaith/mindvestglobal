@@ -4,31 +4,31 @@ import { useEffect, useRef, useState } from "react";
 
 const personas = [
   {
-    age: "Ages 25 \u2013 34 \u00b7 Entry Point",
+    age: "Ages 25 – 34 · Entry Point",
     archetype: "The Awakening",
-    type: "Young professional \u00b7 Early entrepreneur",
+    type: "Young professional · Early entrepreneur",
     truth: "\"I've achieved what I said I wanted. So why does it feel like someone else's life?\"",
-    want: "Wants \u2192 Identity clarity \u00b7 Direction \u00b7 A framework for becoming",
+    want: "Wants → Identity clarity · Direction · A framework for becoming",
     num: "01",
     cta: { label: "Join the Masterclass", href: "https://selar.com/543351n531" },
   },
   {
-    age: "Ages 35 \u2013 45 \u00b7 Core",
+    age: "Ages 35 – 45 · Core",
     archetype: "The Reconstruction",
-    type: "Mid-career leader \u00b7 Business owner",
-    truth: "\"I've built something real. But I'm quietly asking whether this is it \u2014 and afraid the answer is yes.\"",
-    want: "Wants \u2192 Realignment \u00b7 Deeper leadership \u00b7 A life that matches their interior",
+    type: "Mid-career leader · Business owner",
+    truth: "\"I've built something real. But I'm quietly asking whether this is it — and afraid the answer is yes.\"",
+    want: "Wants → Realignment · Deeper leadership · A life that matches their interior",
     num: "02",
-    cta: { label: "Explore Leadership Architecture", href: "mailto:mindvestglobalresources@gmail.com?subject=Leadership Architecture Enquiry" },
+    cta: { label: "Explore Fit for Profit ↗", href: "https://sof-beta.vercel.app/" },
   },
   {
-    age: "Ages 45 \u2013 55 \u00b7 Premium",
+    age: "Ages 45 – 55 · Premium",
     archetype: "The Legacy Maker",
-    type: "Senior executive \u00b7 Institutional leader",
+    type: "Senior executive · Institutional leader",
     truth: "\"I have the position. But I want my leadership to mean something beyond the metrics.\"",
-    want: "Wants \u2192 Legacy architecture \u00b7 Cultural impact \u00b7 Integrated leadership",
+    want: "Wants → Legacy architecture · Cultural impact · Integrated leadership",
     num: "03",
-    cta: { label: "Start a Conversation", href: "mailto:mindvestglobalresources@gmail.com?subject=Organisational Architecture Enquiry" },
+    cta: { label: "Book Executive Call ↗", href: "https://calendly.com/mindvestglobalresources/30min" },
   },
 ];
 

@@ -146,7 +146,9 @@ export default function CTA() {
             Join the Masterclass
           </a>
           <a
-            href="mailto:mindvestglobalresources@gmail.com"
+            href="https://calendly.com/mindvestglobalresources/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               padding: "18px 44px",
               border: "1px solid var(--indigo)",
@@ -172,7 +174,7 @@ export default function CTA() {
               el.style.transform = "translateY(0)";
             }}
           >
-            Send an Enquiry
+            Book Executive Call ↗
           </a>
           <a
             id="cta-elevation-btn"
