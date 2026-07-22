@@ -209,7 +209,7 @@ export default function Footer() {
             </div>
 
             {[
-              { label: "Email", value: "unovaconsultingfirstafrica@gmail.com" },
+              { label: "Email", value: "mindvestglobalresources@gmail.com" },
               { label: "Location", value: "Ogun / Lagos State, Nigeria" },
               { label: "Programmes", value: "selar.com/543351n531" },
             ].map((item, i) => (
@@ -248,11 +248,15 @@ export default function Footer() {
           }}>
             © 2026 Mindvest Global Resources LLC · All rights reserved
           </div>
-          <div style={{ display: "flex", gap: 24 }}>
-            {["Instagram", "LinkedIn", "X"].map((social) => (
+          <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
+            {[
+              { label: "LinkedIn", href: "https://www.linkedin.com/company/mindvest-global" },
+            ].map((social) => (
               <a
-                key={social}
-                href="#"
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   fontFamily: "var(--font-dm-mono), monospace",
                   fontSize: 10,
@@ -269,7 +273,7 @@ export default function Footer() {
                   (e.target as HTMLElement).style.color = "rgba(247,243,236,0.22)";
                 }}
               >
-                {social}
+                {social.label} ↗
               </a>
             ))}
           </div>

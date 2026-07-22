@@ -7,25 +7,28 @@ const divisions = [
     roman: "I",
     sub: "Division One",
     name: "The Becoming Institute",
-    desc: "For the individual who has achieved enough to know that achievement alone is not enough. Through the Human Architecture Framework, we walk people through the five layers of their own design — and help them rebuild from the inside out.",
-    flagship: "Becoming a Person of Interest — Monthly Masterclass",
+    desc: "For the individual who has achieved enough to know that achievement alone is not enough. Through the Human Architecture Framework, we walk people through the five layers of their own design \u2014 and help them rebuild from the inside out.",
+    flagship: "Becoming a Person of Interest \u2014 Monthly Masterclass",
     accent: "rgba(201,168,76,0.15)",
+    cta: { label: "Join the Masterclass", href: "https://selar.com/543351n531" },
   },
   {
     roman: "II",
     sub: "Division Two",
     name: "The Leadership Architecture",
-    desc: "For the leader who manages teams but has never intentionally designed themselves. We bridge the gap between positional leadership and integrated leadership — building the inner architecture that outer influence demands.",
-    flagship: "Leadership Architecture Programme — Executive Cohort",
+    desc: "For the leader who manages teams but has never intentionally designed themselves. We bridge the gap between positional leadership and integrated leadership \u2014 building the inner architecture that outer influence demands.",
+    flagship: "Leadership Architecture Programme \u2014 Executive Cohort",
     accent: "rgba(201,168,76,0.1)",
+    cta: { label: "Enquire as a Leader", href: "mailto:mindvestglobalresources@gmail.com?subject=Leadership Architecture Enquiry" },
   },
   {
     roman: "III",
     sub: "Division Three",
     name: "Organisational Architecture",
-    desc: "For organisations that sense their culture is not serving their mission. We audit, redesign, and rebuild the human architecture of culture — aligning people, values, and systems toward a common becoming.",
-    flagship: "Organisational Transformation Partnership — 6–12 Months",
+    desc: "For organisations that sense their culture is not serving their mission. We audit, redesign, and rebuild the human architecture of culture \u2014 aligning people, values, and systems toward a common becoming.",
+    flagship: "Organisational Transformation Partnership \u2014 6\u201312 Months",
     accent: "rgba(201,168,76,0.08)",
+    cta: { label: "Start a Conversation", href: "mailto:mindvestglobalresources@gmail.com?subject=Organisational Architecture Enquiry" },
   },
 ];
 
@@ -157,7 +160,7 @@ function DivisionCard({
   delay,
   visible,
 }: {
-  div: { roman: string; sub: string; name: string; desc: string; flagship: string; accent: string };
+  div: { roman: string; sub: string; name: string; desc: string; flagship: string; accent: string; cta: { label: string; href: string } };
   delay: number;
   visible: boolean;
 }) {
@@ -257,6 +260,7 @@ function DivisionCard({
         color: "var(--gold-muted)",
         paddingTop: 20,
         borderTop: "1px solid rgba(201,168,76,0.12)",
+        marginBottom: 20,
       }}>
         Flagship Programme
         <strong style={{
@@ -272,6 +276,40 @@ function DivisionCard({
           {div.flagship}
         </strong>
       </div>
+
+      <a
+        href={div.cta.href}
+        target={div.cta.href.startsWith("mailto") ? undefined : "_blank"}
+        rel={div.cta.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+        style={{
+          display: "inline-block",
+          padding: "12px 24px",
+          border: "1px solid rgba(201,168,76,0.35)",
+          color: "var(--gold)",
+          fontFamily: "var(--font-dm-mono), monospace",
+          fontSize: 10,
+          letterSpacing: "2px",
+          textTransform: "uppercase",
+          textDecoration: "none",
+          transition: "all 0.3s ease",
+        }}
+        onMouseEnter={(e) => {
+          const el = e.currentTarget as HTMLElement;
+          el.style.background = "var(--gold)";
+          el.style.color = "var(--indigo-deep)";
+          el.style.borderColor = "var(--gold)";
+          el.style.transform = "translateY(-2px)";
+        }}
+        onMouseLeave={(e) => {
+          const el = e.currentTarget as HTMLElement;
+          el.style.background = "transparent";
+          el.style.color = "var(--gold)";
+          el.style.borderColor = "rgba(201,168,76,0.35)";
+          el.style.transform = "translateY(0)";
+        }}
+      >
+        {div.cta.label} →
+      </a>
     </div>
   );
 }

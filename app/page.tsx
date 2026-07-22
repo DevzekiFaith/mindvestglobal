@@ -5,6 +5,7 @@ import About from "./components/About";
 import Divisions from "./components/Divisions";
 import Framework from "./components/Framework";
 import Masterclass from "./components/Masterclass";
+import Testimonials from "./components/Testimonials";
 import Audience from "./components/Audience";
 import Manifesto from "./components/Manifesto";
 import Founder from "./components/Founder";
@@ -24,6 +25,7 @@ export default function Home() {
         <Divisions />
         <Framework />
         <Masterclass />
+        <Testimonials />
         <Audience />
         <Manifesto />
         <Founder />

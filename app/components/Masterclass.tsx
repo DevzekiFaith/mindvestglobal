@@ -5,13 +5,25 @@ import { useEffect, useRef, useState } from "react";
 export default function Masterclass() {
   const sectionRef = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
-  const [seatsLeft] = useState(7);
+  const [email, setEmail] = useState("");
+  const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
+  const [waitlistLoading, setWaitlistLoading] = useState(false);
   const [copied, setCopied] = useState(false);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText("https://selar.com/543351n531");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleWaitlist = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+    setWaitlistLoading(true);
+    setTimeout(() => {
+      setWaitlistLoading(false);
+      setWaitlistSubmitted(true);
+    }, 1200);
   };
 
   useEffect(() => {
@@ -88,7 +100,7 @@ export default function Masterclass() {
               gap: 12,
             }}>
               <span style={{ width: 24, height: 1, background: "var(--gold)", display: "inline-block" }} />
-              Next Programme
+              Monthly Programme
             </div>
 
             <h2 style={{
@@ -271,7 +283,7 @@ export default function Masterclass() {
                 gap: 12,
               }}>
                 <span style={{ width: 24, height: 1, background: "var(--gold)", display: "inline-block" }} />
-                Inaugural Session
+                Next Session
               </div>
 
               <h3 style={{
@@ -287,7 +299,7 @@ export default function Masterclass() {
 
               {/* Event details */}
               {[
-                { icon: "📅", text: "30th May 2026" },
+                { icon: "📅", text: "Date TBA — Join the waitlist below" },
                 { icon: "📍", text: "Virtual — Live & Interactive" },
                 { icon: "⏱", text: "3 Hours · Q&A Included" },
                 { icon: "👥", text: "Limited Seats — Intimate Session" },
@@ -319,10 +331,10 @@ export default function Masterclass() {
                 </div>
               ))}
 
-              {/* Seats indicator */}
+              {/* Waitlist form */}
               <div style={{
                 margin: "24px 0",
-                padding: "16px",
+                padding: "20px",
                 background: "rgba(201,168,76,0.07)",
                 border: "1px solid rgba(201,168,76,0.15)",
               }}>
@@ -332,32 +344,61 @@ export default function Masterclass() {
                   letterSpacing: "3px",
                   textTransform: "uppercase",
                   color: "var(--gold-muted)",
-                  marginBottom: 8,
+                  marginBottom: 12,
                 }}>
-                  Seats Remaining
+                  Join the Waitlist
                 </div>
-                <div style={{ display: "flex", gap: 4 }}>
-                  {Array.from({ length: 12 }).map((_, i) => (
-                    <div
-                      key={i}
+                {waitlistSubmitted ? (
+                  <div style={{
+                    fontFamily: "var(--font-cormorant), serif",
+                    fontSize: 17,
+                    color: "#34D399",
+                    fontStyle: "italic",
+                    lineHeight: 1.5,
+                  }}>
+                    ✓ You&apos;re on the list. We&apos;ll notify you the moment the next session opens.
+                  </div>
+                ) : (
+                  <form onSubmit={handleWaitlist} style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                    <input
+                      type="email"
+                      required
+                      placeholder="Your email address"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       style={{
-                        width: 16,
-                        height: 16,
-                        background: i < seatsLeft ? "var(--gold)" : "rgba(201,168,76,0.15)",
-                        transition: "background 0.3s",
+                        background: "rgba(247,243,236,0.05)",
+                        border: "1px solid rgba(201,168,76,0.25)",
+                        color: "var(--cream)",
+                        fontFamily: "var(--font-dm-sans), sans-serif",
+                        fontSize: 13,
+                        padding: "10px 14px",
+                        outline: "none",
+                        width: "100%",
+                        boxSizing: "border-box",
                       }}
                     />
-                  ))}
-                  <span style={{
-                    fontFamily: "var(--font-dm-mono), monospace",
-                    fontSize: 10,
-                    color: "var(--gold)",
-                    marginLeft: 8,
-                    alignSelf: "center",
-                  }}>
-                    {seatsLeft} left
-                  </span>
-                </div>
+                    <button
+                      type="submit"
+                      disabled={waitlistLoading}
+                      style={{
+                        background: waitlistLoading ? "rgba(201,168,76,0.4)" : "var(--gold)",
+                        color: "var(--indigo-deep)",
+                        fontFamily: "var(--font-dm-mono), monospace",
+                        fontSize: 10,
+                        letterSpacing: "2px",
+                        textTransform: "uppercase",
+                        fontWeight: 600,
+                        border: "none",
+                        padding: "11px 20px",
+                        cursor: waitlistLoading ? "not-allowed" : "pointer",
+                        transition: "background 0.2s",
+                      }}
+                    >
+                      {waitlistLoading ? "Adding you..." : "Notify Me →"}
+                    </button>
+                  </form>
+                )}
               </div>
 
               <div style={{
@@ -377,7 +418,7 @@ export default function Masterclass() {
                 color: "var(--gold-muted)",
                 marginBottom: 28,
               }}>
-                Launch investment · Seats filling fast
+                Per session · Early access pricing
               </div>
 
               <a
@@ -410,7 +451,7 @@ export default function Masterclass() {
                   el.style.boxShadow = "none";
                 }}
               >
-                Secure Your Seat →
+                Register via Selar →
               </a>
 
               {/* Sleek inline QR display */}
