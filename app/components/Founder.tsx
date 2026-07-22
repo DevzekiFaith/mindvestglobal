@@ -13,7 +13,7 @@ const brands = [
   { name: "Mindvest Global", role: "Founder & Director" },
   { name: "The Becoming Institute", role: "Lead Practitioner" },
   { name: "Elevation Studio", role: "Principal Designer" },
-  { name: "Becoming — Podcast", role: "Host" },
+  { name: "Becoming — Podcast", role: "Host", url: "https://youtube.com/@thebecomingwithzekiubor?si=QC9bC_6enotC-g0R" },
 ];
 
 export default function Founder() {
@@ -197,9 +197,9 @@ export default function Founder() {
                       transitionDelay: `${i * 100 + 400}ms`,
                     }}
                   >
-                    {brand.name === "Elevation Studio" ? (
+                    {brand.url ? (
                       <a
-                        href="https://elevationstudio.vercel.app"
+                        href={brand.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{

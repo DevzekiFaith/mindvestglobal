@@ -251,6 +251,7 @@ export default function Footer() {
           <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
             {[
               { label: "LinkedIn", href: "https://www.linkedin.com/company/mindvest-global" },
+              { label: "YouTube", href: "https://youtube.com/@thebecomingwithzekiubor?si=QC9bC_6enotC-g0R" },
             ].map((social) => (
               <a
                 key={social.label}
