@@ -178,7 +178,7 @@ export default function CTA() {
           </a>
           <a
             id="cta-elevation-btn"
-            href="https://elevationstudio.vercel.app"
+            href="https://www.elevationstudiong.com.ng"
             target="_blank"
             rel="noopener noreferrer"
             style={{

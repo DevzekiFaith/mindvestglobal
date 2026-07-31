@@ -82,7 +82,7 @@ export default function Footer() {
               Ogun / Lagos State · Nigeria.
             </p>
             <a
-              href="https://elevationstudio.vercel.app"
+              href="https://www.elevationstudiong.com.ng"
               target="_blank"
               rel="noopener noreferrer"
               style={{

@@ -12,7 +12,7 @@ const credentials = [
 const brands = [
   { name: "Mindvest Global", role: "Founder & Director" },
   { name: "The Becoming Institute", role: "Lead Practitioner" },
-  { name: "Elevation Studio", role: "Principal Designer" },
+  { name: "Elevation Studio", role: "Principal Designer", url: "https://www.elevationstudiong.com.ng" },
   { name: "Becoming — Podcast", role: "Host", url: "https://youtube.com/@thebecomingwithzekiubor?si=QC9bC_6enotC-g0R" },
 ];
 
