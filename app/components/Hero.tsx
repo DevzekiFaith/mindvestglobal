@@ -617,7 +617,7 @@ export default function Hero() {
           </div>
           <a
             id="hero-origin-btn"
-            href="https://sof-beta.vercel.app/"
+            href="https://www.origin.com.ng"
             target="_blank"
             rel="noopener noreferrer"
             style={{

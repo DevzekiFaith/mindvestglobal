@@ -200,7 +200,7 @@ export default function Masterclass() {
               </a>
 
               <a
-                href="https://sof-beta.vercel.app/"
+                href="https://www.origin.com.ng"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{

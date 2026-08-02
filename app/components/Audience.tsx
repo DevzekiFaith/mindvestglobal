@@ -19,7 +19,7 @@ const personas = [
     truth: "\"I've built something real. But I'm quietly asking whether this is it — and afraid the answer is yes.\"",
     want: "Wants → Realignment · Deeper leadership · A life that matches their interior",
     num: "02",
-    cta: { label: "Explore Fit for Profit ↗", href: "https://sof-beta.vercel.app/" },
+    cta: { label: "Explore Fit for Profit ↗", href: "https://www.origin.com.ng" },
   },
   {
     age: "Ages 45 – 55 · Premium",

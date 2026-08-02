@@ -19,7 +19,7 @@ const divisions = [
     desc: "For the leader who manages teams but has never intentionally designed themselves. We bridge the gap between positional leadership and integrated leadership — building the inner architecture that outer influence demands.",
     flagship: "Leadership Architecture Programme — Executive Cohort",
     accent: "rgba(201,168,76,0.1)",
-    cta: { label: "Explore Fit for Profit ↗", href: "https://sof-beta.vercel.app/" },
+    cta: { label: "Explore Fit for Profit ↗", href: "https://www.origin.com.ng" },
   },
   {
     roman: "III",

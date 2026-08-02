@@ -114,7 +114,7 @@ const organizationSchema = {
     "https://www.linkedin.com/company/mindvest-global",
     "https://youtube.com/@thebecomingwithzekiubor?si=QC9bC_6enotC-g0R",
     "https://selar.com/543351n531",
-    "https://sof-beta.vercel.app/",
+    "https://www.origin.com.ng",
     "https://www.elevationstudiong.com.ng"
   ],
   "founder": {
