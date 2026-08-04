@@ -94,6 +94,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "SENtKebsu0vOEqwtZ_cWO9EH1PgQXkXAvyYBjVAPy8w",
+  },
 };
 
 const organizationSchema = {

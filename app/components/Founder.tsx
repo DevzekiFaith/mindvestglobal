@@ -3,10 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 
 const credentials = [
-  "B.Sc. Architecture — Enugu State University of Science and Technology",
-  "BIM Specialist — Revit, AutoCAD, Lumion · Decade of architectural practice",
-  "Frontend Engineer — React, Next.js, TypeScript · Tech Studio Academy",
-  "Founder — Mindvest Global Resources LLC · Ogun / Lagos State",
+  "Senior Spatial & BIM Architect — 10+ Years in Architectural Practice & Building Information Modeling",
+  "Software & Systems Engineer — Modern Web Architecture & Systems Design",
+  "Principal Practitioner — Human & Leadership Architecture Frameworks",
 ];
 
 const brands = [
