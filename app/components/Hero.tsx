@@ -30,7 +30,7 @@ export default function Hero() {
   const [copied, setCopied] = useState(false);
 
   const handleCopyLink = () => {
-    navigator.clipboard.writeText("https://selar.com/543351n531");
+    navigator.clipboard.writeText("https://www.origin.com.ng");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -278,7 +278,7 @@ export default function Hero() {
             animation: "fadeUp 0.9s ease forwards 0.9s",
           }}>
             <a
-              href="https://selar.com/543351n531"
+              href="https://www.origin.com.ng"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -361,7 +361,7 @@ export default function Hero() {
               </p>
               <div className="qr-action-buttons">
                 <a
-                  href="https://selar.com/543351n531"
+                  href="https://www.origin.com.ng"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="qr-action-btn qr-action-btn-primary"

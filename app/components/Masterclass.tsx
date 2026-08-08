@@ -11,7 +11,7 @@ export default function Masterclass() {
   const [copied, setCopied] = useState(false);
 
   const handleCopyLink = () => {
-    navigator.clipboard.writeText("https://selar.com/543351n531");
+    navigator.clipboard.writeText("https://www.origin.com.ng");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -167,7 +167,7 @@ export default function Masterclass() {
 
             <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center", marginTop: 40 }}>
               <a
-                href="https://selar.com/543351n531"
+                href="https://www.origin.com.ng"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -422,7 +422,7 @@ export default function Masterclass() {
               </div>
 
               <a
-                href="https://selar.com/543351n531"
+                href="https://www.origin.com.ng"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -451,7 +451,7 @@ export default function Masterclass() {
                   el.style.boxShadow = "none";
                 }}
               >
-                Register via Selar →
+                Register Now →
               </a>
 
               {/* Sleek inline QR display */}

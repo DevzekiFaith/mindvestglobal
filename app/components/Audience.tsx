@@ -10,7 +10,7 @@ const personas = [
     truth: "\"I've achieved what I said I wanted. So why does it feel like someone else's life?\"",
     want: "Wants → Identity clarity · Direction · A framework for becoming",
     num: "01",
-    cta: { label: "Join the Masterclass", href: "https://selar.com/543351n531" },
+    cta: { label: "Join the Masterclass", href: "https://www.origin.com.ng" },
   },
   {
     age: "Ages 35 – 45 · Core",

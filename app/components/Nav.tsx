@@ -93,7 +93,7 @@ export default function Nav() {
           ))}
           <li>
             <a
-              href="https://selar.com/543351n531"
+              href="https://www.origin.com.ng"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -194,7 +194,7 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href="https://selar.com/543351n531"
+            href="https://www.origin.com.ng"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}

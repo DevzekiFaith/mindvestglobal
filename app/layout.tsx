@@ -116,7 +116,6 @@ const organizationSchema = {
   "sameAs": [
     "https://www.linkedin.com/company/mindvest-global",
     "https://youtube.com/@thebecomingwithzekiubor?si=QC9bC_6enotC-g0R",
-    "https://selar.com/543351n531",
     "https://www.origin.com.ng",
     "https://www.elevationstudiong.com.ng"
   ],
@@ -146,7 +145,7 @@ const courseSchema = {
     "@type": "Offer",
     "price": "15000",
     "priceCurrency": "NGN",
-    "url": "https://selar.com/543351n531"
+    "url": "https://www.origin.com.ng"
   }
 };
 

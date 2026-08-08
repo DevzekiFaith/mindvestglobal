@@ -211,7 +211,7 @@ export default function Footer() {
             {[
               { label: "Email", value: "mindvestglobalresources@gmail.com" },
               { label: "Location", value: "Ogun / Lagos State, Nigeria" },
-              { label: "Programmes", value: "selar.com/543351n531" },
+              { label: "Programmes", value: "www.origin.com.ng" },
             ].map((item, i) => (
               <div key={i} style={{ marginBottom: 18 }}>
                 <div style={{

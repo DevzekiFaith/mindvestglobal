@@ -10,7 +10,7 @@ const divisions = [
     desc: "For the individual who has achieved enough to know that achievement alone is not enough. Through the Human Architecture Framework, we walk people through the five layers of their own design — and help them rebuild from the inside out.",
     flagship: "Becoming a Person of Interest — Monthly Masterclass",
     accent: "rgba(201,168,76,0.15)",
-    cta: { label: "Join the Masterclass", href: "https://selar.com/543351n531" },
+    cta: { label: "Join the Masterclass", href: "https://www.origin.com.ng" },
   },
   {
     roman: "II",

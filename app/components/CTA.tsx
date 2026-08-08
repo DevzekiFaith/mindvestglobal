@@ -115,7 +115,7 @@ export default function CTA() {
           flexWrap: "wrap",
         }}>
           <a
-            href="https://selar.com/543351n531"
+            href="https://www.origin.com.ng"
             target="_blank"
             rel="noopener noreferrer"
             style={{
