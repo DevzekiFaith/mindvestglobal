@@ -88,7 +88,7 @@ export default function Founder() {
               lineHeight: 1.85,
               marginBottom: 36,
             }}>
-              Zeki Ubor is a licensed architect, BIM specialist, frontend engineer,
+              Zeki Ubor is a BIM specialist, frontend engineer,
               and transformation practitioner — one of very few people who has formally
               trained in both the design of physical spaces and the design of human
               potential.
