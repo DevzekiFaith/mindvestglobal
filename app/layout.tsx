@@ -112,7 +112,7 @@ const organizationSchema = {
     "addressLocality": "Lagos / Ogun State",
     "addressCountry": "NG"
   },
-  "email": "mindvestglobalresources@gmail.com",
+  "email": "support@mindvestglobalresources.com.ng",
   "sameAs": [
     "https://www.linkedin.com/company/mindvest-global",
     "https://youtube.com/@thebecomingwithzekiubor?si=QC9bC_6enotC-g0R",

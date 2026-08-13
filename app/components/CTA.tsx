@@ -224,7 +224,7 @@ export default function CTA() {
           flexWrap: "wrap",
         }}>
           {[
-            { label: "Email", value: "mindvestglobalresources@gmail.com" },
+            { label: "Email", value: "support@mindvestglobalresources.com.ng" },
             { label: "Location", value: "Ogun / Lagos State · Nigeria" },
             { label: "Est.", value: "2026" },
           ].map((item, i) => (
