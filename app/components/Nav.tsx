@@ -14,11 +14,11 @@ export default function Nav() {
   }, []);
 
   const navLinks = [
-    { href: "#about", label: "About" },
-    { href: "#divisions", label: "Divisions" },
-    { href: "#framework", label: "Framework" },
-    { href: "#masterclass", label: "Masterclass" },
-    { href: "#who", label: "Who We Serve" },
+    { href: "/#about", label: "About" },
+    { href: "/#divisions", label: "Divisions" },
+    { href: "/#framework", label: "Framework" },
+    { href: "/#masterclass", label: "Masterclass" },
+    { href: "/#who", label: "Who We Serve" },
   ];
 
   return (
@@ -42,7 +42,7 @@ export default function Nav() {
         }}
       >
         {/* Logo */}
-        <Link href="#" style={{ display: "flex", flexDirection: "column", gap: 2, textDecoration: "none" }}>
+        <Link href="/" style={{ display: "flex", flexDirection: "column", gap: 2, textDecoration: "none" }}>
           <div style={{
             fontFamily: "var(--font-cormorant), serif",
             fontSize: 22,

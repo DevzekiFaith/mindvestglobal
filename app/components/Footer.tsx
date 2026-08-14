@@ -1,18 +1,20 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Footer() {
   const navLinks = [
-    { href: "#about", label: "About" },
-    { href: "#divisions", label: "Our Divisions" },
-    { href: "#framework", label: "The Framework" },
-    { href: "#masterclass", label: "Masterclass" },
-    { href: "#who", label: "Who We Serve" },
+    { href: "/#about", label: "About" },
+    { href: "/#divisions", label: "Our Divisions" },
+    { href: "/#framework", label: "The Framework" },
+    { href: "/#masterclass", label: "Masterclass" },
+    { href: "/#who", label: "Who We Serve" },
   ];
 
   const divisions = [
-    "The Becoming Institute",
-    "The Leadership Architecture",
-    "Organisational Architecture",
+    { label: "The Becoming Institute", href: "/divisions/personal-evolution" },
+    { label: "Leadership Architecture", href: "/divisions/leadership-architecture" },
+    { label: "Organizational Architecture", href: "/divisions/institutional-design" },
   ];
 
   return (
@@ -172,8 +174,8 @@ export default function Footer() {
             <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
               {divisions.map((div, i) => (
                 <li key={i}>
-                  <a
-                    href="#divisions"
+                  <Link
+                    href={div.href}
                     style={{
                       fontFamily: "var(--font-cormorant), serif",
                       fontSize: 15,
@@ -188,8 +190,8 @@ export default function Footer() {
                       (e.target as HTMLElement).style.color = "rgba(247,243,236,0.32)";
                     }}
                   >
-                    {div}
-                  </a>
+                    {div.label}
+                  </Link>
                 </li>
               ))}
             </ul>

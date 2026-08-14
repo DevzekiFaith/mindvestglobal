@@ -1,34 +1,35 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 const divisions = [
   {
     roman: "I",
-    sub: "Division One",
+    sub: "Personal Evolution",
     name: "The Becoming Institute",
-    desc: "For the individual who has achieved enough to know that achievement alone is not enough. Through the Human Architecture Framework, we walk people through the five layers of their own design — and help them rebuild from the inside out.",
+    desc: "A sanctuary for individual transformation. Deconstruct limiting identities and build a self that commands interest.",
     flagship: "Becoming a Person of Interest — Monthly Masterclass",
     accent: "rgba(201,168,76,0.15)",
-    cta: { label: "Join the Masterclass", href: "https://www.origin.com.ng" },
+    slug: "personal-evolution",
   },
   {
     roman: "II",
-    sub: "Division Two",
-    name: "The Leadership Architecture",
-    desc: "For the leader who manages teams but has never intentionally designed themselves. We bridge the gap between positional leadership and integrated leadership — building the inner architecture that outer influence demands.",
-    flagship: "Leadership Architecture Programme — Executive Cohort",
+    sub: "Executive Authority",
+    name: "Leadership Architecture",
+    desc: "Frameworks for leaders to design their influence with architectural precision and unshakeable authority.",
+    flagship: "Leadership Architecture — 1–2 Day Executive Immersion",
     accent: "rgba(201,168,76,0.1)",
-    cta: { label: "Explore Fit for Profit ↗", href: "https://www.origin.com.ng" },
+    slug: "leadership-architecture",
   },
   {
     roman: "III",
-    sub: "Division Three",
-    name: "Organisational Architecture",
-    desc: "For organisations that sense their culture is not serving their mission. We audit, redesign, and rebuild the human architecture of culture — aligning people, values, and systems toward a common becoming.",
+    sub: "Institutional Design",
+    name: "Organizational Architecture",
+    desc: "Structural design for institutions seeking to align their human capital with their monumental vision.",
     flagship: "Organisational Transformation Partnership — 6–12 Months",
     accent: "rgba(201,168,76,0.08)",
-    cta: { label: "Book Executive Call ↗", href: "https://calendly.com/mindvestglobalresources/30min" },
+    slug: "institutional-design",
   },
 ];
 
@@ -160,24 +161,27 @@ function DivisionCard({
   delay,
   visible,
 }: {
-  div: { roman: string; sub: string; name: string; desc: string; flagship: string; accent: string; cta: { label: string; href: string } };
+  div: { roman: string; sub: string; name: string; desc: string; flagship: string; accent: string; slug: string };
   delay: number;
   visible: boolean;
 }) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div
+    <Link
+      href={`/divisions/${div.slug}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
+        display: "block",
+        textDecoration: "none",
         padding: "56px 44px",
         background: hovered ? "rgba(40,37,107,0.5)" : "rgba(40,37,107,0.2)",
         border: "1px solid rgba(201,168,76,0.07)",
         position: "relative",
         overflow: "hidden",
         transition: "all 0.35s ease",
-        cursor: "default",
+        cursor: "pointer",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(40px)",
         transitionDelay: `${delay}ms`,
@@ -277,39 +281,23 @@ function DivisionCard({
         </strong>
       </div>
 
-      <a
-        href={div.cta.href}
-        target={div.cta.href.startsWith("mailto") ? undefined : "_blank"}
-        rel={div.cta.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+      <div
         style={{
           display: "inline-block",
           padding: "12px 24px",
-          border: "1px solid rgba(201,168,76,0.35)",
-          color: "var(--gold)",
+          border: hovered ? "1px solid var(--gold)" : "1px solid rgba(201,168,76,0.35)",
+          background: hovered ? "var(--gold)" : "transparent",
+          color: hovered ? "var(--indigo-deep)" : "var(--gold)",
           fontFamily: "var(--font-dm-mono), monospace",
           fontSize: 10,
           letterSpacing: "2px",
           textTransform: "uppercase",
-          textDecoration: "none",
           transition: "all 0.3s ease",
-        }}
-        onMouseEnter={(e) => {
-          const el = e.currentTarget as HTMLElement;
-          el.style.background = "var(--gold)";
-          el.style.color = "var(--indigo-deep)";
-          el.style.borderColor = "var(--gold)";
-          el.style.transform = "translateY(-2px)";
-        }}
-        onMouseLeave={(e) => {
-          const el = e.currentTarget as HTMLElement;
-          el.style.background = "transparent";
-          el.style.color = "var(--gold)";
-          el.style.borderColor = "rgba(201,168,76,0.35)";
-          el.style.transform = "translateY(0)";
+          transform: hovered ? "translateY(-2px)" : "translateY(0)",
         }}
       >
-        {div.cta.label} →
-      </a>
-    </div>
+        Explore Details →
+      </div>
+    </Link>
   );
 }
