@@ -13,6 +13,7 @@ const brands = [
   { name: "The Becoming Institute", role: "Lead Practitioner" },
   { name: "Elevation Studio", role: "Principal Designer", url: "https://www.elevationstudiong.com.ng" },
   { name: "Becoming — Podcast", role: "Host", url: "https://youtube.com/@thebecomingwithzekiubor?si=QC9bC_6enotC-g0R" },
+  { name: "LinkedIn — Zeki Ubor", role: "Connect", url: "https://www.linkedin.com/in/zeki-ubor-268889196?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
 ];
 
 export default function Founder() {

@@ -57,8 +57,8 @@ const leadershipFounderData = {
       href: "https://www.elevationstudiong.com.ng",
     },
     {
-      label: "Mindvest Global (LinkedIn ↗)",
-      href: "https://www.linkedin.com/company/mindvest-global",
+      label: "Zeki Ubor (LinkedIn ↗)",
+      href: "https://www.linkedin.com/in/zeki-ubor-268889196?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     },
   ],
 };

@@ -114,7 +114,7 @@ const organizationSchema = {
   },
   "email": "support@mindvestglobalresources.com.ng",
   "sameAs": [
-    "https://www.linkedin.com/company/mindvest-global",
+    "https://www.linkedin.com/in/zeki-ubor-268889196?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     "https://youtube.com/@thebecomingwithzekiubor?si=QC9bC_6enotC-g0R",
     "https://www.origin.com.ng",
     "https://www.elevationstudiong.com.ng"
@@ -125,7 +125,7 @@ const organizationSchema = {
     "jobTitle": "Principal & Founder",
     "url": "https://youtube.com/@thebecomingwithzekiubor?si=QC9bC_6enotC-g0R",
     "sameAs": [
-      "https://www.linkedin.com/company/mindvest-global",
+      "https://www.linkedin.com/in/zeki-ubor-268889196?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       "https://youtube.com/@thebecomingwithzekiubor?si=QC9bC_6enotC-g0R"
     ]
   }
