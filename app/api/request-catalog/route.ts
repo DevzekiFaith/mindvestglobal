@@ -51,11 +51,11 @@ export async function POST(req: NextRequest) {
 
     const resend = new Resend(apiKey || "dummy_key");
 
-    // Base domain for absolute assets and download link
-    const host = req.headers.get("host") || "mindvestglobalresources.com.ng";
-    const protocol = req.headers.get("x-forwarded-proto") || "https";
-    const baseUrl = `${protocol}://${host}`;
-    const catalogPdfUrl = `${baseUrl}/docs/Mindvest_Advisory_Catalog_Updated.pdf`;
+    // Always use official live production domain for outbound client emails
+    const siteUrl =
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      "https://www.mindvestglobalresources.com.ng";
+    const catalogPdfUrl = `${siteUrl.replace(/\/+$/, "")}/docs/Mindvest_Advisory_Catalog_Updated.pdf`;
 
     const timestamp = new Date().toLocaleString("en-GB", {
       timeZone: "Africa/Lagos",
