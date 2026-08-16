@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { getOrGenerateCatalogPdf } from "@/lib/catalog-pdf";
 
 interface CatalogRequestBody {
   fullName?: string;
@@ -51,6 +52,9 @@ export async function POST(req: NextRequest) {
 
     const resend = new Resend(apiKey || "dummy_key");
 
+    // Ensure the PDF exists in public/docs and get buffer for direct attachment
+    const pdfBuffer = getOrGenerateCatalogPdf();
+
     // Always use official live production domain for outbound client emails
     const siteUrl =
       process.env.NEXT_PUBLIC_SITE_URL ||
@@ -66,11 +70,17 @@ export async function POST(req: NextRequest) {
     const fromSender = process.env.NEXT_PUBLIC_FROM_EMAIL || process.env.FROM_EMAIL || "Mindvest Advisory <support@mindvestglobalresources.com.ng>";
 
     if (apiKey) {
-      // 1. Send automated catalog email to the client
+      // 1. Send automated catalog email to the client WITH direct PDF attachment
       const clientEmailPromise = resend.emails.send({
         from: fromSender,
         to: cleanEmail,
         subject: "Executive Advisory & Architecture Catalog (2026 Edition) — Mindvest Global Resources",
+        attachments: [
+          {
+            filename: "Mindvest_Executive_Advisory_Catalog_2026.pdf",
+            content: pdfBuffer,
+          },
+        ],
         html: `
           <!DOCTYPE html>
           <html lang="en">
