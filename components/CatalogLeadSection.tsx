@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 interface FormData {
   fullName: string;
@@ -18,6 +18,9 @@ const INTEREST_OPTIONS = [
 ] as const;
 
 export default function CatalogLeadSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(false);
+
   const [formData, setFormData] = useState<FormData>({
     fullName: "",
     email: "",
@@ -32,6 +35,17 @@ export default function CatalogLeadSection() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [dispatchedEmail, setDispatchedEmail] = useState("");
   const [downloadUrl, setDownloadUrl] = useState<string>("/docs/Mindvest_Advisory_Catalog_Updated.pdf");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   // Prevent background scroll when modal is open
   useEffect(() => {
@@ -58,7 +72,6 @@ export default function CatalogLeadSection() {
     setIsLoading(true);
     setErrorMessage(null);
 
-    // Validation
     if (!formData.fullName.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.company.trim()) {
       setErrorMessage("Please complete all required fields.");
       setIsLoading(false);
@@ -83,7 +96,6 @@ export default function CatalogLeadSection() {
         setDownloadUrl(data.downloadUrl);
       }
       setIsSuccess(true);
-      // Automatically open the interactive Read-Me catalog modal upon submission
       setIsModalOpen(true);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "An unexpected error occurred.";
@@ -109,313 +121,711 @@ export default function CatalogLeadSection() {
   return (
     <>
       <section
+        ref={sectionRef}
         id="catalog-access"
-        className="relative bg-[#0f172a] text-slate-100 py-16 sm:py-24 px-4 sm:px-8 md:px-12 lg:px-20 overflow-hidden border-y border-[#1e293b]"
         style={{
-          backgroundImage: `
-            radial-gradient(circle at 10% 20%, rgba(180, 83, 9, 0.08) 0%, transparent 40%),
-            radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.06) 0%, transparent 45%)
-          `,
+          background: "#0A0D1A",
+          padding: "120px 40px",
+          position: "relative",
+          overflow: "hidden",
+          borderTop: "1px solid rgba(201,168,76,0.15)",
+          borderBottom: "1px solid rgba(201,168,76,0.15)",
+          opacity: visible ? 1 : 0,
+          transform: visible ? "translateY(0)" : "translateY(40px)",
+          transition: "opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
+        className="catalog-section"
       >
-        {/* Decorative architectural grid lines */}
+        {/* Ambient Radial Background Lighting */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-[0.03]"
           style={{
-            backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
-            backgroundSize: "64px 64px",
+            position: "absolute",
+            top: -200,
+            left: "15%",
+            width: 700,
+            height: 700,
+            background: "radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%)",
+            borderRadius: "50%",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            bottom: -200,
+            right: "10%",
+            width: 600,
+            height: 600,
+            background: "radial-gradient(circle, rgba(40,37,107,0.3) 0%, transparent 70%)",
+            borderRadius: "50%",
+            pointerEvents: "none",
           }}
         />
 
-        <div className="relative max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-16 items-center">
-            {/* Left Column: Value Proposition & Scope Breakdown */}
-            <div className="lg:col-span-6 flex flex-col justify-center text-left">
-              {/* Executive Badge */}
-              <div className="inline-flex items-center self-start gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border border-[#b45309]/50 bg-[#b45309]/10 text-[#f59e0b] text-[10px] sm:text-[11px] font-mono tracking-[2px] sm:tracking-[2.5px] uppercase font-semibold mb-4 sm:mb-6">
-                <span className="w-2 h-2 rounded-full bg-[#f59e0b] animate-pulse" />
-                INSTITUTIONAL GOVERNANCE &amp; KEYNOTES
+        {/* Outer Frame Container */}
+        <div
+          style={{
+            maxWidth: 1320,
+            margin: "0 auto",
+            position: "relative",
+            zIndex: 2,
+          }}
+        >
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1.1fr 0.9fr",
+              gap: 64,
+              alignItems: "center",
+            }}
+            className="catalog-grid"
+          >
+            {/* Left Column: Institutional Value Proposition */}
+            <div>
+              {/* Badge */}
+              <div
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 10,
+                  padding: "8px 18px",
+                  borderRadius: 100,
+                  border: "1px solid rgba(201,168,76,0.4)",
+                  background: "rgba(201,168,76,0.08)",
+                  marginBottom: 24,
+                }}
+              >
+                <span
+                  style={{
+                    width: 7,
+                    height: 7,
+                    borderRadius: "50%",
+                    background: "var(--gold)",
+                    boxShadow: "0 0 10px var(--gold)",
+                    display: "inline-block",
+                  }}
+                />
+                <span
+                  style={{
+                    fontFamily: "var(--font-dm-mono), monospace",
+                    fontSize: 10,
+                    letterSpacing: "3px",
+                    textTransform: "uppercase",
+                    color: "var(--gold-light)",
+                    fontWeight: 600,
+                  }}
+                >
+                  INSTITUTIONAL GOVERNANCE &amp; KEYNOTES
+                </span>
               </div>
 
-              {/* Heading */}
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-light tracking-tight text-white leading-[1.2] sm:leading-[1.15] mb-4 sm:mb-6 font-serif">
+              {/* Headline */}
+              <h2
+                style={{
+                  fontFamily: "var(--font-cormorant), serif",
+                  fontSize: "clamp(32px, 4.2vw, 56px)",
+                  fontWeight: 300,
+                  color: "var(--cream)",
+                  lineHeight: 1.15,
+                  letterSpacing: "-0.5px",
+                  marginBottom: 24,
+                }}
+              >
                 Access the Executive Advisory &amp; Architecture Catalog
               </h2>
 
-              {/* Sub-heading */}
-              <p className="text-sm sm:text-base lg:text-lg text-slate-300 font-light leading-relaxed mb-6 sm:mb-8">
+              {/* Subheading */}
+              <p
+                style={{
+                  fontSize: "clamp(14px, 1.15vw, 16px)",
+                  color: "rgba(247,243,236,0.65)",
+                  lineHeight: 1.8,
+                  marginBottom: 36,
+                  maxWidth: 620,
+                  fontWeight: 300,
+                }}
+              >
                 Explore complete frameworks, session scopes, and investment fee structures for Executive Keynote Engagements, The Becoming Coaching, Leadership Architecture, and Organisational Re-engineering.
               </p>
 
-              {/* Checked Bullet Points */}
-              <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+              {/* 4 Feature Bullets */}
+              <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 40 }}>
                 {[
                   "Executive Speaking & Keynote Retainers",
                   "The Becoming 12-Week Executive Coaching Scope",
                   "Full Organisational & Leadership Architecture Frameworks",
                   "Native Cross-Synergies with Origin Platform (origin.com.ng)",
-                ].map((bullet, idx) => (
-                  <div key={idx} className="flex items-start gap-3 group">
-                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#b45309]/20 border border-[#f59e0b]/40 flex items-center justify-center text-[#f59e0b] mt-0.5 transition-colors group-hover:bg-[#f59e0b]/20">
-                      <svg
-                        className="w-3 h-3 sm:w-3.5 sm:h-3.5"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                      </svg>
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 14,
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: 22,
+                        height: 22,
+                        borderRadius: "50%",
+                        background: "rgba(201,168,76,0.15)",
+                        border: "1px solid rgba(201,168,76,0.45)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "var(--gold-light)",
+                        fontSize: 11,
+                        flexShrink: 0,
+                      }}
+                    >
+                      ✓
                     </div>
-                    <span className="text-slate-200 text-xs sm:text-sm lg:text-base font-normal leading-snug">
-                      {bullet}
+                    <span
+                      style={{
+                        color: "var(--cream)",
+                        fontSize: "clamp(13px, 1.05vw, 15px)",
+                        fontWeight: 400,
+                        letterSpacing: "0.2px",
+                      }}
+                    >
+                      {item}
                     </span>
                   </div>
                 ))}
               </div>
 
-              {/* Trust / Catalog Meta Tag */}
-              <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-5 sm:pt-6 border-t border-[#1e293b] text-[11px] sm:text-xs font-mono text-slate-400">
-                <span className="px-2.5 py-1 rounded bg-[#1e293b] text-slate-300 font-medium">
+              {/* Bottom Meta Tags */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 16,
+                  paddingTop: 24,
+                  borderTop: "1px solid rgba(247,243,236,0.08)",
+                  flexWrap: "wrap",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "var(--font-dm-mono), monospace",
+                    fontSize: 10,
+                    letterSpacing: "2px",
+                    padding: "4px 10px",
+                    borderRadius: 4,
+                    background: "rgba(201,168,76,0.12)",
+                    border: "1px solid rgba(201,168,76,0.25)",
+                    color: "var(--gold-light)",
+                    fontWeight: 600,
+                  }}
+                >
                   2026 EDITION
                 </span>
-                <span>CONFIDENTIAL CORPORATE BRIEFING</span>
-                <span className="hidden sm:inline text-slate-600">•</span>
-                <span className="text-amber-500/90 font-medium">INSTANT DISPATCH</span>
+                <span
+                  style={{
+                    fontFamily: "var(--font-dm-mono), monospace",
+                    fontSize: 11,
+                    letterSpacing: "2px",
+                    textTransform: "uppercase",
+                    color: "rgba(247,243,236,0.45)",
+                  }}
+                >
+                  CONFIDENTIAL CORPORATE BRIEFING
+                </span>
               </div>
             </div>
 
-            {/* Right Column: Form or Success State */}
-            <div className="lg:col-span-6 w-full">
-              <div className="relative bg-[#131d33] border border-[#334155] rounded-2xl p-5 sm:p-8 lg:p-10 shadow-2xl shadow-black/60 backdrop-blur-sm">
-                {/* Amber top highlight line */}
-                <div className="absolute top-0 left-6 right-6 sm:left-8 sm:right-8 h-[2px] bg-gradient-to-r from-transparent via-[#f59e0b] to-transparent opacity-75" />
+            {/* Right Column: Premium Executive Glass Card */}
+            <div>
+              <div
+                style={{
+                  background: "rgba(18, 16, 58, 0.75)",
+                  backdropFilter: "blur(24px)",
+                  border: "1px solid rgba(201, 168, 76, 0.35)",
+                  borderRadius: 24,
+                  padding: "48px 40px",
+                  boxShadow: "0 24px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,76,0.1)",
+                  position: "relative",
+                  overflow: "hidden",
+                }}
+                className="form-glass-card"
+              >
+                {/* Glowing gold top line accent */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: "10%",
+                    right: "10%",
+                    height: 2,
+                    background: "linear-gradient(90deg, transparent, var(--gold), transparent)",
+                  }}
+                />
 
                 {!isSuccess ? (
-                  /* Gated Lead Capture Form */
-                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-                    <div className="border-b border-[#1e293b] pb-3 sm:pb-4 mb-2">
-                      <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-white tracking-tight">
+                  /* Form State */
+                  <form onSubmit={handleSubmit}>
+                    <div style={{ marginBottom: 28 }}>
+                      <div
+                        style={{
+                          fontFamily: "var(--font-cormorant), serif",
+                          fontSize: 28,
+                          color: "var(--cream)",
+                          fontWeight: 400,
+                          lineHeight: 1.2,
+                          marginBottom: 6,
+                        }}
+                      >
                         Request Executive Access
-                      </h3>
-                      <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                      </div>
+                      <div
+                        style={{
+                          fontSize: 13,
+                          color: "rgba(247,243,236,0.5)",
+                          lineHeight: 1.5,
+                        }}
+                      >
                         Complete the briefing form below to unlock the fee structure &amp; catalog.
-                      </p>
+                      </div>
                     </div>
 
                     {errorMessage && (
-                      <div className="p-3 sm:p-3.5 rounded-lg bg-red-950/60 border border-red-800 text-red-200 text-xs sm:text-sm flex items-center gap-2.5">
-                        <svg className="w-4 h-4 flex-shrink-0 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                        </svg>
+                      <div
+                        style={{
+                          padding: "12px 16px",
+                          borderRadius: 8,
+                          background: "rgba(185,28,28,0.2)",
+                          border: "1px solid rgba(239,68,68,0.4)",
+                          color: "#fca5a5",
+                          fontSize: 12,
+                          marginBottom: 20,
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 8,
+                        }}
+                      >
+                        <span>⚠️</span>
                         <span>{errorMessage}</span>
                       </div>
                     )}
 
-                    {/* Full Name */}
-                    <div>
-                      <label
-                        htmlFor="fullName"
-                        className="block text-[11px] sm:text-xs font-mono tracking-wider uppercase text-slate-300 mb-1"
-                      >
-                        Full Name <span className="text-[#f59e0b]">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="fullName"
-                        name="fullName"
-                        required
-                        value={formData.fullName}
-                        onChange={handleChange}
-                        placeholder="e.g. Dr. Olumide Adeleke"
-                        className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 bg-[#0f172a] border border-[#334155] rounded-lg text-white text-base sm:text-sm placeholder-slate-500 focus:outline-none focus:border-[#f59e0b] focus:ring-1 focus:ring-[#f59e0b] transition-colors"
-                      />
-                    </div>
-
-                    {/* Corporate Email */}
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-[11px] sm:text-xs font-mono tracking-wider uppercase text-slate-300 mb-1"
-                      >
-                        Official Corporate Email <span className="text-[#f59e0b]">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="e.g. o.adeleke@enterprise.com"
-                        className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 bg-[#0f172a] border border-[#334155] rounded-lg text-white text-base sm:text-sm placeholder-slate-500 focus:outline-none focus:border-[#f59e0b] focus:ring-1 focus:ring-[#f59e0b] transition-colors"
-                      />
-                    </div>
-
-                    {/* Phone & Company */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    {/* Inputs Container */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+                      {/* Full Name */}
                       <div>
                         <label
-                          htmlFor="phone"
-                          className="block text-[11px] sm:text-xs font-mono tracking-wider uppercase text-slate-300 mb-1"
+                          htmlFor="fullName"
+                          style={{
+                            display: "block",
+                            fontFamily: "var(--font-dm-mono), monospace",
+                            fontSize: 10,
+                            letterSpacing: "2px",
+                            textTransform: "uppercase",
+                            color: "rgba(247,243,236,0.75)",
+                            marginBottom: 8,
+                          }}
                         >
-                          Phone Number <span className="text-[#f59e0b]">*</span>
-                        </label>
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          required
-                          value={formData.phone}
-                          onChange={handleChange}
-                          placeholder="+234 800 000 0000"
-                          className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 bg-[#0f172a] border border-[#334155] rounded-lg text-white text-base sm:text-sm placeholder-slate-500 focus:outline-none focus:border-[#f59e0b] focus:ring-1 focus:ring-[#f59e0b] transition-colors"
-                        />
-                      </div>
-
-                      <div>
-                        <label
-                          htmlFor="company"
-                          className="block text-[11px] sm:text-xs font-mono tracking-wider uppercase text-slate-300 mb-1"
-                        >
-                          Company / Organization <span className="text-[#f59e0b]">*</span>
+                          Full Name <span style={{ color: "var(--gold)" }}>*</span>
                         </label>
                         <input
                           type="text"
-                          id="company"
-                          name="company"
+                          id="fullName"
+                          name="fullName"
                           required
-                          value={formData.company}
+                          value={formData.fullName}
                           onChange={handleChange}
-                          placeholder="e.g. Apex Holdings Ltd"
-                          className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 bg-[#0f172a] border border-[#334155] rounded-lg text-white text-base sm:text-sm placeholder-slate-500 focus:outline-none focus:border-[#f59e0b] focus:ring-1 focus:ring-[#f59e0b] transition-colors"
+                          placeholder="e.g. Dr. Olumide Adeleke"
+                          style={{
+                            width: "100%",
+                            padding: "14px 16px",
+                            background: "rgba(10, 13, 26, 0.8)",
+                            border: "1px solid rgba(201, 168, 76, 0.25)",
+                            borderRadius: 10,
+                            color: "var(--cream)",
+                            fontSize: 14,
+                            outline: "none",
+                            transition: "all 0.25s",
+                          }}
+                          onFocus={(e) => {
+                            e.target.style.borderColor = "var(--gold)";
+                            e.target.style.boxShadow = "0 0 16px rgba(201, 168, 76, 0.2)";
+                          }}
+                          onBlur={(e) => {
+                            e.target.style.borderColor = "rgba(201, 168, 76, 0.25)";
+                            e.target.style.boxShadow = "none";
+                          }}
                         />
                       </div>
-                    </div>
 
-                    {/* Primary Interest */}
-                    <div>
-                      <label
-                        htmlFor="interest"
-                        className="block text-[11px] sm:text-xs font-mono tracking-wider uppercase text-slate-300 mb-1"
+                      {/* Official Corporate Email */}
+                      <div>
+                        <label
+                          htmlFor="email"
+                          style={{
+                            display: "block",
+                            fontFamily: "var(--font-dm-mono), monospace",
+                            fontSize: 10,
+                            letterSpacing: "2px",
+                            textTransform: "uppercase",
+                            color: "rgba(247,243,236,0.75)",
+                            marginBottom: 8,
+                          }}
+                        >
+                          Official Corporate Email <span style={{ color: "var(--gold)" }}>*</span>
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder="e.g. o.adeleke@enterprise.com"
+                          style={{
+                            width: "100%",
+                            padding: "14px 16px",
+                            background: "rgba(10, 13, 26, 0.8)",
+                            border: "1px solid rgba(201, 168, 76, 0.25)",
+                            borderRadius: 10,
+                            color: "var(--cream)",
+                            fontSize: 14,
+                            outline: "none",
+                            transition: "all 0.25s",
+                          }}
+                          onFocus={(e) => {
+                            e.target.style.borderColor = "var(--gold)";
+                            e.target.style.boxShadow = "0 0 16px rgba(201, 168, 76, 0.2)";
+                          }}
+                          onBlur={(e) => {
+                            e.target.style.borderColor = "rgba(201, 168, 76, 0.25)";
+                            e.target.style.boxShadow = "none";
+                          }}
+                        />
+                      </div>
+
+                      {/* Phone & Company Split Row */}
+                      <div
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: "1fr 1fr",
+                          gap: 16,
+                        }}
+                        className="form-split-row"
                       >
-                        Primary Advisory Interest <span className="text-[#f59e0b]">*</span>
-                      </label>
-                      <div className="relative">
+                        <div>
+                          <label
+                            htmlFor="phone"
+                            style={{
+                              display: "block",
+                              fontFamily: "var(--font-dm-mono), monospace",
+                              fontSize: 10,
+                              letterSpacing: "2px",
+                              textTransform: "uppercase",
+                              color: "rgba(247,243,236,0.75)",
+                              marginBottom: 8,
+                            }}
+                          >
+                            Phone <span style={{ color: "var(--gold)" }}>*</span>
+                          </label>
+                          <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            required
+                            value={formData.phone}
+                            onChange={handleChange}
+                            placeholder="+234 800 000 0000"
+                            style={{
+                              width: "100%",
+                              padding: "14px 16px",
+                              background: "rgba(10, 13, 26, 0.8)",
+                              border: "1px solid rgba(201, 168, 76, 0.25)",
+                              borderRadius: 10,
+                              color: "var(--cream)",
+                              fontSize: 14,
+                              outline: "none",
+                              transition: "all 0.25s",
+                            }}
+                            onFocus={(e) => {
+                              e.target.style.borderColor = "var(--gold)";
+                              e.target.style.boxShadow = "0 0 16px rgba(201, 168, 76, 0.2)";
+                            }}
+                            onBlur={(e) => {
+                              e.target.style.borderColor = "rgba(201, 168, 76, 0.25)";
+                              e.target.style.boxShadow = "none";
+                            }}
+                          />
+                        </div>
+
+                        <div>
+                          <label
+                            htmlFor="company"
+                            style={{
+                              display: "block",
+                              fontFamily: "var(--font-dm-mono), monospace",
+                              fontSize: 10,
+                              letterSpacing: "2px",
+                              textTransform: "uppercase",
+                              color: "rgba(247,243,236,0.75)",
+                              marginBottom: 8,
+                            }}
+                          >
+                            Company / Entity <span style={{ color: "var(--gold)" }}>*</span>
+                          </label>
+                          <input
+                            type="text"
+                            id="company"
+                            name="company"
+                            required
+                            value={formData.company}
+                            onChange={handleChange}
+                            placeholder="e.g. Apex Holdings"
+                            style={{
+                              width: "100%",
+                              padding: "14px 16px",
+                              background: "rgba(10, 13, 26, 0.8)",
+                              border: "1px solid rgba(201, 168, 76, 0.25)",
+                              borderRadius: 10,
+                              color: "var(--cream)",
+                              fontSize: 14,
+                              outline: "none",
+                              transition: "all 0.25s",
+                            }}
+                            onFocus={(e) => {
+                              e.target.style.borderColor = "var(--gold)";
+                              e.target.style.boxShadow = "0 0 16px rgba(201, 168, 76, 0.2)";
+                            }}
+                            onBlur={(e) => {
+                              e.target.style.borderColor = "rgba(201, 168, 76, 0.25)";
+                              e.target.style.boxShadow = "none";
+                            }}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Primary Advisory Interest Dropdown */}
+                      <div>
+                        <label
+                          htmlFor="interest"
+                          style={{
+                            display: "block",
+                            fontFamily: "var(--font-dm-mono), monospace",
+                            fontSize: 10,
+                            letterSpacing: "2px",
+                            textTransform: "uppercase",
+                            color: "rgba(247,243,236,0.75)",
+                            marginBottom: 8,
+                          }}
+                        >
+                          Primary Advisory Interest <span style={{ color: "var(--gold)" }}>*</span>
+                        </label>
                         <select
                           id="interest"
                           name="interest"
                           value={formData.interest}
                           onChange={handleChange}
-                          className="w-full appearance-none px-3.5 py-2.5 sm:px-4 sm:py-3 bg-[#0f172a] border border-[#334155] rounded-lg text-white text-base sm:text-sm focus:outline-none focus:border-[#f59e0b] focus:ring-1 focus:ring-[#f59e0b] transition-colors pr-10 cursor-pointer"
+                          style={{
+                            width: "100%",
+                            padding: "14px 16px",
+                            background: "#0A0D1A",
+                            border: "1px solid rgba(201, 168, 76, 0.25)",
+                            borderRadius: 10,
+                            color: "var(--cream)",
+                            fontSize: 14,
+                            outline: "none",
+                            cursor: "pointer",
+                          }}
                         >
                           {INTEREST_OPTIONS.map((opt) => (
-                            <option key={opt} value={opt} className="bg-[#0f172a] text-white">
+                            <option key={opt} value={opt} style={{ background: "#0A0D1A", color: "#F7F3EC" }}>
                               {opt}
                             </option>
                           ))}
                         </select>
-                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-slate-400">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                          </svg>
-                        </div>
                       </div>
-                    </div>
 
-                    {/* Submit Button */}
-                    <button
-                      type="submit"
-                      disabled={isLoading}
-                      className="w-full min-h-[48px] mt-2 py-3.5 sm:py-4 px-5 sm:px-6 rounded-lg bg-gradient-to-r from-[#b45309] via-[#d97706] to-[#f59e0b] text-[#0f172a] font-mono text-xs sm:text-sm font-bold uppercase tracking-[1.5px] sm:tracking-[2px] shadow-lg shadow-amber-900/30 hover:brightness-110 active:scale-[0.99] transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 touch-manipulation"
-                    >
-                      {isLoading ? (
-                        <>
-                          <svg className="animate-spin h-4 w-4 text-[#0f172a]" viewBox="0 0 24 24" fill="none">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
-                          </svg>
-                          <span>Processing Access...</span>
-                        </>
-                      ) : (
-                        <>
-                          <span>Request Immediate Access (PDF)</span>
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                          </svg>
-                        </>
-                      )}
-                    </button>
-
-                    {/* Confidentiality Microcopy */}
-                    <p className="text-[10px] sm:text-[11px] text-slate-400 text-center leading-relaxed pt-1 sm:pt-2">
-                      Your information is confidential. The PDF catalog will be dispatched directly via{" "}
-                      <a
-                        href="mailto:support@mindvestglobalresources.com.ng"
-                        className="text-slate-300 hover:text-[#f59e0b] underline transition-colors"
+                      {/* Submit Button */}
+                      <button
+                        type="submit"
+                        disabled={isLoading}
+                        style={{
+                          width: "100%",
+                          padding: "18px 24px",
+                          marginTop: 8,
+                          background: "linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%)",
+                          color: "var(--indigo-deep)",
+                          fontFamily: "var(--font-dm-mono), monospace",
+                          fontSize: 11,
+                          letterSpacing: "3px",
+                          textTransform: "uppercase",
+                          fontWeight: 700,
+                          border: "none",
+                          borderRadius: 10,
+                          cursor: isLoading ? "not-allowed" : "pointer",
+                          boxShadow: "0 8px 30px rgba(201,168,76,0.3)",
+                          transition: "all 0.3s",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          gap: 10,
+                        }}
+                        onMouseEnter={(e) => {
+                          if (!isLoading) {
+                            e.currentTarget.style.transform = "translateY(-2px)";
+                            e.currentTarget.style.boxShadow = "0 14px 40px rgba(201,168,76,0.45)";
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform = "translateY(0)";
+                          e.currentTarget.style.boxShadow = "0 8px 30px rgba(201,168,76,0.3)";
+                        }}
                       >
-                        support@mindvestglobalresources.com.ng
-                      </a>.
-                    </p>
+                        {isLoading ? "Processing Access..." : "Request Immediate Access (PDF) →"}
+                      </button>
+
+                      {/* Confidentiality Footer */}
+                      <p
+                        style={{
+                          fontSize: 11,
+                          color: "rgba(247,243,236,0.4)",
+                          textAlign: "center",
+                          margin: "6px 0 0 0",
+                          lineHeight: 1.6,
+                        }}
+                      >
+                        Your information is confidential. The PDF catalog will be dispatched directly via{" "}
+                        <a
+                          href="mailto:support@mindvestglobalresources.com.ng"
+                          style={{ color: "var(--gold-light)", textDecoration: "underline" }}
+                        >
+                          support@mindvestglobalresources.com.ng
+                        </a>.
+                      </p>
+                    </div>
                   </form>
                 ) : (
-                  /* Success Confirmation State Card */
-                  <div className="py-4 sm:py-6 text-center animate-fade-in flex flex-col items-center">
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#b45309]/20 border-2 border-[#f59e0b] flex items-center justify-center text-[#f59e0b] mb-4 sm:mb-6 shadow-lg shadow-amber-950/50">
-                      <svg className="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                      </svg>
+                  /* Success Confirmation State */
+                  <div style={{ textAlign: "center", padding: "16px 0" }}>
+                    <div
+                      style={{
+                        width: 64,
+                        height: 64,
+                        borderRadius: "50%",
+                        background: "rgba(201,168,76,0.15)",
+                        border: "2px solid var(--gold)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: 28,
+                        color: "var(--gold)",
+                        margin: "0 auto 20px",
+                        boxShadow: "0 0 30px rgba(201,168,76,0.3)",
+                      }}
+                    >
+                      ✓
                     </div>
 
-                    <div className="inline-block px-3 py-1 rounded bg-[#b45309]/20 border border-[#b45309]/50 text-[#f59e0b] text-[10px] sm:text-[11px] font-mono uppercase tracking-[2px] mb-2 sm:mb-3">
+                    <div
+                      style={{
+                        fontFamily: "var(--font-dm-mono), monospace",
+                        fontSize: 10,
+                        letterSpacing: "3px",
+                        textTransform: "uppercase",
+                        color: "var(--gold)",
+                        marginBottom: 10,
+                      }}
+                    >
                       Verification Complete
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white tracking-tight mb-3 sm:mb-4 font-serif">
+                    <div
+                      style={{
+                        fontFamily: "var(--font-cormorant), serif",
+                        fontSize: 32,
+                        color: "var(--cream)",
+                        fontWeight: 300,
+                        marginBottom: 16,
+                      }}
+                    >
                       Access Granted
-                    </h3>
+                    </div>
 
-                    <p className="text-xs sm:text-sm lg:text-base text-slate-300 leading-relaxed max-w-md mb-6">
+                    <p
+                      style={{
+                        fontSize: 14,
+                        color: "rgba(247,243,236,0.75)",
+                        lineHeight: 1.7,
+                        marginBottom: 28,
+                      }}
+                    >
                       The 2026 Executive Advisory Catalog has been dispatched directly to{" "}
-                      <strong className="text-white underline decoration-[#f59e0b] decoration-2 underline-offset-2 break-all">
+                      <strong style={{ color: "var(--cream)", textDecoration: "underline" }}>
                         {dispatchedEmail}
                       </strong>{" "}
                       via{" "}
-                      <span className="text-[#f59e0b] font-mono text-[11px] sm:text-xs">
+                      <span style={{ color: "var(--gold-light)", fontFamily: "var(--font-dm-mono)" }}>
                         support@mindvestglobalresources.com.ng
                       </span>.
                     </p>
 
-                    <div className="w-full space-y-3 max-w-sm">
-                      {/* Primary Button: Open the Read-Me Interactive Catalog */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                       <button
                         type="button"
                         onClick={() => setIsModalOpen(true)}
-                        className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 py-3 sm:py-4 px-4 sm:px-6 rounded-lg bg-gradient-to-r from-[#b45309] via-[#d97706] to-[#f59e0b] text-[#0f172a] font-mono text-xs uppercase font-bold tracking-wider hover:brightness-110 active:scale-[0.99] transition-all shadow-lg shadow-amber-950/40 touch-manipulation"
+                        style={{
+                          width: "100%",
+                          padding: "16px 24px",
+                          background: "linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%)",
+                          color: "var(--indigo-deep)",
+                          fontFamily: "var(--font-dm-mono), monospace",
+                          fontSize: 11,
+                          letterSpacing: "3px",
+                          textTransform: "uppercase",
+                          fontWeight: 700,
+                          border: "none",
+                          borderRadius: 10,
+                          cursor: "pointer",
+                          boxShadow: "0 8px 30px rgba(201,168,76,0.3)",
+                        }}
                       >
-                        <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                        </svg>
-                        <span>Open Interactive Catalog Reader</span>
+                        📖 Open Interactive Catalog Reader
                       </button>
 
-                      {/* Secondary Link: Direct PDF download */}
                       <a
                         href={downloadUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full min-h-[42px] inline-flex items-center justify-center gap-2 py-2.5 sm:py-3 px-4 rounded-lg bg-[#1e293b] hover:bg-[#334155] text-slate-200 border border-[#334155] font-mono text-xs uppercase tracking-wider transition-colors touch-manipulation"
+                        style={{
+                          padding: "14px 20px",
+                          borderRadius: 10,
+                          background: "rgba(247,243,236,0.05)",
+                          border: "1px solid rgba(201,168,76,0.3)",
+                          color: "var(--cream)",
+                          fontFamily: "var(--font-dm-mono), monospace",
+                          fontSize: 11,
+                          letterSpacing: "2px",
+                          textTransform: "uppercase",
+                          textDecoration: "none",
+                          display: "inline-block",
+                        }}
                       >
-                        <svg className="w-4 h-4 text-[#f59e0b] flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                        </svg>
-                        <span>Download Raw PDF File</span>
+                        ⬇ Download Official PDF
                       </a>
 
                       <button
                         type="button"
                         onClick={handleReset}
-                        className="w-full py-2 px-4 text-xs font-mono text-slate-400 hover:text-white uppercase tracking-wider transition-colors"
+                        style={{
+                          background: "transparent",
+                          border: "none",
+                          color: "rgba(247,243,236,0.45)",
+                          fontFamily: "var(--font-dm-mono), monospace",
+                          fontSize: 10,
+                          letterSpacing: "2px",
+                          textTransform: "uppercase",
+                          cursor: "pointer",
+                          marginTop: 8,
+                        }}
                       >
                         Request for another executive &rarr;
                       </button>
@@ -426,166 +836,266 @@ export default function CatalogLeadSection() {
             </div>
           </div>
         </div>
+
+        {/* Responsive CSS */}
+        <style>{`
+          @media (max-width: 960px) {
+            .catalog-section {
+              padding: 70px 20px !important;
+            }
+            .catalog-grid {
+              grid-template-columns: 1fr !important;
+              gap: 48px !important;
+            }
+            .form-glass-card {
+              padding: 32px 20px !important;
+              border-radius: 18px !important;
+            }
+          }
+          @media (max-width: 600px) {
+            .form-split-row {
+              grid-template-columns: 1fr !important;
+              gap: 18px !important;
+            }
+          }
+        `}</style>
       </section>
 
       {/* ========================================================================= */}
       {/* Interactive Read-Me Executive Catalog Modal Reader                         */}
       {/* ========================================================================= */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-10 bg-black/85 backdrop-blur-md animate-fade-in">
-          {/* Modal Container */}
-          <div className="relative w-full max-w-5xl max-h-[96vh] sm:max-h-[92vh] flex flex-col bg-[#0b1120] border border-[#334155] rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden text-slate-100">
-            {/* Modal Header */}
-            <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 border-b border-[#1e293b] bg-[#0f172a]">
-              <div className="flex items-center gap-2 sm:gap-3 overflow-hidden">
-                <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-[#b45309]/20 border border-[#b45309]/50 text-[#f59e0b] text-[9px] sm:text-[10px] font-mono uppercase tracking-widest font-semibold whitespace-nowrap">
-                  CONFIDENTIAL BRIEFING
-                </span>
-                <span className="hidden md:inline text-xs font-mono text-slate-400 truncate">
-                  Mindvest Global Resources Ltd.
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 9999,
+            background: "rgba(5, 7, 15, 0.88)",
+            backdropFilter: "blur(18px)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 16,
+          }}
+        >
+          <div
+            style={{
+              width: "100%",
+              maxWidth: 960,
+              maxHeight: "92vh",
+              background: "#0E1326",
+              border: "1px solid rgba(201, 168, 76, 0.35)",
+              borderRadius: 20,
+              boxShadow: "0 25px 80px rgba(0,0,0,0.8)",
+              display: "flex",
+              flexDirection: "column",
+              overflow: "hidden",
+            }}
+          >
+            {/* Header */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "18px 24px",
+                borderBottom: "1px solid rgba(201, 168, 76, 0.15)",
+                background: "rgba(10, 13, 26, 0.95)",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <span
+                  style={{
+                    fontFamily: "var(--font-dm-mono), monospace",
+                    fontSize: 9,
+                    letterSpacing: "2.5px",
+                    textTransform: "uppercase",
+                    padding: "4px 10px",
+                    borderRadius: 4,
+                    background: "rgba(201,168,76,0.15)",
+                    border: "1px solid rgba(201,168,76,0.3)",
+                    color: "var(--gold-light)",
+                    fontWeight: 700,
+                  }}
+                >
+                  CONFIDENTIAL EXECUTIVE BRIEFING
                 </span>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                 <a
                   href={downloadUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded bg-[#1e293b] hover:bg-[#334155] text-[11px] sm:text-xs font-mono text-slate-200 border border-[#334155] transition-colors whitespace-nowrap"
+                  style={{
+                    padding: "6px 14px",
+                    borderRadius: 6,
+                    background: "var(--gold)",
+                    color: "var(--indigo-deep)",
+                    fontFamily: "var(--font-dm-mono), monospace",
+                    fontSize: 10,
+                    letterSpacing: "2px",
+                    textTransform: "uppercase",
+                    fontWeight: 700,
+                    textDecoration: "none",
+                  }}
                 >
-                  <svg className="w-3.5 h-3.5 text-[#f59e0b]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                  </svg>
-                  <span className="hidden sm:inline">Download PDF</span>
-                  <span className="sm:hidden">PDF</span>
+                  Download PDF
                 </a>
-
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="w-8 h-8 rounded-lg bg-[#1e293b] hover:bg-[#334155] text-slate-300 hover:text-white flex items-center justify-center transition-colors flex-shrink-0"
-                  aria-label="Close modal"
+                  style={{
+                    background: "rgba(247,243,236,0.1)",
+                    border: "1px solid rgba(247,243,236,0.2)",
+                    borderRadius: 6,
+                    color: "var(--cream)",
+                    width: 32,
+                    height: 32,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    cursor: "pointer",
+                    fontSize: 16,
+                  }}
+                  aria-label="Close"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+                  ✕
                 </button>
               </div>
             </div>
 
-            {/* Scrollable Document Body */}
-            <div className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-10 space-y-8 sm:space-y-10 custom-scrollbar overscroll-contain">
-              {/* Document Banner Title */}
-              <div className="border-b border-[#1e293b] pb-6 sm:pb-8">
-                <div className="text-[#f59e0b] font-mono text-[10px] sm:text-xs tracking-[2px] sm:tracking-[3px] uppercase font-bold mb-1.5 sm:mb-2">
+            {/* Scrollable Body */}
+            <div
+              style={{
+                flex: 1,
+                overflowY: "auto",
+                padding: "32px 36px",
+                display: "flex",
+                flexDirection: "column",
+                gap: 36,
+              }}
+              className="modal-body-scroll"
+            >
+              {/* Document Banner */}
+              <div style={{ borderBottom: "1px solid rgba(201,168,76,0.15)", pb: 20, paddingBottom: 20 }}>
+                <div
+                  style={{
+                    fontFamily: "var(--font-dm-mono), monospace",
+                    fontSize: 10,
+                    letterSpacing: "4px",
+                    textTransform: "uppercase",
+                    color: "var(--gold)",
+                    marginBottom: 8,
+                  }}
+                >
                   MINDVEST GLOBAL RESOURCES
                 </div>
-                <h1 className="text-xl sm:text-3xl lg:text-4xl font-light text-white font-serif tracking-tight leading-snug">
+                <h1
+                  style={{
+                    fontFamily: "var(--font-cormorant), serif",
+                    fontSize: "clamp(24px, 3.5vw, 36px)",
+                    fontWeight: 300,
+                    color: "var(--cream)",
+                    margin: 0,
+                    lineHeight: 1.2,
+                  }}
+                >
                   Executive Advisory &amp; Architecture Catalog
                 </h1>
-                <p className="text-xs sm:text-sm lg:text-base text-slate-400 mt-1.5 sm:mt-2">
+                <p style={{ fontSize: 13, color: "rgba(247,243,236,0.5)", margin: "8px 0 0 0" }}>
                   Service Offerings, Keynote Engagements &amp; Pricing Framework (2026 Edition)
                 </p>
               </div>
 
               {/* Value Philosophy */}
-              <div className="bg-[#131d33] border-l-4 border-[#f59e0b] p-4 sm:p-6 rounded-r-xl">
-                <h3 className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[#f59e0b] font-bold mb-1.5 sm:mb-2">
+              <div
+                style={{
+                  background: "rgba(201,168,76,0.06)",
+                  borderLeft: "3px solid var(--gold)",
+                  padding: 20,
+                  borderRadius: "0 10px 10px 0",
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: "var(--font-dm-mono), monospace",
+                    fontSize: 10,
+                    letterSpacing: "3px",
+                    textTransform: "uppercase",
+                    color: "var(--gold)",
+                    marginBottom: 8,
+                    fontWeight: 600,
+                  }}
+                >
                   EXECUTIVE POSITIONING &amp; VALUE PHILOSOPHY
-                </h3>
-                <p className="text-xs sm:text-sm lg:text-base text-slate-200 leading-relaxed font-light">
+                </div>
+                <p style={{ fontSize: 14, color: "rgba(247,243,236,0.8)", lineHeight: 1.75, margin: 0, fontWeight: 300 }}>
                   At Mindvest Global Resources, we do not provide generic consulting or hourly advisory. We engineer high-yield human capital, deliver transformational keynote addresses, design resilient corporate governance, and build scalable organizational architectures. Our pricing structure reflects enterprise-level outcomes—transforming leadership alignment, driving market authority, and securing measurable bottom-line yield.
                 </p>
               </div>
 
               {/* 1. Master Pricing Table */}
-              <div className="space-y-3 sm:space-y-4">
-                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 border-b border-[#1e293b] pb-2">
-                  <h2 className="text-lg sm:text-xl lg:text-2xl font-serif font-light text-white">
+              <div>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 14 }}>
+                  <div style={{ fontFamily: "var(--font-cormorant), serif", fontSize: 22, color: "var(--cream)" }}>
                     1. Advisory &amp; Speaking Master Pricing Table
-                  </h2>
-                  <span className="text-[10px] sm:text-xs font-mono text-slate-400">
-                    Outcome-based fee schedules across keynotes &amp; transformation
-                  </span>
+                  </div>
                 </div>
 
-                {/* Responsive Table Container with horizontal touch scroll */}
-                <div className="overflow-x-auto rounded-xl border border-[#1e293b] bg-[#0f172a] -mx-1 sm:mx-0">
-                  <table className="w-full text-left text-xs sm:text-sm min-w-[620px]">
+                <div style={{ overflowX: "auto", borderRadius: 10, border: "1px solid rgba(201,168,76,0.2)" }}>
+                  <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", fontSize: 13, minWidth: 600 }}>
                     <thead>
-                      <tr className="border-b border-[#1e293b] bg-[#1e293b]/60 text-slate-300 font-mono text-[10px] sm:text-[11px] uppercase tracking-wider">
-                        <th className="py-3 px-3 sm:px-6">Service Line</th>
-                        <th className="py-3 px-3 sm:px-6">Core Deliverables &amp; Scope</th>
-                        <th className="py-3 px-3 sm:px-6">Target Client Profile</th>
-                        <th className="py-3 px-3 sm:px-6 text-right">Investment Level</th>
+                      <tr style={{ background: "rgba(201,168,76,0.12)", borderBottom: "1px solid rgba(201,168,76,0.2)", color: "var(--gold-light)", fontFamily: "var(--font-dm-mono)", fontSize: 10, letterSpacing: "1.5px", textTransform: "uppercase" }}>
+                        <th style={{ padding: "12px 16px" }}>Service Line</th>
+                        <th style={{ padding: "12px 16px" }}>Core Scope</th>
+                        <th style={{ padding: "12px 16px" }}>Target Profile</th>
+                        <th style={{ padding: "12px 16px", textAlign: "right" }}>Investment Level</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-[#1e293b] text-slate-300">
-                      <tr className="hover:bg-[#131d33] transition-colors">
-                        <td className="py-3.5 px-3 sm:px-6 font-semibold text-white">
+                    <tbody style={{ color: "rgba(247,243,236,0.85)" }}>
+                      <tr style={{ borderBottom: "1px solid rgba(247,243,236,0.06)" }}>
+                        <td style={{ padding: "14px 16px", fontWeight: 600, color: "var(--cream)" }}>
                           Executive Keynote Speaking
-                          <div className="text-[10px] sm:text-[11px] font-normal text-slate-400 font-mono">On-Site / Virtual</div>
+                          <div style={{ fontSize: 10, color: "var(--gold-muted)", fontFamily: "var(--font-dm-mono)" }}>On-Site / Virtual</div>
                         </td>
-                        <td className="py-3.5 px-3 sm:px-6 leading-relaxed">
-                          High-impact keynotes on Leadership Architecture, Organizational Re-engineering, Mindset Transformation, and Enterprise Vision.
-                        </td>
-                        <td className="py-3.5 px-3 sm:px-6 text-slate-300">
-                          Corporate AGMs, industry summits, executive retreats, global conferences.
-                        </td>
-                        <td className="py-3.5 px-3 sm:px-6 text-right font-mono font-bold text-[#f59e0b] whitespace-nowrap">
-                          ₦1,000,000 –<br />₦2,500,000
-                          <div className="text-[9px] sm:text-[10px] text-slate-400 font-normal">per keynote session</div>
+                        <td style={{ padding: "14px 16px", fontSize: 12 }}>High-impact keynotes on Leadership Architecture, Re-engineering, &amp; Enterprise Vision.</td>
+                        <td style={{ padding: "14px 16px", fontSize: 12 }}>AGMs, Summits, Retreats</td>
+                        <td style={{ padding: "14px 16px", textAlign: "right", fontFamily: "var(--font-dm-mono)", color: "var(--gold-light)", fontWeight: 700 }}>
+                          ₦1.0M – ₦2.5M
                         </td>
                       </tr>
-
-                      <tr className="hover:bg-[#131d33] transition-colors">
-                        <td className="py-3.5 px-3 sm:px-6 font-semibold text-white">
+                      <tr style={{ borderBottom: "1px solid rgba(247,243,236,0.06)" }}>
+                        <td style={{ padding: "14px 16px", fontWeight: 600, color: "var(--cream)" }}>
                           The Becoming Coaching
-                          <div className="text-[10px] sm:text-[11px] font-normal text-slate-400 font-mono">12-Week Executive Program</div>
+                          <div style={{ fontSize: 10, color: "var(--gold-muted)", fontFamily: "var(--font-dm-mono)" }}>12-Week Intensive</div>
                         </td>
-                        <td className="py-3.5 px-3 sm:px-6 leading-relaxed">
-                          Personal vision architecture, high-performance executive mindset, identity re-engineering, strategic branding, and elite accountability.
-                        </td>
-                        <td className="py-3.5 px-3 sm:px-6 text-slate-300">
-                          Mid-to-senior executives, high-yield founders, emerging C-suite leaders.
-                        </td>
-                        <td className="py-3.5 px-3 sm:px-6 text-right font-mono font-bold text-[#f59e0b] whitespace-nowrap">
-                          ₦750,000 –<br />₦1,500,000
-                          <div className="text-[9px] sm:text-[10px] text-slate-400 font-normal">per coachee</div>
+                        <td style={{ padding: "14px 16px", fontSize: 12 }}>Vision architecture, personal branding, &amp; executive mindset re-engineering.</td>
+                        <td style={{ padding: "14px 16px", fontSize: 12 }}>Executives, Founders, C-Suite</td>
+                        <td style={{ padding: "14px 16px", textAlign: "right", fontFamily: "var(--font-dm-mono)", color: "var(--gold-light)", fontWeight: 700 }}>
+                          ₦750k – ₦1.5M
                         </td>
                       </tr>
-
-                      <tr className="hover:bg-[#131d33] transition-colors">
-                        <td className="py-3.5 px-3 sm:px-6 font-semibold text-white">
+                      <tr style={{ borderBottom: "1px solid rgba(247,243,236,0.06)" }}>
+                        <td style={{ padding: "14px 16px", fontWeight: 600, color: "var(--cream)" }}>
                           Leadership Architecture
-                          <div className="text-[10px] sm:text-[11px] font-normal text-slate-400 font-mono">60–90 Day Transformation</div>
+                          <div style={{ fontSize: 10, color: "var(--gold-muted)", fontFamily: "var(--font-dm-mono)" }}>60–90 Day Project</div>
                         </td>
-                        <td className="py-3.5 px-3 sm:px-6 leading-relaxed">
-                          On-site executive alignment workshops, bespoke executive pipelines, succession planning, and decision-rights mapping.
-                        </td>
-                        <td className="py-3.5 px-3 sm:px-6 text-slate-300">
-                          Expanding mid-market enterprises, scale-ups, and family businesses.
-                        </td>
-                        <td className="py-3.5 px-3 sm:px-6 text-right font-mono font-bold text-[#f59e0b] whitespace-nowrap">
-                          ₦2,500,000 –<br />₦5,000,000
-                          <div className="text-[9px] sm:text-[10px] text-slate-400 font-normal">flat project fee</div>
+                        <td style={{ padding: "14px 16px", fontSize: 12 }}>Alignment workshops, pipeline design, succession planning, &amp; decision rights.</td>
+                        <td style={{ padding: "14px 16px", fontSize: 12 }}>Scale-ups, Mid-Market Groups</td>
+                        <td style={{ padding: "14px 16px", textAlign: "right", fontFamily: "var(--font-dm-mono)", color: "var(--gold-light)", fontWeight: 700 }}>
+                          ₦2.5M – ₦5.0M
                         </td>
                       </tr>
-
-                      <tr className="hover:bg-[#131d33] transition-colors">
-                        <td className="py-3.5 px-3 sm:px-6 font-semibold text-white">
+                      <tr>
+                        <td style={{ padding: "14px 16px", fontWeight: 600, color: "var(--cream)" }}>
                           Organisational Architecture
-                          <div className="text-[10px] sm:text-[11px] font-normal text-slate-400 font-mono">Full Restructuring / Retainer</div>
+                          <div style={{ fontSize: 10, color: "var(--gold-muted)", fontFamily: "var(--font-dm-mono)" }}>Corporate Retainer</div>
                         </td>
-                        <td className="py-3.5 px-3 sm:px-6 leading-relaxed">
-                          End-to-end corporate restructuring, process engineering, culture transformation, strategic policy blueprints, and quarterly board advisory.
-                        </td>
-                        <td className="py-3.5 px-3 sm:px-6 text-slate-300">
-                          Established corporate groups, multi-division enterprises, institutional clients.
-                        </td>
-                        <td className="py-3.5 px-3 sm:px-6 text-right font-mono font-bold text-[#f59e0b] whitespace-nowrap">
-                          ₦5,000,000 –<br />₦15,000,000+
-                          <div className="text-[9px] sm:text-[10px] text-slate-400 font-normal">or ₦1.5M–₦3M/mo retainer</div>
+                        <td style={{ padding: "14px 16px", fontSize: 12 }}>Total corporate restructuring, process optimization, &amp; quarterly board advisory.</td>
+                        <td style={{ padding: "14px 16px", fontSize: 12 }}>Conglomerates, Institutions</td>
+                        <td style={{ padding: "14px 16px", textAlign: "right", fontFamily: "var(--font-dm-mono)", color: "var(--gold-light)", fontWeight: 700 }}>
+                          ₦5.0M – ₦15.0M+
                         </td>
                       </tr>
                     </tbody>
@@ -593,102 +1103,112 @@ export default function CatalogLeadSection() {
                 </div>
               </div>
 
-              {/* 2. Detailed Service Scope & Delivery Frameworks */}
-              <div className="space-y-3 sm:space-y-4">
-                <h2 className="text-lg sm:text-xl lg:text-2xl font-serif font-light text-white border-b border-[#1e293b] pb-2">
+              {/* 2. Detailed 4 Delivery Frameworks */}
+              <div>
+                <div style={{ fontFamily: "var(--font-cormorant), serif", fontSize: 22, color: "var(--cream)", marginBottom: 16 }}>
                   2. Detailed Service Scope &amp; Delivery Frameworks
-                </h2>
+                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-                  {/* Pillar 1 */}
-                  <div className="p-4 sm:p-5 rounded-xl bg-[#0f172a] border border-[#1e293b] hover:border-[#f59e0b]/50 transition-colors">
-                    <div className="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-[#f59e0b] font-bold mb-1">
-                      KEYNOTE ADDRESS
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+                    gap: 16,
+                  }}
+                >
+                  {[
+                    {
+                      tag: "KEYNOTE ADDRESS",
+                      title: "Executive Speaking",
+                      points: ["60–90 min keynote presentation", "Event theme alignment", "Pre-event interview", "VIP strategy roundtable"],
+                    },
+                    {
+                      tag: "HUMAN CAPITAL",
+                      title: "The Becoming Coaching",
+                      points: ["Weekly 90-min 1-on-1 coaching", "Executive personal audit", "Identity re-engineering", "24/7 strategic desk chat"],
+                    },
+                    {
+                      tag: "GOVERNANCE & KEYNOTES",
+                      title: "Leadership Architecture",
+                      points: ["On-site executive speaking", "Competency model mapping", "Succession planning blueprints", "Board alignment workshops"],
+                    },
+                    {
+                      tag: "ENTERPRISE SCALE",
+                      title: "Organisational Architecture",
+                      points: ["Full corporate restructuring", "Process optimization & workflows", "Culture & performance systems", "Quarterly board advisory"],
+                    },
+                  ].map((col, idx) => (
+                    <div
+                      key={idx}
+                      style={{
+                        padding: 16,
+                        borderRadius: 10,
+                        background: "rgba(247,243,236,0.03)",
+                        border: "1px solid rgba(201,168,76,0.2)",
+                      }}
+                    >
+                      <div
+                        style={{
+                          fontFamily: "var(--font-dm-mono), monospace",
+                          fontSize: 9,
+                          letterSpacing: "2px",
+                          textTransform: "uppercase",
+                          color: "var(--gold)",
+                          marginBottom: 6,
+                          fontWeight: 700,
+                        }}
+                      >
+                        {col.tag}
+                      </div>
+                      <div style={{ fontSize: 14, fontWeight: 600, color: "var(--cream)", marginBottom: 12 }}>
+                        {col.title}
+                      </div>
+                      <ul style={{ margin: 0, paddingLeft: 14, fontSize: 11, color: "rgba(247,243,236,0.7)", lineHeight: 1.7 }}>
+                        {col.points.map((pt, pIdx) => (
+                          <li key={pIdx}>{pt}</li>
+                        ))}
+                      </ul>
                     </div>
-                    <h4 className="text-sm sm:text-base font-semibold text-white mb-1.5 sm:mb-2">Executive Speaking</h4>
-                    <p className="text-[11px] sm:text-xs text-slate-400 mb-3 sm:mb-4 leading-relaxed">
-                      On-site keynotes and high-stakes executive retreat presentations.
-                    </p>
-                    <ul className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-slate-300">
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> 60–90 min keynote presentation</li>
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> Customized event theme alignment</li>
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> Pre-event executive interview</li>
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> Audience Q&amp;A &amp; engagement</li>
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> VIP strategy roundtable inclusion</li>
-                    </ul>
-                  </div>
-
-                  {/* Pillar 2 */}
-                  <div className="p-4 sm:p-5 rounded-xl bg-[#0f172a] border border-[#1e293b] hover:border-[#f59e0b]/50 transition-colors">
-                    <div className="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-[#f59e0b] font-bold mb-1">
-                      HUMAN CAPITAL
-                    </div>
-                    <h4 className="text-sm sm:text-base font-semibold text-white mb-1.5 sm:mb-2">The Becoming Coaching</h4>
-                    <p className="text-[11px] sm:text-xs text-slate-400 mb-3 sm:mb-4 leading-relaxed">
-                      High-touch 1-on-1 intensive aligning personal authority with execution.
-                    </p>
-                    <ul className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-slate-300">
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> Weekly 90-min 1-on-1 coaching</li>
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> Executive personal audit</li>
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> Identity re-engineering</li>
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> Origin Platform publishing access</li>
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> 24/7 strategic desk chat</li>
-                    </ul>
-                  </div>
-
-                  {/* Pillar 3 */}
-                  <div className="p-4 sm:p-5 rounded-xl bg-[#0f172a] border border-[#1e293b] hover:border-[#f59e0b]/50 transition-colors">
-                    <div className="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-[#f59e0b] font-bold mb-1">
-                      GOVERNANCE &amp; KEYNOTES
-                    </div>
-                    <h4 className="text-sm sm:text-base font-semibold text-white mb-1.5 sm:mb-2">Leadership Architecture</h4>
-                    <p className="text-[11px] sm:text-xs text-slate-400 mb-3 sm:mb-4 leading-relaxed">
-                      Structuring the leadership engine &amp; on-site alignment workshops.
-                    </p>
-                    <ul className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-slate-300">
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> On-site executive speaking</li>
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> Competency model mapping</li>
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> Succession planning blueprints</li>
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> C-suite governance frameworks</li>
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> Board alignment workshops</li>
-                    </ul>
-                  </div>
-
-                  {/* Pillar 4 */}
-                  <div className="p-4 sm:p-5 rounded-xl bg-[#0f172a] border border-[#1e293b] hover:border-[#f59e0b]/50 transition-colors">
-                    <div className="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-[#f59e0b] font-bold mb-1">
-                      ENTERPRISE SCALE
-                    </div>
-                    <h4 className="text-sm sm:text-base font-semibold text-white mb-1.5 sm:mb-2">Organisational Architecture</h4>
-                    <p className="text-[11px] sm:text-xs text-slate-400 mb-3 sm:mb-4 leading-relaxed">
-                      Total structural re-engineering to eliminate friction and maximize yield.
-                    </p>
-                    <ul className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-slate-300">
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> Full-scale corporate restructuring</li>
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> Process optimization &amp; workflows</li>
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> Culture &amp; performance systems</li>
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> Multi-division brand alignment</li>
-                      <li className="flex items-center gap-2"><span className="text-[#f59e0b] flex-shrink-0">•</span> Quarterly board advisory seats</li>
-                    </ul>
-                  </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Document Footer */}
-              <div className="pt-5 sm:pt-6 border-t border-[#1e293b] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-mono text-center sm:text-left">
+              {/* Footer */}
+              <div
+                style={{
+                  borderTop: "1px solid rgba(201,168,76,0.15)",
+                  paddingTop: 20,
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  fontSize: 12,
+                  color: "rgba(247,243,236,0.5)",
+                  flexWrap: "wrap",
+                  gap: 12,
+                }}
+              >
                 <div>
-                  Mindvest Global Resources Ltd. · <a href="mailto:support@mindvestglobalresources.com.ng" className="text-[#f59e0b] hover:underline">support@mindvestglobalresources.com.ng</a>
+                  Mindvest Global Resources Ltd. · <a href="mailto:support@mindvestglobalresources.com.ng" style={{ color: "var(--gold)" }}>support@mindvestglobalresources.com.ng</a>
                 </div>
-                <div className="flex items-center gap-3 w-full sm:w-auto justify-center sm:justify-end">
-                  <a
-                    href="https://calendly.com/mindvestglobalresources/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full sm:w-auto text-center px-4 py-2.5 rounded bg-[#f59e0b] text-[#0f172a] font-bold uppercase tracking-wider hover:bg-amber-400 transition-colors text-xs"
-                  >
-                    Schedule Executive Call &rarr;
-                  </a>
-                </div>
+                <a
+                  href="https://calendly.com/mindvestglobalresources/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    padding: "8px 18px",
+                    borderRadius: 6,
+                    background: "var(--gold)",
+                    color: "var(--indigo-deep)",
+                    fontFamily: "var(--font-dm-mono), monospace",
+                    fontSize: 10,
+                    letterSpacing: "2px",
+                    textTransform: "uppercase",
+                    fontWeight: 700,
+                    textDecoration: "none",
+                  }}
+                >
+                  Schedule Executive Call →
+                </a>
               </div>
             </div>
           </div>
