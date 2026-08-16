@@ -340,6 +340,36 @@ export default function Hero() {
             >
               Explore Our Work
             </a>
+            <a
+              href="#catalog-access"
+              style={{
+                padding: "16px 36px",
+                border: "1px solid rgba(245,158,11,0.5)",
+                background: "rgba(180,83,9,0.15)",
+                color: "var(--gold-light)",
+                fontFamily: "var(--font-dm-mono), monospace",
+                fontSize: 11,
+                letterSpacing: "3px",
+                textTransform: "uppercase",
+                textDecoration: "none",
+                transition: "all 0.3s",
+                display: "inline-block",
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.background = "var(--gold)";
+                el.style.color = "var(--indigo-deep)";
+                el.style.transform = "translateY(-3px)";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.background = "rgba(180,83,9,0.15)";
+                el.style.color = "var(--gold-light)";
+                el.style.transform = "translateY(0)";
+              }}
+            >
+              2026 Catalog (PDF) ↓
+            </a>
           </div>
 
           {/* QR Code Scan Integration */}
