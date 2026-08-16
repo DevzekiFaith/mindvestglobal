@@ -401,24 +401,60 @@ export default function Masterclass() {
                 )}
               </div>
 
-              <div style={{
-                fontFamily: "var(--font-cormorant), serif",
-                fontSize: 44,
-                fontWeight: 300,
-                color: "var(--gold-light)",
-                marginBottom: 6,
-                lineHeight: 1,
-              }}>
-                ₦15,000
-              </div>
-              <div style={{
-                fontFamily: "var(--font-dm-mono), monospace",
-                fontSize: 10,
-                letterSpacing: "2px",
-                color: "var(--gold-muted)",
-                marginBottom: 28,
-              }}>
-                Per session · Early access pricing
+              {/* Tiered Pricing Display */}
+              <div style={{ marginBottom: 28 }}>
+                <div style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 12,
+                  flexWrap: "wrap",
+                  marginBottom: 10,
+                }}>
+                  <span style={{
+                    fontFamily: "var(--font-cormorant), serif",
+                    fontSize: 26,
+                    color: "rgba(247,243,236,0.38)",
+                    textDecoration: "line-through",
+                    fontWeight: 300,
+                  }}>
+                    ₦100,000
+                  </span>
+                  <span style={{
+                    fontFamily: "var(--font-dm-mono), monospace",
+                    fontSize: 10,
+                    letterSpacing: "1.5px",
+                    textTransform: "uppercase",
+                    color: "var(--gold-light)",
+                    padding: "4px 10px",
+                    borderRadius: 4,
+                    background: "rgba(201,168,76,0.12)",
+                    border: "1px solid rgba(201,168,76,0.25)",
+                    fontWeight: 600,
+                  }}>
+                    Early-Bird: ₦50,000
+                  </span>
+                </div>
+
+                <div style={{
+                  fontFamily: "var(--font-cormorant), serif",
+                  fontSize: 52,
+                  fontWeight: 300,
+                  color: "var(--gold-light)",
+                  lineHeight: 1,
+                  marginBottom: 6,
+                  letterSpacing: "-0.5px",
+                }}>
+                  ₦15,000
+                </div>
+                <div style={{
+                  fontFamily: "var(--font-dm-mono), monospace",
+                  fontSize: 10,
+                  letterSpacing: "2px",
+                  textTransform: "uppercase",
+                  color: "var(--gold-muted)",
+                }}>
+                  Per session · Instant Access Pricing
+                </div>
               </div>
 
               <a
