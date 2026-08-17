@@ -454,18 +454,39 @@ export default function Masterclass() {
                   color: "var(--gold-muted)",
                   lineHeight: 1.6,
                 }}>
-                  <div>Per session · Instant Access Pricing</div>
+                  <div>Per session · Instant Access Tier</div>
                   <div style={{
-                    color: "var(--gold-light)",
-                    marginTop: 6,
-                    fontWeight: 600,
-                    display: "inline-block",
-                    padding: "3px 8px",
-                    background: "rgba(201,168,76,0.1)",
-                    border: "1px solid rgba(201,168,76,0.3)",
-                    borderRadius: 4,
+                    marginTop: 8,
+                    padding: "8px 12px",
+                    background: "rgba(201,168,76,0.08)",
+                    border: "1px solid rgba(201,168,76,0.25)",
+                    borderRadius: 6,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 4,
                   }}>
-                    Valid until 20th · Reverts to Early-Bird (₦50,000)
+                    <div style={{ color: "var(--gold-light)", fontWeight: 600, display: "flex", alignItems: "center", gap: 7 }}>
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#34D399"
+                        strokeWidth="2.2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        style={{ flexShrink: 0 }}
+                      >
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                      </svg>
+                      <span>₦15,000 Instant Access (Until 20th)</span>
+                    </div>
+                    <div style={{ color: "rgba(247,243,236,0.75)", fontSize: 9.5 }}>
+                      &bull; Reverts to Early-Bird (₦50,000) on the 20th
+                    </div>
+                    <div style={{ color: "rgba(247,243,236,0.5)", fontSize: 9.5 }}>
+                      &bull; Reverts to Standard (₦100,000) on the 25th
+                    </div>
                   </div>
                 </div>
               </div>
