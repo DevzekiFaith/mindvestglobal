@@ -978,7 +978,7 @@ export default function CatalogLeadSection() {
               className="modal-body-scroll"
             >
               {/* Document Banner */}
-              <div style={{ borderBottom: "1px solid rgba(201,168,76,0.15)", pb: 20, paddingBottom: 20 }}>
+              <div style={{ borderBottom: "1px solid rgba(201,168,76,0.15)", paddingBottom: 20 }}>
                 <div
                   style={{
                     fontFamily: "var(--font-dm-mono), monospace",
