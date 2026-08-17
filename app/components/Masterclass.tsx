@@ -441,7 +441,7 @@ export default function Masterclass() {
                   fontWeight: 300,
                   color: "var(--gold-light)",
                   lineHeight: 1,
-                  marginBottom: 6,
+                  marginBottom: 8,
                   letterSpacing: "-0.5px",
                 }}>
                   ₦15,000
@@ -449,11 +449,24 @@ export default function Masterclass() {
                 <div style={{
                   fontFamily: "var(--font-dm-mono), monospace",
                   fontSize: 10,
-                  letterSpacing: "2px",
+                  letterSpacing: "1.5px",
                   textTransform: "uppercase",
                   color: "var(--gold-muted)",
+                  lineHeight: 1.6,
                 }}>
-                  Per session · Instant Access Pricing
+                  <div>Per session · Instant Access Pricing</div>
+                  <div style={{
+                    color: "var(--gold-light)",
+                    marginTop: 6,
+                    fontWeight: 600,
+                    display: "inline-block",
+                    padding: "3px 8px",
+                    background: "rgba(201,168,76,0.1)",
+                    border: "1px solid rgba(201,168,76,0.3)",
+                    borderRadius: 4,
+                  }}>
+                    Valid until 20th · Reverts to Early-Bird (₦50,000)
+                  </div>
                 </div>
               </div>
 
