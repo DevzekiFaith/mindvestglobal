@@ -95,16 +95,38 @@ export async function POST(req: NextRequest) {
               <tr>
                 <td align="center">
                   <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 620px; background-color: #0f172a; border: 1px solid #1e293b; border-radius: 16px; overflow: hidden; box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.7);">
-                    <!-- Header with Company Logo -->
+                    <!-- Header with Company Logo Symbol & Typography -->
                     <tr>
-                      <td style="background: linear-gradient(180deg, #131d33 0%, #0f172a 100%); padding: 40px 32px 32px 32px; border-bottom: 1px solid #1e293b; text-align: center;">
-                        <!-- Logo Symbol -->
-                        <div style="margin: 0 auto 20px auto; text-align: center;">
-                          <img src="${logoUrl}" alt="Mindvest Global Resources" width="160" style="width: 160px; max-width: 100%; height: auto; display: inline-block; border: 0;" />
-                        </div>
+                      <td style="background: linear-gradient(180deg, #131d33 0%, #0f172a 100%); padding: 36px 28px 28px 28px; border-bottom: 1px solid #1e293b; text-align: center;">
+                        <!-- Native Brand Symbol & Architectural Arch -->
+                        <table border="0" cellspacing="0" cellpadding="0" align="center" style="margin: 0 auto 16px auto;">
+                          <tr>
+                            <td align="center" style="padding-bottom: 4px;">
+                              <!-- The 3 Concentric Golden Arches with Pillar 'i' -->
+                              <div style="width: 54px; height: 50px; margin: 0 auto; border-radius: 27px 27px 0 0; border: 2px solid #C9A84C; border-bottom: 0; padding: 4px; box-sizing: border-box; background: rgba(201,168,76,0.06);">
+                                <div style="width: 42px; height: 40px; margin: 0 auto; border-radius: 21px 21px 0 0; border: 2px solid #E8C97A; border-bottom: 0; padding: 4px; box-sizing: border-box;">
+                                  <div style="width: 30px; height: 30px; margin: 0 auto; border-radius: 15px 15px 0 0; border: 2px solid #FDF3CF; border-bottom: 0; padding-top: 4px; text-align: center; font-size: 15px; font-weight: 700; color: #E8C97A; font-family: 'Times New Roman', Georgia, serif; line-height: 1;">
+                                    i
+                                  </div>
+                                </div>
+                              </div>
+                              <div style="width: 66px; height: 2px; background: linear-gradient(90deg, #A98835, #E8C97A, #A98835); margin: 0 auto 10px auto;"></div>
+                              
+                              <div style="font-family: 'Times New Roman', Georgia, serif; font-size: 20px; font-weight: 400; letter-spacing: 7px; color: #ffffff; text-transform: uppercase; margin-bottom: 3px;">
+                                MINDVEST
+                              </div>
+                              <div style="font-family: 'Courier New', monospace; font-size: 10px; font-weight: 700; letter-spacing: 5px; color: #E8C97A; text-transform: uppercase; margin-bottom: 4px;">
+                                &#8212; GLOBAL &#8212;
+                              </div>
+                              <div style="font-family: 'Courier New', monospace; font-size: 8px; font-weight: 400; letter-spacing: 2.5px; color: #94A3B8; text-transform: uppercase;">
+                                ARCHITECTING HUMAN POTENTIAL
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
                         
                         <!-- Badge -->
-                        <div style="display: inline-block; padding: 5px 14px; border-radius: 100px; background-color: rgba(180, 83, 9, 0.15); border: 1px solid rgba(245, 158, 11, 0.35); font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #f59e0b; margin-bottom: 14px;">
+                        <div style="display: inline-block; padding: 5px 14px; border-radius: 100px; background-color: rgba(180, 83, 9, 0.15); border: 1px solid rgba(245, 158, 11, 0.35); font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #f59e0b; margin-top: 14px; margin-bottom: 12px;">
                           INSTITUTIONAL GOVERNANCE &amp; ARCHITECTURE
                         </div>
                         
@@ -201,8 +223,10 @@ export async function POST(req: NextRequest) {
           <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #f4f6f8; padding: 24px; color: #1e293b;">
             <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
               <div style="background-color: #0f172a; padding: 24px; color: #ffffff; text-align: left;">
-                <div style="margin-bottom: 12px;">
-                  <img src="${logoUrl}" alt="Mindvest Global" width="130" style="width: 130px; max-width: 100%; height: auto; display: block; border: 0;" />
+                <div style="margin-bottom: 14px;">
+                  <div style="font-family: 'Times New Roman', Georgia, serif; font-size: 16px; font-weight: 600; letter-spacing: 4px; color: #ffffff; text-transform: uppercase;">
+                    MINDVEST <span style="color: #E8C97A; font-family: 'Courier New', monospace; font-size: 11px;">GLOBAL</span>
+                  </div>
                 </div>
                 <span style="background-color: #b45309; color: #ffffff; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; letter-spacing: 1.5px; text-transform: uppercase;">
                   INCOMING EXECUTIVE LEAD
