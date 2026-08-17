@@ -55,11 +55,12 @@ export async function POST(req: NextRequest) {
     // Ensure the PDF exists in public/docs and get buffer for direct attachment
     const pdfBuffer = getOrGenerateCatalogPdf();
 
-    // Always use official live production domain for outbound client emails
+    // Always use official live production domain for outbound client emails & assets
     const siteUrl =
       process.env.NEXT_PUBLIC_SITE_URL ||
       "https://www.mindvestglobalresources.com.ng";
     const catalogPdfUrl = `${siteUrl.replace(/\/+$/, "")}/docs/Mindvest_Advisory_Catalog_Updated.pdf`;
+    const logoUrl = `${siteUrl.replace(/\/+$/, "")}/images/mindvest-logo.svg`;
 
     const timestamp = new Date().toLocaleString("en-GB", {
       timeZone: "Africa/Lagos",
@@ -89,22 +90,29 @@ export async function POST(req: NextRequest) {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Executive Advisory & Architecture Catalog</title>
           </head>
-          <body style="margin: 0; padding: 0; background-color: #0b0f19; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #f8fafc;">
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #0b0f19; padding: 40px 20px;">
+          <body style="margin: 0; padding: 0; background-color: #080c16; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #f8fafc;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #080c16; padding: 36px 16px;">
               <tr>
                 <td align="center">
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 620px; background-color: #0f172a; border: 1px solid #1e293b; border-radius: 12px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);">
-                    <!-- Header -->
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 620px; background-color: #0f172a; border: 1px solid #1e293b; border-radius: 16px; overflow: hidden; box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.7);">
+                    <!-- Header with Company Logo -->
                     <tr>
-                      <td style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 36px 32px; border-bottom: 1px solid #334155; text-align: left;">
-                        <div style="font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #f59e0b; margin-bottom: 8px;">
+                      <td style="background: linear-gradient(180deg, #131d33 0%, #0f172a 100%); padding: 40px 32px 32px 32px; border-bottom: 1px solid #1e293b; text-align: center;">
+                        <!-- Logo Symbol -->
+                        <div style="margin: 0 auto 20px auto; text-align: center;">
+                          <img src="${logoUrl}" alt="Mindvest Global Resources" width="160" style="width: 160px; max-width: 100%; height: auto; display: inline-block; border: 0;" />
+                        </div>
+                        
+                        <!-- Badge -->
+                        <div style="display: inline-block; padding: 5px 14px; border-radius: 100px; background-color: rgba(180, 83, 9, 0.15); border: 1px solid rgba(245, 158, 11, 0.35); font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #f59e0b; margin-bottom: 14px;">
                           INSTITUTIONAL GOVERNANCE &amp; ARCHITECTURE
                         </div>
-                        <h1 style="margin: 0; font-size: 24px; font-weight: 700; color: #ffffff; line-height: 1.3;">
+                        
+                        <h1 style="margin: 0; font-size: 22px; font-weight: 700; color: #ffffff; line-height: 1.35; letter-spacing: -0.3px;">
                           Executive Advisory &amp; Architecture Catalog
                         </h1>
                         <p style="margin: 6px 0 0; font-size: 13px; color: #94a3b8;">
-                          2026 Edition · Service Offerings, Keynote Engagements &amp; Pricing Frameworks
+                          2026 Edition · Service Offerings, Keynote Engagements &amp; Pricing Framework
                         </p>
                       </td>
                     </tr>
@@ -119,28 +127,28 @@ export async function POST(req: NextRequest) {
                           Thank you for your interest in <strong>Mindvest Global Resources</strong>. We engineer high-yield human capital, deliver transformational keynote addresses, design resilient corporate governance, and build scalable organizational architectures.
                         </p>
                         <p style="font-size: 15px; line-height: 1.7; color: #cbd5e1;">
-                          Your requested copy of the <strong>Executive Advisory &amp; Architecture Catalog (2026 Edition)</strong> is ready for your strategic review.
+                          Your requested copy of the <strong>Executive Advisory &amp; Architecture Catalog (2026 Edition)</strong> is attached to this email and ready for your strategic review.
                         </p>
 
                         <!-- CTA Button Box -->
-                        <div style="margin: 32px 0; padding: 24px; background-color: #1e293b; border-radius: 8px; border-left: 4px solid #f59e0b; text-align: center;">
-                          <p style="margin: 0 0 16px; font-size: 14px; font-weight: 600; color: #f8fafc;">
+                        <div style="margin: 32px 0; padding: 24px; background-color: #131d33; border-radius: 12px; border: 1px solid #1e293b; border-left: 4px solid #f59e0b; text-align: center;">
+                          <p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; color: #f8fafc;">
                             Selected Area of Interest: <span style="color: #f59e0b;">${cleanInterest}</span>
                           </p>
-                          <a href="${catalogPdfUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #0f172a; font-weight: 700; font-size: 14px; letter-spacing: 0.5px; text-decoration: none; padding: 14px 32px; border-radius: 6px; box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.3);">
-                            Download Full Executive Catalog (PDF) &rarr;
+                          <a href="${catalogPdfUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #0f172a; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; padding: 14px 32px; border-radius: 8px; box-shadow: 0 10px 20px -3px rgba(245, 158, 11, 0.35);">
+                            Download Executive Catalog (PDF) &rarr;
                           </a>
-                          <p style="margin: 12px 0 0; font-size: 12px; color: #94a3b8;">
-                            Direct PDF URL: <a href="${catalogPdfUrl}" style="color: #94a3b8; text-decoration: underline;">${catalogPdfUrl}</a>
+                          <p style="margin: 12px 0 0; font-size: 11px; color: #94a3b8;">
+                            Also attached directly as a PDF document to this message.
                           </p>
                         </div>
 
                         <!-- Scope Highlights -->
-                        <div style="margin-top: 24px; border-top: 1px solid #334155; padding-top: 24px;">
-                          <h3 style="margin: 0 0 14px; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #f59e0b;">
+                        <div style="margin-top: 24px; border-top: 1px solid #1e293b; padding-top: 24px;">
+                          <h3 style="margin: 0 0 14px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #f59e0b;">
                             Inside the 2026 Advisory Blueprint:
                           </h3>
-                          <ul style="margin: 0; padding-left: 20px; color: #cbd5e1; font-size: 14px; line-height: 1.8;">
+                          <ul style="margin: 0; padding-left: 20px; color: #cbd5e1; font-size: 14px; line-height: 1.85;">
                             <li><strong>Executive Keynote Speaking:</strong> ₦1.0M &ndash; ₦2.5M per session (AGMs, retreats, global summits).</li>
                             <li><strong>The Becoming Coaching:</strong> 12-Week 1-on-1 executive mindset &amp; identity re-engineering (₦750k &ndash; ₦1.5M).</li>
                             <li><strong>Leadership Architecture Project:</strong> 60&ndash;90 day transformation &amp; governance alignment (₦2.5M &ndash; ₦5.0M).</li>
@@ -156,14 +164,14 @@ export async function POST(req: NextRequest) {
 
                     <!-- Footer -->
                     <tr>
-                      <td style="padding: 24px 32px; background-color: #0b0f19; border-top: 1px solid #1e293b; text-align: center;">
-                        <p style="margin: 0; font-size: 12px; font-weight: 600; color: #f8fafc;">
+                      <td style="padding: 28px 32px; background-color: #0b1120; border-top: 1px solid #1e293b; text-align: center;">
+                        <p style="margin: 0; font-size: 13px; font-weight: 600; color: #f8fafc; letter-spacing: 0.5px;">
                           Mindvest Global Resources Ltd.
                         </p>
-                        <p style="margin: 4px 0 0; font-size: 11px; color: #64748b;">
+                        <p style="margin: 6px 0 0; font-size: 11px; color: #64748b;">
                           Email: support@mindvestglobalresources.com.ng &nbsp;|&nbsp; Ecosystem: <a href="https://www.origin.com.ng" style="color: #f59e0b; text-decoration: none;">origin.com.ng</a>
                         </p>
-                        <p style="margin: 8px 0 0; font-size: 10px; color: #475569;">
+                        <p style="margin: 10px 0 0; font-size: 10px; color: #475569; letter-spacing: 1px; text-transform: uppercase;">
                           Confidential Corporate Document · For Strategic Evaluation Only
                         </p>
                       </td>
@@ -191,9 +199,12 @@ export async function POST(req: NextRequest) {
             <title>New Corporate Lead Alert</title>
           </head>
           <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #f4f6f8; padding: 24px; color: #1e293b;">
-            <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-              <div style="background-color: #0f172a; padding: 20px 24px; color: #ffffff;">
-                <span style="background-color: #b45309; color: #ffffff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; letter-spacing: 1px;">
+            <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+              <div style="background-color: #0f172a; padding: 24px; color: #ffffff; text-align: left;">
+                <div style="margin-bottom: 12px;">
+                  <img src="${logoUrl}" alt="Mindvest Global" width="130" style="width: 130px; max-width: 100%; height: auto; display: block; border: 0;" />
+                </div>
+                <span style="background-color: #b45309; color: #ffffff; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; letter-spacing: 1.5px; text-transform: uppercase;">
                   INCOMING EXECUTIVE LEAD
                 </span>
                 <h2 style="margin: 10px 0 0; font-size: 20px; color: #ffffff;">
@@ -236,8 +247,8 @@ export async function POST(req: NextRequest) {
                   </tr>
                 </table>
 
-                <div style="margin-top: 24px; padding: 16px; background-color: #f8fafc; border-radius: 6px; border: 1px solid #e2e8f0; text-align: center;">
-                  <a href="mailto:${cleanEmail}?subject=Re:%20Executive%20Advisory%20Inquiry%20-%20${encodeURIComponent(cleanCompany)}" style="display: inline-block; background-color: #0f172a; color: #ffffff; padding: 10px 24px; border-radius: 6px; font-weight: 600; font-size: 13px; text-decoration: none;">
+                <div style="margin-top: 24px; padding: 16px; background-color: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; text-align: center;">
+                  <a href="mailto:${cleanEmail}?subject=Re:%20Executive%20Advisory%20Inquiry%20-%20${encodeURIComponent(cleanCompany)}" style="display: inline-block; background-color: #0f172a; color: #ffffff; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 13px; text-decoration: none;">
                     Reply to Lead Directly &rarr;
                   </a>
                 </div>
