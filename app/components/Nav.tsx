@@ -68,7 +68,7 @@ export default function Nav() {
         </Link>
 
         {/* Desktop links */}
-        <ul style={{ display: "flex", gap: 36, listStyle: "none", alignItems: "center", margin: 0, padding: 0 }}
+        <ul style={{ display: "flex", gap: 24, listStyle: "none", alignItems: "center", margin: 0, padding: 0 }}
             className="nav-desktop">
           {navLinks.map((link) => (
             <li key={link.href}>
@@ -76,11 +76,12 @@ export default function Nav() {
                 href={link.href}
                 style={{
                   fontFamily: "var(--font-dm-sans), sans-serif",
-                  fontSize: 13,
+                  fontSize: 11.5,
                   color: scrolled ? "var(--muted)" : "rgba(247,243,236,0.65)",
                   textDecoration: "none",
                   transition: "color 0.2s",
-                  letterSpacing: "0.3px",
+                  letterSpacing: "0.4px",
+                  fontWeight: 400,
                 }}
                 onMouseEnter={(e) => {
                   (e.target as HTMLElement).style.color = scrolled ? "var(--indigo)" : "var(--gold)";
@@ -99,12 +100,12 @@ export default function Nav() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                padding: "11px 28px",
+                padding: "9px 20px",
                 background: "var(--gold)",
                 color: "var(--indigo-deep)",
                 fontFamily: "var(--font-dm-mono), monospace",
-                fontSize: 11,
-                letterSpacing: "2px",
+                fontSize: 10,
+                letterSpacing: "1.5px",
                 textTransform: "uppercase",
                 textDecoration: "none",
                 fontWeight: 500,
@@ -174,7 +175,7 @@ export default function Nav() {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            gap: 32,
+            gap: 20,
           }}
         >
           {navLinks.map((link) => (
@@ -184,12 +185,12 @@ export default function Nav() {
               onClick={() => setMobileOpen(false)}
               style={{
                 fontFamily: "var(--font-cormorant), serif",
-                fontSize: 36,
+                fontSize: 26,
                 fontWeight: 300,
                 color: "var(--cream)",
                 textDecoration: "none",
                 transition: "color 0.2s",
-                letterSpacing: "1px",
+                letterSpacing: "0.5px",
               }}
             >
               {link.label}
@@ -201,13 +202,13 @@ export default function Nav() {
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
             style={{
-              marginTop: 16,
-              padding: "14px 36px",
+              marginTop: 12,
+              padding: "12px 30px",
               background: "var(--gold)",
               color: "var(--indigo-deep)",
               fontFamily: "var(--font-dm-mono), monospace",
-              fontSize: 11,
-              letterSpacing: "3px",
+              fontSize: 10,
+              letterSpacing: "2.5px",
               textTransform: "uppercase",
               textDecoration: "none",
             }}
