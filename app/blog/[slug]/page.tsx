@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { blogPosts, getBlogPost } from "@/lib/blog";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
-import BlogPostClient from "./BlogPostClient";
+import BlogPostClient from "@/app/blog/[slug]/BlogPostClient";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
