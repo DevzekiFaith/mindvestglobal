@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://mindvestglobal.com/sitemap.xml",
+    sitemap: "https://www.mindvestglobalresources.com.ng/sitemap.xml",
   };
 }

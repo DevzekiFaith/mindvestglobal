@@ -25,7 +25,7 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mindvestglobal.com"),
+  metadataBase: new URL("https://www.mindvestglobalresources.com.ng"),
   title: {
     default: "Mindvest Global — Architecting Human Potential | Lagos & Ogun, Nigeria",
     template: "%s | Mindvest Global",
@@ -57,14 +57,14 @@ export const metadata: Metadata = {
     telephone: true,
   },
   alternates: {
-    canonical: "https://mindvestglobal.com",
+    canonical: "https://www.mindvestglobalresources.com.ng",
   },
   openGraph: {
     title: "Mindvest Global — Architecting Human Potential",
     description:
       "A transformational education enterprise built on the conviction that the most important structure any human being will ever build is the architecture of who they are becoming.",
     type: "website",
-    url: "https://mindvestglobal.com",
+    url: "https://www.mindvestglobalresources.com.ng",
     siteName: "Mindvest Global",
     locale: "en_US",
     images: [
@@ -104,8 +104,8 @@ const organizationSchema = {
   "@type": "EducationalOrganization",
   "name": "Mindvest Global Resources LLC",
   "alternateName": "Mindvest Global",
-  "url": "https://mindvestglobal.com",
-  "logo": "https://mindvestglobal.com/icon.svg",
+  "url": "https://www.mindvestglobalresources.com.ng",
+  "logo": "https://www.mindvestglobalresources.com.ng/icon.svg",
   "description": "Mindvest Global is a transformational education enterprise architecting the conditions for human, leadership, and organisational becoming in Lagos and Ogun State, Nigeria.",
   "address": {
     "@type": "PostalAddress",
@@ -139,7 +139,7 @@ const courseSchema = {
   "provider": {
     "@type": "Organization",
     "name": "Mindvest Global Resources LLC",
-    "sameAs": "https://mindvestglobal.com"
+    "sameAs": "https://www.mindvestglobalresources.com.ng"
   },
   "offers": {
     "@type": "Offer",

@@ -9,6 +9,7 @@ import Testimonials from "./components/Testimonials";
 import Audience from "./components/Audience";
 import Manifesto from "./components/Manifesto";
 import Founder from "./components/Founder";
+import LatestInsight from "./components/LatestInsight";
 import CatalogLeadSection from "./components/CatalogLeadSection";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
@@ -30,6 +31,7 @@ export default function Home() {
         <Audience />
         <Manifesto />
         <Founder />
+        <LatestInsight />
         <CatalogLeadSection />
         <CTA />
       </main>
