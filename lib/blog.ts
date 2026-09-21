@@ -17,6 +17,24 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "myth-of-the-borrowed-archetype",
+    title: "The Myth of the Borrowed Archetype",
+    subtitle: "Why Copying Western Frameworks and Charismatic Mentors is Suffocating African Leadership",
+    excerpt:
+      "Most leaders do not fail because of incompetence. They collapse under the structural exhaustion of wearing a borrowed psychological suit that was never tailored to their soul.",
+    category: "leadership-architecture",
+    categoryLabel: "The Becoming Institute · Framework II",
+    author: "Zeki Ubor",
+    authorRole: "Principal & Founder · Human & Systems Architect",
+    date: "September 21, 2026",
+    readTime: "7 min read",
+    heroImage: "/images/blog-hero-borrowed-archetype.jpg",
+    heroImageAlt:
+      "A contemplative African corporate leader in a sharp dark navy tailored silhouette standing in a brutalist glass-and-concrete pavilion at twilight.",
+    tags: ["Leadership Architecture", "Identity Deconstruction", "The Becoming Institute", "Executive Presence", "Zeki Ubor"],
+    featured: true,
+  },
+  {
     slug: "designing-self-before-designing-space",
     title: "Designing the Self Before Designing the Space",
     subtitle: "A Message to Diasporians on Identity, Architecture, and the Spaces We Return To",
@@ -32,7 +50,7 @@ export const blogPosts: BlogPost[] = [
     heroImageAlt:
       "A figure stands at floor-to-ceiling windows overlooking a city skyline at dusk — contemplating the space between who they were and who they are becoming.",
     tags: ["Diaspora", "Personal Evolution", "Identity", "Elevation Studio", "The Becoming Institute"],
-    featured: true,
+    featured: false,
   },
 ];
 
