@@ -161,12 +161,13 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
 
         {/* Hero content */}
         <div
+          className="blog-hero-content"
           style={{
             position: "absolute",
             bottom: 0,
             left: 0,
             right: 0,
-            padding: "0 60px 64px",
+            padding: "0 48px 56px",
             maxWidth: 1300,
             margin: "0 auto",
           }}
@@ -304,10 +305,11 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
 
       {/* ── Article Body ──────────────────────────────── */}
       <div
+        className="blog-article-body"
         style={{
           maxWidth: 780,
           margin: "0 auto",
-          padding: "72px 40px 80px",
+          padding: "64px 32px 80px",
         }}
       >
         {PostContent ? <PostContent /> : <p>Content coming soon.</p>}
@@ -362,9 +364,10 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
 
       {/* ── CTA Strip ─────────────────────────────────── */}
       <section
+        className="blog-cta-strip"
         style={{
           background: "var(--indigo-deep)",
-          padding: "80px 60px",
+          padding: "72px 40px",
           textAlign: "center",
           position: "relative",
           overflow: "hidden",
@@ -479,8 +482,9 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
 
       {/* ── Back to insights ──────────────────────────── */}
       <div
+        className="blog-back-nav"
         style={{
-          padding: "40px 60px",
+          padding: "36px 40px",
           background: "var(--cream)",
           borderTop: "1px solid var(--cream-dark)",
         }}
@@ -506,15 +510,44 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
       </div>
 
       <style>{`
+        .blog-hero-content {
+          padding: 0 48px 56px !important;
+        }
+        .blog-article-body {
+          padding: 64px 32px 80px !important;
+        }
+        .blog-cta-strip {
+          padding: 72px 40px !important;
+        }
+        .blog-back-nav {
+          padding: 36px 40px !important;
+        }
         @media (max-width: 768px) {
-          div[style*="padding: '0 60px 64px'"] {
-            padding: 0 24px 48px !important;
+          .blog-hero-content {
+            padding: 0 20px 40px !important;
           }
-          div[style*="maxWidth: 780"] {
-            padding: 48px 24px 60px !important;
+          .blog-article-body {
+            padding: 40px 20px 60px !important;
           }
-          section[style*="padding: '80px 60px'"] {
-            padding: 60px 24px !important;
+          .blog-cta-strip {
+            padding: 56px 20px !important;
+          }
+          .blog-back-nav {
+            padding: 28px 20px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .blog-hero-content {
+            padding: 0 16px 32px !important;
+          }
+          .blog-article-body {
+            padding: 32px 16px 48px !important;
+          }
+          .blog-cta-strip {
+            padding: 48px 16px !important;
+          }
+          .blog-back-nav {
+            padding: 24px 16px !important;
           }
         }
       `}</style>

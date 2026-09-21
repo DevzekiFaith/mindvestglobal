@@ -28,12 +28,13 @@ export default function BlogListingPage() {
       <main style={{ background: "var(--white)", minHeight: "100vh" }}>
         {/* ── Hero Header ─────────────────────────────────── */}
         <section
+          className="blog-listing-hero"
           style={{
             background: "var(--indigo-deep)",
             paddingTop: 160,
-            paddingBottom: 100,
-            paddingLeft: 60,
-            paddingRight: 60,
+            paddingBottom: 80,
+            paddingLeft: 48,
+            paddingRight: 48,
             position: "relative",
             overflow: "hidden",
           }}
@@ -123,8 +124,9 @@ export default function BlogListingPage() {
         {/* ── Featured Post ───────────────────────────────── */}
         {featured && (
           <section
+            className="blog-featured-section"
             style={{
-              padding: "80px 60px",
+              padding: "64px 48px",
               background: "var(--white)",
             }}
           >
@@ -200,8 +202,9 @@ export default function BlogListingPage() {
 
                   {/* Content side */}
                   <div
+                    className="featured-card-content"
                     style={{
-                      padding: "60px 56px",
+                      padding: "48px 40px",
                       display: "flex",
                       flexDirection: "column",
                       justifyContent: "center",
@@ -331,9 +334,10 @@ export default function BlogListingPage() {
 
         {/* ── All Posts Grid (for future posts) ───────────── */}
         {rest.length > 0 && (
-          <section style={{ padding: "0 60px 100px" }}>
+          <section className="blog-grid-section" style={{ padding: "0 48px 80px" }}>
             <div style={{ maxWidth: 1300, margin: "0 auto" }}>
               <div
+                className="blog-grid"
                 style={{
                   display: "grid",
                   gridTemplateColumns: "repeat(3, 1fr)",
@@ -419,8 +423,9 @@ export default function BlogListingPage() {
 
         {/* ── Coming Soon CTA ─────────────────────────────── */}
         <section
+          className="blog-cta-section"
           style={{
-            padding: "80px 60px 120px",
+            padding: "64px 48px 100px",
             background: "var(--cream)",
             textAlign: "center",
           }}
@@ -497,13 +502,57 @@ export default function BlogListingPage() {
         .featured-card:hover .featured-card-img {
           transform: scale(1.03);
         }
+        /* Tablet: 900px */
         @media (max-width: 900px) {
           .featured-card {
             grid-template-columns: 1fr !important;
           }
-          section {
-            padding-left: 24px !important;
-            padding-right: 24px !important;
+          .featured-card-content {
+            padding: 36px 32px !important;
+          }
+          .blog-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+        /* Mobile: 768px */
+        @media (max-width: 768px) {
+          .blog-listing-hero {
+            padding-top: 120px !important;
+            padding-bottom: 60px !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+          }
+          .blog-featured-section {
+            padding: 48px 20px !important;
+          }
+          .blog-grid-section {
+            padding: 0 20px 60px !important;
+          }
+          .blog-cta-section {
+            padding: 56px 20px 80px !important;
+          }
+          .blog-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        /* Small mobile: 480px */
+        @media (max-width: 480px) {
+          .blog-listing-hero {
+            padding-top: 100px !important;
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+          }
+          .blog-featured-section {
+            padding: 40px 16px !important;
+          }
+          .blog-grid-section {
+            padding: 0 16px 48px !important;
+          }
+          .blog-cta-section {
+            padding: 48px 16px 64px !important;
+          }
+          .featured-card-content {
+            padding: 28px 20px !important;
           }
         }
       `}</style>
