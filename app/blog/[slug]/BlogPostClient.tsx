@@ -9,8 +9,10 @@ import type { BlogPost } from "@/lib/blog";
 // Each post slug maps to its JSX content body
 import { DiasporaPostContent } from "../content/designing-self-before-designing-space";
 import { BorrowedArchetypePostContent } from "../content/myth-of-the-borrowed-archetype";
+import { HighPerformersCollapseContent } from "../content/why-high-performers-collapse-in-silence";
 
 const contentMap: Record<string, React.FC> = {
+  "why-high-performers-collapse-in-silence": HighPerformersCollapseContent,
   "myth-of-the-borrowed-archetype": BorrowedArchetypePostContent,
   "designing-self-before-designing-space": DiasporaPostContent,
 };
