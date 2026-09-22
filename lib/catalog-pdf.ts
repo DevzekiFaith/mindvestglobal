@@ -2,11 +2,27 @@ import fs from "fs";
 import path from "path";
 
 export function getOrGenerateCatalogPdf(): Buffer {
+  // On Vercel, the filesystem is read-only except /tmp.
+  // Try the static public/docs file first (works locally and on first deploy).
   const docsDir = path.join(process.cwd(), "public", "docs");
   const filePath = path.join(docsDir, "Mindvest_Advisory_Catalog_Updated.pdf");
 
-  if (fs.existsSync(filePath)) {
-    return fs.readFileSync(filePath);
+  try {
+    if (fs.existsSync(filePath)) {
+      return fs.readFileSync(filePath);
+    }
+  } catch {
+    // File not accessible — generate in memory below
+  }
+
+  // Also try /tmp (Vercel writable dir) for a cached copy
+  const tmpPath = path.join("/tmp", "Mindvest_Advisory_Catalog_Updated.pdf");
+  try {
+    if (fs.existsSync(tmpPath)) {
+      return fs.readFileSync(tmpPath);
+    }
+  } catch {
+    // Not in /tmp either — generate fresh
   }
 
   const objects: { id: number; content: string }[] = [];
@@ -638,13 +654,18 @@ Q
 
   const buffer = Buffer.from(pdf, "latin1");
 
+  // Try to cache in /tmp (writable on Vercel) first, then fall back to public/docs (local dev)
   try {
-    if (!fs.existsSync(docsDir)) {
-      fs.mkdirSync(docsDir, { recursive: true });
+    fs.writeFileSync(tmpPath, buffer);
+  } catch {
+    try {
+      if (!fs.existsSync(docsDir)) {
+        fs.mkdirSync(docsDir, { recursive: true });
+      }
+      fs.writeFileSync(filePath, buffer);
+    } catch (e) {
+      console.error("Could not cache catalog PDF:", e);
     }
-    fs.writeFileSync(filePath, buffer);
-  } catch (e) {
-    console.error("Could not write static catalog file to public/docs:", e);
   }
 
   return buffer;
