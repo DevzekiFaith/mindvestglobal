@@ -68,7 +68,7 @@ export async function POST(req: NextRequest) {
       timeStyle: "medium",
     });
 
-    const fromSender = process.env.NEXT_PUBLIC_FROM_EMAIL || process.env.FROM_EMAIL || "Mindvest Advisory <support@mindvestglobalresources.com.ng>";
+    const fromSender = process.env.FROM_EMAIL || "Mindvest Advisory <support@mindvestglobalresources.com.ng>";
 
     if (apiKey) {
       // 1. Send automated catalog email to the client WITH direct PDF attachment
