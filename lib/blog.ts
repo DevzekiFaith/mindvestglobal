@@ -53,6 +53,31 @@ export const blogPosts: BlogPost[] = [
     featured: false,
   },
   {
+    slug: "architecture-of-institutional-alignment",
+    title: "The Architecture of Institutional Alignment",
+    subtitle: "Why Corporate Culture Fractures Under Scale — and How to Re-engineer the Load-Bearing Systems of Enterprise",
+    excerpt:
+      "Most corporate transformation initiatives fail not because leaders lack vision, but because they treat culture as cosmetics instead of structural engineering. When high aspirations collide with unaligned human systems, institutions don't just stall — they fracture under their own weight.",
+    category: "institutional-design",
+    categoryLabel: "Organizational Architecture · Division III",
+    author: "Zeki Ubor",
+    authorRole: "Principal & Founder · Human & Systems Architect",
+    date: "September 24, 2026",
+    readTime: "10 min read",
+    heroImage: "/images/organizational-session.jpg",
+    heroImageAlt:
+      "Zeki Ubor facilitating an executive boardroom session on organizational architecture and enterprise human systems re-engineering.",
+    tags: [
+      "Organizational Architecture",
+      "Institutional Design",
+      "Enterprise Culture",
+      "Systems Governance",
+      "Leadership Alignment",
+      "Zeki Ubor",
+    ],
+    featured: false,
+  },
+  {
     slug: "designing-self-before-designing-space",
     title: "Designing the Self Before Designing the Space",
     subtitle: "A Message to Diasporians on Identity, Architecture, and the Spaces We Return To",

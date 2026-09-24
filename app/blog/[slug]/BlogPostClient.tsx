@@ -10,10 +10,12 @@ import type { BlogPost } from "@/lib/blog";
 import { DiasporaPostContent } from "../content/designing-self-before-designing-space";
 import { BorrowedArchetypePostContent } from "../content/myth-of-the-borrowed-archetype";
 import { HighPerformersCollapseContent } from "../content/why-high-performers-collapse-in-silence";
+import { InstitutionalAlignmentContent } from "../content/architecture-of-institutional-alignment";
 
 const contentMap: Record<string, React.FC> = {
   "why-high-performers-collapse-in-silence": HighPerformersCollapseContent,
   "myth-of-the-borrowed-archetype": BorrowedArchetypePostContent,
+  "architecture-of-institutional-alignment": InstitutionalAlignmentContent,
   "designing-self-before-designing-space": DiasporaPostContent,
 };
 
