@@ -143,7 +143,7 @@ export function InstitutionalAlignmentContent() {
           three interconnected dimensions:
         </p>
         <div style={calloutDivider} />
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }}>
+        <div className="blog-callout-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }}>
           <div>
             <div style={{ fontFamily: "var(--font-dm-mono)", fontSize: 11, color: "var(--gold)", letterSpacing: "1px", textTransform: "uppercase", marginBottom: 6 }}>
               Pillar 01 · Structural Governance

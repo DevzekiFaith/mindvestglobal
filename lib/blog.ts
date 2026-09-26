@@ -53,6 +53,31 @@ export const blogPosts: BlogPost[] = [
     featured: false,
   },
   {
+    slug: "architecture-of-executive-gravitas",
+    title: "The Architecture of Executive Gravitas",
+    subtitle: "Why True Authority Cannot Be Rehearsed — and How Visionary Leaders Build Presence from the Inside Out",
+    excerpt:
+      "Executives spend fortunes learning to perform presence: rehearsing voice pitch, hand gestures, and power poses. But in high-stakes rooms, counterfeit charisma collapses under pressure. True authority is not projected; it is an architectural condition built from radical internal congruence.",
+    category: "leadership-architecture",
+    categoryLabel: "Leadership Architecture · Division II",
+    author: "Zeki Ubor",
+    authorRole: "Principal & Founder · Human & Systems Architect",
+    date: "September 26, 2026",
+    readTime: "9 min read",
+    heroImage: "/images/blog-hero-executive-gravitas.jpg",
+    heroImageAlt:
+      "A distinguished African executive in a sharp bespoke tailored suit standing in quiet unshakeable authority next to a monumental raw concrete column in a modern brutalist pavilion overlooking a twilight metropolis skyline.",
+    tags: [
+      "Leadership Architecture",
+      "Executive Gravitas",
+      "Authority",
+      "Executive Presence",
+      "Division II",
+      "Zeki Ubor",
+    ],
+    featured: false,
+  },
+  {
     slug: "architecture-of-institutional-alignment",
     title: "The Architecture of Institutional Alignment",
     subtitle: "Why Corporate Culture Fractures Under Scale — and How to Re-engineer the Load-Bearing Systems of Enterprise",

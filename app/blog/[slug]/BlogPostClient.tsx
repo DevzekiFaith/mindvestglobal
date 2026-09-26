@@ -11,11 +11,13 @@ import { DiasporaPostContent } from "../content/designing-self-before-designing-
 import { BorrowedArchetypePostContent } from "../content/myth-of-the-borrowed-archetype";
 import { HighPerformersCollapseContent } from "../content/why-high-performers-collapse-in-silence";
 import { InstitutionalAlignmentContent } from "../content/architecture-of-institutional-alignment";
+import { ExecutiveGravitasContent } from "../content/architecture-of-executive-gravitas";
 
 const contentMap: Record<string, React.FC> = {
   "why-high-performers-collapse-in-silence": HighPerformersCollapseContent,
   "myth-of-the-borrowed-archetype": BorrowedArchetypePostContent,
   "architecture-of-institutional-alignment": InstitutionalAlignmentContent,
+  "architecture-of-executive-gravitas": ExecutiveGravitasContent,
   "designing-self-before-designing-space": DiasporaPostContent,
 };
 
@@ -121,6 +123,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
     <main style={{ background: "var(--white)" }}>
       {/* ── Hero ──────────────────────────────────────── */}
       <div
+        className="blog-hero-wrap"
         style={{
           position: "relative",
           height: "70vh",
@@ -514,21 +517,54 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
       </div>
 
       <style>{`
+        /* ── Hero ──────────────────────────────────────────── */
         .blog-hero-content {
           padding: 0 48px 56px !important;
         }
+        /* ── Article ───────────────────────────────────────── */
         .blog-article-body {
           padding: 64px 32px 80px !important;
         }
+        /* ── CTA Strip ─────────────────────────────────────── */
         .blog-cta-strip {
           padding: 72px 40px !important;
         }
+        /* ── Back nav ──────────────────────────────────────── */
         .blog-back-nav {
           padding: 36px 40px !important;
         }
-        @media (max-width: 768px) {
+
+        /* ── Tablet: ≤1024px ───────────────────────────────── */
+        @media (max-width: 1024px) {
+          .blog-hero-wrap {
+            height: 60vh !important;
+            min-height: 400px !important;
+            max-height: 560px !important;
+          }
           .blog-hero-content {
-            padding: 0 20px 40px !important;
+            padding: 0 36px 48px !important;
+          }
+          .blog-article-body {
+            padding: 56px 28px 72px !important;
+          }
+          .blog-cta-strip {
+            padding: 64px 36px !important;
+          }
+          /* Callout grids: 2 columns on tablet */
+          .blog-callout-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+
+        /* ── Mobile: ≤768px ────────────────────────────────── */
+        @media (max-width: 768px) {
+          .blog-hero-wrap {
+            height: 55vh !important;
+            min-height: 360px !important;
+            max-height: 480px !important;
+          }
+          .blog-hero-content {
+            padding: 0 20px 36px !important;
           }
           .blog-article-body {
             padding: 40px 20px 60px !important;
@@ -539,19 +575,119 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
           .blog-back-nav {
             padding: 28px 20px !important;
           }
+          /* H2 headings inside articles */
+          .blog-article-body h2 {
+            font-size: 26px !important;
+            margin-top: 40px !important;
+          }
+          /* H3 inside article content */
+          .blog-article-body h3 {
+            font-size: 20px !important;
+          }
+          /* Lead paragraph */
+          .blog-article-body p:first-child {
+            font-size: 19px !important;
+          }
+          /* Callout boxes padding */
+          .blog-article-body [class*="callout"],
+          .blog-callout-box {
+            padding: 24px 20px !important;
+          }
+          /* Callout grid: single column */
+          .blog-callout-grid {
+            grid-template-columns: 1fr !important;
+          }
+          /* Closing / CTA cards inside articles */
+          .blog-article-body [style*="padding: 28px 32px"],
+          .blog-article-body [style*="padding: 44px 40px"] {
+            padding: 24px 20px !important;
+          }
+          /* CTA strip button row: stack on mobile */
+          .blog-cta-strip [style*="display: flex"] {
+            flex-direction: column !important;
+            align-items: stretch !important;
+          }
+          .blog-cta-strip a {
+            text-align: center !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+          }
+          /* Share button row: allow wrap */
+          .blog-share-row {
+            gap: 8px !important;
+          }
+          /* Blockquote left indent */
+          .blog-article-body blockquote {
+            padding-left: 20px !important;
+          }
+          /* Tags row */
+          .blog-tags-row {
+            gap: 6px !important;
+          }
         }
+
+        /* ── Small mobile: ≤480px ──────────────────────────── */
         @media (max-width: 480px) {
+          .blog-hero-wrap {
+            height: 50vh !important;
+            min-height: 300px !important;
+          }
           .blog-hero-content {
-            padding: 0 16px 32px !important;
+            padding: 0 16px 28px !important;
           }
           .blog-article-body {
             padding: 32px 16px 48px !important;
+            font-size: 15px !important;
+            line-height: 1.8 !important;
           }
           .blog-cta-strip {
             padding: 48px 16px !important;
           }
           .blog-back-nav {
             padding: 24px 16px !important;
+          }
+          .blog-article-body h2 {
+            font-size: 22px !important;
+            margin-top: 36px !important;
+          }
+          .blog-article-body h3 {
+            font-size: 18px !important;
+          }
+          .blog-article-body blockquote p {
+            font-size: 19px !important;
+          }
+          /* Make callout grids single col */
+          .blog-callout-grid {
+            grid-template-columns: 1fr !important;
+            gap: 14px !important;
+          }
+          /* Article bottom CTA buttons inside content */
+          .blog-article-body a[style],
+          .blog-article-body button[style] {
+            display: block !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            text-align: center !important;
+          }
+          /* Breadcrumb: hide separator dots on tiny screens */
+          .blog-hero-content [style*="letterSpacing: 2px"] {
+            font-size: 9px !important;
+          }
+        }
+
+        /* ── Extra-small: ≤360px ───────────────────────────── */
+        @media (max-width: 360px) {
+          .blog-hero-wrap {
+            min-height: 260px !important;
+          }
+          .blog-article-body {
+            padding: 28px 14px 40px !important;
+          }
+          .blog-cta-strip {
+            padding: 40px 14px !important;
+          }
+          .blog-back-nav {
+            padding: 20px 14px !important;
           }
         }
       `}</style>
