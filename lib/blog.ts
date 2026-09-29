@@ -39,7 +39,7 @@ export const blogPosts: BlogPost[] = [
       "Division II",
       "Zeki Ubor",
     ],
-    featured: true,
+    featured: false,
   },
   {
     slug: "why-high-performers-collapse-in-silence",
@@ -119,6 +119,31 @@ export const blogPosts: BlogPost[] = [
       "A figure stands at floor-to-ceiling windows overlooking a city skyline at dusk — contemplating the space between who they were and who they are becoming.",
     tags: ["Diaspora", "Personal Evolution", "Identity", "Elevation Studio", "The Becoming Institute"],
     featured: false,
+  },
+  {
+    slug: "stop-collecting-start-developing",
+    title: "Stop Collecting. Start Developing.",
+    subtitle: "Why Accumulating Skills Without Depth Is Quietly Holding You Back — and the Four Symmetries That Change Everything",
+    excerpt:
+      "If you find yourself constantly learning multiple things but developing no real depth in any of them, you may not need another skill. You may need to understand what is happening with the skills you already have. The four symmetries of development reveal why.",
+    category: "human-capital",
+    categoryLabel: "The Becoming Institute · Human Capital Development",
+    author: "Zeki Ubor",
+    authorRole: "Principal & Founder · Human & Systems Architect",
+    date: "September 29, 2026",
+    readTime: "7 min read",
+    heroImage: "/images/blog-hero-skill-symmetry.jpg",
+    heroImageAlt:
+      "A contemplative African professional sitting at a minimalist desk surrounded by stacked books and an open laptop — the tension between endless learning and the absence of depth.",
+    tags: [
+      "Human Capital",
+      "Skill Development",
+      "The Becoming Institute",
+      "Personal Development",
+      "Productivity",
+      "Zeki Ubor",
+    ],
+    featured: true,
   },
 ];
 

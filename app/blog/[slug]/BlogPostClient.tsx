@@ -12,6 +12,7 @@ import { BorrowedArchetypePostContent } from "../content/myth-of-the-borrowed-ar
 import { HighPerformersCollapseContent } from "../content/why-high-performers-collapse-in-silence";
 import { InstitutionalAlignmentContent } from "../content/architecture-of-institutional-alignment";
 import { ExecutiveGravitasContent } from "../content/architecture-of-executive-gravitas";
+import { StopCollectingContent } from "../content/stop-collecting-start-developing";
 
 const contentMap: Record<string, React.FC> = {
   "why-high-performers-collapse-in-silence": HighPerformersCollapseContent,
@@ -19,6 +20,7 @@ const contentMap: Record<string, React.FC> = {
   "architecture-of-institutional-alignment": InstitutionalAlignmentContent,
   "architecture-of-executive-gravitas": ExecutiveGravitasContent,
   "designing-self-before-designing-space": DiasporaPostContent,
+  "stop-collecting-start-developing": StopCollectingContent,
 };
 
 // ─── Share button ──────────────────────────────────────────────────────────
