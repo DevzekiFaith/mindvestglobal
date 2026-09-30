@@ -13,6 +13,7 @@ import { HighPerformersCollapseContent } from "../content/why-high-performers-co
 import { InstitutionalAlignmentContent } from "../content/architecture-of-institutional-alignment";
 import { ExecutiveGravitasContent } from "../content/architecture-of-executive-gravitas";
 import { StopCollectingContent } from "../content/stop-collecting-start-developing";
+import { ReputationArchitectureContent } from "../content/reputation-architecture-design-your-name";
 
 const contentMap: Record<string, React.FC> = {
   "why-high-performers-collapse-in-silence": HighPerformersCollapseContent,
@@ -21,6 +22,7 @@ const contentMap: Record<string, React.FC> = {
   "architecture-of-executive-gravitas": ExecutiveGravitasContent,
   "designing-self-before-designing-space": DiasporaPostContent,
   "stop-collecting-start-developing": StopCollectingContent,
+  "reputation-architecture-design-your-name": ReputationArchitectureContent,
 };
 
 // ─── Share button ──────────────────────────────────────────────────────────

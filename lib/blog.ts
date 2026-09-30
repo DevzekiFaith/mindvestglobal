@@ -143,6 +143,32 @@ export const blogPosts: BlogPost[] = [
       "Productivity",
       "Zeki Ubor",
     ],
+    featured: false,
+  },
+  {
+    slug: "reputation-architecture-design-your-name",
+    title: "Reputation Architecture: Build What Your Name Comes to Mean",
+    subtitle: "How to Intentionally Design, Construct, and Sustain the Reputation That Drives Real Growth",
+    excerpt:
+      "Most people allow their reputation to happen by accident — through random interactions, inconsistent decisions, and whatever people happen to say. But reputation can be intentionally designed. Before you build, you need a blueprint.",
+    category: "leadership-architecture",
+    categoryLabel: "The Becoming Institute · Reputation & Personal Architecture",
+    author: "Zeki Ubor",
+    authorRole: "Principal & Founder · Human & Systems Architect",
+    date: "September 30, 2026",
+    readTime: "8 min read",
+    heroImage: "/images/blog-hero-reputation-architecture.jpg",
+    heroImageAlt:
+      "An architect reviewing blueprints at a minimalist desk in a quiet, light-filled studio — a metaphor for the deliberate, intentional design of personal and professional reputation.",
+    tags: [
+      "Reputation",
+      "Personal Branding",
+      "Leadership Architecture",
+      "The Becoming Institute",
+      "Personal Development",
+      "Professional Growth",
+      "Zeki Ubor",
+    ],
     featured: true,
   },
 ];
