@@ -521,6 +521,22 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
       </div>
 
       <style>{`
+        /* ── Global content safety ──────────────────────────── */
+        .blog-article-body * {
+          max-width: 100%;
+          overflow-wrap: break-word;
+          word-break: break-word;
+        }
+        .blog-article-body img {
+          height: auto;
+          display: block;
+        }
+        .blog-article-body table {
+          width: 100%;
+          overflow-x: auto;
+          display: block;
+        }
+
         /* ── Hero ──────────────────────────────────────────── */
         .blog-hero-content {
           padding: 0 48px 56px !important;
@@ -536,6 +552,14 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
         /* ── Back nav ──────────────────────────────────────── */
         .blog-back-nav {
           padding: 36px 40px !important;
+        }
+
+        /* ── In-article CTA button rows ─────────────────────── */
+        .blog-cta-buttons {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 16px;
+          align-items: center;
         }
 
         /* ── Tablet: ≤1024px ───────────────────────────────── */
@@ -593,7 +617,6 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
             font-size: 19px !important;
           }
           /* Callout boxes padding */
-          .blog-article-body [class*="callout"],
           .blog-callout-box {
             padding: 24px 20px !important;
           }
@@ -601,10 +624,21 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
           .blog-callout-grid {
             grid-template-columns: 1fr !important;
           }
-          /* Closing / CTA cards inside articles */
+          /* Closing CTA cards inside articles — both padding variants */
           .blog-article-body [style*="padding: 28px 32px"],
           .blog-article-body [style*="padding: 44px 40px"] {
             padding: 24px 20px !important;
+          }
+          /* In-article CTA button rows: stack vertically */
+          .blog-cta-buttons {
+            flex-direction: column !important;
+            align-items: stretch !important;
+          }
+          .blog-cta-buttons a,
+          .blog-cta-buttons button {
+            text-align: center !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
           }
           /* CTA strip button row: stack on mobile */
           .blog-cta-strip [style*="display: flex"] {
@@ -622,7 +656,8 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
           }
           /* Blockquote left indent */
           .blog-article-body blockquote {
-            padding-left: 20px !important;
+            margin: 28px 0 !important;
+            padding: 20px 20px !important;
           }
           /* Tags row */
           .blog-tags-row {
@@ -658,22 +693,14 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
             font-size: 18px !important;
           }
           .blog-article-body blockquote p {
-            font-size: 19px !important;
+            font-size: 18px !important;
           }
           /* Make callout grids single col */
           .blog-callout-grid {
             grid-template-columns: 1fr !important;
             gap: 14px !important;
           }
-          /* Article bottom CTA buttons inside content */
-          .blog-article-body a[style],
-          .blog-article-body button[style] {
-            display: block !important;
-            width: 100% !important;
-            box-sizing: border-box !important;
-            text-align: center !important;
-          }
-          /* Breadcrumb: hide separator dots on tiny screens */
+          /* Breadcrumb font on tiny screens */
           .blog-hero-content [style*="letterSpacing: 2px"] {
             font-size: 9px !important;
           }

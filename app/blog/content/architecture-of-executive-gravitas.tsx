@@ -259,7 +259,7 @@ export function ExecutiveGravitasContent() {
             executives through private intensives, executive retreats, and boardroom keynotes.
             Explore our 2-Day Executive Immersion or book a private strategy deep-dive with Zeki Ubor.
           </p>
-          <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center" }}>
+          <div className="blog-cta-buttons">
             <Link
               href="/divisions/leadership-architecture"
               style={{

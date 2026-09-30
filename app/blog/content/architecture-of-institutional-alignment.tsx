@@ -285,7 +285,7 @@ export function InstitutionalAlignmentContent() {
             to audit, restructure, and rebuild the human systems of enterprise. Explore our 6–12 month
             Transformation Retainers, Boardroom Strategy Facilitation, and Corporate Leadership Frameworks.
           </p>
-          <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center" }}>
+          <div className="blog-cta-buttons">
             <Link
               href="/divisions/institutional-design"
               style={{

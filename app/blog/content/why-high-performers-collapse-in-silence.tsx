@@ -254,7 +254,7 @@ export function HighPerformersCollapseContent() {
             Join the next cohort of the <em>Becoming a Person of Interest</em> Masterclass, or request
             a private advisory engagement through the Executive Advisory Catalog.
           </p>
-          <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 8 }}>
+          <div className="blog-cta-buttons" style={{ marginTop: 8 }}>
             <a
               href="https://www.origin.com.ng"
               target="_blank"

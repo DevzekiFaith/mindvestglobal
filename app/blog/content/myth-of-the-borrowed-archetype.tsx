@@ -211,7 +211,7 @@ export function BorrowedArchetypePostContent() {
             Join our next cohort of the flagship <em>Becoming a Person of Interest</em> Masterclass or request
             the comprehensive 2026 Executive Advisory Catalog for private advisory engagements.
           </p>
-          <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 8 }}>
+          <div className="blog-cta-buttons" style={{ marginTop: 8 }}>
             <a
               href="https://www.origin.com.ng"
               target="_blank"

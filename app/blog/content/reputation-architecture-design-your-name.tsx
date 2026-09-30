@@ -313,7 +313,7 @@ export function ReputationArchitectureContent() {
             intentional design for what you want your name to mean. Not a generic consultation.
             A precise diagnostic and blueprint session built around your specific situation.
           </p>
-          <div style={{ display: "flex", gap: 16, flexWrap: "wrap" as const }}>
+          <div className="blog-cta-buttons">
             <a
               href="https://www.zekiubor.com.ng"
               target="_blank"
