@@ -1,3 +1,8 @@
+export interface BlogFAQ {
+  question: string;
+  answer: string;
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -8,14 +13,77 @@ export interface BlogPost {
   author: string;
   authorRole: string;
   date: string;
+  isoDate?: string;
   readTime: string;
   heroImage: string;
   heroImageAlt: string;
   tags: string[];
   featured: boolean;
+  faq?: BlogFAQ[];
+  geoRegion?: string;
+  geoPlacename?: string;
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "the-common-thing-you-dont-put-much-value-on-part-2",
+    title: "The Common Thing You Don't Put Much Value On — Part 2",
+    subtitle:
+      "Why What You Call 'Common' May Be the Very Thing That Opens Your Next Door — and How Deliberate Development Turns Natural Ability Into Trajectory-Altering Impact",
+    excerpt:
+      "Some of the things that will change your trajectory don't initially look like gifts. They look too common. For me, it was my voice. People heard me before they experienced what I could build. But natural ability is only the beginning: a common thing becomes a pivotal gift when you develop it deliberately.",
+    category: "human-capital",
+    categoryLabel: "The Becoming Institute · The Common Thing Series · Part II",
+    author: "Zeki Ubor",
+    authorRole: "Principal & Founder · Human & Systems Architect",
+    date: "October 2, 2026",
+    isoDate: "2026-10-02T08:00:00+01:00",
+    readTime: "8 min read",
+    heroImage: "/images/blog-hero-common-thing-part-2.jpg",
+    heroImageAlt:
+      "Zeki Ubor captured in transit in a modern brutalist architectural airport lounge at golden dusk — reflecting on natural ability, voice, and the architecture of deliberate development.",
+    tags: [
+      "The Common Thing",
+      "Human Capital Development",
+      "The Becoming Institute",
+      "Executive Voice & Communication",
+      "Personal Evolution",
+      "Deliberate Development",
+      "Leadership Architecture",
+      "High Performance Psychology",
+      "Zeki Ubor",
+    ],
+    featured: true,
+    geoRegion: "NG-LA",
+    geoPlacename: "Lagos, Nigeria",
+    faq: [
+      {
+        question: "Why do people dismiss their natural abilities as 'common'?",
+        answer:
+          "When an ability comes effortlessly to you—such as speaking, active listening, or relational bridging—it feels ordinary and familiar. You assume everyone shares that capacity, mistaking personal ease for universal commonality, and subsequently fail to treat it as a high-value asset.",
+      },
+      {
+        question: "Why is communication or voice the first point of access before competence?",
+        answer:
+          "In leadership, high-stakes dealmaking, and relationship building, people hear your articulation, cadence, and presence before they ever inspect your technical competence or what you build. Communication is the initial threshold that grants or denies access to influential rooms.",
+      },
+      {
+        question: "What is the difference between discovering a gift and developing it?",
+        answer:
+          "Discovering a gift merely uncovers an unrefined natural baseline. Developing it requires intentional discipline, critical feedback, emotional regulation, and consistent practice under pressure to transform an effortless inclination into a reliable, high-yield asset.",
+      },
+      {
+        question: "What are the six natural capacities highlighted in The Common Thing Part 2?",
+        answer:
+          "The six natural capacities frequently dismissed as common are: (1) Your ability to speak with conviction, (2) Your ability to write and codify thought, (3) Your ability to listen perceptively, (4) Your ability to connect people, (5) Your ability to explain complicated things simply, and (6) Your ability to notice what others overlook.",
+      },
+      {
+        question: "What question should leaders ask instead of 'What special gift do I have?'",
+        answer:
+          "Stop asking 'What special gift do I have?' and instead ask: 'What do I do naturally that I have not taken seriously enough to develop?' This anchors development in your authentic foundation rather than chasing borrowed, exotic identities.",
+      },
+    ],
+  },
   {
     slug: "architecture-of-executive-gravitas",
     title: "The Architecture of Executive Gravitas",
@@ -127,7 +195,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "If you find yourself constantly learning multiple things but developing no real depth in any of them, you may not need another skill. You may need to understand what is happening with the skills you already have. The four symmetries of development reveal why.",
     category: "human-capital",
-    categoryLabel: "The Becoming Institute · Human Capital Development",
+    categoryLabel: "The Becoming Institute · The Common Thing Series · Part I",
     author: "Zeki Ubor",
     authorRole: "Principal & Founder · Human & Systems Architect",
     date: "September 29, 2026",
@@ -169,7 +237,7 @@ export const blogPosts: BlogPost[] = [
       "Professional Growth",
       "Zeki Ubor",
     ],
-    featured: true,
+    featured: false,
   },
 ];
 

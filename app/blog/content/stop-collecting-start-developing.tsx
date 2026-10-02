@@ -7,6 +7,36 @@ import Link from "next/link";
 export function StopCollectingContent() {
   return (
     <article style={articleStyle}>
+      {/* ── Series Badge ──────────────────────────────── */}
+      <div
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 10,
+          fontFamily: "var(--font-dm-mono), monospace",
+          fontSize: 10,
+          letterSpacing: "2.5px",
+          textTransform: "uppercase",
+          color: "var(--gold-muted, #C9A84C)",
+          background: "rgba(201,168,76,0.08)",
+          border: "1px solid rgba(201,168,76,0.22)",
+          padding: "6px 14px",
+          borderRadius: 20,
+          marginBottom: 28,
+        }}
+      >
+        <span
+          style={{
+            width: 6,
+            height: 6,
+            borderRadius: "50%",
+            background: "var(--gold, #D4AF37)",
+            display: "inline-block",
+          }}
+        />
+        <span>The Common Thing Series · Part I</span>
+      </div>
+
       {/* ── Opening ───────────────────────────────────── */}
       <p style={leadStyle}>
         If you find yourself constantly learning multiple things but developing no real depth in any
@@ -204,6 +234,73 @@ export function StopCollectingContent() {
 
       {/* ── CTA Section ───────────────────────────────── */}
       <div style={closingStyle}>
+        {/* Next in Series — Part 2 Card */}
+        <div
+          style={{
+            background: "linear-gradient(135deg, #0F172A 0%, #1A253A 100%)",
+            border: "1px solid rgba(201,168,76,0.35)",
+            padding: "36px 32px",
+            borderRadius: 2,
+          }}
+        >
+          <div
+            style={{
+              fontFamily: "var(--font-dm-mono), monospace",
+              fontSize: 10,
+              letterSpacing: "3px",
+              textTransform: "uppercase",
+              color: "var(--gold, #D4AF37)",
+              marginBottom: 10,
+            }}
+          >
+            The Common Thing Series · Part II Is Now Live
+          </div>
+          <h3
+            style={{
+              fontFamily: "var(--font-cormorant), serif",
+              fontSize: 26,
+              fontWeight: 400,
+              color: "#F7F3EC",
+              margin: "0 0 12px",
+              lineHeight: 1.25,
+            }}
+          >
+            The Common Thing You Don’t Put Much Value On — Part 2
+          </h3>
+          <p
+            style={{
+              fontSize: 14,
+              color: "rgba(247,243,236,0.75)",
+              lineHeight: 1.7,
+              margin: "0 0 20px",
+              maxWidth: 580,
+            }}
+          >
+            Some of the things that will change your trajectory don’t initially look like gifts.
+            They look too common. Discover how deliberate development transforms what you take for
+            granted into the key that opens your next door.
+          </p>
+          <Link
+            href="/blog/the-common-thing-you-dont-put-much-value-on-part-2"
+            id="cta-read-part-2"
+            style={{
+              display: "inline-block",
+              padding: "12px 24px",
+              background: "var(--gold, #D4AF37)",
+              color: "var(--indigo, #0F172A)",
+              fontFamily: "var(--font-dm-mono), monospace",
+              fontSize: 11,
+              letterSpacing: "2px",
+              textTransform: "uppercase",
+              textDecoration: "none",
+              fontWeight: 600,
+              borderRadius: 2,
+            }}
+          >
+            Read Part 2 Now →
+          </Link>
+        </div>
+
         {/* Primary CTA — Development Companion */}
         <div style={ctaPrimaryStyle}>
           <div style={ctaLabelStyle}>Development Resource · The Becoming Institute</div>

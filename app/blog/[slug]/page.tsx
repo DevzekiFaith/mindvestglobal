@@ -14,15 +14,42 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = getBlogPost(slug);
   if (!post) return { title: "Post Not Found | Mindvest Global" };
 
+  const canonicalUrl = `https://www.mindvestglobalresources.com.ng/blog/${post.slug}`;
+  const isoPublished = post.isoDate || new Date(post.date).toISOString();
+
   return {
     title: `${post.title} | Mindvest Global`,
     description: post.excerpt,
-    authors: [{ name: post.author }],
+    keywords: post.tags,
+    authors: [{ name: post.author, url: "https://www.zekiubor.com.ng" }],
+    creator: post.author,
+    publisher: "Mindvest Global Resources LLC",
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-snippet": -1,
+        "max-image-preview": "large",
+        "max-video-preview": -1,
+      },
+    },
     openGraph: {
-      title: post.title,
+      title: `${post.title} — Mindvest Global`,
       description: post.excerpt,
       type: "article",
-      url: `https://www.mindvestglobalresources.com.ng/blog/${post.slug}`,
+      url: canonicalUrl,
+      siteName: "Mindvest Global",
+      locale: "en_US",
+      publishedTime: isoPublished,
+      modifiedTime: isoPublished,
+      authors: [post.author],
+      section: post.categoryLabel,
+      tags: post.tags,
       images: [
         {
           url: post.heroImage,
@@ -31,15 +58,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           alt: post.heroImageAlt,
         },
       ],
-      publishedTime: post.date,
-      authors: [post.author],
-      tags: post.tags,
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
       images: [post.heroImage],
+      creator: "@zekiubor",
+      site: "@mindvestglobal",
+    },
+    other: {
+      "geo.region": post.geoRegion || "NG-LA",
+      "geo.placename": post.geoPlacename || "Lagos, Nigeria",
+      "geo.position": "6.5244;3.3792",
+      ICBM: "6.5244, 3.3792",
+      "article:published_time": isoPublished,
+      "article:author": post.author,
+      "article:section": post.categoryLabel,
+      "DC.title": post.title,
+      "DC.creator": post.author,
+      "DC.subject": post.tags.join("; "),
+      "DC.description": post.excerpt,
     },
   };
 }
@@ -53,34 +92,107 @@ export default async function BlogPostPage({ params }: PageProps) {
   const post = getBlogPost(slug);
   if (!post) notFound();
 
-  // JSON-LD Article schema for rich search results
+  const postUrl = `https://www.mindvestglobalresources.com.ng/blog/${post.slug}`;
+  const isoPublished = post.isoDate || new Date(post.date).toISOString();
+
+  // JSON-LD Article / BlogPosting schema with speakable & GEO signals
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
+    "@id": `${postUrl}#article`,
     headline: post.title,
+    alternativeHeadline: post.subtitle,
     description: post.excerpt,
-    image: `https://www.mindvestglobalresources.com.ng${post.heroImage}`,
-    datePublished: post.date,
+    image: {
+      "@type": "ImageObject",
+      url: `https://www.mindvestglobalresources.com.ng${post.heroImage}`,
+      width: 1200,
+      height: 630,
+    },
+    datePublished: isoPublished,
+    dateModified: isoPublished,
+    inLanguage: "en-US",
+    articleSection: post.categoryLabel,
+    keywords: post.tags.join(", "),
+    isPartOf: {
+      "@type": "Blog",
+      "@id": "https://www.mindvestglobalresources.com.ng/blog#blog",
+      name: "Mindvest Global Insights",
+      url: "https://www.mindvestglobalresources.com.ng/blog",
+    },
     author: {
       "@type": "Person",
       name: post.author,
       jobTitle: post.authorRole,
-      url: "https://www.mindvestglobalresources.com.ng",
+      url: "https://www.zekiubor.com.ng",
+      sameAs: [
+        "https://youtube.com/@thebecomingwithzekiubor?si=QC9bC_6enotC-g0R",
+        "https://www.zekiubor.com.ng",
+        "https://www.linkedin.com/in/zekiubor",
+      ],
     },
     publisher: {
       "@type": "Organization",
       name: "Mindvest Global",
+      url: "https://www.mindvestglobalresources.com.ng",
       logo: {
         "@type": "ImageObject",
         url: "https://www.mindvestglobalresources.com.ng/icon.svg",
       },
+      sameAs: [
+        "https://youtube.com/@thebecomingwithzekiubor?si=QC9bC_6enotC-g0R",
+        "https://www.linkedin.com/company/mindvestglobal",
+      ],
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://www.mindvestglobalresources.com.ng/blog/${post.slug}`,
+      "@id": postUrl,
     },
-    keywords: post.tags.join(", "),
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["#key-takeaways", "#core-law-definition", "article h1", "article h2"],
+    },
   };
+
+  // Breadcrumbs schema for enhanced Google SERP sitelinks
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.mindvestglobalresources.com.ng",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Insights",
+        item: "https://www.mindvestglobalresources.com.ng/blog",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: postUrl,
+      },
+    ],
+  };
+
+  // FAQ schema (GEO & Google FAQ Rich Snippet optimization)
+  const faqSchema = post.faq && post.faq.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: post.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  } : null;
 
   return (
     <>
@@ -88,6 +200,16 @@ export default async function BlogPostPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       <Nav />
       <BlogPostClient post={post} />
       <Footer />
