@@ -335,59 +335,160 @@ export default function CatalogLeadSection() {
               </div>
             </div>
 
-            {/* Right Column: Premium Executive Glass Card */}
+            {/* Right Column: Poster-Style Executive Card */}
             <div>
               <div
                 style={{
-                  background: "rgba(18, 16, 58, 0.75)",
-                  backdropFilter: "blur(24px)",
-                  border: "1px solid rgba(201, 168, 76, 0.35)",
-                  borderRadius: 24,
-                  padding: "48px 40px",
-                  boxShadow: "0 24px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,76,0.1)",
+                  background: "linear-gradient(160deg, #0c0a2a 0%, #11103a 55%, #0a0818 100%)",
+                  border: "1px solid rgba(201, 168, 76, 0.18)",
+                  padding: "0",
                   position: "relative",
                   overflow: "hidden",
+                  borderRadius: "8px",
+                  boxShadow: "0 32px 80px -12px rgba(4, 3, 18, 0.85), 0 0 0 1px rgba(255,255,255,0.04)",
                 }}
                 className="form-glass-card"
               >
-                {/* Glowing gold top line accent */}
+                {/* Gold accent top bar */}
+                <div style={{ height: "3px", background: "linear-gradient(90deg, #C9A84C 0%, #FFF9EB 50%, #C9A84C 100%)" }} />
+
+                {/* Poster header band */}
                 <div
                   style={{
-                    position: "absolute",
-                    top: 0,
-                    left: "10%",
-                    right: "10%",
-                    height: 2,
-                    background: "linear-gradient(90deg, transparent, var(--gold), transparent)",
+                    padding: "20px 28px 16px",
+                    borderBottom: "1px solid rgba(201,168,76,0.12)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
                   }}
-                />
+                >
+                  <div
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      padding: "4px 10px",
+                      borderRadius: "100px",
+                      background: "rgba(201, 168, 76, 0.1)",
+                      border: "1px solid rgba(201, 168, 76, 0.28)",
+                      color: "var(--gold-light)",
+                      fontFamily: "var(--font-dm-mono), monospace",
+                      fontSize: "9px",
+                      letterSpacing: "1.4px",
+                      textTransform: "uppercase",
+                      fontWeight: 600,
+                    }}
+                  >
+                    <span
+                      style={{
+                        width: "5px",
+                        height: "5px",
+                        borderRadius: "50%",
+                        background: "var(--gold)",
+                        boxShadow: "0 0 7px var(--gold)",
+                        display: "inline-block",
+                      }}
+                    />
+                    Confidential Catalog
+                  </div>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-dm-mono), monospace",
+                      fontSize: "9px",
+                      letterSpacing: "1.2px",
+                      textTransform: "uppercase",
+                      color: "var(--gold-light)",
+                      opacity: 0.7,
+                    }}
+                  >
+                    2026 Edition
+                  </span>
+                </div>
+
+                {/* Bold poster title block */}
+                <div
+                  style={{
+                    padding: "22px 28px 18px",
+                    position: "relative",
+                    borderBottom: "1px solid rgba(201,168,76,0.08)",
+                  }}
+                >
+                  {/* Decorative watermark */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 4,
+                      right: -4,
+                      fontFamily: "var(--font-cormorant), serif",
+                      fontSize: "100px",
+                      fontWeight: 700,
+                      color: "rgba(201,168,76,0.04)",
+                      lineHeight: 1,
+                      pointerEvents: "none",
+                      userSelect: "none",
+                      letterSpacing: "-4px",
+                    }}
+                  >
+                    EA
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-dm-mono), monospace",
+                      fontSize: "8.5px",
+                      letterSpacing: "3px",
+                      textTransform: "uppercase",
+                      color: "var(--gold-light)",
+                      marginBottom: "8px",
+                      opacity: 0.8,
+                    }}
+                  >
+                    Institutional Governance · Keynotes
+                  </div>
+                  <h3
+                    style={{
+                      fontFamily: "var(--font-cormorant), serif",
+                      fontSize: "clamp(28px, 3.2vw, 38px)",
+                      fontWeight: 700,
+                      lineHeight: 1.0,
+                      margin: "0 0 4px",
+                      letterSpacing: "-0.5px",
+                      color: "#FDFAF5",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    Request{" "}
+                    <span
+                      style={{
+                        background: "linear-gradient(135deg, #FFF9EB 10%, #E8C97A 55%, #C9A84C 100%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        fontStyle: "italic",
+                      }}
+                    >
+                      Executive
+                    </span>
+                    <br />
+                    Access
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: "var(--font-dm-mono), monospace",
+                      fontSize: "8.5px",
+                      color: "rgba(247,243,236,0.4)",
+                      marginTop: "6px",
+                      letterSpacing: "0.5px",
+                    }}
+                  >
+                    Complete the briefing form to unlock the full fee structure &amp; catalog.
+                  </p>
+                </div>
+
+                {/* Padded form area */}
+                <div style={{ padding: "22px 28px 28px" }}>
 
                 {!isSuccess ? (
                   /* Form State */
                   <form onSubmit={handleSubmit}>
-                    <div style={{ marginBottom: 28 }}>
-                      <div
-                        style={{
-                          fontFamily: "var(--font-cormorant), serif",
-                          fontSize: 28,
-                          color: "var(--cream)",
-                          fontWeight: 400,
-                          lineHeight: 1.2,
-                          marginBottom: 6,
-                        }}
-                      >
-                        Request Executive Access
-                      </div>
-                      <div
-                        style={{
-                          fontSize: 13,
-                          color: "rgba(247,243,236,0.5)",
-                          lineHeight: 1.5,
-                        }}
-                      >
-                        Complete the briefing form below to unlock the fee structure &amp; catalog.
-                      </div>
-                    </div>
 
                     {errorMessage && (
                       <div
@@ -440,7 +541,7 @@ export default function CatalogLeadSection() {
                             padding: "14px 16px",
                             background: "rgba(10, 13, 26, 0.8)",
                             border: "1px solid rgba(201, 168, 76, 0.25)",
-                            borderRadius: 10,
+                            borderRadius: 5,
                             color: "var(--cream)",
                             fontSize: 14,
                             outline: "none",
@@ -486,7 +587,7 @@ export default function CatalogLeadSection() {
                             padding: "14px 16px",
                             background: "rgba(10, 13, 26, 0.8)",
                             border: "1px solid rgba(201, 168, 76, 0.25)",
-                            borderRadius: 10,
+                            borderRadius: 5,
                             color: "var(--cream)",
                             fontSize: 14,
                             outline: "none",
@@ -540,7 +641,7 @@ export default function CatalogLeadSection() {
                               padding: "14px 16px",
                               background: "rgba(10, 13, 26, 0.8)",
                               border: "1px solid rgba(201, 168, 76, 0.25)",
-                              borderRadius: 10,
+                              borderRadius: 5,
                               color: "var(--cream)",
                               fontSize: 14,
                               outline: "none",
@@ -585,7 +686,7 @@ export default function CatalogLeadSection() {
                               padding: "14px 16px",
                               background: "rgba(10, 13, 26, 0.8)",
                               border: "1px solid rgba(201, 168, 76, 0.25)",
-                              borderRadius: 10,
+                              borderRadius: 5,
                               color: "var(--cream)",
                               fontSize: 14,
                               outline: "none",
@@ -629,7 +730,7 @@ export default function CatalogLeadSection() {
                             padding: "14px 16px",
                             background: "#0A0D1A",
                             border: "1px solid rgba(201, 168, 76, 0.25)",
-                            borderRadius: 10,
+                            borderRadius: 5,
                             color: "var(--cream)",
                             fontSize: 14,
                             outline: "none",
@@ -660,7 +761,7 @@ export default function CatalogLeadSection() {
                           textTransform: "uppercase",
                           fontWeight: 700,
                           border: "none",
-                          borderRadius: 10,
+                          borderRadius: 5,
                           cursor: isLoading ? "not-allowed" : "pointer",
                           boxShadow: "0 8px 30px rgba(201,168,76,0.3)",
                           transition: "all 0.3s",
@@ -832,6 +933,7 @@ export default function CatalogLeadSection() {
                     </div>
                   </div>
                 )}
+                </div>
               </div>
             </div>
           </div>
@@ -848,8 +950,7 @@ export default function CatalogLeadSection() {
               gap: 48px !important;
             }
             .form-glass-card {
-              padding: 32px 20px !important;
-              border-radius: 18px !important;
+              border-radius: 6px !important;
             }
           }
           @media (max-width: 600px) {
