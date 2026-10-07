@@ -26,6 +26,59 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "you-have-3-questions-to-ask-before-the-end-of-today",
+    title: "You Have 3 Questions to Ask Before the End of Today",
+    subtitle:
+      "Why Identity, Capacity, and Position Must Agree — and How Using the Wrong Identification Approach Keeps High Performers Stuck",
+    excerpt:
+      "There are three questions people are constantly trying to answer: Who am I? What am I? Where am I? Knowing who you are is important—but it doesn't automatically tell you what you can do or where you belong. When identity, capacity, and position finally agree, everything changes.",
+    category: "personal-evolution",
+    categoryLabel: "The Becoming Institute · Personal Evolution · Framework IV",
+    author: "Zeki Ubor",
+    authorRole: "Principal & Founder · Human & Systems Architect",
+    date: "October 7, 2026",
+    isoDate: "2026-10-07T08:00:00+01:00",
+    readTime: "7 min read",
+    heroImage: "/images/blog-hero-three-questions.jpg",
+    heroImageAlt:
+      "Zeki Ubor standing in quiet executive gravitas inside a modern brutalist pavilion with three geometric stone pillars and warm golden dusk light.",
+    tags: [
+      "The Becoming Institute",
+      "Identity",
+      "Capacity",
+      "Position",
+      "Personal Evolution",
+      "Leadership Architecture",
+      "High Performance Psychology",
+      "Zeki Ubor",
+    ],
+    featured: true,
+    geoRegion: "NG-LA",
+    geoPlacename: "Lagos, Nigeria",
+    faq: [
+      {
+        question: "Why isn't knowing my identity enough for career and life growth?",
+        answer:
+          "Identity gives you self-recognition, values, and orientation. However, execution in the real world demands proven capacity—the developed ability to solve specific, high-value problems under pressure. Without capacity, identity remains an unrealized intention.",
+      },
+      {
+        question: "What is the difference between potential and developed capacity?",
+        answer:
+          "Potential is raw, uncultivated ability. Developed capacity is potential refined through deliberate practice, discipline, real-world feedback, and consistent evidence.",
+      },
+      {
+        question: "How does environment (Position) affect my ability to grow?",
+        answer:
+          "Just as a seed requires nutrient-rich soil and sunlight to become a tree, human capacity requires the right relational, cultural, and organizational environment to flourish. Being in the wrong soil can stifle even the most extraordinary natural gifts.",
+      },
+      {
+        question: "Where can I get guided mentorship on navigating these three dimensions?",
+        answer:
+          "You can connect directly with Zeki Ubor and The Becoming Institute through www.zekiubor.com.ng for personal advisory, framework immersion, and executive counsel.",
+      },
+    ],
+  },
+  {
     slug: "the-common-thing-you-dont-put-much-value-on-part-2",
     title: "The Common Thing You Don't Put Much Value On — Part 2",
     subtitle:
@@ -53,7 +106,7 @@ export const blogPosts: BlogPost[] = [
       "High Performance Psychology",
       "Zeki Ubor",
     ],
-    featured: true,
+    featured: false,
     geoRegion: "NG-LA",
     geoPlacename: "Lagos, Nigeria",
     faq: [

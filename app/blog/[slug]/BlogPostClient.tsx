@@ -15,8 +15,10 @@ import { ExecutiveGravitasContent } from "../content/architecture-of-executive-g
 import { StopCollectingContent } from "../content/stop-collecting-start-developing";
 import { ReputationArchitectureContent } from "../content/reputation-architecture-design-your-name";
 import { TheCommonThingPart2Content } from "../content/the-common-thing-you-dont-put-much-value-on-part-2";
+import { ThreeQuestionsPostContent } from "../content/you-have-3-questions-to-ask-before-the-end-of-today";
 
 const contentMap: Record<string, React.FC> = {
+  "you-have-3-questions-to-ask-before-the-end-of-today": ThreeQuestionsPostContent,
   "the-common-thing-you-dont-put-much-value-on-part-2": TheCommonThingPart2Content,
   "why-high-performers-collapse-in-silence": HighPerformersCollapseContent,
   "myth-of-the-borrowed-archetype": BorrowedArchetypePostContent,
