@@ -26,6 +26,54 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "the-economic-law-of-origin",
+    title: "The Economic Law of Origin: Why True Leverage is an Architectural Condition, Not a Market Tactic",
+    subtitle:
+      "How High Performers Shift from Exhausting Linear Labor to Compounding Economic Authority Through The Becoming Institute & Origin Frameworks",
+    excerpt:
+      "Most professionals treat economics as an external battlefield of market tactics and hustle—never realizing that sustainable economic yield is fundamentally an internal architectural condition. When your personal capacity, non-commoditized positioning, and leveraged systems align, economic authority becomes an inevitability.",
+    category: "human-capital",
+    categoryLabel: "The Becoming Institute · Economic Principles of Origin · Division I",
+    author: "Zeki Ubor",
+    authorRole: "Principal & Founder · Human & Systems Architect",
+    date: "October 9, 2026",
+    isoDate: "2026-10-09T08:00:00+01:00",
+    readTime: "8 min read",
+    heroImage: "/images/blog-hero-origin-economics.jpg",
+    heroImageAlt:
+      "Zeki Ubor reviewing architectural blueprints and economic frameworks in an executive studio overlooking a metropolis skyline at dusk.",
+    tags: [
+      "Origin Platform",
+      "Economic Architecture",
+      "The Becoming Institute",
+      "Fit for Profit",
+      "Person of Interest",
+      "Human Capital",
+      "Leadership Architecture",
+      "Zeki Ubor",
+    ],
+    featured: true,
+    geoRegion: "NG-LA",
+    geoPlacename: "Lagos, Nigeria",
+    faq: [
+      {
+        question: "What is the primary difference between market hustle and architectural leverage?",
+        answer:
+          "Market hustle relies purely on increasing personal labor and hours to generate income. Architectural leverage structures your internal identity, proven frameworks, and delivery systems so that each unit of output creates compounding, non-linear value without demanding your perpetual physical exhaustion.",
+      },
+      {
+        question: "How does the Origin 'Fit for Profit' framework prevent executive burnout?",
+        answer:
+          "Fit for Profit audits the relationship between your energy expenditure, margin structure, and operational complexity. It eliminates low-margin, soul-draining deliverables and re-engineers your economic model to protect executive vitality while scaling bottom-line profitability.",
+      },
+      {
+        question: "How do I access the Origin Masterclass sequence?",
+        answer:
+          "You can explore upcoming live masterclasses, including 'Becoming a Person of Interest' and 'Fit for Profit,' directly at origin.com.ng/events or connect through the central portal at www.origin.com.ng.",
+      },
+    ],
+  },
+  {
     slug: "you-have-3-questions-to-ask-before-the-end-of-today",
     title: "You Have 3 Questions to Ask Before the End of Today",
     subtitle:
@@ -52,7 +100,7 @@ export const blogPosts: BlogPost[] = [
       "High Performance Psychology",
       "Zeki Ubor",
     ],
-    featured: true,
+    featured: false,
     geoRegion: "NG-LA",
     geoPlacename: "Lagos, Nigeria",
     faq: [

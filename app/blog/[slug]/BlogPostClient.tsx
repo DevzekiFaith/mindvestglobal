@@ -16,8 +16,10 @@ import { StopCollectingContent } from "../content/stop-collecting-start-developi
 import { ReputationArchitectureContent } from "../content/reputation-architecture-design-your-name";
 import { TheCommonThingPart2Content } from "../content/the-common-thing-you-dont-put-much-value-on-part-2";
 import { ThreeQuestionsPostContent } from "../content/you-have-3-questions-to-ask-before-the-end-of-today";
+import { EconomicLawOfOriginContent } from "../content/the-economic-law-of-origin";
 
 const contentMap: Record<string, React.FC> = {
+  "the-economic-law-of-origin": EconomicLawOfOriginContent,
   "you-have-3-questions-to-ask-before-the-end-of-today": ThreeQuestionsPostContent,
   "the-common-thing-you-dont-put-much-value-on-part-2": TheCommonThingPart2Content,
   "why-high-performers-collapse-in-silence": HighPerformersCollapseContent,
