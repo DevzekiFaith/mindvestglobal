@@ -45,6 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: canonicalUrl,
       siteName: "Mindvest Global",
       locale: "en_US",
+      alternateLocale: ["en_GB", "en_CA", "en_NG", "en_ZA", "en_AE"],
       publishedTime: isoPublished,
       modifiedTime: isoPublished,
       authors: [post.author],
@@ -68,10 +69,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       site: "@mindvestglobal",
     },
     other: {
-      "geo.region": post.geoRegion || "NG-LA",
-      "geo.placename": post.geoPlacename || "Lagos, Nigeria",
+      "geo.region": post.geoRegion ? `${post.geoRegion}; GB-LND; US-NY; CA-ON; AE-DU` : "NG-LA; GB-LND; US-NY; CA-ON; AE-DU",
+      "geo.placename": post.geoPlacename ? `${post.geoPlacename}; London; New York; Toronto; Dubai` : "Lagos; London; New York; Toronto; Dubai",
       "geo.position": "6.5244;3.3792",
       ICBM: "6.5244, 3.3792",
+      "coverage": "Worldwide",
+      "distribution": "Global",
+      "target-country": "NG, GB, US, CA, AE, ZA, GH, KE",
       "article:published_time": isoPublished,
       "article:author": post.author,
       "article:section": post.categoryLabel,
@@ -79,6 +83,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       "DC.creator": post.author,
       "DC.subject": post.tags.join("; "),
       "DC.description": post.excerpt,
+      "DC.coverage": "Global Strategic Hubs (Lagos, London, New York, Toronto, Dubai, Johannesburg)",
     },
   };
 }
@@ -95,7 +100,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   const postUrl = `https://www.mindvestglobalresources.com.ng/blog/${post.slug}`;
   const isoPublished = post.isoDate || new Date(post.date).toISOString();
 
-  // JSON-LD Article / BlogPosting schema with speakable & GEO signals
+  // JSON-LD Article / BlogPosting schema with speakable, multi-region & GEO signals
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -114,6 +119,38 @@ export default async function BlogPostPage({ params }: PageProps) {
     inLanguage: "en-US",
     articleSection: post.categoryLabel,
     keywords: post.tags.join(", "),
+    spatialCoverage: [
+      {
+        "@type": "Place",
+        name: "Lagos, Nigeria",
+        geo: { "@type": "GeoCoordinates", latitude: 6.5244, longitude: 3.3792 },
+      },
+      {
+        "@type": "Place",
+        name: "London, United Kingdom",
+        geo: { "@type": "GeoCoordinates", latitude: 51.5074, longitude: -0.1278 },
+      },
+      {
+        "@type": "Place",
+        name: "New York, United States",
+        geo: { "@type": "GeoCoordinates", latitude: 40.7128, longitude: -74.0060 },
+      },
+      {
+        "@type": "Place",
+        name: "Toronto, Canada",
+        geo: { "@type": "GeoCoordinates", latitude: 43.6532, longitude: -79.3832 },
+      },
+      {
+        "@type": "Place",
+        name: "Dubai, United Arab Emirates",
+        geo: { "@type": "GeoCoordinates", latitude: 25.2048, longitude: 55.2708 },
+      },
+      {
+        "@type": "Place",
+        name: "Johannesburg, South Africa",
+        geo: { "@type": "GeoCoordinates", latitude: -26.2041, longitude: 28.0473 },
+      },
+    ],
     isPartOf: {
       "@type": "Blog",
       "@id": "https://www.mindvestglobalresources.com.ng/blog#blog",
@@ -139,6 +176,17 @@ export default async function BlogPostPage({ params }: PageProps) {
         "@type": "ImageObject",
         url: "https://www.mindvestglobalresources.com.ng/icon.svg",
       },
+      areaServed: [
+        "Nigeria",
+        "United Kingdom",
+        "United States",
+        "Canada",
+        "United Arab Emirates",
+        "South Africa",
+        "Ghana",
+        "Kenya",
+        "Global Diaspora",
+      ],
       sameAs: [
         "https://youtube.com/@thebecomingwithzekiubor?si=QC9bC_6enotC-g0R",
         "https://www.linkedin.com/company/mindvestglobal",

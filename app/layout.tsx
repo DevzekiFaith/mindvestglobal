@@ -67,6 +67,7 @@ export const metadata: Metadata = {
     url: "https://www.mindvestglobalresources.com.ng",
     siteName: "Mindvest Global",
     locale: "en_US",
+    alternateLocale: ["en_GB", "en_CA", "en_NG", "en_ZA", "en_AE"],
     images: [
       {
         url: "/images/becoming-stage-1.png",
@@ -97,6 +98,12 @@ export const metadata: Metadata = {
   verification: {
     google: "SENtKebsu0vOEqwtZ_cWO9EH1PgQXkXAvyYBjVAPy8w",
   },
+  other: {
+    "coverage": "Worldwide",
+    "distribution": "Global",
+    "target-country": "NG, GB, US, CA, AE, ZA, GH, KE",
+    "DC.coverage": "Global Strategic Hubs (Lagos, London, New York, Toronto, Dubai, Johannesburg)",
+  },
 };
 
 const organizationSchema = {
@@ -106,12 +113,23 @@ const organizationSchema = {
   "alternateName": "Mindvest Global",
   "url": "https://www.mindvestglobalresources.com.ng",
   "logo": "https://www.mindvestglobalresources.com.ng/icon.svg",
-  "description": "Mindvest Global is a transformational education enterprise architecting the conditions for human, leadership, and organisational becoming in Lagos and Ogun State, Nigeria.",
+  "description": "Mindvest Global is a transformational education enterprise architecting the conditions for human, leadership, and organisational becoming across Africa and Global Strategic Hubs.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Lagos / Ogun State",
     "addressCountry": "NG"
   },
+  "areaServed": [
+    "Nigeria",
+    "United Kingdom",
+    "United States",
+    "Canada",
+    "United Arab Emirates",
+    "South Africa",
+    "Ghana",
+    "Kenya",
+    "Global Diaspora"
+  ],
   "email": "support@mindvestglobalresources.com.ng",
   "sameAs": [
     "https://www.linkedin.com/in/zeki-ubor-268889196?utm_source=share_via&utm_content=profile&utm_medium=member_android",
