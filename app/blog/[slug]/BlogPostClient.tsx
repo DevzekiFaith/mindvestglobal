@@ -17,8 +17,10 @@ import { ReputationArchitectureContent } from "../content/reputation-architectur
 import { TheCommonThingPart2Content } from "../content/the-common-thing-you-dont-put-much-value-on-part-2";
 import { ThreeQuestionsPostContent } from "../content/you-have-3-questions-to-ask-before-the-end-of-today";
 import { EconomicLawOfOriginContent } from "../content/the-economic-law-of-origin";
+import { MarketHustleVsLeverageContent } from "../content/market-hustle-vs-architectural-leverage";
 
 const contentMap: Record<string, React.FC> = {
+  "market-hustle-vs-architectural-leverage": MarketHustleVsLeverageContent,
   "the-economic-law-of-origin": EconomicLawOfOriginContent,
   "you-have-3-questions-to-ask-before-the-end-of-today": ThreeQuestionsPostContent,
   "the-common-thing-you-dont-put-much-value-on-part-2": TheCommonThingPart2Content,
