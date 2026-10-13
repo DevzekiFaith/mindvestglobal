@@ -18,8 +18,10 @@ import { TheCommonThingPart2Content } from "../content/the-common-thing-you-dont
 import { ThreeQuestionsPostContent } from "../content/you-have-3-questions-to-ask-before-the-end-of-today";
 import { EconomicLawOfOriginContent } from "../content/the-economic-law-of-origin";
 import { MarketHustleVsLeverageContent } from "../content/market-hustle-vs-architectural-leverage";
+import { BeFruitfulAndMultiplyContent } from "../content/be-fruitful-and-multiply-how-income-multiplies";
 
 const contentMap: Record<string, React.FC> = {
+  "be-fruitful-and-multiply-how-income-multiplies": BeFruitfulAndMultiplyContent,
   "market-hustle-vs-architectural-leverage": MarketHustleVsLeverageContent,
   "the-economic-law-of-origin": EconomicLawOfOriginContent,
   "you-have-3-questions-to-ask-before-the-end-of-today": ThreeQuestionsPostContent,
