@@ -8,8 +8,107 @@ import Link from "next/link";
 export function BeFruitfulAndMultiplyContent() {
   return (
     <article style={articleStyle}>
+      {/* ── Scoped responsive styles ─────────────── */}
+      <style>{`
+        .bfm-header-meta {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-bottom: 32px;
+          padding-bottom: 16px;
+          border-bottom: 1px solid rgba(201,168,76,0.18);
+        }
+        .bfm-comparison-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+          margin: 32px 0 36px;
+        }
+        .bfm-audit-section {
+          background: linear-gradient(135deg, #0B0B1A 0%, #16133B 100%);
+          padding: 44px 36px;
+          border-radius: 4px;
+          margin: 48px 0;
+          color: #F7F3EC;
+        }
+        .bfm-cta-primary {
+          background: #FAF8F5;
+          border: 1px solid rgba(201,168,76,0.3);
+          padding: 40px 36px;
+          border-radius: 4px;
+        }
+        .bfm-cta-tertiary {
+          background: linear-gradient(135deg, #0B0B1A 0%, #16133B 100%);
+          border: 1px solid rgba(201,168,76,0.25);
+          padding: 40px 36px;
+          border-radius: 4px;
+          color: #F7F3EC;
+        }
+        .bfm-cta-btn-row {
+          display: flex;
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+        .bfm-trap-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 16px;
+          padding: 20px 24px;
+          background: #FAF8F5;
+          border: 1px solid rgba(0,0,0,0.06);
+          border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+          .bfm-header-meta {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+          }
+          .bfm-comparison-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .bfm-audit-section {
+            padding: 32px 20px !important;
+          }
+          .bfm-cta-primary {
+            padding: 28px 20px !important;
+          }
+          .bfm-cta-tertiary {
+            padding: 28px 20px !important;
+          }
+          .bfm-cta-btn-row {
+            flex-direction: column;
+            align-items: stretch;
+          }
+          .bfm-cta-btn-row a {
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+          }
+          .bfm-trap-item {
+            padding: 16px 16px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .bfm-audit-section {
+            padding: 24px 16px !important;
+          }
+          .bfm-cta-primary,
+          .bfm-cta-tertiary {
+            padding: 24px 16px !important;
+          }
+          .bfm-trap-item {
+            padding: 14px 14px;
+          }
+        }
+      `}</style>
+
       {/* ── Dispatch Header / Badges ─────────────── */}
-      <div style={headerMetaRowStyle}>
+      <div className="bfm-header-meta">
         <div style={transitBadgeStyle}>
           <span style={transitDotStyle} />
           <span>Strategic Dispatch · Economic Architecture · The Becoming Institute</span>
@@ -130,15 +229,15 @@ export function BeFruitfulAndMultiplyContent() {
           Credibility is not an abstract opinion. It is verifiable evidence.
         </p>
 
-        <div style={comparisonGridStyle}>
+        <div className="bfm-comparison-grid">
           <div style={comparisonColStyle}>
             <div style={comparisonHeaderStyle}>
               <span style={comparisonBadgeRedStyle}>The Mistake</span>
               <h3 style={comparisonTitleStyle}>The Fragmented Generalist</h3>
             </div>
             <p style={comparisonTextStyle}>
-              Learns five skills at 20% proficiency. Knows a little digital marketing, a little Python, a little UI design, and a little sales. 
-              Because they have never produced a definitive, high-stakes outcome in any single domain, 
+              Learns five skills at 20% proficiency. Knows a little digital marketing, a little Python, a little UI design, and a little sales.
+              Because they have never produced a definitive, high-stakes outcome in any single domain,
               <strong> nobody trusts them with significant capital.</strong> They remain an expendable commodity competing on low rates.
             </p>
           </div>
@@ -149,7 +248,7 @@ export function BeFruitfulAndMultiplyContent() {
               <h3 style={comparisonTitleStyle}>The Credibility Anchor</h3>
             </div>
             <p style={comparisonTextStyle}>
-              Chooses one capital skill and anchors it deep. They stay with it until they solve a real, measurable problem for an enterprise or client. 
+              Chooses one capital skill and anchors it deep. They stay with it until they solve a real, measurable problem for an enterprise or client.
               That proof of work becomes their <strong>unshakable market credibility</strong>. That single reputation opens rooms where they never have to explain themselves twice.
             </p>
           </div>
@@ -183,22 +282,22 @@ export function BeFruitfulAndMultiplyContent() {
         </p>
 
         <div style={trapListStyle}>
-          <div style={trapItemStyle}>
+          <div className="bfm-trap-item">
             <span style={trapNumberStyle}>01</span>
             <div>
               <strong style={trapTitleStyle}>The Lifestyle Trap:</strong>
               <p style={trapDescStyle}>
-                You immediately inflate your personal spending, living up to the gross revenue of your best month, 
+                You immediately inflate your personal spending, living up to the gross revenue of your best month,
                 forcing yourself to keep sprinting on the hamster wheel just to maintain appearances.
               </p>
             </div>
           </div>
-          <div style={trapItemStyle}>
+          <div className="bfm-trap-item">
             <span style={trapNumberStyle}>02</span>
             <div>
               <strong style={trapTitleStyle}>The Anxious Addition Trap:</strong>
               <p style={trapDescStyle}>
-                You feel insecure about market changes, so you run off to buy yet another course, trying to add another skill 
+                You feel insecure about market changes, so you run off to buy yet another course, trying to add another skill
                 on top of your already burned-out schedule.
               </p>
             </div>
@@ -300,7 +399,7 @@ export function BeFruitfulAndMultiplyContent() {
       </section>
 
       {/* ── Section: Diagnostic Self-Audit ──────────────────────────── */}
-      <section id="the-self-audit" style={auditSectionStyle}>
+      <section id="the-self-audit" className="bfm-audit-section">
         <div style={auditHeaderStyle}>
           <span style={auditTagStyle}>Self-Examination</span>
           <h2 style={auditHeadingStyle}>The Three Diagnostic Questions for Today</h2>
@@ -365,15 +464,15 @@ export function BeFruitfulAndMultiplyContent() {
       {/* ── Section: Action / Next Steps CTA ──────────────────────────── */}
       <div style={closingStyle}>
         {/* Primary CTA: The Becoming Institute */}
-        <div style={ctaPrimaryStyle}>
+        <div className="bfm-cta-primary">
           <div style={ctaLabelStyle}>Division I · Human Capital & Economic Architecture</div>
           <h3 style={ctaHeadStyle}>Architect Your Transition with The Becoming Institute</h3>
           <p style={ctaBodyStyle}>
-            Transitioning from linear skill hustle to sovereign economic multiplication requires more than information; 
-            it requires structural alignment of your identity, capacity, and position. Discover the executive masterclasses 
+            Transitioning from linear skill hustle to sovereign economic multiplication requires more than information;
+            it requires structural alignment of your identity, capacity, and position. Discover the executive masterclasses
             and private intensives designed for visionary builders and leaders.
           </p>
-          <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+          <div className="bfm-cta-btn-row">
             <Link href="/divisions/human-capital-systems-development" style={ctaPrimaryBtnStyle}>
               Explore Division I Architecture →
             </Link>
@@ -389,12 +488,12 @@ export function BeFruitfulAndMultiplyContent() {
         </div>
 
         {/* Secondary CTA: Mindvest Capital & Real Soil */}
-        <div style={ctaTertiaryStyle}>
+        <div className="bfm-cta-tertiary">
           <div style={ctaLabelStyle}>Division II & III · Land & Sovereign Capital</div>
           <h3 style={ctaHeadStyleDark}>Channel Your Surplus into Physical Soil</h3>
           <p style={ctaBodyStyleDark}>
-            Do not let the fruits of your high-income skills dissolve in inflationary paper currency. 
-            Mindvest Global structures strategic real estate portfolios, high-yield land acquisitions, 
+            Do not let the fruits of your high-income skills dissolve in inflationary paper currency.
+            Mindvest Global structures strategic real estate portfolios, high-yield land acquisitions,
             and luxury developmental assets for leaders and diaspora investors.
           </p>
           <Link href="/divisions/real-estate-development-investment" style={ctaGoldBtnStyle}>
