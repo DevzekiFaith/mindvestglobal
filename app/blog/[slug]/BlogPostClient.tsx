@@ -151,6 +151,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
           src={post.heroImage}
           alt={post.heroImageAlt}
           fill
+          sizes="100vw"
           style={{ objectFit: "cover", opacity: 0.55 }}
           priority
         />

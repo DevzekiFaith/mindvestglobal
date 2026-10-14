@@ -587,7 +587,7 @@ BT
 /F1 9 Tf
 0.85 0.9 0.95 rg
 60 128 Td
-(Email: support@mindvestglobalresources.com.ng) Tj
+(Email: support@mindvestglobalresources.com.ng | lightwavesupport@gmail.com) Tj
 0 -13 Td
 (Platform: origin.com.ng) Tj
 0 -13 Td

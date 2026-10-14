@@ -186,6 +186,7 @@ export default function BlogListingPage() {
                       src={featured.heroImage}
                       alt={featured.heroImageAlt}
                       fill
+                      sizes="(max-width: 900px) 100vw, (max-width: 1240px) 60vw, 720px"
                       style={{ objectFit: "cover", transition: "transform 0.6s ease" }}
                       className="featured-card-img"
                       priority
@@ -364,6 +365,7 @@ export default function BlogListingPage() {
                           src={post.heroImage}
                           alt={post.heroImageAlt}
                           fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                           style={{ objectFit: "cover" }}
                         />
                       </div>

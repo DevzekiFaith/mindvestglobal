@@ -191,7 +191,7 @@ export async function POST(req: NextRequest) {
                           Mindvest Global Resources Ltd.
                         </p>
                         <p style="margin: 6px 0 0; font-size: 11px; color: #64748b;">
-                          Email: support@mindvestglobalresources.com.ng &nbsp;|&nbsp; Ecosystem: <a href="https://www.origin.com.ng" style="color: #f59e0b; text-decoration: none;">origin.com.ng</a>
+                          Email: support@mindvestglobalresources.com.ng &nbsp;|&nbsp; Alt: lightwavesupport@gmail.com &nbsp;|&nbsp; Ecosystem: <a href="https://www.origin.com.ng" style="color: #f59e0b; text-decoration: none;">origin.com.ng</a>
                         </p>
                         <p style="margin: 10px 0 0; font-size: 10px; color: #475569; letter-spacing: 1px; text-transform: uppercase;">
                           Confidential Corporate Document · For Strategic Evaluation Only
@@ -210,7 +210,7 @@ export async function POST(req: NextRequest) {
       // 2. Send internal lead notification email to support desk
       const internalEmailPromise = resend.emails.send({
         from: "Mindvest Advisory System <support@mindvestglobalresources.com.ng>",
-        to: "support@mindvestglobalresources.com.ng",
+        to: ["support@mindvestglobalresources.com.ng", "lightwavesupport@gmail.com"],
         replyTo: cleanEmail,
         subject: `🔥 New Corporate Lead: ${cleanCompany} (${cleanFullName})`,
         html: `
@@ -292,7 +292,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(
       {
         success: true,
-        message: `Access Granted. The 2026 Executive Advisory Catalog has been dispatched directly to ${cleanEmail} via support@mindvestglobalresources.com.ng.`,
+        message: `Access Granted. The 2026 Executive Advisory Catalog has been dispatched directly to ${cleanEmail} via support@mindvestglobalresources.com.ng (Alt: lightwavesupport@gmail.com).`,
         downloadUrl: catalogPdfUrl,
       },
       { status: 200 }

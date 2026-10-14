@@ -224,7 +224,16 @@ export default function CTA() {
           flexWrap: "wrap",
         }}>
           {[
-            { label: "Email", value: "support@mindvestglobalresources.com.ng" },
+            {
+              label: "Email",
+              value: "support@mindvestglobalresources.com.ng",
+              href: "mailto:support@mindvestglobalresources.com.ng",
+            },
+            {
+              label: "Alternative Email",
+              value: "lightwavesupport@gmail.com",
+              href: "mailto:lightwavesupport@gmail.com",
+            },
             { label: "Location", value: "Ogun / Lagos State · Nigeria" },
             { label: "Est.", value: "2026" },
           ].map((item, i) => (
@@ -239,8 +248,27 @@ export default function CTA() {
               }}>
                 {item.label}
               </div>
-              <div style={{ fontSize: 13, color: "var(--muted)" }}>
-                {item.value}
+              <div style={{ fontSize: 13, color: "var(--muted)", wordBreak: "break-all" }}>
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    style={{
+                      color: "inherit",
+                      textDecoration: "none",
+                      transition: "color 0.2s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.target as HTMLElement).style.color = "var(--gold)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.target as HTMLElement).style.color = "var(--muted)";
+                    }}
+                  >
+                    {item.value}
+                  </a>
+                ) : (
+                  item.value
+                )}
               </div>
             </div>
           ))}

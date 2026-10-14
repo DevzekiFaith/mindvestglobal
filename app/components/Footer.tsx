@@ -212,9 +212,23 @@ export default function Footer() {
             </div>
 
             {[
-              { label: "Email", value: "support@mindvestglobalresources.com.ng" },
+              {
+                label: "Email",
+                value: "support@mindvestglobalresources.com.ng",
+                href: "mailto:support@mindvestglobalresources.com.ng",
+              },
+              {
+                label: "Alternative Email",
+                value: "lightwavesupport@gmail.com",
+                href: "mailto:lightwavesupport@gmail.com",
+              },
               { label: "Location", value: "Ogun / Lagos State, Nigeria" },
-              { label: "Programmes", value: "www.origin.com.ng" },
+              {
+                label: "Programmes",
+                value: "www.origin.com.ng",
+                href: "https://www.origin.com.ng",
+                external: true,
+              },
             ].map((item, i) => (
               <div key={i} style={{ marginBottom: 18 }}>
                 <div style={{
@@ -227,8 +241,29 @@ export default function Footer() {
                 }}>
                   {item.label}
                 </div>
-                <div style={{ fontSize: 13, color: "rgba(247,243,236,0.4)" }}>
-                  {item.value}
+                <div style={{ fontSize: 13, color: "rgba(247,243,236,0.4)", wordBreak: "break-all" }}>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noopener noreferrer" : undefined}
+                      style={{
+                        color: "inherit",
+                        textDecoration: "none",
+                        transition: "color 0.2s ease",
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.target as HTMLElement).style.color = "var(--gold)";
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.target as HTMLElement).style.color = "rgba(247,243,236,0.4)";
+                      }}
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    item.value
+                  )}
                 </div>
               </div>
             ))}

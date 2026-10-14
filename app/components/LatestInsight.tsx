@@ -143,6 +143,7 @@ export default function LatestInsight() {
                 src={post.heroImage}
                 alt={post.heroImageAlt}
                 fill
+                sizes="(max-width: 900px) 100vw, 500px"
                 style={{
                   objectFit: "cover",
                   transition: "transform 0.6s ease",

@@ -800,6 +800,13 @@ export default function CatalogLeadSection() {
                           style={{ color: "var(--gold-light)", textDecoration: "underline" }}
                         >
                           support@mindvestglobalresources.com.ng
+                        </a>{" "}
+                        or{" "}
+                        <a
+                          href="mailto:lightwavesupport@gmail.com"
+                          style={{ color: "var(--gold-light)", textDecoration: "underline" }}
+                        >
+                          lightwavesupport@gmail.com
                         </a>.
                       </p>
                     </div>
@@ -1289,7 +1296,7 @@ export default function CatalogLeadSection() {
                 }}
               >
                 <div>
-                  Mindvest Global Resources Ltd. · <a href="mailto:support@mindvestglobalresources.com.ng" style={{ color: "var(--gold)" }}>support@mindvestglobalresources.com.ng</a>
+                  Mindvest Global Resources Ltd. · <a href="mailto:support@mindvestglobalresources.com.ng" style={{ color: "var(--gold)" }}>support@mindvestglobalresources.com.ng</a> · Alt: <a href="mailto:lightwavesupport@gmail.com" style={{ color: "var(--gold)" }}>lightwavesupport@gmail.com</a>
                 </div>
                 <a
                   href="https://calendly.com/mindvestglobalresources/30min"
