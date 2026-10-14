@@ -16,51 +16,102 @@ export function BeFruitfulAndMultiplyContent() {
           align-items: center;
           flex-wrap: wrap;
           gap: 12px;
-          margin-bottom: 32px;
-          padding-bottom: 16px;
+          margin-bottom: 28px;
+          padding-bottom: 14px;
           border-bottom: 1px solid rgba(201,168,76,0.18);
+        }
+        .bfm-briefing-box {
+          background: linear-gradient(135deg, #0B0B1A 0%, #16133B 100%);
+          padding: 24px 18px !important;
+          border-radius: 4px;
+          margin: 32px 0;
+          color: #F7F3EC;
+          border: 1px solid rgba(201,168,76,0.25);
+          box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+        .bfm-quote-block {
+          margin: 24px 0;
+          padding: 16px 18px !important;
+          border-left: 3px solid var(--gold, #D4AF37);
+          background: rgba(201,168,76,0.06);
+          border-radius: 0 4px 4px 0;
+        }
+        .bfm-quote-large {
+          margin: 24px 0;
+          padding: 16px 18px !important;
+          background: rgba(11,11,26,0.03);
+          border-left: 3px solid var(--gold, #D4AF37);
+        }
+        .bfm-card-highlight {
+          background: rgba(201,168,76,0.08);
+          border: 1px solid rgba(201,168,76,0.3);
+          padding: 18px 16px !important;
+          border-radius: 4px;
+          margin: 24px 0 28px;
         }
         .bfm-comparison-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: 20px;
-          margin: 32px 0 36px;
+          gap: 16px;
+          margin: 28px 0 32px;
+        }
+        .bfm-comparison-col {
+          background: #FAF8F5;
+          border: 1px solid rgba(0,0,0,0.08);
+          padding: 18px 14px !important;
+          border-radius: 4px;
+        }
+        .bfm-trap-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          padding: 12px 14px !important;
+          background: #FAF8F5;
+          border: 1px solid rgba(0,0,0,0.06);
+          border-radius: 4px;
+        }
+        .bfm-pillar-card {
+          background: #FAF8F5;
+          border: 1px solid rgba(201,168,76,0.22);
+          padding: 20px 16px !important;
+          border-radius: 4px;
         }
         .bfm-audit-section {
           background: linear-gradient(135deg, #0B0B1A 0%, #16133B 100%);
-          padding: 44px 36px;
+          padding: 28px 18px !important;
           border-radius: 4px;
-          margin: 48px 0;
+          margin: 36px 0;
           color: #F7F3EC;
+        }
+        .bfm-audit-card {
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(201,168,76,0.18);
+          padding: 12px 14px !important;
+          border-radius: 3px;
+          display: flex;
+          gap: 12px;
+          align-items: flex-start;
         }
         .bfm-cta-primary {
           background: #FAF8F5;
           border: 1px solid rgba(201,168,76,0.3);
-          padding: 40px 36px;
+          padding: 26px 18px !important;
           border-radius: 4px;
         }
         .bfm-cta-tertiary {
           background: linear-gradient(135deg, #0B0B1A 0%, #16133B 100%);
           border: 1px solid rgba(201,168,76,0.25);
-          padding: 40px 36px;
+          padding: 26px 18px !important;
           border-radius: 4px;
           color: #F7F3EC;
         }
         .bfm-cta-btn-row {
           display: flex;
-          gap: 16px;
+          gap: 14px;
           flex-wrap: wrap;
         }
-        .bfm-trap-item {
-          display: flex;
-          align-items: flex-start;
-          gap: 16px;
-          padding: 20px 24px;
-          background: #FAF8F5;
-          border: 1px solid rgba(0,0,0,0.06);
-          border-radius: 4px;
-        }
 
+        /* ── Tablet & Mobile: ≤768px ─────────────────── */
         @media (max-width: 768px) {
           .bfm-header-meta {
             flex-direction: column;
@@ -70,14 +121,34 @@ export function BeFruitfulAndMultiplyContent() {
           .bfm-comparison-grid {
             grid-template-columns: 1fr !important;
           }
+          .bfm-briefing-box {
+            padding: 18px 12px !important;
+          }
+          .bfm-quote-block,
+          .bfm-quote-large {
+            padding: 14px 12px !important;
+          }
+          .bfm-card-highlight {
+            padding: 16px 12px !important;
+          }
+          .bfm-comparison-col {
+            padding: 16px 12px !important;
+          }
+          .bfm-trap-item {
+            padding: 10px 10px !important;
+          }
+          .bfm-pillar-card {
+            padding: 16px 12px !important;
+          }
           .bfm-audit-section {
-            padding: 32px 20px !important;
+            padding: 22px 12px !important;
           }
-          .bfm-cta-primary {
-            padding: 28px 20px !important;
+          .bfm-audit-card {
+            padding: 10px 10px !important;
           }
+          .bfm-cta-primary,
           .bfm-cta-tertiary {
-            padding: 28px 20px !important;
+            padding: 20px 12px !important;
           }
           .bfm-cta-btn-row {
             flex-direction: column;
@@ -88,21 +159,38 @@ export function BeFruitfulAndMultiplyContent() {
             width: 100%;
             box-sizing: border-box;
           }
-          .bfm-trap-item {
-            padding: 16px 16px;
-          }
         }
 
+        /* ── Small Mobile: ≤480px ────────────────────── */
         @media (max-width: 480px) {
+          .bfm-briefing-box {
+            padding: 16px 10px !important;
+          }
+          .bfm-quote-block,
+          .bfm-quote-large {
+            padding: 12px 10px !important;
+          }
+          .bfm-card-highlight {
+            padding: 14px 10px !important;
+          }
+          .bfm-comparison-col {
+            padding: 14px 10px !important;
+          }
+          .bfm-trap-item {
+            padding: 8px 8px !important;
+          }
+          .bfm-pillar-card {
+            padding: 14px 10px !important;
+          }
           .bfm-audit-section {
-            padding: 24px 16px !important;
+            padding: 16px 10px !important;
+          }
+          .bfm-audit-card {
+            padding: 8px 8px !important;
           }
           .bfm-cta-primary,
           .bfm-cta-tertiary {
-            padding: 24px 16px !important;
-          }
-          .bfm-trap-item {
-            padding: 14px 14px;
+            padding: 16px 10px !important;
           }
         }
       `}</style>
@@ -135,7 +223,7 @@ export function BeFruitfulAndMultiplyContent() {
         and told yourself: <em>“Once I master this next thing, my financial breakthrough will finally arrive.”</em>
       </p>
 
-      <div style={quoteBlockStyle}>
+      <div className="bfm-quote-block" style={quoteBlockStyle}>
         <p style={quoteTextStyle}>
           “And yet, here you are—tired, overwhelmed, and juggling three different disciplines while your bank balance 
           still behaves like you are doing beginner’s work.”
@@ -143,7 +231,7 @@ export function BeFruitfulAndMultiplyContent() {
       </div>
 
       {/* ── Executive Briefing / Key Takeaway Box ───── */}
-      <aside id="key-takeaways" style={briefingBoxStyle}>
+      <aside id="key-takeaways" className="bfm-briefing-box" style={briefingBoxStyle}>
         <div style={briefingLabelStyle}>
           <span>⚡ Executive Briefing · The Law of Multiplication</span>
         </div>
@@ -218,7 +306,7 @@ export function BeFruitfulAndMultiplyContent() {
           That is an amateur’s question. The master architect asks:
         </p>
 
-        <div style={cardHighlightStyle}>
+        <div className="bfm-card-highlight" style={cardHighlightStyle}>
           <div style={cardBadgeStyle}>The Architectural Question</div>
           <p style={cardTextStyle}>
             “Which skill must I come into contact with <strong>FIRST</strong> to develop the credibility required to unlock the <strong>NEXT</strong>?”
@@ -230,7 +318,7 @@ export function BeFruitfulAndMultiplyContent() {
         </p>
 
         <div className="bfm-comparison-grid">
-          <div style={comparisonColStyle}>
+          <div className="bfm-comparison-col" style={comparisonColStyle}>
             <div style={comparisonHeaderStyle}>
               <span style={comparisonBadgeRedStyle}>The Mistake</span>
               <h3 style={comparisonTitleStyle}>The Fragmented Generalist</h3>
@@ -242,7 +330,7 @@ export function BeFruitfulAndMultiplyContent() {
             </p>
           </div>
 
-          <div style={comparisonColStyle}>
+          <div className="bfm-comparison-col" style={comparisonColStyle}>
             <div style={comparisonHeaderStyle}>
               <span style={comparisonBadgeGoldStyle}>The Master</span>
               <h3 style={comparisonTitleStyle}>The Credibility Anchor</h3>
@@ -313,7 +401,7 @@ export function BeFruitfulAndMultiplyContent() {
           Your urgent responsibility, the very day that income arrives, is to ask:
         </p>
 
-        <p style={quoteLargeStyle}>
+        <p className="bfm-quote-large" style={quoteLargeStyle}>
           “How do I multiply this income in another way as it comes, so my future does not depend on my physical exhaustion?”
         </p>
       </section>
@@ -329,7 +417,7 @@ export function BeFruitfulAndMultiplyContent() {
 
         <div style={pillarsContainerStyle}>
           {/* Pillar 1 */}
-          <div style={pillarCardStyle}>
+          <div className="bfm-pillar-card" style={pillarCardStyle}>
             <div style={pillarHeaderStyle}>
               <span style={pillarNumStyle}>Dimension 01</span>
               <h3 style={pillarTitleStyle}>From Hands to Systems (Leveraging Execution)</h3>
@@ -346,7 +434,7 @@ export function BeFruitfulAndMultiplyContent() {
           </div>
 
           {/* Pillar 2 */}
-          <div style={pillarCardStyle}>
+          <div className="bfm-pillar-card" style={pillarCardStyle}>
             <div style={pillarHeaderStyle}>
               <span style={pillarNumStyle}>Dimension 02</span>
               <h3 style={pillarTitleStyle}>From Hourly Labor to Codified Assets (IP & Productization)</h3>
@@ -363,7 +451,7 @@ export function BeFruitfulAndMultiplyContent() {
           </div>
 
           {/* Pillar 3 */}
-          <div style={pillarCardStyle}>
+          <div className="bfm-pillar-card" style={pillarCardStyle}>
             <div style={pillarHeaderStyle}>
               <span style={pillarNumStyle}>Dimension 03</span>
               <h3 style={pillarTitleStyle}>From Service Provider to Equity Partner</h3>
@@ -380,7 +468,7 @@ export function BeFruitfulAndMultiplyContent() {
           </div>
 
           {/* Pillar 4 */}
-          <div style={pillarCardStyle}>
+          <div className="bfm-pillar-card" style={pillarCardStyle}>
             <div style={pillarHeaderStyle}>
               <span style={pillarNumStyle}>Dimension 04</span>
               <h3 style={pillarTitleStyle}>From Digital Surplus into Hard Soil (Physical & Capital Assets)</h3>
@@ -409,7 +497,7 @@ export function BeFruitfulAndMultiplyContent() {
         </div>
 
         <div style={auditGridStyle}>
-          <div style={auditCardStyle}>
+          <div className="bfm-audit-card" style={auditCardStyle}>
             <span style={auditNumberStyle}>Q1</span>
             <p style={auditQuestionStyle}>
               <strong>Have you established undeniable proof of work in ONE capital skill?</strong>
@@ -418,7 +506,7 @@ export function BeFruitfulAndMultiplyContent() {
             </p>
           </div>
 
-          <div style={auditCardStyle}>
+          <div className="bfm-audit-card" style={auditCardStyle}>
             <span style={auditNumberStyle}>Q2</span>
             <p style={auditQuestionStyle}>
               <strong>What did you do with the last surge of income that entered your hands?</strong>
@@ -427,7 +515,7 @@ export function BeFruitfulAndMultiplyContent() {
             </p>
           </div>
 
-          <div style={auditCardStyle}>
+          <div className="bfm-audit-card" style={auditCardStyle}>
             <span style={auditNumberStyle}>Q3</span>
             <p style={auditQuestionStyle}>
               <strong>If you stepped completely away from your workstation for 90 days, what would happen?</strong>
@@ -567,8 +655,8 @@ const bodyStyle: React.CSSProperties = {
 };
 
 const quoteBlockStyle: React.CSSProperties = {
-  margin: "36px 0",
-  padding: "24px 32px",
+  margin: "24px 0",
+  padding: "16px 18px",
   borderLeft: "3px solid var(--gold, #D4AF37)",
   background: "rgba(201,168,76,0.06)",
   borderRadius: "0 4px 4px 0",
@@ -590,8 +678,8 @@ const quoteLargeStyle: React.CSSProperties = {
   fontStyle: "italic",
   lineHeight: 1.45,
   color: "var(--indigo-deep, #0B0B1A)",
-  margin: "32px 0",
-  padding: "20px 28px",
+  margin: "24px 0",
+  padding: "16px 18px",
   background: "rgba(11,11,26,0.03)",
   borderLeft: "3px solid var(--gold, #D4AF37)",
 };
@@ -609,18 +697,18 @@ const h2Style: React.CSSProperties = {
   fontSize: "clamp(26px, 2.8vw, 34px)",
   fontWeight: 400,
   color: "var(--indigo-deep, #0B0B1A)",
-  margin: "48px 0 20px",
+  margin: "44px 0 18px",
   lineHeight: 1.25,
 };
 
 const briefingBoxStyle: React.CSSProperties = {
   background: "linear-gradient(135deg, #0B0B1A 0%, #16133B 100%)",
-  padding: "36px 32px",
+  padding: "24px 18px",
   borderRadius: "4px",
-  margin: "40px 0",
+  margin: "32px 0",
   color: "#F7F3EC",
   border: "1px solid rgba(201,168,76,0.25)",
-  boxShadow: "0 12px 36px rgba(0,0,0,0.12)",
+  boxShadow: "0 10px 30px rgba(0,0,0,0.12)",
 };
 
 const briefingLabelStyle: React.CSSProperties = {
@@ -657,9 +745,9 @@ const briefingItemStyle: React.CSSProperties = {
 const cardHighlightStyle: React.CSSProperties = {
   background: "rgba(201,168,76,0.08)",
   border: "1px solid rgba(201,168,76,0.3)",
-  padding: "28px 32px",
+  padding: "18px 16px",
   borderRadius: "4px",
-  margin: "28px 0 32px",
+  margin: "24px 0 28px",
 };
 
 const cardBadgeStyle: React.CSSProperties = {
@@ -683,14 +771,14 @@ const cardTextStyle: React.CSSProperties = {
 const comparisonGridStyle: React.CSSProperties = {
   display: "grid",
   gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-  gap: 20,
-  margin: "32px 0 36px",
+  gap: 16,
+  margin: "28px 0 32px",
 };
 
 const comparisonColStyle: React.CSSProperties = {
   background: "#FAF8F5",
   border: "1px solid rgba(0,0,0,0.08)",
-  padding: "28px 24px",
+  padding: "18px 14px",
   borderRadius: "4px",
 };
 
@@ -741,15 +829,15 @@ const comparisonTextStyle: React.CSSProperties = {
 const trapListStyle: React.CSSProperties = {
   display: "flex",
   flexDirection: "column",
-  gap: 16,
-  margin: "24px 0 32px",
+  gap: 14,
+  margin: "22px 0 28px",
 };
 
 const trapItemStyle: React.CSSProperties = {
   display: "flex",
   alignItems: "flex-start",
-  gap: 16,
-  padding: "20px 24px",
+  gap: 12,
+  padding: "12px 14px",
   background: "#FAF8F5",
   border: "1px solid rgba(0,0,0,0.06)",
   borderRadius: "4px",
@@ -778,14 +866,14 @@ const trapDescStyle: React.CSSProperties = {
 const pillarsContainerStyle: React.CSSProperties = {
   display: "flex",
   flexDirection: "column",
-  gap: 24,
-  margin: "32px 0 44px",
+  gap: 20,
+  margin: "28px 0 38px",
 };
 
 const pillarCardStyle: React.CSSProperties = {
   background: "#FAF8F5",
   border: "1px solid rgba(201,168,76,0.22)",
-  padding: "32px 28px",
+  padding: "20px 16px",
   borderRadius: "4px",
 };
 
@@ -837,9 +925,9 @@ const pillarBadgeStyle: React.CSSProperties = {
 
 const auditSectionStyle: React.CSSProperties = {
   background: "linear-gradient(135deg, #0B0B1A 0%, #16133B 100%)",
-  padding: "44px 36px",
+  padding: "28px 18px",
   borderRadius: "4px",
-  margin: "48px 0",
+  margin: "36px 0",
   color: "#F7F3EC",
 };
 
@@ -875,16 +963,16 @@ const auditSubStyle: React.CSSProperties = {
 const auditGridStyle: React.CSSProperties = {
   display: "flex",
   flexDirection: "column",
-  gap: 16,
+  gap: 14,
 };
 
 const auditCardStyle: React.CSSProperties = {
   background: "rgba(255,255,255,0.04)",
   border: "1px solid rgba(201,168,76,0.18)",
-  padding: "20px 24px",
+  padding: "12px 14px",
   borderRadius: "3px",
   display: "flex",
-  gap: 16,
+  gap: 12,
   alignItems: "flex-start",
 };
 
@@ -915,7 +1003,7 @@ const closingStyle: React.CSSProperties = {
 const ctaPrimaryStyle: React.CSSProperties = {
   background: "#FAF8F5",
   border: "1px solid rgba(201,168,76,0.3)",
-  padding: "40px 36px",
+  padding: "26px 18px",
   borderRadius: "4px",
 };
 
@@ -973,7 +1061,7 @@ const ctaSecondaryBtnStyle: React.CSSProperties = {
 const ctaTertiaryStyle: React.CSSProperties = {
   background: "linear-gradient(135deg, #0B0B1A 0%, #16133B 100%)",
   border: "1px solid rgba(201,168,76,0.25)",
-  padding: "40px 36px",
+  padding: "26px 18px",
   borderRadius: "4px",
   color: "#F7F3EC",
 };

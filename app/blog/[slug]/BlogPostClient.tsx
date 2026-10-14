@@ -329,9 +329,9 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
       <div
         className="blog-article-body"
         style={{
-          maxWidth: 780,
+          maxWidth: 820,
           margin: "0 auto",
-          padding: "64px 32px 80px",
+          padding: "56px 20px 80px",
         }}
       >
         {PostContent ? <PostContent /> : <p>Content coming soon.</p>}
@@ -606,7 +606,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
             padding: 0 20px 36px !important;
           }
           .blog-article-body {
-            padding: 40px 20px 60px !important;
+            padding: 36px 16px 56px !important;
           }
           .blog-cta-strip {
             padding: 56px 20px !important;
@@ -686,7 +686,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
             padding: 0 16px 28px !important;
           }
           .blog-article-body {
-            padding: 32px 16px 48px !important;
+            padding: 24px 12px 40px !important;
             font-size: 15px !important;
             line-height: 1.8 !important;
           }
@@ -723,7 +723,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
             min-height: 260px !important;
           }
           .blog-article-body {
-            padding: 28px 14px 40px !important;
+            padding: 18px 8px 32px !important;
           }
           .blog-cta-strip {
             padding: 40px 14px !important;
