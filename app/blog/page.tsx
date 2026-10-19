@@ -176,6 +176,7 @@ export default function BlogListingPage() {
                 >
                   {/* Image side */}
                   <div
+                    className="featured-card-img-wrap"
                     style={{
                       position: "relative",
                       minHeight: 460,
@@ -509,6 +510,10 @@ export default function BlogListingPage() {
           .featured-card {
             grid-template-columns: 1fr !important;
           }
+          .featured-card-img-wrap {
+            min-height: 280px !important;
+            height: 280px !important;
+          }
           .featured-card-content {
             padding: 36px 32px !important;
           }
@@ -527,6 +532,14 @@ export default function BlogListingPage() {
           .blog-featured-section {
             padding: 48px 20px !important;
           }
+          .featured-card-img-wrap {
+            min-height: 240px !important;
+            height: 240px !important;
+          }
+          .featured-card-content {
+            padding: 28px 20px !important;
+            gap: 18px !important;
+          }
           .blog-grid-section {
             padding: 0 20px 60px !important;
           }
@@ -535,17 +548,26 @@ export default function BlogListingPage() {
           }
           .blog-grid {
             grid-template-columns: 1fr !important;
+            gap: 20px !important;
           }
         }
         /* Small mobile: 480px */
         @media (max-width: 480px) {
           .blog-listing-hero {
-            padding-top: 100px !important;
+            padding-top: 104px !important;
             padding-left: 16px !important;
             padding-right: 16px !important;
           }
           .blog-featured-section {
-            padding: 40px 16px !important;
+            padding: 36px 16px !important;
+          }
+          .featured-card-img-wrap {
+            min-height: 200px !important;
+            height: 200px !important;
+          }
+          .featured-card-content {
+            padding: 22px 16px !important;
+            gap: 16px !important;
           }
           .blog-grid-section {
             padding: 0 16px 48px !important;
@@ -553,8 +575,33 @@ export default function BlogListingPage() {
           .blog-cta-section {
             padding: 48px 16px 64px !important;
           }
+          .featured-card-content h2 {
+            font-size: 22px !important;
+            line-height: 1.2 !important;
+          }
+        }
+        /* Extra small mobile: 360px */
+        @media (max-width: 360px) {
+          .blog-listing-hero {
+            padding-top: 96px !important;
+            padding-left: 12px !important;
+            padding-right: 12px !important;
+          }
+          .blog-featured-section {
+            padding: 28px 12px !important;
+          }
+          .featured-card-img-wrap {
+            min-height: 180px !important;
+            height: 180px !important;
+          }
           .featured-card-content {
-            padding: 28px 20px !important;
+            padding: 18px 12px !important;
+          }
+          .blog-grid-section {
+            padding: 0 12px 40px !important;
+          }
+          .blog-cta-section {
+            padding: 40px 12px 56px !important;
           }
         }
       `}</style>

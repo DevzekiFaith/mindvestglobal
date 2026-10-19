@@ -126,6 +126,16 @@ export function HumanPartnershipContent() {
             grid-template-columns: 1fr !important;
             gap: 8px !important;
           }
+          .hp-layer-col {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            text-align: left !important;
+            padding: 12px 16px !important;
+          }
+          .hp-layer-col > div {
+            margin: 0 !important;
+          }
           .hp-triad-grid {
             grid-template-columns: 1fr !important;
             gap: 14px !important;
@@ -133,9 +143,9 @@ export function HumanPartnershipContent() {
         }
         @media (max-width: 640px) {
           .hp-header-meta {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 8px;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 8px !important;
           }
           .hp-briefing-box,
           .hp-reflection-section,
@@ -145,9 +155,41 @@ export function HumanPartnershipContent() {
           .hp-quote-block {
             padding: 16px 14px !important;
           }
+          .hp-quote-text {
+            font-size: 19px !important;
+            line-height: 1.4 !important;
+          }
           .hp-build-row {
-            flex-direction: column;
-            gap: 8px;
+            flex-direction: row !important;
+            align-items: flex-start !important;
+            gap: 12px !important;
+            padding: 14px 12px !important;
+          }
+          .hp-cta-primary div[style*="display: flex"] {
+            flex-direction: column !important;
+            align-items: stretch !important;
+          }
+          .hp-cta-primary a {
+            text-align: center !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .hp-layer-col {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 2px !important;
+            padding: 10px 12px !important;
+          }
+          .hp-briefing-box ul {
+            gap: 10px !important;
+          }
+          .hp-briefing-box li {
+            font-size: 13.5px !important;
+            line-height: 1.6 !important;
+          }
+          .hp-reflection-card {
             padding: 14px 12px !important;
           }
         }

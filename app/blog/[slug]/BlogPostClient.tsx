@@ -285,6 +285,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
 
           {/* Meta row */}
           <div
+            className="blog-hero-meta"
             style={{
               display: "flex",
               alignItems: "center",
@@ -579,7 +580,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
         @media (max-width: 1024px) {
           .blog-hero-wrap {
             height: 60vh !important;
-            min-height: 400px !important;
+            min-height: 420px !important;
             max-height: 560px !important;
           }
           .blog-hero-content {
@@ -600,38 +601,61 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
         /* ── Mobile: ≤768px ────────────────────────────────── */
         @media (max-width: 768px) {
           .blog-hero-wrap {
-            height: 55vh !important;
-            min-height: 360px !important;
-            max-height: 480px !important;
+            height: auto !important;
+            min-height: 440px !important;
+            max-height: none !important;
+            padding-top: 128px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: flex-end !important;
           }
           .blog-hero-content {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            right: auto !important;
             padding: 0 20px 36px !important;
           }
+          .blog-hero-content h1 {
+            font-size: clamp(28px, 6vw, 42px) !important;
+            line-height: 1.15 !important;
+            margin-bottom: 12px !important;
+          }
+          .blog-hero-content p {
+            font-size: clamp(15px, 2.8vw, 19px) !important;
+            line-height: 1.45 !important;
+            margin-bottom: 20px !important;
+          }
+          .blog-hero-meta {
+            gap: 10px 14px !important;
+          }
           .blog-article-body {
-            padding: 36px 16px 56px !important;
+            padding: 36px 18px 56px !important;
           }
           .blog-cta-strip {
             padding: 56px 20px !important;
           }
           .blog-back-nav {
-            padding: 28px 20px !important;
+            padding: 24px 20px !important;
           }
           /* H2 headings inside articles */
           .blog-article-body h2 {
             font-size: 26px !important;
-            margin-top: 40px !important;
+            margin-top: 36px !important;
+            line-height: 1.25 !important;
           }
           /* H3 inside article content */
           .blog-article-body h3 {
             font-size: 20px !important;
+            line-height: 1.3 !important;
           }
           /* Lead paragraph */
           .blog-article-body p:first-child {
-            font-size: 19px !important;
+            font-size: 20px !important;
           }
           /* Callout boxes padding */
           .blog-callout-box {
-            padding: 24px 20px !important;
+            padding: 22px 18px !important;
           }
           /* Callout grid: single column */
           .blog-callout-grid {
@@ -640,7 +664,7 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
           /* Closing CTA cards inside articles — both padding variants */
           .blog-article-body [style*="padding: 28px 32px"],
           .blog-article-body [style*="padding: 44px 40px"] {
-            padding: 24px 20px !important;
+            padding: 24px 18px !important;
           }
           /* In-article CTA button rows: stack vertically */
           .blog-cta-buttons {
@@ -669,8 +693,8 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
           }
           /* Blockquote left indent */
           .blog-article-body blockquote {
-            margin: 28px 0 !important;
-            padding: 20px 20px !important;
+            margin: 24px 0 !important;
+            padding: 16px 18px !important;
           }
           /* Tags row */
           .blog-tags-row {
@@ -681,57 +705,82 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
         /* ── Small mobile: ≤480px ──────────────────────────── */
         @media (max-width: 480px) {
           .blog-hero-wrap {
-            height: 50vh !important;
-            min-height: 300px !important;
+            min-height: 380px !important;
+            padding-top: 110px !important;
           }
           .blog-hero-content {
             padding: 0 16px 28px !important;
           }
+          .blog-hero-content h1 {
+            font-size: 25px !important;
+            line-height: 1.18 !important;
+          }
+          .blog-hero-content p {
+            font-size: 14.5px !important;
+            line-height: 1.4 !important;
+          }
+          .blog-hero-meta {
+            gap: 8px 12px !important;
+          }
+          .blog-hero-meta span[style*="width: 1"] {
+            display: none !important;
+          }
           .blog-article-body {
-            padding: 24px 12px 40px !important;
-            font-size: 15px !important;
-            line-height: 1.8 !important;
+            padding: 28px 14px 44px !important;
+            font-size: 15.5px !important;
+            line-height: 1.78 !important;
           }
           .blog-cta-strip {
-            padding: 48px 16px !important;
+            padding: 44px 16px !important;
           }
           .blog-back-nav {
-            padding: 24px 16px !important;
+            padding: 20px 16px !important;
           }
           .blog-article-body h2 {
             font-size: 22px !important;
-            margin-top: 36px !important;
+            margin-top: 32px !important;
           }
           .blog-article-body h3 {
             font-size: 18px !important;
           }
           .blog-article-body blockquote p {
-            font-size: 18px !important;
+            font-size: 17px !important;
+            line-height: 1.45 !important;
           }
           /* Make callout grids single col */
           .blog-callout-grid {
             grid-template-columns: 1fr !important;
-            gap: 14px !important;
+            gap: 12px !important;
           }
           /* Breadcrumb font on tiny screens */
           .blog-hero-content [style*="letterSpacing: 2px"] {
             font-size: 9px !important;
+            flex-wrap: wrap !important;
+            gap: 6px !important;
           }
         }
 
         /* ── Extra-small: ≤360px ───────────────────────────── */
         @media (max-width: 360px) {
           .blog-hero-wrap {
-            min-height: 260px !important;
+            min-height: 340px !important;
+            padding-top: 96px !important;
+          }
+          .blog-hero-content h1 {
+            font-size: 22px !important;
+          }
+          .blog-hero-content p {
+            font-size: 13.5px !important;
           }
           .blog-article-body {
-            padding: 18px 8px 32px !important;
+            padding: 20px 10px 36px !important;
+            font-size: 14.5px !important;
           }
           .blog-cta-strip {
-            padding: 40px 14px !important;
+            padding: 36px 12px !important;
           }
           .blog-back-nav {
-            padding: 20px 14px !important;
+            padding: 18px 12px !important;
           }
         }
       `}</style>
