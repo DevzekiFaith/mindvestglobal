@@ -19,8 +19,10 @@ import { ThreeQuestionsPostContent } from "../content/you-have-3-questions-to-as
 import { EconomicLawOfOriginContent } from "../content/the-economic-law-of-origin";
 import { MarketHustleVsLeverageContent } from "../content/market-hustle-vs-architectural-leverage";
 import { BeFruitfulAndMultiplyContent } from "../content/be-fruitful-and-multiply-how-income-multiplies";
+import { HumanPartnershipContent } from "../content/the-architecture-of-profitable-human-partnerships";
 
 const contentMap: Record<string, React.FC> = {
+  "the-architecture-of-profitable-human-partnerships": HumanPartnershipContent,
   "be-fruitful-and-multiply-how-income-multiplies": BeFruitfulAndMultiplyContent,
   "market-hustle-vs-architectural-leverage": MarketHustleVsLeverageContent,
   "the-economic-law-of-origin": EconomicLawOfOriginContent,
