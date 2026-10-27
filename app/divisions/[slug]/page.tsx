@@ -49,6 +49,11 @@ const leadershipFounderData = {
       highlight: true,
     },
     {
+      label: "Success Multiplier Program (Origin ↗)",
+      href: "https://www.origin.com.ng/events?event=22",
+      highlight: false,
+    },
+    {
       label: "The Becoming Podcast (YouTube ↗)",
       href: "https://youtube.com/@thebecomingwithzekiubor?si=QC9bC_6enotC-g0R",
     },

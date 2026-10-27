@@ -222,32 +222,62 @@ export default function DivisionDetailClient({ data }: { data: DivisionData }) {
                   )}
 
                   {data.founder ? (
-                    <a
-                      href="https://calendly.com/mindvestglobalresources/30min"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "10px",
-                        padding: "16px 36px",
-                        background: "linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%)",
-                        color: "var(--indigo-deep)",
-                        fontFamily: "var(--font-dm-mono), monospace",
-                        fontSize: "11px",
-                        letterSpacing: "2.5px",
-                        textTransform: "uppercase",
-                        fontWeight: 700,
-                        textDecoration: "none",
-                        transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                        border: "1px solid rgba(201, 168, 76, 0.4)",
-                        boxShadow: "0 6px 24px rgba(201, 168, 76, 0.25)",
-                      }}
-                      className="cta-btn"
-                    >
-                      <span>Book Executive Discovery Call</span>
-                      <span style={{ fontSize: "14px" }}>↗</span>
-                    </a>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "12px", alignItems: "flex-start" }}>
+                      <a
+                        href="https://calendly.com/mindvestglobalresources/30min"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "10px",
+                          padding: "16px 36px",
+                          background: "linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%)",
+                          color: "var(--indigo-deep)",
+                          fontFamily: "var(--font-dm-mono), monospace",
+                          fontSize: "11px",
+                          letterSpacing: "2.5px",
+                          textTransform: "uppercase",
+                          fontWeight: 700,
+                          textDecoration: "none",
+                          transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                          border: "1px solid rgba(201, 168, 76, 0.4)",
+                          boxShadow: "0 6px 24px rgba(201, 168, 76, 0.25)",
+                        }}
+                        className="cta-btn"
+                      >
+                        <span>Book Executive Discovery Call</span>
+                        <span style={{ fontSize: "14px" }}>↗</span>
+                      </a>
+
+                      <a
+                        href="https://www.origin.com.ng/events?event=22"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "10px",
+                          padding: "15px 36px",
+                          background: "linear-gradient(135deg, #FF6B00 0%, #EA580C 100%)",
+                          color: "#FFFFFF",
+                          fontFamily: "var(--font-dm-mono), monospace",
+                          fontSize: "11px",
+                          letterSpacing: "2.5px",
+                          textTransform: "uppercase",
+                          fontWeight: 700,
+                          textDecoration: "none",
+                          transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                          border: "1px solid rgba(255, 107, 0, 0.6)",
+                          boxShadow: "0 6px 24px rgba(234, 88, 12, 0.35)",
+                          cursor: "pointer",
+                        }}
+                        className="cta-btn success-multiplier-orange-btn"
+                      >
+                        <span>Success Multiplier Program</span>
+                        <span style={{ fontSize: "14px" }}>→</span>
+                      </a>
+                    </div>
                   ) : (
                     <button
                       onClick={() => handleCtaClick(data.ctaActionType)}
@@ -832,29 +862,60 @@ export default function DivisionDetailClient({ data }: { data: DivisionData }) {
               >
                 {/* Primary Button */}
                 {data.ctaActionType === "calendly" || data.ctaHref?.includes("calendly") ? (
-                  <a
-                    href={data.ctaHref || "https://calendly.com/mindvestglobalresources/30min"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      padding: "18px 48px",
-                      background: "linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%)",
-                      color: "var(--indigo-deep)",
-                      fontFamily: "var(--font-dm-mono), monospace",
-                      fontSize: 11,
-                      letterSpacing: "3px",
-                      textTransform: "uppercase",
-                      fontWeight: 700,
-                      textDecoration: "none",
-                      transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                      border: "1px solid rgba(201,168,76,0.4)",
-                      display: "inline-block",
-                      boxShadow: "0 4px 15px rgba(201, 168, 76, 0.2)",
-                    }}
-                    className="cta-btn"
-                  >
-                    {data.ctaLabel} ↗
-                  </a>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "14px", alignItems: "center" }}>
+                    <a
+                      href={data.ctaHref || "https://calendly.com/mindvestglobalresources/30min"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        padding: "18px 48px",
+                        background: "linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%)",
+                        color: "var(--indigo-deep)",
+                        fontFamily: "var(--font-dm-mono), monospace",
+                        fontSize: 11,
+                        letterSpacing: "3px",
+                        textTransform: "uppercase",
+                        fontWeight: 700,
+                        textDecoration: "none",
+                        transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                        border: "1px solid rgba(201,168,76,0.4)",
+                        display: "inline-block",
+                        boxShadow: "0 4px 15px rgba(201, 168, 76, 0.2)",
+                      }}
+                      className="cta-btn"
+                    >
+                      {data.ctaLabel} ↗
+                    </a>
+                    {data.roman === "II" && (
+                      <a
+                        href="https://www.origin.com.ng/events?event=22"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          padding: "16px 42px",
+                          background: "linear-gradient(135deg, #FF6B00 0%, #EA580C 100%)",
+                          color: "#FFFFFF",
+                          fontFamily: "var(--font-dm-mono), monospace",
+                          fontSize: 11,
+                          letterSpacing: "2.5px",
+                          textTransform: "uppercase",
+                          fontWeight: 700,
+                          textDecoration: "none",
+                          transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                          border: "1px solid rgba(255, 107, 0, 0.6)",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "10px",
+                          boxShadow: "0 6px 24px rgba(234, 88, 12, 0.35)",
+                          cursor: "pointer",
+                        }}
+                        className="cta-btn success-multiplier-orange-btn"
+                      >
+                        <span>Success Multiplier Program</span>
+                        <span style={{ fontSize: "14px" }}>→</span>
+                      </a>
+                    )}
+                  </div>
                 ) : (
                   <button
                     onClick={() => handleCtaClick(data.ctaActionType)}
