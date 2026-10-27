@@ -258,9 +258,9 @@ export default function DivisionDetailClient({ data }: { data: DivisionData }) {
                           display: "inline-flex",
                           alignItems: "center",
                           gap: "10px",
-                          padding: "15px 36px",
-                          background: "linear-gradient(135deg, #FF6B00 0%, #EA580C 100%)",
-                          color: "#FFFFFF",
+                          padding: "16px 36px",
+                          background: "#10B981",
+                          color: "#FDFAF5",
                           fontFamily: "var(--font-dm-mono), monospace",
                           fontSize: "11px",
                           letterSpacing: "2.5px",
@@ -268,11 +268,11 @@ export default function DivisionDetailClient({ data }: { data: DivisionData }) {
                           fontWeight: 700,
                           textDecoration: "none",
                           transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                          border: "1px solid rgba(255, 107, 0, 0.6)",
-                          boxShadow: "0 6px 24px rgba(234, 88, 12, 0.35)",
+                          border: "1px solid rgba(16, 185, 129, 0.5)",
+                          boxShadow: "0 6px 24px rgba(16, 185, 129, 0.3)",
                           cursor: "pointer",
                         }}
-                        className="cta-btn success-multiplier-orange-btn"
+                        className="cta-btn success-multiplier-green-btn"
                       >
                         <span>Success Multiplier Program</span>
                         <span style={{ fontSize: "14px" }}>→</span>
@@ -893,8 +893,8 @@ export default function DivisionDetailClient({ data }: { data: DivisionData }) {
                         rel="noopener noreferrer"
                         style={{
                           padding: "16px 42px",
-                          background: "linear-gradient(135deg, #FF6B00 0%, #EA580C 100%)",
-                          color: "#FFFFFF",
+                          background: "#10B981",
+                          color: "#FDFAF5",
                           fontFamily: "var(--font-dm-mono), monospace",
                           fontSize: 11,
                           letterSpacing: "2.5px",
@@ -902,14 +902,14 @@ export default function DivisionDetailClient({ data }: { data: DivisionData }) {
                           fontWeight: 700,
                           textDecoration: "none",
                           transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-                          border: "1px solid rgba(255, 107, 0, 0.6)",
+                          border: "1px solid rgba(16, 185, 129, 0.5)",
                           display: "inline-flex",
                           alignItems: "center",
                           gap: "10px",
-                          boxShadow: "0 6px 24px rgba(234, 88, 12, 0.35)",
+                          boxShadow: "0 6px 24px rgba(16, 185, 129, 0.3)",
                           cursor: "pointer",
                         }}
-                        className="cta-btn success-multiplier-orange-btn"
+                        className="cta-btn success-multiplier-green-btn"
                       >
                         <span>Success Multiplier Program</span>
                         <span style={{ fontSize: "14px" }}>→</span>
