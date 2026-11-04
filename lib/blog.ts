@@ -26,6 +26,60 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "how-to-make-decisions-expensive-affordable-cheap",
+    title: "The Architecture of Decision-Making: Cheap, Affordable, and Expensive",
+    subtitle:
+      "Why What Looks Cheap Destroys Enterprise Capital and Personal Destiny—and How Sovereign Leaders Architect High-Yield Decisions Under Pressure",
+    excerpt:
+      "When faced with situational direction in enterprise or life, most people believe they are choosing between options or prices. In truth, every decision falls into three energetic categories: Cheap, Affordable, and Expensive. Discover the B-U-I-L-D Decision Framework by Zeki Ubor and learn why cheap is always the most expensive path you can take.",
+    category: "leadership-architecture",
+    categoryLabel: "The Becoming Institute · Leadership & Decision Architecture · Origin Series",
+    author: "Zeki Ubor",
+    authorRole: "Principal & Founder · Human & Systems Architect",
+    date: "November 4, 2026",
+    isoDate: "2026-11-04T09:00:00+01:00",
+    readTime: "7 min read",
+    heroImage: "/images/blog-hero-decision-architecture.jpg",
+    heroImageAlt:
+      "A visionary African executive standing before an architectural drafting table analyzing structural blueprints and strategic decision models at sunset.",
+    tags: [
+      "Decision Architecture",
+      "The Becoming Institute",
+      "Success Multiplier",
+      "Origin Platform",
+      "Enterprise Leadership",
+      "Cheap vs Expensive",
+      "Zeki Ubor",
+      "Mindvest Global",
+      "B-U-I-L-D Framework",
+    ],
+    featured: true,
+    geoRegion: "NG-LA",
+    geoPlacename: "Lagos, Nigeria",
+    faq: [
+      {
+        question: "What is the difference between cheap, affordable, and expensive decisions?",
+        answer:
+          "A cheap decision requires minimal upfront cash but incurs devastating downstream maintenance, reputational damage, and operational friction. An affordable decision operates comfortably within current cash flow to maintain baseline stability. An expensive decision requires upfront courage and capital commitment but eliminates operational bottlenecks, unlocks sovereign leverage, and multiplies long-term enterprise value.",
+      },
+      {
+        question: "Why is 'cheap' considered the most expensive choice in business?",
+        answer:
+          "Cheap options in software, talent, advisory, or partnerships carry hidden architectural debt. Businesses end up paying to install the cheap fix, paying to repair it when it fails, paying for the collateral fallout, and eventually paying full price to hire the expert who should have been engaged initially.",
+      },
+      {
+        question: "When should an enterprise choose 'affordable' versus 'expensive'?",
+        answer:
+          "Affordable solutions should be reserved for standardized commodities where reliability is commoditized and differentiation provides zero competitive advantage. Expensive investments should be reserved for core multipliers: executive leadership, proprietary systems, brand architecture, high-trust alliances, and personal mastery.",
+      },
+      {
+        question: "What is the November Success Multiplier Masterclass on Origin?",
+        answer:
+          "The Success Multiplier Program is an executive strategic immersion hosted by Zeki Ubor on the Origin platform (November 14, 2026) that teaches leaders, founders, and operators how to eliminate decision friction, calibrate personal capital, and engineer asymmetric multiplication without multiplying exhaustion.",
+      },
+    ],
+  },
+  {
     slug: "the-architecture-of-profitable-human-partnerships",
     title: "The Grace of Human Partnership: Designing the Rooms That Shape Us",
     subtitle:
@@ -54,7 +108,7 @@ export const blogPosts: BlogPost[] = [
       "Zeki Ubor",
       "Mindvest Global",
     ],
-    featured: true,
+    featured: false,
     geoRegion: "NG-LA",
     geoPlacename: "Lagos, Nigeria",
     faq: [
