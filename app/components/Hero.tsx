@@ -27,13 +27,7 @@ export default function Hero() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const [activeStep, setActiveStep] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const [copied, setCopied] = useState(false);
 
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText("https://www.origin.com.ng");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   useEffect(() => {
     if (isHovered) return;
@@ -341,11 +335,13 @@ export default function Hero() {
               Explore Our Work
             </a>
             <a
-              href="#catalog-access"
+              href="https://calendly.com/mindvestglobalresources/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 padding: "16px 36px",
-                border: "1px solid rgba(245,158,11,0.5)",
-                background: "rgba(180,83,9,0.15)",
+                border: "1px solid rgba(201,168,76,0.5)",
+                background: "rgba(201,168,76,0.08)",
                 color: "var(--gold-light)",
                 fontFamily: "var(--font-dm-mono), monospace",
                 fontSize: 11,
@@ -363,50 +359,13 @@ export default function Hero() {
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.background = "rgba(180,83,9,0.15)";
+                el.style.background = "rgba(201,168,76,0.08)";
                 el.style.color = "var(--gold-light)";
                 el.style.transform = "translateY(0)";
               }}
             >
-              2026 Catalog (PDF) ↓
+              Book Executive Call ↗
             </a>
-          </div>
-
-          {/* QR Code Scan Integration */}
-          <div
-            className="qr-premium-card"
-            style={{
-              opacity: 0,
-              animation: "fadeUp 0.9s ease forwards 1.1s",
-            }}
-          >
-            <div className="qr-image-container">
-              <img src="/images/mindvest-qr.png" alt="Mindvest Masterclass QR Code" />
-              <div className="qr-scanner-line" />
-            </div>
-            <div className="qr-premium-text-container">
-              <span className="qr-premium-title">Scan to Register via Mobile</span>
-              <p className="qr-premium-subtitle">
-                Access the Masterclass checkout instantly on your phone or share it with others.
-              </p>
-              <div className="qr-action-buttons">
-                <a
-                  href="https://www.origin.com.ng"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="qr-action-btn qr-action-btn-primary"
-                >
-                  Register Now
-                </a>
-                <button
-                  onClick={handleCopyLink}
-                  className="qr-action-btn"
-                  style={{ minWidth: "110px" }}
-                >
-                  {copied ? "✓ Copied!" : "📋 Copy Link"}
-                </button>
-              </div>
-            </div>
           </div>
 
         </div>

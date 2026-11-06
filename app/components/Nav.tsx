@@ -20,7 +20,7 @@ export default function Nav() {
     { href: "/#masterclass", label: "Masterclass" },
     { href: "/#who", label: "Who We Serve" },
     { href: "/blog", label: "Insights" },
-    { href: "/#catalog-access", label: "Executive Catalog" },
+    { href: "/#contact", label: "Contact" },
   ];
 
   return (
