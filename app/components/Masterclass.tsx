@@ -168,7 +168,7 @@ export default function Masterclass() {
 
             <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center", marginTop: 40 }}>
               <a
-                href="https://www.origin.com.ng"
+                href="https://origin.com.ng/events"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -510,65 +510,53 @@ export default function Masterclass() {
                 ))}
               </div>
 
-              {/* Pricing + CTA block */}
+              {/* Registration & Event Access block */}
               <div style={{ padding: "18px 24px 22px" }}>
-                {/* Pricing row */}
+                {/* Event status row */}
                 <div
                   style={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
                     marginBottom: "14px",
+                    paddingBottom: "10px",
+                    borderBottom: "1px solid rgba(201,168,76,0.12)",
                   }}
                 >
-                  <div style={{ display: "flex", alignItems: "baseline", gap: "6px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                     <span
                       style={{
-                        fontFamily: "var(--font-cormorant), serif",
-                        fontSize: "32px",
-                        fontWeight: 700,
-                        color: "var(--gold-light)",
-                        lineHeight: 1,
+                        width: "6px",
+                        height: "6px",
+                        borderRadius: "50%",
+                        background: "#34D399",
+                        boxShadow: "0 0 8px #34D399",
+                        display: "inline-block",
                       }}
-                    >
-                      ₦35,000
-                    </span>
+                    />
                     <span
                       style={{
                         fontFamily: "var(--font-dm-mono), monospace",
-                        fontSize: "10px",
-                        color: "rgba(247,243,236,0.45)",
+                        fontSize: "9px",
+                        letterSpacing: "1.5px",
+                        textTransform: "uppercase",
+                        color: "var(--gold-light)",
+                        fontWeight: 600,
                       }}
                     >
-                      / $25 USD
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: "var(--font-cormorant), serif",
-                        fontSize: "15px",
-                        color: "rgba(247,243,236,0.28)",
-                        textDecoration: "line-through",
-                        marginLeft: "2px",
-                      }}
-                    >
-                      ₦95,000
+                      Live Cohort Access
                     </span>
                   </div>
                   <span
                     style={{
                       fontFamily: "var(--font-dm-mono), monospace",
-                      fontSize: "8px",
-                      letterSpacing: "1px",
+                      fontSize: "8.5px",
+                      letterSpacing: "1.2px",
                       textTransform: "uppercase",
-                      color: "var(--gold-light)",
-                      padding: "3px 8px",
-                      borderRadius: "3px",
-                      background: "rgba(201,168,76,0.12)",
-                      border: "1px solid rgba(201,168,76,0.28)",
-                      fontWeight: 600,
+                      color: "rgba(247,243,236,0.5)",
                     }}
                   >
-                    Save 63%
+                    Origin Platform
                   </span>
                 </div>
 
