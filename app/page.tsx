@@ -7,6 +7,7 @@ import Framework from "./components/Framework";
 import Masterclass from "./components/Masterclass";
 import Testimonials from "./components/Testimonials";
 import Audience from "./components/Audience";
+import CaseDossiers from "./components/CaseDossiers";
 import Manifesto from "./components/Manifesto";
 import Founder from "./components/Founder";
 import LatestInsight from "./components/LatestInsight";
@@ -28,6 +29,7 @@ export default function Home() {
         <Masterclass />
         <Testimonials />
         <Audience />
+        <CaseDossiers />
         <Manifesto />
         <Founder />
         <LatestInsight />

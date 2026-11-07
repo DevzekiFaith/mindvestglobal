@@ -115,7 +115,7 @@ export default function CTA() {
           flexWrap: "wrap",
         }}>
           <a
-            href="https://www.origin.com.ng"
+            href="https://origin.com.ng/events"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -177,6 +177,44 @@ export default function CTA() {
             Book Executive Call ↗
           </a>
           <a
+            href="https://wa.me/2349119059859?text=Hello%20Mindvest%20Global%20Office,%20I%20am%20reaching%20out%20to%20inquire%20about%20executive%20advisory%20with%20Zeki%20Ubor."
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              padding: "18px 36px",
+              background: "#0d2e23",
+              color: "#e8f5e9",
+              border: "1px solid rgba(16, 185, 129, 0.4)",
+              fontFamily: "var(--font-dm-mono), monospace",
+              fontSize: 11,
+              letterSpacing: "3px",
+              textTransform: "uppercase",
+              fontWeight: 600,
+              textDecoration: "none",
+              transition: "all 0.3s",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              boxShadow: "0 4px 18px rgba(16, 185, 129, 0.15)",
+            }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.background = "#134636";
+              el.style.transform = "translateY(-3px)";
+              el.style.boxShadow = "0 14px 32px rgba(16, 185, 129, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.background = "#0d2e23";
+              el.style.transform = "translateY(0)";
+              el.style.boxShadow = "0 4px 18px rgba(16, 185, 129, 0.15)";
+            }}
+          >
+            <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#10B981", display: "inline-block", boxShadow: "0 0 8px #10B981" }} />
+            Executive Desk (WhatsApp) ↗
+          </a>
+
+          <a
             id="cta-elevation-btn"
             href="https://www.elevationstudiong.com.ng"
             target="_blank"
@@ -224,6 +262,11 @@ export default function CTA() {
           flexWrap: "wrap",
         }}>
           {[
+            {
+              label: "Executive Concierge",
+              value: "+234 911 905 9859",
+              href: "https://wa.me/2349119059859?text=Hello%20Mindvest%20Global%20Office,%20I%20am%20reaching%20out%20to%20inquire%20about%20executive%20advisory%20with%20Zeki%20Ubor.",
+            },
             {
               label: "Email",
               value: "support@mindvestglobalresources.com.ng",

@@ -9,6 +9,7 @@ export default function Footer() {
     { href: "/#framework", label: "The Framework" },
     { href: "/#masterclass", label: "Masterclass" },
     { href: "/#who", label: "Who We Serve" },
+    { href: "/#dossiers", label: "Case Dossiers" },
     { href: "/blog", label: "Insights & Perspectives" },
   ];
 
@@ -212,6 +213,12 @@ export default function Footer() {
             </div>
 
             {[
+              {
+                label: "Executive Concierge",
+                value: "+234 911 905 9859 (Desk)",
+                href: "https://wa.me/2349119059859?text=Hello%20Mindvest%20Global%20Office,%20I%20am%20reaching%20out%20to%20inquire%20about%20executive%20advisory%20with%20Zeki%20Ubor.",
+                external: true,
+              },
               {
                 label: "Email",
                 value: "support@mindvestglobalresources.com.ng",
