@@ -18,53 +18,47 @@ const PILLARS: AdvisoryPillar[] = [
   {
     id: "strategic-direction",
     number: "01",
-    title: "Strategic Direction & Decision Architecture",
-    subtitle: "Eliminating Cognitive Drag & Executive Bottlenecks",
+    title: "Strategic Direction & Decisions",
+    subtitle: "Eliminating Cognitive Drag & Founder Bottlenecks",
     humanReality:
-      "Most enterprises do not lose momentum from a lack of effort. They lose it from strategic drift — making reactive, 'cheap' compromises that cost millions in operational drag, or suffering from executive gridlock where every critical decision stalls at the founder's desk.",
+      "When every critical decision stalls at the top, enterprises suffer compounding execution drag, reactive compromises, and strategic drift.",
     intervention:
-      "We partner with founders, boards, and leadership teams to audit strategic direction, install the B-U-I-L-D Decision Framework, decouple the enterprise from founder micromanagement, and establish clear decision sovereignty across departments.",
+      "We install the B-U-I-L-D Decision Framework, establish autonomous decision rights across departments, and de-bottleneck founder reliance.",
     outcomes: [
-      "Clarity on high-leverage priorities vs. expensive distractions",
-      "Decentralized decision rights that empower senior department leads",
-      "Elimination of cognitive drag across operational and strategic pipelines",
+      "High-leverage focus vs. expensive operational distractions",
+      "Decentralized decision rights for senior leadership leads",
     ],
-    quote:
-      "“A strategy is only as strong as the quality of decisions made in private when pressure is at its peak.”",
+    quote: "“A strategy is only as strong as decisions made under peak pressure.”",
   },
   {
     id: "leadership-alignment",
     number: "02",
-    title: "Leadership Alignment & Executive Capacity",
-    subtitle: "Restoring Stamina, Cohesion, & Emotional Sovereignty",
+    title: "Leadership Alignment & Stamina",
+    subtitle: "Restoring C-Suite Cohesion & Stamina",
     humanReality:
-      "Even the most brilliant business model collapses if the leaders expected to execute it are privately exhausted, operating in defensive silos, or burned out by the sheer weight of responsibility.",
+      "Even brilliant models collapse when leaders are privately exhausted, operating in defensive silos, or burned out by the weight of responsibility.",
     intervention:
-      "Through confidential 1-on-1 executive advisory and leadership intensives, we help leaders rebuild their internal stamina, establish sovereign emotional boundaries, and transform defensive meetings into high-trust collaborative rooms.",
+      "Confidential 1-on-1 executive advisory and intensives that rebuild internal stamina, establish sovereign boundaries, and align the leadership core.",
     outcomes: [
-      "Restoration of executive stamina, focus, and mental clarity",
-      "Dismantling of inter-departmental politics and executive silos",
-      "Unified executive presence and shared commitment to vision",
+      "Restoration of executive focus, energy, and mental clarity",
+      "Dismantling of inter-departmental politics and silos",
     ],
-    quote:
-      "“You cannot build an enduring institution on top of an exhausted, fragmented leadership core.”",
+    quote: "“Enduring institutions cannot stand on an exhausted leadership core.”",
   },
   {
     id: "culture-systems",
     number: "03",
-    title: "Institutional Culture & Relational Dynamics",
-    subtitle: "Designing High-Trust Rooms That Endure",
+    title: "Institutional Culture & Dynamics",
+    subtitle: "Designing High-Trust Execution Environments",
     humanReality:
-      "Culture is never the slogan framed on an office wall; it is the unspoken room dynamics, the psychological safety, and the daily communication habits of your people under stress.",
+      "Culture is never an office slogan; it is the daily communication habits, psychological safety, and unspoken room dynamics under stress.",
     intervention:
-      "We re-architect internal communication protocols, align human capital with the monumental vision of the enterprise, and install an authentic culture of sovereign accountability and excellence.",
+      "We re-architect internal communication protocols, eliminate relational friction, and install an authentic standard of ownership.",
     outcomes: [
-      "Culture of radical ownership without fear or defensiveness",
       "Transparent communication protocols that eliminate passive aggression",
-      "Alignment of team energy with measurable institutional milestones",
+      "Unified team energy aligned with measurable milestones",
     ],
-    quote:
-      "“When people know the foundation is solid, they stop performing for survival and start building for legacy.”",
+    quote: "“When the foundation is solid, teams stop surviving and build for legacy.”",
   },
 ];
 
@@ -73,22 +67,22 @@ const ENGAGEMENT_MODES = [
     tag: "Format 01 · Immersion",
     title: "Executive Strategy Intensive",
     duration: "1–2 Day Immersion",
-    desc: "A closed-door strategic room for founders and C-Suite teams to unblock stuck initiatives, audit decisions, and reset direction.",
-    suitability: "Best for: Leadership retreats, post-funding resets, and annual strategic alignment.",
+    desc: "Closed-door strategic room for founders and C-Suites to unblock initiatives, audit decisions, and reset direction.",
+    suitability: "Leadership retreats & post-funding alignment",
   },
   {
     tag: "Format 02 · Keynotes",
     title: "Strategic Keynotes & Briefings",
-    duration: "Half-Day / Retreat Keynote",
-    desc: "Transformational keynotes delivered by Zeki Ubor on human architecture, decision engineering, and institutional stamina.",
-    suitability: "Best for: Corporate conventions, executive assemblies, and board retreats.",
+    duration: "Half-Day / Keynote",
+    desc: "Transformational keynotes by Zeki Ubor on human architecture, decision engineering, and institutional stamina.",
+    suitability: "Corporate conventions & executive assemblies",
   },
   {
     tag: "Format 03 · Partnership",
     title: "Executive Advisory Partnership",
     duration: "Ongoing Strategic Partnership",
-    desc: "Ongoing confidential strategic sound-boarding and leadership development for the CEO and senior executive core.",
-    suitability: "Best for: Rapidly scaling enterprises navigating complex leadership transitions.",
+    desc: "Confidential strategic sound-boarding and ongoing leadership development for the CEO and senior executive core.",
+    suitability: "Scaling enterprises navigating leadership transitions",
   },
 ];
 
@@ -115,23 +109,23 @@ export default function EnterpriseAdvisory() {
       ref={sectionRef}
       id="advisory"
       style={{
-        background: "var(--indigo)", // Signature Brand Indigo #1C1A4A
-        padding: "130px 60px",
+        background: "var(--indigo)",
+        padding: "96px 48px",
         position: "relative",
         overflow: "hidden",
         borderTop: "1px solid rgba(201, 168, 76, 0.15)",
         borderBottom: "1px solid rgba(201, 168, 76, 0.15)",
       }}
     >
-      {/* Brand glowing orbs & architecture accents */}
+      {/* Brand glowing orbs */}
       <div
         className="advisory-ambient-gold"
         style={{
           position: "absolute",
-          top: -160,
-          right: -160,
-          width: 600,
-          height: 600,
+          top: -140,
+          right: -140,
+          width: 500,
+          height: 500,
           background: "radial-gradient(circle, rgba(201, 168, 76, 0.08) 0%, transparent 70%)",
           borderRadius: "50%",
           pointerEvents: "none",
@@ -141,10 +135,10 @@ export default function EnterpriseAdvisory() {
         className="advisory-ambient-blue"
         style={{
           position: "absolute",
-          bottom: -150,
-          left: -150,
-          width: 550,
-          height: 550,
+          bottom: -140,
+          left: -140,
+          width: 480,
+          height: 480,
           background: "radial-gradient(circle, rgba(40, 37, 107, 0.7) 0%, transparent 70%)",
           borderRadius: "50%",
           pointerEvents: "none",
@@ -153,43 +147,43 @@ export default function EnterpriseAdvisory() {
 
       <div
         style={{
-          maxWidth: 1240,
+          maxWidth: 1180,
           margin: "0 auto",
           position: "relative",
           zIndex: 1,
           opacity: visible ? 1 : 0,
-          transform: visible ? "translateY(0)" : "translateY(24px)",
-          transition: "opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1)",
+          transform: visible ? "translateY(0)" : "translateY(20px)",
+          transition: "opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
-        {/* Section Header on Brand Color */}
-        <div style={{ maxWidth: 940, marginBottom: 56 }}>
+        {/* Section Header */}
+        <div style={{ maxWidth: 860, marginBottom: 40 }}>
           <div
             style={{
               fontFamily: "var(--font-dm-mono), monospace",
               fontSize: 10,
-              letterSpacing: "5px",
+              letterSpacing: "4px",
               textTransform: "uppercase",
               color: "var(--gold)",
-              marginBottom: 20,
+              marginBottom: 14,
               display: "flex",
               alignItems: "center",
-              gap: 12,
+              gap: 10,
             }}
           >
-            <span style={{ width: 20, height: 1, background: "var(--gold)", display: "inline-block" }} />
+            <span style={{ width: 18, height: 1, background: "var(--gold)", display: "inline-block" }} />
             Enterprise & Strategy Advisory
           </div>
 
           <h2
             style={{
               fontFamily: "var(--font-cormorant), serif",
-              fontSize: "clamp(34px, 4.6vw, 62px)",
+              fontSize: "clamp(30px, 4vw, 52px)",
               fontWeight: 300,
-              lineHeight: 1.1,
+              lineHeight: 1.12,
               color: "var(--cream)",
               letterSpacing: "-0.5px",
-              marginBottom: 24,
+              marginBottom: 16,
             }}
           >
             Architecting Institutional Clarity,<br />
@@ -200,26 +194,25 @@ export default function EnterpriseAdvisory() {
 
           <p
             style={{
-              fontSize: 16.5,
-              lineHeight: 1.85,
+              fontSize: 15.5,
+              lineHeight: 1.75,
               color: "rgba(247, 243, 236, 0.75)",
-              maxWidth: 780,
+              maxWidth: 720,
               margin: 0,
             }}
           >
-            Most enterprises do not stall because they lack ambition. They stall because their leaders are carrying
-            too much friction, their decisions are reactive, and their culture is built on borrowed templates. We partner
-            with founders, executives, and leadership teams to install structural clarity from the inside out.
+            We partner with founders and executive teams to eliminate decision friction, restore leadership stamina,
+            and scale an authentic culture of execution.
           </p>
         </div>
 
-        {/* Tab Selection — Framer Motion Pill Buttons */}
+        {/* Tab Selection */}
         <div
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
-            gap: 14,
-            marginBottom: 28,
+            gap: 12,
+            marginBottom: 22,
           }}
           className="advisory-tab-grid"
         >
@@ -235,13 +228,13 @@ export default function EnterpriseAdvisory() {
                     ? "linear-gradient(135deg, rgba(40, 37, 107, 0.8) 0%, rgba(28, 26, 74, 0.95) 100%)"
                     : "rgba(40, 37, 107, 0.25)",
                   border: isActive ? "1px solid rgba(201, 168, 76, 0.45)" : "1px solid rgba(201, 168, 76, 0.12)",
-                  padding: "20px 24px",
+                  padding: "16px 20px",
                   textAlign: "left",
                   cursor: "pointer",
                   position: "relative",
                   display: "flex",
                   flexDirection: "column",
-                  gap: 8,
+                  gap: 4,
                   overflow: "hidden",
                 }}
                 animate={{
@@ -292,7 +285,7 @@ export default function EnterpriseAdvisory() {
                 <div
                   style={{
                     fontFamily: "var(--font-cormorant), serif",
-                    fontSize: 19,
+                    fontSize: 18,
                     fontWeight: 500,
                     color: "var(--cream)",
                     lineHeight: 1.25,
@@ -306,16 +299,16 @@ export default function EnterpriseAdvisory() {
           })}
         </div>
 
-        {/* Active Pillar Card — Brand Indigo Surface with Framer Motion AnimatePresence */}
+        {/* Active Pillar Card — Compact & Elegant */}
         <div
           style={{
             background: "linear-gradient(135deg, rgba(40, 37, 107, 0.6) 0%, rgba(24, 22, 64, 0.85) 100%)",
-            border: "1px solid rgba(201, 168, 76, 0.25)",
-            padding: "48px 52px",
-            marginBottom: 56,
+            border: "1px solid rgba(201, 168, 76, 0.22)",
+            padding: "36px 40px",
+            marginBottom: 44,
             position: "relative",
             backdropFilter: "blur(16px)",
-            boxShadow: "0 20px 60px rgba(10, 8, 24, 0.35)",
+            boxShadow: "0 16px 48px rgba(10, 8, 24, 0.3)",
             overflow: "hidden",
           }}
           className="pillar-card"
@@ -323,89 +316,84 @@ export default function EnterpriseAdvisory() {
           <AnimatePresence mode="wait">
             <motion.div
               key={activePillar.id}
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               style={{
                 display: "grid",
-                gridTemplateColumns: "1.35fr 1fr",
-                gap: 56,
+                gridTemplateColumns: "1.3fr 1fr",
+                gap: 40,
                 alignItems: "start",
               }}
               className="pillar-content-wrapper"
             >
-              {/* Left Column: Human Reality & Architectural Intervention */}
+              {/* Left Column: Reality & Intervention */}
               <div>
                 <motion.div
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.05 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   style={{
                     fontFamily: "var(--font-dm-mono), monospace",
                     fontSize: 9,
-                    letterSpacing: "4px",
+                    letterSpacing: "3px",
                     textTransform: "uppercase",
                     color: "var(--gold)",
-                    marginBottom: 10,
+                    marginBottom: 6,
                   }}
                 >
-                  The Human Reality
+                  The Reality
                 </motion.div>
 
                 <motion.h3
-                  initial={{ opacity: 0, y: 8 }}
+                  initial={{ opacity: 0, y: 4 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.32, delay: 0.08 }}
                   style={{
                     fontFamily: "var(--font-cormorant), serif",
-                    fontSize: 27,
+                    fontSize: 23,
                     fontWeight: 500,
                     color: "var(--cream)",
                     lineHeight: 1.25,
-                    marginBottom: 18,
+                    marginBottom: 10,
                   }}
                 >
                   {activePillar.subtitle}
                 </motion.h3>
 
                 <motion.p
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.32, delay: 0.12 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   style={{
-                    fontSize: 15.5,
-                    lineHeight: 1.85,
-                    color: "rgba(247, 243, 236, 0.78)",
-                    marginBottom: 30,
+                    fontSize: 14.5,
+                    lineHeight: 1.7,
+                    color: "rgba(247, 243, 236, 0.76)",
+                    marginBottom: 20,
                   }}
                 >
                   {activePillar.humanReality}
                 </motion.p>
 
                 <motion.div
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.15 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   style={{
                     fontFamily: "var(--font-dm-mono), monospace",
                     fontSize: 9,
-                    letterSpacing: "4px",
+                    letterSpacing: "3px",
                     textTransform: "uppercase",
                     color: "var(--gold)",
-                    marginBottom: 10,
+                    marginBottom: 6,
                   }}
                 >
-                  The Advisory Intervention
+                  The Intervention
                 </motion.div>
 
                 <motion.p
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.32, delay: 0.18 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   style={{
-                    fontSize: 15.5,
-                    lineHeight: 1.85,
+                    fontSize: 14.5,
+                    lineHeight: 1.7,
                     color: "rgba(247, 243, 236, 0.85)",
                     margin: 0,
                   }}
@@ -414,18 +402,17 @@ export default function EnterpriseAdvisory() {
                 </motion.p>
               </div>
 
-              {/* Right Column: Key Outcomes & Guiding Conviction */}
+              {/* Right Column: Key Outcomes & Quote */}
               <motion.div
-                initial={{ opacity: 0, x: 10 }}
+                initial={{ opacity: 0, x: 8 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.35, delay: 0.1 }}
                 style={{
                   background: "rgba(255, 255, 255, 0.04)",
-                  border: "1px solid rgba(201, 168, 76, 0.18)",
-                  padding: "32px",
+                  border: "1px solid rgba(201, 168, 76, 0.16)",
+                  padding: "24px",
                   display: "flex",
                   flexDirection: "column",
-                  gap: 26,
+                  gap: 18,
                 }}
               >
                 <div>
@@ -436,31 +423,28 @@ export default function EnterpriseAdvisory() {
                       letterSpacing: "3px",
                       textTransform: "uppercase",
                       color: "var(--gold)",
-                      marginBottom: 16,
+                      marginBottom: 12,
                     }}
                   >
                     Deliverables & Impact
                   </div>
-                  <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                     {activePillar.outcomes.map((outcome, i) => (
-                      <motion.div
+                      <div
                         key={i}
-                        initial={{ opacity: 0, x: 6 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.25, delay: 0.14 + i * 0.05 }}
                         style={{
                           display: "flex",
                           alignItems: "flex-start",
-                          gap: 12,
-                          fontSize: 14,
-                          lineHeight: 1.6,
+                          gap: 10,
+                          fontSize: 13.5,
+                          lineHeight: 1.55,
                           color: "rgba(247, 243, 236, 0.88)",
                         }}
                       >
                         <span
                           style={{
-                            width: 6,
-                            height: 6,
+                            width: 5,
+                            height: 5,
                             borderRadius: "50%",
                             background: "var(--gold)",
                             marginTop: 7,
@@ -468,43 +452,39 @@ export default function EnterpriseAdvisory() {
                           }}
                         />
                         <span>{outcome}</span>
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Guiding Quote */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.35, delay: 0.28 }}
+                <div
                   style={{
-                    borderTop: "1px solid rgba(201, 168, 76, 0.15)",
-                    paddingTop: 22,
+                    borderTop: "1px solid rgba(201, 168, 76, 0.14)",
+                    paddingTop: 16,
                     fontFamily: "var(--font-cormorant), serif",
-                    fontSize: 17,
+                    fontSize: 15.5,
                     fontStyle: "italic",
-                    lineHeight: 1.6,
+                    lineHeight: 1.5,
                     color: "var(--gold-light)",
                   }}
                 >
                   {activePillar.quote}
-                </motion.div>
+                </div>
               </motion.div>
             </motion.div>
           </AnimatePresence>
         </div>
 
-        {/* Engagement Modes Grid — Brand Indigo Cards */}
-        <div style={{ marginBottom: 48 }}>
+        {/* Engagement Modes Grid — Compact */}
+        <div style={{ marginBottom: 38 }}>
           <div
             style={{
               fontFamily: "var(--font-dm-mono), monospace",
               fontSize: 9,
-              letterSpacing: "4px",
+              letterSpacing: "3px",
               textTransform: "uppercase",
               color: "var(--gold)",
-              marginBottom: 16,
+              marginBottom: 10,
               textAlign: "center",
             }}
           >
@@ -513,11 +493,11 @@ export default function EnterpriseAdvisory() {
           <h3
             style={{
               fontFamily: "var(--font-cormorant), serif",
-              fontSize: "clamp(24px, 3vw, 38px)",
+              fontSize: "clamp(22px, 2.6vw, 32px)",
               fontWeight: 300,
               color: "var(--cream)",
               textAlign: "center",
-              marginBottom: 36,
+              marginBottom: 24,
             }}
           >
             Structured Engagements for Growing Enterprises
@@ -527,7 +507,7 @@ export default function EnterpriseAdvisory() {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(3, 1fr)",
-              gap: 20,
+              gap: 16,
             }}
             className="modes-grid"
           >
@@ -536,39 +516,39 @@ export default function EnterpriseAdvisory() {
                 key={i}
                 style={{
                   background: "linear-gradient(135deg, rgba(40, 37, 107, 0.45) 0%, rgba(24, 22, 64, 0.7) 100%)",
-                  border: "1px solid rgba(201, 168, 76, 0.18)",
-                  padding: "32px 28px",
+                  border: "1px solid rgba(201, 168, 76, 0.16)",
+                  padding: "24px 22px",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
-                  transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
+                  transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                   position: "relative",
-                  boxShadow: "0 10px 30px rgba(10, 8, 24, 0.2)",
+                  boxShadow: "0 8px 24px rgba(10, 8, 24, 0.18)",
                 }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget as HTMLElement;
                   el.style.borderColor = "var(--gold)";
-                  el.style.transform = "translateY(-4px)";
+                  el.style.transform = "translateY(-3px)";
                   el.style.background = "linear-gradient(135deg, rgba(40, 37, 107, 0.65) 0%, rgba(28, 26, 74, 0.85) 100%)";
-                  el.style.boxShadow = "0 20px 48px rgba(10, 8, 24, 0.35)";
+                  el.style.boxShadow = "0 14px 36px rgba(10, 8, 24, 0.3)";
                 }}
                 onMouseLeave={(e) => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "rgba(201, 168, 76, 0.18)";
+                  el.style.borderColor = "rgba(201, 168, 76, 0.16)";
                   el.style.transform = "translateY(0)";
                   el.style.background = "linear-gradient(135deg, rgba(40, 37, 107, 0.45) 0%, rgba(24, 22, 64, 0.7) 100%)";
-                  el.style.boxShadow = "0 10px 30px rgba(10, 8, 24, 0.2)";
+                  el.style.boxShadow = "0 8px 24px rgba(10, 8, 24, 0.18)";
                 }}
               >
                 <div>
                   <div
                     style={{
                       fontFamily: "var(--font-dm-mono), monospace",
-                      fontSize: 9,
-                      letterSpacing: "3px",
+                      fontSize: 8.5,
+                      letterSpacing: "2.5px",
                       textTransform: "uppercase",
                       color: "var(--gold-muted)",
-                      marginBottom: 12,
+                      marginBottom: 8,
                     }}
                   >
                     {mode.tag}
@@ -576,11 +556,11 @@ export default function EnterpriseAdvisory() {
                   <div
                     style={{
                       fontFamily: "var(--font-cormorant), serif",
-                      fontSize: 22,
+                      fontSize: 20,
                       color: "var(--cream)",
                       fontWeight: 600,
                       lineHeight: 1.2,
-                      marginBottom: 8,
+                      marginBottom: 6,
                     }}
                   >
                     {mode.title}
@@ -588,9 +568,9 @@ export default function EnterpriseAdvisory() {
                   <div
                     style={{
                       fontFamily: "var(--font-dm-mono), monospace",
-                      fontSize: 10,
+                      fontSize: 9.5,
                       color: "var(--gold)",
-                      marginBottom: 16,
+                      marginBottom: 12,
                       fontWeight: 500,
                     }}
                   >
@@ -598,10 +578,10 @@ export default function EnterpriseAdvisory() {
                   </div>
                   <p
                     style={{
-                      fontSize: 14.5,
-                      lineHeight: 1.7,
+                      fontSize: 13.5,
+                      lineHeight: 1.6,
                       color: "rgba(247, 243, 236, 0.72)",
-                      marginBottom: 20,
+                      marginBottom: 16,
                     }}
                   >
                     {mode.desc}
@@ -610,11 +590,11 @@ export default function EnterpriseAdvisory() {
                 <div
                   style={{
                     fontFamily: "var(--font-dm-mono), monospace",
-                    fontSize: 10,
+                    fontSize: 9.5,
                     color: "rgba(247, 243, 236, 0.45)",
-                    borderTop: "1px solid rgba(201, 168, 76, 0.12)",
-                    paddingTop: 14,
-                    lineHeight: 1.5,
+                    borderTop: "1px solid rgba(201, 168, 76, 0.1)",
+                    paddingTop: 10,
+                    lineHeight: 1.4,
                   }}
                 >
                   {mode.suitability}
@@ -624,22 +604,22 @@ export default function EnterpriseAdvisory() {
           </div>
         </div>
 
-        {/* Discovery & Integrity Commitment Strip */}
+        {/* Discovery & Integrity Commitment Strip — Compact */}
         <div
           style={{
             background: "linear-gradient(135deg, rgba(40, 37, 107, 0.5) 0%, rgba(28, 26, 74, 0.75) 100%)",
-            border: "1px solid rgba(201, 168, 76, 0.25)",
-            padding: "34px 40px",
+            border: "1px solid rgba(201, 168, 76, 0.22)",
+            padding: "26px 32px",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            gap: 28,
+            gap: 24,
             flexWrap: "wrap",
             backdropFilter: "blur(10px)",
           }}
           className="integrity-strip"
         >
-          <div style={{ maxWidth: 640 }}>
+          <div style={{ maxWidth: 600 }}>
             <div
               style={{
                 fontFamily: "var(--font-dm-mono), monospace",
@@ -647,34 +627,34 @@ export default function EnterpriseAdvisory() {
                 letterSpacing: "3px",
                 textTransform: "uppercase",
                 color: "var(--gold)",
-                marginBottom: 8,
+                marginBottom: 6,
               }}
             >
               The Standard of Integrity
             </div>
             <div
               style={{
-                fontSize: 15,
-                lineHeight: 1.75,
+                fontSize: 14,
+                lineHeight: 1.65,
                 color: "rgba(247, 243, 236, 0.85)",
               }}
             >
-              Every enterprise engagement begins with an exploratory discovery conversation to diagnose your
-              structural reality before proposal or invoicing. We do not prescribe before we inspect.
+              Every engagement starts with a confidential discovery call to diagnose your structural reality
+              before proposal or invoicing.
             </div>
           </div>
 
-          <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
             <a
               href="https://calendly.com/mindvestglobalresources/30min"
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                padding: "16px 32px",
+                padding: "14px 26px",
                 background: "var(--gold)",
                 color: "var(--indigo-deep)",
                 fontFamily: "var(--font-dm-mono), monospace",
-                fontSize: 11,
+                fontSize: 10.5,
                 letterSpacing: "2px",
                 textTransform: "uppercase",
                 fontWeight: 700,
@@ -686,7 +666,7 @@ export default function EnterpriseAdvisory() {
                 const el = e.currentTarget as HTMLElement;
                 el.style.background = "var(--gold-light)";
                 el.style.transform = "translateY(-2px)";
-                el.style.boxShadow = "0 10px 28px rgba(201, 168, 76, 0.35)";
+                el.style.boxShadow = "0 8px 24px rgba(201, 168, 76, 0.35)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
@@ -703,12 +683,12 @@ export default function EnterpriseAdvisory() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                padding: "16px 28px",
+                padding: "14px 24px",
                 background: "transparent",
                 color: "var(--cream)",
-                border: "1px solid rgba(201, 168, 76, 0.4)",
+                border: "1px solid rgba(201, 168, 76, 0.35)",
                 fontFamily: "var(--font-dm-mono), monospace",
-                fontSize: 11,
+                fontSize: 10.5,
                 letterSpacing: "2px",
                 textTransform: "uppercase",
                 textDecoration: "none",
@@ -726,7 +706,7 @@ export default function EnterpriseAdvisory() {
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = "rgba(201, 168, 76, 0.4)";
+                el.style.borderColor = "rgba(201, 168, 76, 0.35)";
                 el.style.color = "var(--cream)";
                 el.style.transform = "translateY(0)";
                 el.style.background = "transparent";
@@ -742,17 +722,17 @@ export default function EnterpriseAdvisory() {
       <style>{`
         @media (max-width: 960px) {
           section {
-            padding: 80px 24px !important;
+            padding: 64px 20px !important;
           }
           .advisory-tab-grid {
             grid-template-columns: 1fr !important;
           }
           .pillar-card {
-            padding: 26px 20px !important;
+            padding: 24px 18px !important;
           }
           .pillar-content-wrapper {
             grid-template-columns: 1fr !important;
-            gap: 28px !important;
+            gap: 24px !important;
           }
           .modes-grid {
             grid-template-columns: 1fr !important;
@@ -760,7 +740,7 @@ export default function EnterpriseAdvisory() {
           .integrity-strip {
             flex-direction: column !important;
             align-items: flex-start !important;
-            padding: 28px 24px !important;
+            padding: 24px 20px !important;
           }
         }
       `}</style>
