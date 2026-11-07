@@ -9,7 +9,7 @@ export default function Footer() {
     { href: "/#framework", label: "The Framework" },
     { href: "/#masterclass", label: "Masterclass" },
     { href: "/#who", label: "Who We Serve" },
-    { href: "/#dossiers", label: "Case Dossiers" },
+    { href: "/#advisory", label: "Enterprise Advisory" },
     { href: "/blog", label: "Insights & Perspectives" },
   ];
 

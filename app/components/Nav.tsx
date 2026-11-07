@@ -19,7 +19,7 @@ export default function Nav() {
     { href: "/#framework", label: "Framework" },
     { href: "/#masterclass", label: "Masterclass" },
     { href: "/#who", label: "Who We Serve" },
-    { href: "/#dossiers", label: "Dossiers" },
+    { href: "/#advisory", label: "Advisory" },
     { href: "/blog", label: "Insights" },
     { href: "/#contact", label: "Contact" },
   ];
