@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface AdvisoryPillar {
   id: string;
@@ -93,7 +94,6 @@ const ENGAGEMENT_MODES = [
 
 export default function EnterpriseAdvisory() {
   const [activeTab, setActiveTab] = useState(0);
-  const [animating, setAnimating] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -107,15 +107,6 @@ export default function EnterpriseAdvisory() {
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
-
-  const handleTabChange = (idx: number) => {
-    if (idx === activeTab) return;
-    setAnimating(true);
-    setActiveTab(idx);
-    setTimeout(() => {
-      setAnimating(false);
-    }, 350);
-  };
 
   const activePillar = PILLARS[activeTab];
 
@@ -222,7 +213,7 @@ export default function EnterpriseAdvisory() {
           </p>
         </div>
 
-        {/* Tab Selection — Sleek Brand Pills */}
+        {/* Tab Selection — Framer Motion Pill Buttons */}
         <div
           style={{
             display: "grid",
@@ -235,9 +226,10 @@ export default function EnterpriseAdvisory() {
           {PILLARS.map((pillar, idx) => {
             const isActive = activeTab === idx;
             return (
-              <button
+              <motion.button
                 key={pillar.id}
-                onClick={() => handleTabChange(idx)}
+                onClick={() => setActiveTab(idx)}
+                whileTap={{ scale: 0.985 }}
                 style={{
                   background: isActive
                     ? "linear-gradient(135deg, rgba(40, 37, 107, 0.8) 0%, rgba(28, 26, 74, 0.95) 100%)"
@@ -246,12 +238,16 @@ export default function EnterpriseAdvisory() {
                   padding: "20px 24px",
                   textAlign: "left",
                   cursor: "pointer",
-                  transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                   position: "relative",
                   display: "flex",
                   flexDirection: "column",
                   gap: 8,
+                  overflow: "hidden",
                 }}
+                animate={{
+                  borderColor: isActive ? "rgba(201, 168, 76, 0.45)" : "rgba(201, 168, 76, 0.12)",
+                }}
+                transition={{ duration: 0.25 }}
                 onMouseEnter={(e) => {
                   if (!isActive) {
                     const el = e.currentTarget as HTMLElement;
@@ -268,7 +264,8 @@ export default function EnterpriseAdvisory() {
                 }}
               >
                 {isActive && (
-                  <div
+                  <motion.div
+                    layoutId="activePillarTabIndicator"
                     style={{
                       position: "absolute",
                       top: 0,
@@ -277,6 +274,7 @@ export default function EnterpriseAdvisory() {
                       height: 2,
                       background: "linear-gradient(90deg, var(--gold) 0%, rgba(201,168,76,0.3) 100%)",
                     }}
+                    transition={{ type: "spring", stiffness: 350, damping: 32 }}
                   />
                 )}
                 <div
@@ -303,164 +301,198 @@ export default function EnterpriseAdvisory() {
                 >
                   {pillar.title}
                 </div>
-              </button>
+              </motion.button>
             );
           })}
         </div>
 
-        {/* Active Pillar Card — Brand Indigo Card Surface */}
+        {/* Active Pillar Card — Brand Indigo Surface with Framer Motion AnimatePresence */}
         <div
           style={{
-            background: "linear-gradient(135deg, rgba(40, 37, 107, 0.6) 0%, rgba(24, 22, 64, 0.85) 100%)", // Rich Brand Indigo Card
+            background: "linear-gradient(135deg, rgba(40, 37, 107, 0.6) 0%, rgba(24, 22, 64, 0.85) 100%)",
             border: "1px solid rgba(201, 168, 76, 0.25)",
             padding: "48px 52px",
             marginBottom: 56,
             position: "relative",
             backdropFilter: "blur(16px)",
             boxShadow: "0 20px 60px rgba(10, 8, 24, 0.35)",
+            overflow: "hidden",
           }}
           className="pillar-card"
         >
-          <div
-            key={activePillar.id}
-            className={`pillar-content-wrapper ${animating ? "gliding-in" : "glide-settled"}`}
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1.35fr 1fr",
-              gap: 56,
-              alignItems: "start",
-            }}
-          >
-            {/* Left Column: Human Reality & Architectural Intervention */}
-            <div>
-              <div
-                style={{
-                  fontFamily: "var(--font-dm-mono), monospace",
-                  fontSize: 9,
-                  letterSpacing: "4px",
-                  textTransform: "uppercase",
-                  color: "var(--gold)",
-                  marginBottom: 10,
-                }}
-              >
-                The Human Reality
-              </div>
-              <h3
-                style={{
-                  fontFamily: "var(--font-cormorant), serif",
-                  fontSize: 27,
-                  fontWeight: 500,
-                  color: "var(--cream)",
-                  lineHeight: 1.25,
-                  marginBottom: 18,
-                }}
-              >
-                {activePillar.subtitle}
-              </h3>
-              <p
-                style={{
-                  fontSize: 15.5,
-                  lineHeight: 1.85,
-                  color: "rgba(247, 243, 236, 0.78)",
-                  marginBottom: 30,
-                }}
-              >
-                {activePillar.humanReality}
-              </p>
-
-              <div
-                style={{
-                  fontFamily: "var(--font-dm-mono), monospace",
-                  fontSize: 9,
-                  letterSpacing: "4px",
-                  textTransform: "uppercase",
-                  color: "var(--gold)",
-                  marginBottom: 10,
-                }}
-              >
-                The Advisory Intervention
-              </div>
-              <p
-                style={{
-                  fontSize: 15.5,
-                  lineHeight: 1.85,
-                  color: "rgba(247, 243, 236, 0.85)",
-                  margin: 0,
-                }}
-              >
-                {activePillar.intervention}
-              </p>
-            </div>
-
-            {/* Right Column: Key Outcomes & Guiding Conviction */}
-            <div
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activePillar.id}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                background: "rgba(255, 255, 255, 0.04)",
-                border: "1px solid rgba(201, 168, 76, 0.18)",
-                padding: "32px",
-                display: "flex",
-                flexDirection: "column",
-                gap: 26,
+                display: "grid",
+                gridTemplateColumns: "1.35fr 1fr",
+                gap: 56,
+                alignItems: "start",
               }}
+              className="pillar-content-wrapper"
             >
+              {/* Left Column: Human Reality & Architectural Intervention */}
               <div>
-                <div
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.05 }}
                   style={{
                     fontFamily: "var(--font-dm-mono), monospace",
                     fontSize: 9,
-                    letterSpacing: "3px",
+                    letterSpacing: "4px",
                     textTransform: "uppercase",
                     color: "var(--gold)",
-                    marginBottom: 16,
+                    marginBottom: 10,
                   }}
                 >
-                  Deliverables & Impact
-                </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-                  {activePillar.outcomes.map((outcome, i) => (
-                    <div
-                      key={i}
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        gap: 12,
-                        fontSize: 14,
-                        lineHeight: 1.6,
-                        color: "rgba(247, 243, 236, 0.88)",
-                      }}
-                    >
-                      <span
-                        style={{
-                          width: 6,
-                          height: 6,
-                          borderRadius: "50%",
-                          background: "var(--gold)",
-                          marginTop: 7,
-                          flexShrink: 0,
-                        }}
-                      />
-                      <span>{outcome}</span>
-                    </div>
-                  ))}
-                </div>
+                  The Human Reality
+                </motion.div>
+
+                <motion.h3
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.32, delay: 0.08 }}
+                  style={{
+                    fontFamily: "var(--font-cormorant), serif",
+                    fontSize: 27,
+                    fontWeight: 500,
+                    color: "var(--cream)",
+                    lineHeight: 1.25,
+                    marginBottom: 18,
+                  }}
+                >
+                  {activePillar.subtitle}
+                </motion.h3>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.32, delay: 0.12 }}
+                  style={{
+                    fontSize: 15.5,
+                    lineHeight: 1.85,
+                    color: "rgba(247, 243, 236, 0.78)",
+                    marginBottom: 30,
+                  }}
+                >
+                  {activePillar.humanReality}
+                </motion.p>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.15 }}
+                  style={{
+                    fontFamily: "var(--font-dm-mono), monospace",
+                    fontSize: 9,
+                    letterSpacing: "4px",
+                    textTransform: "uppercase",
+                    color: "var(--gold)",
+                    marginBottom: 10,
+                  }}
+                >
+                  The Advisory Intervention
+                </motion.div>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.32, delay: 0.18 }}
+                  style={{
+                    fontSize: 15.5,
+                    lineHeight: 1.85,
+                    color: "rgba(247, 243, 236, 0.85)",
+                    margin: 0,
+                  }}
+                >
+                  {activePillar.intervention}
+                </motion.p>
               </div>
 
-              {/* Guiding Quote */}
-              <div
+              {/* Right Column: Key Outcomes & Guiding Conviction */}
+              <motion.div
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.35, delay: 0.1 }}
                 style={{
-                  borderTop: "1px solid rgba(201, 168, 76, 0.15)",
-                  paddingTop: 22,
-                  fontFamily: "var(--font-cormorant), serif",
-                  fontSize: 17,
-                  fontStyle: "italic",
-                  lineHeight: 1.6,
-                  color: "var(--gold-light)",
+                  background: "rgba(255, 255, 255, 0.04)",
+                  border: "1px solid rgba(201, 168, 76, 0.18)",
+                  padding: "32px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 26,
                 }}
               >
-                {activePillar.quote}
-              </div>
-            </div>
-          </div>
+                <div>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-dm-mono), monospace",
+                      fontSize: 9,
+                      letterSpacing: "3px",
+                      textTransform: "uppercase",
+                      color: "var(--gold)",
+                      marginBottom: 16,
+                    }}
+                  >
+                    Deliverables & Impact
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                    {activePillar.outcomes.map((outcome, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, x: 6 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.25, delay: 0.14 + i * 0.05 }}
+                        style={{
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: 12,
+                          fontSize: 14,
+                          lineHeight: 1.6,
+                          color: "rgba(247, 243, 236, 0.88)",
+                        }}
+                      >
+                        <span
+                          style={{
+                            width: 6,
+                            height: 6,
+                            borderRadius: "50%",
+                            background: "var(--gold)",
+                            marginTop: 7,
+                            flexShrink: 0,
+                          }}
+                        />
+                        <span>{outcome}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Guiding Quote */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.35, delay: 0.28 }}
+                  style={{
+                    borderTop: "1px solid rgba(201, 168, 76, 0.15)",
+                    paddingTop: 22,
+                    fontFamily: "var(--font-cormorant), serif",
+                    fontSize: 17,
+                    fontStyle: "italic",
+                    lineHeight: 1.6,
+                    color: "var(--gold-light)",
+                  }}
+                >
+                  {activePillar.quote}
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {/* Engagement Modes Grid — Brand Indigo Cards */}
@@ -708,26 +740,6 @@ export default function EnterpriseAdvisory() {
       </div>
 
       <style>{`
-        @keyframes advisoryContentGlide {
-          0% {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .pillar-content-wrapper.gliding-in {
-          animation: advisoryContentGlide 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        .pillar-content-wrapper.glide-settled {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
         @media (max-width: 960px) {
           section {
             padding: 80px 24px !important;
