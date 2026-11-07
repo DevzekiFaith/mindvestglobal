@@ -93,6 +93,7 @@ const ENGAGEMENT_MODES = [
 
 export default function EnterpriseAdvisory() {
   const [activeTab, setActiveTab] = useState(0);
+  const [animating, setAnimating] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -107,6 +108,15 @@ export default function EnterpriseAdvisory() {
     return () => observer.disconnect();
   }, []);
 
+  const handleTabChange = (idx: number) => {
+    if (idx === activeTab) return;
+    setAnimating(true);
+    setActiveTab(idx);
+    setTimeout(() => {
+      setAnimating(false);
+    }, 400);
+  };
+
   const activePillar = PILLARS[activeTab];
 
   return (
@@ -118,31 +128,33 @@ export default function EnterpriseAdvisory() {
         padding: "130px 60px",
         position: "relative",
         overflow: "hidden",
-        borderTop: "1px solid rgba(201,168,76,0.12)",
-        borderBottom: "1px solid rgba(201,168,76,0.12)",
+        borderTop: "1px solid rgba(201, 168, 76, 0.08)",
+        borderBottom: "1px solid rgba(201, 168, 76, 0.08)",
       }}
     >
-      {/* Ambient background glows */}
+      {/* Ambient background glows with subtle breathing animation */}
       <div
+        className="advisory-ambient-gold"
         style={{
           position: "absolute",
-          top: -150,
-          right: -150,
-          width: 600,
-          height: 600,
-          background: "radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%)",
+          top: -180,
+          right: -180,
+          width: 650,
+          height: 650,
+          background: "radial-gradient(circle, rgba(201, 168, 76, 0.05) 0%, transparent 70%)",
           borderRadius: "50%",
           pointerEvents: "none",
         }}
       />
       <div
+        className="advisory-ambient-emerald"
         style={{
           position: "absolute",
-          bottom: -100,
-          left: -100,
-          width: 500,
-          height: 500,
-          background: "radial-gradient(circle, rgba(16,185,129,0.04) 0%, transparent 70%)",
+          bottom: -150,
+          left: -150,
+          width: 550,
+          height: 550,
+          background: "radial-gradient(circle, rgba(16, 185, 129, 0.035) 0%, transparent 70%)",
           borderRadius: "50%",
           pointerEvents: "none",
         }}
@@ -155,12 +167,12 @@ export default function EnterpriseAdvisory() {
           position: "relative",
           zIndex: 1,
           opacity: visible ? 1 : 0,
-          transform: visible ? "translateY(0)" : "translateY(30px)",
-          transition: "opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1)",
+          transform: visible ? "translateY(0)" : "translateY(24px)",
+          transition: "opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
         {/* Section Header */}
-        <div style={{ maxWidth: 900, marginBottom: 70 }}>
+        <div style={{ maxWidth: 920, marginBottom: 64 }}>
           <div
             style={{
               fontFamily: "var(--font-dm-mono), monospace",
@@ -174,19 +186,19 @@ export default function EnterpriseAdvisory() {
               gap: 12,
             }}
           >
-            <span style={{ width: 24, height: 1, background: "var(--gold)", display: "inline-block" }} />
+            <span style={{ width: 20, height: 1, background: "rgba(201, 168, 76, 0.5)", display: "inline-block" }} />
             Enterprise & Strategy Advisory
           </div>
 
           <h2
             style={{
               fontFamily: "var(--font-cormorant), serif",
-              fontSize: "clamp(36px, 4.8vw, 64px)",
+              fontSize: "clamp(34px, 4.6vw, 62px)",
               fontWeight: 300,
               lineHeight: 1.1,
               color: "var(--cream)",
               letterSpacing: "-0.5px",
-              marginBottom: 26,
+              marginBottom: 24,
             }}
           >
             Architecting Institutional Clarity,<br />
@@ -197,10 +209,10 @@ export default function EnterpriseAdvisory() {
 
           <p
             style={{
-              fontSize: 17,
-              lineHeight: 1.85,
+              fontSize: 16,
+              lineHeight: 1.9,
               color: "rgba(247, 243, 236, 0.65)",
-              maxWidth: 760,
+              maxWidth: 780,
               margin: 0,
             }}
           >
@@ -210,13 +222,13 @@ export default function EnterpriseAdvisory() {
           </p>
         </div>
 
-        {/* Tab Selection */}
+        {/* Tab Selection — Ultra Delicate Hairline Borders */}
         <div
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
-            gap: 16,
-            marginBottom: 36,
+            gap: 14,
+            marginBottom: 28,
           }}
           className="advisory-tab-grid"
         >
@@ -225,18 +237,32 @@ export default function EnterpriseAdvisory() {
             return (
               <button
                 key={pillar.id}
-                onClick={() => setActiveTab(idx)}
+                onClick={() => handleTabChange(idx)}
                 style={{
-                  background: isActive ? "rgba(201, 168, 76, 0.08)" : "rgba(255, 255, 255, 0.02)",
-                  border: isActive ? "1px solid rgba(201, 168, 76, 0.45)" : "1px solid rgba(255, 255, 255, 0.08)",
-                  padding: "24px 28px",
+                  background: isActive ? "rgba(201, 168, 76, 0.05)" : "rgba(255, 255, 255, 0.015)",
+                  border: isActive ? "1px solid rgba(201, 168, 76, 0.28)" : "1px solid rgba(255, 255, 255, 0.05)",
+                  padding: "22px 26px",
                   textAlign: "left",
                   cursor: "pointer",
-                  transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                  transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
                   position: "relative",
                   display: "flex",
                   flexDirection: "column",
                   gap: 8,
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive) {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.borderColor = "rgba(201, 168, 76, 0.18)";
+                    el.style.background = "rgba(201, 168, 76, 0.025)";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.borderColor = "rgba(255, 255, 255, 0.05)";
+                    el.style.background = "rgba(255, 255, 255, 0.015)";
+                  }
                 }}
               >
                 {isActive && (
@@ -246,18 +272,19 @@ export default function EnterpriseAdvisory() {
                       top: 0,
                       left: 0,
                       right: 0,
-                      height: 2,
-                      background: "linear-gradient(90deg, var(--gold) 0%, transparent 100%)",
+                      height: 1,
+                      background: "linear-gradient(90deg, var(--gold) 0%, rgba(201,168,76,0.3) 100%)",
                     }}
                   />
                 )}
                 <div
                   style={{
                     fontFamily: "var(--font-dm-mono), monospace",
-                    fontSize: 10,
+                    fontSize: 9,
                     letterSpacing: "3px",
                     textTransform: "uppercase",
-                    color: isActive ? "var(--gold)" : "rgba(247, 243, 236, 0.4)",
+                    color: isActive ? "var(--gold)" : "rgba(247, 243, 236, 0.35)",
+                    transition: "color 0.3s ease",
                   }}
                 >
                   Pillar {pillar.number}
@@ -265,10 +292,11 @@ export default function EnterpriseAdvisory() {
                 <div
                   style={{
                     fontFamily: "var(--font-cormorant), serif",
-                    fontSize: 20,
+                    fontSize: 19,
                     fontWeight: 500,
-                    color: isActive ? "var(--cream)" : "rgba(247, 243, 236, 0.75)",
+                    color: isActive ? "var(--cream)" : "rgba(247, 243, 236, 0.7)",
                     lineHeight: 1.25,
+                    transition: "color 0.3s ease",
                   }}
                 >
                   {pillar.title}
@@ -278,33 +306,35 @@ export default function EnterpriseAdvisory() {
           })}
         </div>
 
-        {/* Active Pillar Card (Global & Human Detail) */}
+        {/* Active Pillar Card (Delicate hairline border & animated cross-fade) */}
         <div
           style={{
-            background: "rgba(10, 8, 24, 0.55)",
-            border: "1px solid rgba(201, 168, 76, 0.25)",
-            padding: "52px",
-            marginBottom: 60,
-            backdropFilter: "blur(12px)",
+            background: "rgba(10, 8, 24, 0.5)",
+            border: "1px solid rgba(201, 168, 76, 0.12)",
+            padding: "48px 52px",
+            marginBottom: 56,
+            backdropFilter: "blur(14px)",
             position: "relative",
+            transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
           className="pillar-card"
         >
           <div
+            key={activePillar.id}
+            className={`pillar-content-wrapper ${animating ? "gliding-in" : "glide-settled"}`}
             style={{
               display: "grid",
-              gridTemplateColumns: "1.4fr 1fr",
-              gap: 60,
+              gridTemplateColumns: "1.35fr 1fr",
+              gap: 56,
               alignItems: "start",
             }}
-            className="pillar-content-grid"
           >
             {/* Left Column: Human Reality & Architectural Intervention */}
             <div>
               <div
                 style={{
                   fontFamily: "var(--font-dm-mono), monospace",
-                  fontSize: 10,
+                  fontSize: 9,
                   letterSpacing: "4px",
                   textTransform: "uppercase",
                   color: "var(--gold-muted)",
@@ -316,11 +346,11 @@ export default function EnterpriseAdvisory() {
               <h3
                 style={{
                   fontFamily: "var(--font-cormorant), serif",
-                  fontSize: 28,
+                  fontSize: 27,
                   fontWeight: 400,
                   color: "var(--cream)",
                   lineHeight: 1.25,
-                  marginBottom: 20,
+                  marginBottom: 18,
                 }}
               >
                 {activePillar.subtitle}
@@ -330,7 +360,7 @@ export default function EnterpriseAdvisory() {
                   fontSize: 15,
                   lineHeight: 1.85,
                   color: "rgba(247, 243, 236, 0.7)",
-                  marginBottom: 32,
+                  marginBottom: 30,
                 }}
               >
                 {activePillar.humanReality}
@@ -339,7 +369,7 @@ export default function EnterpriseAdvisory() {
               <div
                 style={{
                   fontFamily: "var(--font-dm-mono), monospace",
-                  fontSize: 10,
+                  fontSize: 9,
                   letterSpacing: "4px",
                   textTransform: "uppercase",
                   color: "var(--gold-muted)",
@@ -363,19 +393,19 @@ export default function EnterpriseAdvisory() {
             {/* Right Column: Key Outcomes & Guiding Conviction */}
             <div
               style={{
-                background: "rgba(255, 255, 255, 0.02)",
-                border: "1px solid rgba(255, 255, 255, 0.06)",
-                padding: "36px",
+                background: "rgba(255, 255, 255, 0.015)",
+                border: "1px solid rgba(255, 255, 255, 0.05)",
+                padding: "32px",
                 display: "flex",
                 flexDirection: "column",
-                gap: 28,
+                gap: 26,
               }}
             >
               <div>
                 <div
                   style={{
                     fontFamily: "var(--font-dm-mono), monospace",
-                    fontSize: 10,
+                    fontSize: 9,
                     letterSpacing: "3px",
                     textTransform: "uppercase",
                     color: "var(--gold)",
@@ -399,8 +429,8 @@ export default function EnterpriseAdvisory() {
                     >
                       <span
                         style={{
-                          width: 6,
-                          height: 6,
+                          width: 5,
+                          height: 5,
                           borderRadius: "50%",
                           background: "var(--gold)",
                           marginTop: 8,
@@ -416,13 +446,13 @@ export default function EnterpriseAdvisory() {
               {/* Guiding Quote */}
               <div
                 style={{
-                  borderTop: "1px solid rgba(201, 168, 76, 0.15)",
-                  paddingTop: 24,
+                  borderTop: "1px solid rgba(201, 168, 76, 0.08)",
+                  paddingTop: 22,
                   fontFamily: "var(--font-cormorant), serif",
-                  fontSize: 17,
+                  fontSize: 16,
                   fontStyle: "italic",
                   lineHeight: 1.6,
-                  color: "rgba(247, 243, 236, 0.6)",
+                  color: "rgba(247, 243, 236, 0.58)",
                 }}
               >
                 {activePillar.quote}
@@ -432,15 +462,15 @@ export default function EnterpriseAdvisory() {
         </div>
 
         {/* Engagement Modes Grid */}
-        <div style={{ marginBottom: 50 }}>
+        <div style={{ marginBottom: 48 }}>
           <div
             style={{
               fontFamily: "var(--font-dm-mono), monospace",
-              fontSize: 10,
+              fontSize: 9,
               letterSpacing: "4px",
               textTransform: "uppercase",
               color: "var(--gold)",
-              marginBottom: 20,
+              marginBottom: 16,
               textAlign: "center",
             }}
           >
@@ -449,11 +479,11 @@ export default function EnterpriseAdvisory() {
           <h3
             style={{
               fontFamily: "var(--font-cormorant), serif",
-              fontSize: "clamp(26px, 3.2vw, 42px)",
+              fontSize: "clamp(24px, 3vw, 38px)",
               fontWeight: 300,
               color: "var(--cream)",
               textAlign: "center",
-              marginBottom: 40,
+              marginBottom: 36,
             }}
           >
             Structured Engagements for Growing Enterprises
@@ -463,7 +493,7 @@ export default function EnterpriseAdvisory() {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(3, 1fr)",
-              gap: 24,
+              gap: 20,
             }}
             className="modes-grid"
           >
@@ -471,25 +501,28 @@ export default function EnterpriseAdvisory() {
               <div
                 key={i}
                 style={{
-                  background: "rgba(255, 255, 255, 0.02)",
-                  border: "1px solid rgba(255, 255, 255, 0.08)",
-                  padding: "36px 30px",
+                  background: "rgba(255, 255, 255, 0.015)",
+                  border: "1px solid rgba(255, 255, 255, 0.05)",
+                  padding: "32px 28px",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
-                  transition: "all 0.3s ease",
+                  transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
+                  position: "relative",
                 }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "rgba(201, 168, 76, 0.35)";
+                  el.style.borderColor = "rgba(201, 168, 76, 0.22)";
                   el.style.transform = "translateY(-4px)";
-                  el.style.background = "rgba(201, 168, 76, 0.04)";
+                  el.style.background = "rgba(201, 168, 76, 0.035)";
+                  el.style.boxShadow = "0 16px 40px rgba(0, 0, 0, 0.35)";
                 }}
                 onMouseLeave={(e) => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "rgba(255, 255, 255, 0.08)";
+                  el.style.borderColor = "rgba(255, 255, 255, 0.05)";
                   el.style.transform = "translateY(0)";
-                  el.style.background = "rgba(255, 255, 255, 0.02)";
+                  el.style.background = "rgba(255, 255, 255, 0.015)";
+                  el.style.boxShadow = "none";
                 }}
               >
                 <div>
@@ -508,7 +541,7 @@ export default function EnterpriseAdvisory() {
                   <div
                     style={{
                       fontFamily: "var(--font-cormorant), serif",
-                      fontSize: 24,
+                      fontSize: 22,
                       color: "var(--cream)",
                       fontWeight: 500,
                       lineHeight: 1.2,
@@ -522,7 +555,7 @@ export default function EnterpriseAdvisory() {
                       fontFamily: "var(--font-dm-mono), monospace",
                       fontSize: 10,
                       color: "var(--gold)",
-                      marginBottom: 18,
+                      marginBottom: 16,
                     }}
                   >
                     {mode.duration}
@@ -543,7 +576,7 @@ export default function EnterpriseAdvisory() {
                     fontFamily: "var(--font-dm-mono), monospace",
                     fontSize: 10,
                     color: "rgba(247, 243, 236, 0.4)",
-                    borderTop: "1px solid rgba(255, 255, 255, 0.06)",
+                    borderTop: "1px solid rgba(255, 255, 255, 0.04)",
                     paddingTop: 14,
                     lineHeight: 1.5,
                   }}
@@ -555,25 +588,26 @@ export default function EnterpriseAdvisory() {
           </div>
         </div>
 
-        {/* Discovery & Integrity Commitment Strip */}
+        {/* Discovery & Integrity Commitment Strip — Ultra Clean Hairline Border */}
         <div
           style={{
-            background: "linear-gradient(135deg, rgba(201,168,76,0.08) 0%, rgba(16,185,129,0.06) 100%)",
-            border: "1px solid rgba(201, 168, 76, 0.3)",
-            padding: "36px 44px",
+            background: "linear-gradient(135deg, rgba(201,168,76,0.04) 0%, rgba(16,185,129,0.03) 100%)",
+            border: "1px solid rgba(201, 168, 76, 0.12)",
+            padding: "34px 40px",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            gap: 32,
+            gap: 28,
             flexWrap: "wrap",
+            transition: "border-color 0.3s ease",
           }}
           className="integrity-strip"
         >
-          <div style={{ maxWidth: 660 }}>
+          <div style={{ maxWidth: 640 }}>
             <div
               style={{
                 fontFamily: "var(--font-dm-mono), monospace",
-                fontSize: 10,
+                fontSize: 9,
                 letterSpacing: "3px",
                 textTransform: "uppercase",
                 color: "var(--gold)",
@@ -584,9 +618,9 @@ export default function EnterpriseAdvisory() {
             </div>
             <div
               style={{
-                fontSize: 15,
-                lineHeight: 1.7,
-                color: "rgba(247, 243, 236, 0.85)",
+                fontSize: 14.5,
+                lineHeight: 1.75,
+                color: "rgba(247, 243, 236, 0.8)",
               }}
             >
               Every enterprise engagement begins with an exploratory discovery conversation to diagnose your
@@ -594,13 +628,13 @@ export default function EnterpriseAdvisory() {
             </div>
           </div>
 
-          <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
             <a
               href="https://calendly.com/mindvestglobalresources/30min"
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                padding: "16px 32px",
+                padding: "15px 30px",
                 background: "var(--gold)",
                 color: "var(--indigo-deep)",
                 fontFamily: "var(--font-dm-mono), monospace",
@@ -609,18 +643,20 @@ export default function EnterpriseAdvisory() {
                 textTransform: "uppercase",
                 fontWeight: 700,
                 textDecoration: "none",
-                transition: "all 0.3s",
+                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                 display: "inline-block",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
                 el.style.background = "var(--gold-light)";
                 el.style.transform = "translateY(-2px)";
+                el.style.boxShadow = "0 8px 24px rgba(201, 168, 76, 0.25)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
                 el.style.background = "var(--gold)";
                 el.style.transform = "translateY(0)";
+                el.style.boxShadow = "none";
               }}
             >
               Book Discovery Call ↗
@@ -631,16 +667,16 @@ export default function EnterpriseAdvisory() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                padding: "16px 28px",
+                padding: "15px 26px",
                 background: "transparent",
                 color: "var(--cream)",
-                border: "1px solid rgba(201,168,76,0.4)",
+                border: "1px solid rgba(201, 168, 76, 0.22)",
                 fontFamily: "var(--font-dm-mono), monospace",
                 fontSize: 11,
                 letterSpacing: "2px",
                 textTransform: "uppercase",
                 textDecoration: "none",
-                transition: "all 0.3s",
+                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 8,
@@ -650,15 +686,17 @@ export default function EnterpriseAdvisory() {
                 el.style.borderColor = "var(--gold)";
                 el.style.color = "var(--gold)";
                 el.style.transform = "translateY(-2px)";
+                el.style.background = "rgba(201, 168, 76, 0.05)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = "rgba(201,168,76,0.4)";
+                el.style.borderColor = "rgba(201, 168, 76, 0.22)";
                 el.style.color = "var(--cream)";
                 el.style.transform = "translateY(0)";
+                el.style.background = "transparent";
               }}
             >
-              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#10B981" }} />
+              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#10B981", boxShadow: "0 0 6px #10B981" }} />
               Executive Desk (WhatsApp) ↗
             </a>
           </div>
@@ -666,6 +704,45 @@ export default function EnterpriseAdvisory() {
       </div>
 
       <style>{`
+        @keyframes advisoryContentGlide {
+          0% {
+            opacity: 0;
+            transform: translateY(12px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes ambientFloat {
+          0%, 100% {
+            transform: scale(1) translate(0, 0);
+            opacity: 0.8;
+          }
+          50% {
+            transform: scale(1.08) translate(-10px, 10px);
+            opacity: 1;
+          }
+        }
+
+        .advisory-ambient-gold {
+          animation: ambientFloat 14s ease-in-out infinite;
+        }
+
+        .advisory-ambient-emerald {
+          animation: ambientFloat 18s ease-in-out infinite reverse;
+        }
+
+        .pillar-content-wrapper.gliding-in {
+          animation: advisoryContentGlide 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .pillar-content-wrapper.glide-settled {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
         @media (max-width: 960px) {
           section {
             padding: 80px 24px !important;
@@ -674,11 +751,11 @@ export default function EnterpriseAdvisory() {
             grid-template-columns: 1fr !important;
           }
           .pillar-card {
-            padding: 28px !important;
+            padding: 26px 20px !important;
           }
-          .pillar-content-grid {
+          .pillar-content-wrapper {
             grid-template-columns: 1fr !important;
-            gap: 32px !important;
+            gap: 28px !important;
           }
           .modes-grid {
             grid-template-columns: 1fr !important;
@@ -686,6 +763,7 @@ export default function EnterpriseAdvisory() {
           .integrity-strip {
             flex-direction: column !important;
             align-items: flex-start !important;
+            padding: 28px 24px !important;
           }
         }
       `}</style>
