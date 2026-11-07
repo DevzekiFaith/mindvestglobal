@@ -124,35 +124,37 @@ export default function EnterpriseAdvisory() {
       ref={sectionRef}
       id="advisory"
       style={{
-        background: "var(--cream)",
+        background: "var(--indigo)", // Royal Brand Indigo #1C1A4A
         padding: "130px 60px",
         position: "relative",
         overflow: "hidden",
-        borderTop: "1px solid var(--cream-dark)",
-        borderBottom: "1px solid var(--cream-dark)",
+        borderTop: "1px solid rgba(201, 168, 76, 0.15)",
+        borderBottom: "1px solid rgba(201, 168, 76, 0.15)",
       }}
     >
-      {/* Subtle warm ambient glows */}
+      {/* Brand glowing orbs & architecture accents */}
       <div
+        className="advisory-ambient-gold"
         style={{
           position: "absolute",
           top: -160,
           right: -160,
-          width: 550,
-          height: 550,
+          width: 600,
+          height: 600,
           background: "radial-gradient(circle, rgba(201, 168, 76, 0.08) 0%, transparent 70%)",
           borderRadius: "50%",
           pointerEvents: "none",
         }}
       />
       <div
+        className="advisory-ambient-blue"
         style={{
           position: "absolute",
-          bottom: -140,
-          left: -140,
-          width: 500,
-          height: 500,
-          background: "radial-gradient(circle, rgba(28, 26, 74, 0.04) 0%, transparent 70%)",
+          bottom: -150,
+          left: -150,
+          width: 550,
+          height: 550,
+          background: "radial-gradient(circle, rgba(40, 37, 107, 0.7) 0%, transparent 70%)",
           borderRadius: "50%",
           pointerEvents: "none",
         }}
@@ -169,22 +171,22 @@ export default function EnterpriseAdvisory() {
           transition: "opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
-        {/* Section Header */}
-        <div style={{ maxWidth: 920, marginBottom: 60 }}>
+        {/* Section Header on Brand Color */}
+        <div style={{ maxWidth: 940, marginBottom: 56 }}>
           <div
             style={{
               fontFamily: "var(--font-dm-mono), monospace",
               fontSize: 10,
               letterSpacing: "5px",
               textTransform: "uppercase",
-              color: "var(--gold-muted)",
+              color: "var(--gold)",
               marginBottom: 20,
               display: "flex",
               alignItems: "center",
               gap: 12,
             }}
           >
-            <span style={{ width: 20, height: 1, background: "var(--gold-muted)", display: "inline-block" }} />
+            <span style={{ width: 20, height: 1, background: "var(--gold)", display: "inline-block" }} />
             Enterprise & Strategy Advisory
           </div>
 
@@ -194,13 +196,13 @@ export default function EnterpriseAdvisory() {
               fontSize: "clamp(34px, 4.6vw, 62px)",
               fontWeight: 300,
               lineHeight: 1.1,
-              color: "var(--indigo)",
+              color: "var(--cream)",
               letterSpacing: "-0.5px",
               marginBottom: 24,
             }}
           >
             Architecting Institutional Clarity,<br />
-            <em style={{ fontStyle: "italic", color: "var(--gold-muted)" }}>
+            <em style={{ fontStyle: "italic", color: "var(--gold-light)" }}>
               Leadership Capacity, & Strategic Execution.
             </em>
           </h2>
@@ -209,7 +211,7 @@ export default function EnterpriseAdvisory() {
             style={{
               fontSize: 16.5,
               lineHeight: 1.85,
-              color: "var(--muted)",
+              color: "rgba(247, 243, 236, 0.75)",
               maxWidth: 780,
               margin: 0,
             }}
@@ -220,13 +222,13 @@ export default function EnterpriseAdvisory() {
           </p>
         </div>
 
-        {/* Tab Selection — Clean Ivory/Cream Surface */}
+        {/* Tab Selection — Sleek Brand Pills */}
         <div
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
             gap: 14,
-            marginBottom: 26,
+            marginBottom: 28,
           }}
           className="advisory-tab-grid"
         >
@@ -237,9 +239,9 @@ export default function EnterpriseAdvisory() {
                 key={pillar.id}
                 onClick={() => handleTabChange(idx)}
                 style={{
-                  background: isActive ? "var(--white)" : "rgba(255, 255, 255, 0.45)",
-                  border: isActive ? "1px solid rgba(201, 168, 76, 0.45)" : "1px solid var(--cream-dark)",
-                  padding: "22px 26px",
+                  background: isActive ? "rgba(255, 255, 255, 0.12)" : "rgba(255, 255, 255, 0.04)",
+                  border: isActive ? "1px solid rgba(201, 168, 76, 0.45)" : "1px solid rgba(255, 255, 255, 0.08)",
+                  padding: "20px 24px",
                   textAlign: "left",
                   cursor: "pointer",
                   transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -247,20 +249,19 @@ export default function EnterpriseAdvisory() {
                   display: "flex",
                   flexDirection: "column",
                   gap: 8,
-                  boxShadow: isActive ? "0 8px 30px rgba(28, 26, 74, 0.05)" : "none",
                 }}
                 onMouseEnter={(e) => {
                   if (!isActive) {
                     const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = "rgba(201, 168, 76, 0.3)";
-                    el.style.background = "var(--white)";
+                    el.style.borderColor = "rgba(201, 168, 76, 0.25)";
+                    el.style.background = "rgba(255, 255, 255, 0.07)";
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (!isActive) {
                     const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = "var(--cream-dark)";
-                    el.style.background = "rgba(255, 255, 255, 0.45)";
+                    el.style.borderColor = "rgba(255, 255, 255, 0.08)";
+                    el.style.background = "rgba(255, 255, 255, 0.04)";
                   }
                 }}
               >
@@ -272,7 +273,7 @@ export default function EnterpriseAdvisory() {
                       left: 0,
                       right: 0,
                       height: 2,
-                      background: "var(--gold)",
+                      background: "linear-gradient(90deg, var(--gold) 0%, rgba(201,168,76,0.3) 100%)",
                     }}
                   />
                 )}
@@ -282,7 +283,7 @@ export default function EnterpriseAdvisory() {
                     fontSize: 9,
                     letterSpacing: "3px",
                     textTransform: "uppercase",
-                    color: isActive ? "var(--gold-muted)" : "var(--muted-light)",
+                    color: isActive ? "var(--gold)" : "rgba(247, 243, 236, 0.45)",
                     transition: "color 0.3s ease",
                   }}
                 >
@@ -292,8 +293,8 @@ export default function EnterpriseAdvisory() {
                   style={{
                     fontFamily: "var(--font-cormorant), serif",
                     fontSize: 19,
-                    fontWeight: 600,
-                    color: "var(--indigo)",
+                    fontWeight: 500,
+                    color: "var(--cream)",
                     lineHeight: 1.25,
                     transition: "color 0.3s ease",
                   }}
@@ -305,15 +306,15 @@ export default function EnterpriseAdvisory() {
           })}
         </div>
 
-        {/* Active Pillar Card — Warm Light Surface */}
+        {/* Active Pillar Card — Pure Ivory / Light Surface (NO Black Background!) */}
         <div
           style={{
-            background: "var(--white)",
-            border: "1px solid var(--cream-dark)",
+            background: "var(--white)", // Pure Ivory #FDFAF5 — clear, bright, luxurious
+            border: "1px solid rgba(201, 168, 76, 0.3)",
             padding: "48px 52px",
             marginBottom: 56,
             position: "relative",
-            boxShadow: "0 12px 48px rgba(28, 26, 74, 0.04)",
+            boxShadow: "0 20px 60px rgba(10, 8, 24, 0.25)",
           }}
           className="pillar-card"
         >
@@ -345,7 +346,7 @@ export default function EnterpriseAdvisory() {
                 style={{
                   fontFamily: "var(--font-cormorant), serif",
                   fontSize: 27,
-                  fontWeight: 400,
+                  fontWeight: 500,
                   color: "var(--indigo)",
                   lineHeight: 1.25,
                   marginBottom: 18,
@@ -391,7 +392,7 @@ export default function EnterpriseAdvisory() {
             {/* Right Column: Key Outcomes & Guiding Conviction */}
             <div
               style={{
-                background: "var(--cream)",
+                background: "var(--cream)", // Soft warm cream
                 border: "1px solid var(--cream-dark)",
                 padding: "32px",
                 display: "flex",
@@ -459,7 +460,7 @@ export default function EnterpriseAdvisory() {
           </div>
         </div>
 
-        {/* Engagement Modes Grid */}
+        {/* Engagement Modes Grid — Clean Ivory Cards */}
         <div style={{ marginBottom: 48 }}>
           <div
             style={{
@@ -467,7 +468,7 @@ export default function EnterpriseAdvisory() {
               fontSize: 9,
               letterSpacing: "4px",
               textTransform: "uppercase",
-              color: "var(--gold-muted)",
+              color: "var(--gold)",
               marginBottom: 16,
               textAlign: "center",
             }}
@@ -479,7 +480,7 @@ export default function EnterpriseAdvisory() {
               fontFamily: "var(--font-cormorant), serif",
               fontSize: "clamp(24px, 3vw, 38px)",
               fontWeight: 300,
-              color: "var(--indigo)",
+              color: "var(--cream)",
               textAlign: "center",
               marginBottom: 36,
             }}
@@ -500,26 +501,26 @@ export default function EnterpriseAdvisory() {
                 key={i}
                 style={{
                   background: "var(--white)",
-                  border: "1px solid var(--cream-dark)",
+                  border: "1px solid rgba(201, 168, 76, 0.2)",
                   padding: "32px 28px",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
                   transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
                   position: "relative",
-                  boxShadow: "0 4px 20px rgba(28, 26, 74, 0.02)",
+                  boxShadow: "0 10px 30px rgba(10, 8, 24, 0.15)",
                 }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "rgba(201, 168, 76, 0.4)";
+                  el.style.borderColor = "var(--gold)";
                   el.style.transform = "translateY(-4px)";
-                  el.style.boxShadow = "0 16px 40px rgba(28, 26, 74, 0.07)";
+                  el.style.boxShadow = "0 20px 48px rgba(10, 8, 24, 0.3)";
                 }}
                 onMouseLeave={(e) => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "var(--cream-dark)";
+                  el.style.borderColor = "rgba(201, 168, 76, 0.2)";
                   el.style.transform = "translateY(0)";
-                  el.style.boxShadow = "0 4px 20px rgba(28, 26, 74, 0.02)";
+                  el.style.boxShadow = "0 10px 30px rgba(10, 8, 24, 0.15)";
                 }}
               >
                 <div>
@@ -586,18 +587,18 @@ export default function EnterpriseAdvisory() {
           </div>
         </div>
 
-        {/* Discovery & Integrity Commitment Strip — Clean Ivory Panel */}
+        {/* Discovery & Integrity Commitment Strip */}
         <div
           style={{
-            background: "var(--white)",
-            border: "1px solid var(--cream-dark)",
+            background: "rgba(255, 255, 255, 0.05)",
+            border: "1px solid rgba(201, 168, 76, 0.25)",
             padding: "34px 40px",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             gap: 28,
             flexWrap: "wrap",
-            boxShadow: "0 8px 32px rgba(28, 26, 74, 0.03)",
+            backdropFilter: "blur(10px)",
           }}
           className="integrity-strip"
         >
@@ -608,7 +609,7 @@ export default function EnterpriseAdvisory() {
                 fontSize: 9,
                 letterSpacing: "3px",
                 textTransform: "uppercase",
-                color: "var(--gold-muted)",
+                color: "var(--gold)",
                 marginBottom: 8,
               }}
             >
@@ -618,7 +619,7 @@ export default function EnterpriseAdvisory() {
               style={{
                 fontSize: 15,
                 lineHeight: 1.75,
-                color: "var(--text)",
+                color: "rgba(247, 243, 236, 0.85)",
               }}
             >
               Every enterprise engagement begins with an exploratory discovery conversation to diagnose your
@@ -633,25 +634,26 @@ export default function EnterpriseAdvisory() {
               rel="noopener noreferrer"
               style={{
                 padding: "16px 32px",
-                background: "var(--indigo)",
-                color: "var(--cream)",
+                background: "var(--gold)",
+                color: "var(--indigo-deep)",
                 fontFamily: "var(--font-dm-mono), monospace",
                 fontSize: 11,
                 letterSpacing: "2px",
                 textTransform: "uppercase",
+                fontWeight: 700,
                 textDecoration: "none",
                 transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                 display: "inline-block",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.background = "var(--indigo-mid)";
+                el.style.background = "var(--gold-light)";
                 el.style.transform = "translateY(-2px)";
-                el.style.boxShadow = "0 12px 30px rgba(28, 26, 74, 0.2)";
+                el.style.boxShadow = "0 10px 28px rgba(201, 168, 76, 0.35)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.background = "var(--indigo)";
+                el.style.background = "var(--gold)";
                 el.style.transform = "translateY(0)";
                 el.style.boxShadow = "none";
               }}
@@ -666,8 +668,8 @@ export default function EnterpriseAdvisory() {
               style={{
                 padding: "16px 28px",
                 background: "transparent",
-                color: "var(--indigo)",
-                border: "1px solid var(--indigo)",
+                color: "var(--cream)",
+                border: "1px solid rgba(201, 168, 76, 0.4)",
                 fontFamily: "var(--font-dm-mono), monospace",
                 fontSize: 11,
                 letterSpacing: "2px",
@@ -680,18 +682,20 @@ export default function EnterpriseAdvisory() {
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.background = "var(--indigo)";
-                el.style.color = "var(--cream)";
+                el.style.borderColor = "var(--gold)";
+                el.style.color = "var(--gold)";
                 el.style.transform = "translateY(-2px)";
+                el.style.background = "rgba(201, 168, 76, 0.08)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.background = "transparent";
-                el.style.color = "var(--indigo)";
+                el.style.borderColor = "rgba(201, 168, 76, 0.4)";
+                el.style.color = "var(--cream)";
                 el.style.transform = "translateY(0)";
+                el.style.background = "transparent";
               }}
             >
-              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#10B981" }} />
+              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#10B981", boxShadow: "0 0 6px #10B981" }} />
               Executive Desk (WhatsApp) ↗
             </a>
           </div>
