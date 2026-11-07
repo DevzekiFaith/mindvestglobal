@@ -124,7 +124,7 @@ export default function EnterpriseAdvisory() {
       ref={sectionRef}
       id="advisory"
       style={{
-        background: "var(--indigo)", // Royal Brand Indigo #1C1A4A
+        background: "var(--indigo)", // Signature Brand Indigo #1C1A4A
         padding: "130px 60px",
         position: "relative",
         overflow: "hidden",
@@ -239,8 +239,10 @@ export default function EnterpriseAdvisory() {
                 key={pillar.id}
                 onClick={() => handleTabChange(idx)}
                 style={{
-                  background: isActive ? "rgba(255, 255, 255, 0.12)" : "rgba(255, 255, 255, 0.04)",
-                  border: isActive ? "1px solid rgba(201, 168, 76, 0.45)" : "1px solid rgba(255, 255, 255, 0.08)",
+                  background: isActive
+                    ? "linear-gradient(135deg, rgba(40, 37, 107, 0.8) 0%, rgba(28, 26, 74, 0.95) 100%)"
+                    : "rgba(40, 37, 107, 0.25)",
+                  border: isActive ? "1px solid rgba(201, 168, 76, 0.45)" : "1px solid rgba(201, 168, 76, 0.12)",
                   padding: "20px 24px",
                   textAlign: "left",
                   cursor: "pointer",
@@ -253,15 +255,15 @@ export default function EnterpriseAdvisory() {
                 onMouseEnter={(e) => {
                   if (!isActive) {
                     const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = "rgba(201, 168, 76, 0.25)";
-                    el.style.background = "rgba(255, 255, 255, 0.07)";
+                    el.style.borderColor = "rgba(201, 168, 76, 0.3)";
+                    el.style.background = "rgba(40, 37, 107, 0.45)";
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (!isActive) {
                     const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = "rgba(255, 255, 255, 0.08)";
-                    el.style.background = "rgba(255, 255, 255, 0.04)";
+                    el.style.borderColor = "rgba(201, 168, 76, 0.12)";
+                    el.style.background = "rgba(40, 37, 107, 0.25)";
                   }
                 }}
               >
@@ -306,15 +308,16 @@ export default function EnterpriseAdvisory() {
           })}
         </div>
 
-        {/* Active Pillar Card — Pure Ivory / Light Surface (NO Black Background!) */}
+        {/* Active Pillar Card — Brand Indigo Card Surface */}
         <div
           style={{
-            background: "var(--white)", // Pure Ivory #FDFAF5 — clear, bright, luxurious
-            border: "1px solid rgba(201, 168, 76, 0.3)",
+            background: "linear-gradient(135deg, rgba(40, 37, 107, 0.6) 0%, rgba(24, 22, 64, 0.85) 100%)", // Rich Brand Indigo Card
+            border: "1px solid rgba(201, 168, 76, 0.25)",
             padding: "48px 52px",
             marginBottom: 56,
             position: "relative",
-            boxShadow: "0 20px 60px rgba(10, 8, 24, 0.25)",
+            backdropFilter: "blur(16px)",
+            boxShadow: "0 20px 60px rgba(10, 8, 24, 0.35)",
           }}
           className="pillar-card"
         >
@@ -336,7 +339,7 @@ export default function EnterpriseAdvisory() {
                   fontSize: 9,
                   letterSpacing: "4px",
                   textTransform: "uppercase",
-                  color: "var(--gold-muted)",
+                  color: "var(--gold)",
                   marginBottom: 10,
                 }}
               >
@@ -347,7 +350,7 @@ export default function EnterpriseAdvisory() {
                   fontFamily: "var(--font-cormorant), serif",
                   fontSize: 27,
                   fontWeight: 500,
-                  color: "var(--indigo)",
+                  color: "var(--cream)",
                   lineHeight: 1.25,
                   marginBottom: 18,
                 }}
@@ -358,7 +361,7 @@ export default function EnterpriseAdvisory() {
                 style={{
                   fontSize: 15.5,
                   lineHeight: 1.85,
-                  color: "var(--muted)",
+                  color: "rgba(247, 243, 236, 0.78)",
                   marginBottom: 30,
                 }}
               >
@@ -371,7 +374,7 @@ export default function EnterpriseAdvisory() {
                   fontSize: 9,
                   letterSpacing: "4px",
                   textTransform: "uppercase",
-                  color: "var(--gold-muted)",
+                  color: "var(--gold)",
                   marginBottom: 10,
                 }}
               >
@@ -381,7 +384,7 @@ export default function EnterpriseAdvisory() {
                 style={{
                   fontSize: 15.5,
                   lineHeight: 1.85,
-                  color: "var(--text)",
+                  color: "rgba(247, 243, 236, 0.85)",
                   margin: 0,
                 }}
               >
@@ -392,8 +395,8 @@ export default function EnterpriseAdvisory() {
             {/* Right Column: Key Outcomes & Guiding Conviction */}
             <div
               style={{
-                background: "var(--cream)", // Soft warm cream
-                border: "1px solid var(--cream-dark)",
+                background: "rgba(255, 255, 255, 0.04)",
+                border: "1px solid rgba(201, 168, 76, 0.18)",
                 padding: "32px",
                 display: "flex",
                 flexDirection: "column",
@@ -407,7 +410,7 @@ export default function EnterpriseAdvisory() {
                     fontSize: 9,
                     letterSpacing: "3px",
                     textTransform: "uppercase",
-                    color: "var(--gold-muted)",
+                    color: "var(--gold)",
                     marginBottom: 16,
                   }}
                 >
@@ -423,7 +426,7 @@ export default function EnterpriseAdvisory() {
                         gap: 12,
                         fontSize: 14,
                         lineHeight: 1.6,
-                        color: "var(--text)",
+                        color: "rgba(247, 243, 236, 0.88)",
                       }}
                     >
                       <span
@@ -445,13 +448,13 @@ export default function EnterpriseAdvisory() {
               {/* Guiding Quote */}
               <div
                 style={{
-                  borderTop: "1px solid var(--cream-dark)",
+                  borderTop: "1px solid rgba(201, 168, 76, 0.15)",
                   paddingTop: 22,
                   fontFamily: "var(--font-cormorant), serif",
                   fontSize: 17,
                   fontStyle: "italic",
                   lineHeight: 1.6,
-                  color: "var(--indigo-mid)",
+                  color: "var(--gold-light)",
                 }}
               >
                 {activePillar.quote}
@@ -460,7 +463,7 @@ export default function EnterpriseAdvisory() {
           </div>
         </div>
 
-        {/* Engagement Modes Grid — Clean Ivory Cards */}
+        {/* Engagement Modes Grid — Brand Indigo Cards */}
         <div style={{ marginBottom: 48 }}>
           <div
             style={{
@@ -500,27 +503,29 @@ export default function EnterpriseAdvisory() {
               <div
                 key={i}
                 style={{
-                  background: "var(--white)",
-                  border: "1px solid rgba(201, 168, 76, 0.2)",
+                  background: "linear-gradient(135deg, rgba(40, 37, 107, 0.45) 0%, rgba(24, 22, 64, 0.7) 100%)",
+                  border: "1px solid rgba(201, 168, 76, 0.18)",
                   padding: "32px 28px",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
                   transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
                   position: "relative",
-                  boxShadow: "0 10px 30px rgba(10, 8, 24, 0.15)",
+                  boxShadow: "0 10px 30px rgba(10, 8, 24, 0.2)",
                 }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget as HTMLElement;
                   el.style.borderColor = "var(--gold)";
                   el.style.transform = "translateY(-4px)";
-                  el.style.boxShadow = "0 20px 48px rgba(10, 8, 24, 0.3)";
+                  el.style.background = "linear-gradient(135deg, rgba(40, 37, 107, 0.65) 0%, rgba(28, 26, 74, 0.85) 100%)";
+                  el.style.boxShadow = "0 20px 48px rgba(10, 8, 24, 0.35)";
                 }}
                 onMouseLeave={(e) => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "rgba(201, 168, 76, 0.2)";
+                  el.style.borderColor = "rgba(201, 168, 76, 0.18)";
                   el.style.transform = "translateY(0)";
-                  el.style.boxShadow = "0 10px 30px rgba(10, 8, 24, 0.15)";
+                  el.style.background = "linear-gradient(135deg, rgba(40, 37, 107, 0.45) 0%, rgba(24, 22, 64, 0.7) 100%)";
+                  el.style.boxShadow = "0 10px 30px rgba(10, 8, 24, 0.2)";
                 }}
               >
                 <div>
@@ -540,7 +545,7 @@ export default function EnterpriseAdvisory() {
                     style={{
                       fontFamily: "var(--font-cormorant), serif",
                       fontSize: 22,
-                      color: "var(--indigo)",
+                      color: "var(--cream)",
                       fontWeight: 600,
                       lineHeight: 1.2,
                       marginBottom: 8,
@@ -552,7 +557,7 @@ export default function EnterpriseAdvisory() {
                     style={{
                       fontFamily: "var(--font-dm-mono), monospace",
                       fontSize: 10,
-                      color: "var(--gold-muted)",
+                      color: "var(--gold)",
                       marginBottom: 16,
                       fontWeight: 500,
                     }}
@@ -563,7 +568,7 @@ export default function EnterpriseAdvisory() {
                     style={{
                       fontSize: 14.5,
                       lineHeight: 1.7,
-                      color: "var(--muted)",
+                      color: "rgba(247, 243, 236, 0.72)",
                       marginBottom: 20,
                     }}
                   >
@@ -574,8 +579,8 @@ export default function EnterpriseAdvisory() {
                   style={{
                     fontFamily: "var(--font-dm-mono), monospace",
                     fontSize: 10,
-                    color: "var(--muted-light)",
-                    borderTop: "1px solid var(--cream-dark)",
+                    color: "rgba(247, 243, 236, 0.45)",
+                    borderTop: "1px solid rgba(201, 168, 76, 0.12)",
                     paddingTop: 14,
                     lineHeight: 1.5,
                   }}
@@ -590,7 +595,7 @@ export default function EnterpriseAdvisory() {
         {/* Discovery & Integrity Commitment Strip */}
         <div
           style={{
-            background: "rgba(255, 255, 255, 0.05)",
+            background: "linear-gradient(135deg, rgba(40, 37, 107, 0.5) 0%, rgba(28, 26, 74, 0.75) 100%)",
             border: "1px solid rgba(201, 168, 76, 0.25)",
             padding: "34px 40px",
             display: "flex",
