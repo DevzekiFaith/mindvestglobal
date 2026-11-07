@@ -83,9 +83,9 @@ const ENGAGEMENT_MODES = [
     suitability: "Best for: Corporate conventions, executive assemblies, and board retreats.",
   },
   {
-    tag: "Format 03 · Retainer",
-    title: "Executive Advisory Retainer",
-    duration: "3 to 6-Month Partnership",
+    tag: "Format 03 · Partnership",
+    title: "Executive Advisory Partnership",
+    duration: "Ongoing Strategic Partnership",
     desc: "Ongoing confidential strategic sound-boarding and leadership development for the CEO and senior executive core.",
     suitability: "Best for: Rapidly scaling enterprises navigating complex leadership transitions.",
   },
