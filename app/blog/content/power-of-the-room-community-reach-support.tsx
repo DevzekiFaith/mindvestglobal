@@ -91,7 +91,9 @@ export function PowerOfTheRoomContent() {
       <p style={bodyStyle}>
         What might take three years of solitary trial-and-error can often occur in three months
         inside the right circle, simply because{" "}
-        <em>trust has already been cultivated in the soil.</em>
+        <em style={{ color: "var(--indigo, #1C1A4A)", fontWeight: 500 }}>
+          trust has already been cultivated in the soil.
+        </em>
       </p>
 
       {/* ── Section II ────────────────────────────────── */}
@@ -102,8 +104,10 @@ export function PowerOfTheRoomContent() {
       <p style={bodyStyle}>
         Traditional networking often feels draining and hollow because it is rooted in
         extraction—people entering rooms calculating what they can take from one another.
-        Authentic community operates on an entirely different frequency:
-        <strong> entering with a genuine desire to serve.</strong>
+        Authentic community operates on an entirely different frequency:{" "}
+        <strong style={{ color: "var(--indigo, #1C1A4A)" }}>
+          entering with a genuine desire to serve.
+        </strong>
       </p>
 
       <div style={actionBlockStyle}>
@@ -166,8 +170,10 @@ export function PowerOfTheRoomContent() {
       </h2>
 
       <p style={bodyStyle}>
-        Beyond increased reach and commercial opportunities, the greatest gift of community is
-        <strong> emotional and intellectual companionship</strong>.
+        Beyond increased reach and commercial opportunities, the greatest gift of community is{" "}
+        <strong style={{ color: "var(--indigo, #1C1A4A)" }}>
+          emotional and intellectual companionship
+        </strong>.
       </p>
 
       <p style={bodyStyle}>
@@ -178,17 +184,17 @@ export function PowerOfTheRoomContent() {
 
       <ul style={listStyle}>
         <li style={listItemStyle}>
-          <strong>A Safe Sounding Board:</strong> A closed door where you can explore raw,
+          <strong style={{ color: "var(--indigo, #1C1A4A)" }}>A Safe Sounding Board:</strong> A closed door where you can explore raw,
           unpolished ideas without fear of judgment, stress-test critical decisions, and catch
           fatal assumptions before they cost capital.
         </li>
         <li style={listItemStyle}>
-          <strong>Stamina Restoration:</strong> On days when your mental clarity wavers under
+          <strong style={{ color: "var(--indigo, #1C1A4A)" }}>Stamina Restoration:</strong> On days when your mental clarity wavers under
           immense operational pressure, an aligned circle holds conviction on your behalf until
           your sovereign strength returns.
         </li>
         <li style={listItemStyle}>
-          <strong>Compressed Learning Curves:</strong> Someone in that circle has already
+          <strong style={{ color: "var(--indigo, #1C1A4A)" }}>Compressed Learning Curves:</strong> Someone in that circle has already
           navigated the exact operational bottleneck, founder dispute, or scaling crisis you
           are confronting right now. A thirty-minute conversation with an experienced peer can
           save you eighteen months of painful detour.
@@ -247,7 +253,9 @@ export function PowerOfTheRoomContent() {
 
       <p style={bodyStyle}>
         This is where human connection matures from personal enrichment into{" "}
-        <strong>enduring institutional architecture.</strong>
+        <strong style={{ color: "var(--indigo, #1C1A4A)" }}>
+          enduring institutional architecture.
+        </strong>
       </p>
 
       {/* ── Strategic Services: Alisa Consulting ─────── */}
@@ -261,13 +269,13 @@ export function PowerOfTheRoomContent() {
         </h3>
 
         <p style={alisaSubtitleStyle}>
-          *The Strategic Advisory Arm of Mindvest Global*
+          The Strategic Advisory Arm of Mindvest Global
         </p>
 
         <p style={alisaBodyStyle}>
           While community nurtures personal connection and expands your network, enduring
           enterprises require rigorous, load-bearing architecture to scale that momentum.
-          <strong> Alisa Consulting</strong> partners with founders, boards, and C-Suite
+          <strong style={{ color: "#FFFFFF" }}> Alisa Consulting</strong> partners with founders, boards, and C-Suite
           leadership teams to translate relational alignment into high-yield organizational systems.
         </p>
 
@@ -336,7 +344,7 @@ export function PowerOfTheRoomContent() {
 
       {/* ── Closing Note ──────────────────────────────── */}
       <div style={closingNoteStyle}>
-        <p style={{ margin: 0, fontSize: 14, color: "rgba(247,243,236,0.6)", fontStyle: "italic" }}>
+        <p style={{ margin: 0, fontSize: 15, color: "var(--indigo, #1C1A4A)", fontStyle: "italic", lineHeight: 1.7 }}>
           Every institutional breakthrough begins with an honest human conversation.
           Whether you are seeking personal alignment or corporate architecture, you were
           never meant to build alone.
@@ -351,35 +359,35 @@ const articleStyle: React.CSSProperties = {
   maxWidth: 780,
   margin: "0 auto",
   fontFamily: "var(--font-dm-sans), sans-serif",
-  color: "var(--cream, #F7F3EC)",
+  color: "rgba(44, 40, 37, 0.88)",
   lineHeight: 1.85,
   fontSize: 16,
 };
 
 const leadStyle: React.CSSProperties = {
-  fontFamily: "var(--font-cormorant), serif",
+  fontFamily: "var(--font-cormorant), Georgia, serif",
   fontSize: "clamp(22px, 2.5vw, 28px)",
-  fontWeight: 300,
+  fontWeight: 400,
   fontStyle: "italic",
-  color: "var(--cream, #F7F3EC)",
+  color: "var(--indigo, #1C1A4A)",
   lineHeight: 1.5,
   marginBottom: 28,
   paddingBottom: 28,
-  borderBottom: "1px solid rgba(201, 168, 76, 0.2)",
+  borderBottom: "1px solid rgba(201, 168, 76, 0.25)",
 };
 
 const bodyStyle: React.CSSProperties = {
   fontSize: 16,
   lineHeight: 1.85,
-  color: "rgba(247, 243, 236, 0.8)",
+  color: "rgba(44, 40, 37, 0.85)",
   marginBottom: 24,
 };
 
 const h2Style: React.CSSProperties = {
-  fontFamily: "var(--font-cormorant), serif",
-  fontSize: "clamp(26px, 3.2vw, 38px)",
+  fontFamily: "var(--font-cormorant), Georgia, serif",
+  fontSize: "clamp(26px, 3.2vw, 36px)",
   fontWeight: 400,
-  color: "var(--cream, #F7F3EC)",
+  color: "var(--indigo, #1C1A4A)",
   margin: "48px 0 20px",
   lineHeight: 1.25,
   letterSpacing: "-0.5px",
@@ -388,19 +396,17 @@ const h2Style: React.CSSProperties = {
 const quoteStyle: React.CSSProperties = {
   margin: "40px 0",
   padding: "24px 32px",
-  background: "rgba(28, 26, 74, 0.6)",
+  background: "rgba(201, 168, 76, 0.08)",
   borderLeft: "3px solid var(--gold, #C9A84C)",
-  borderTop: "1px solid rgba(201, 168, 76, 0.15)",
-  borderRight: "1px solid rgba(201, 168, 76, 0.15)",
-  borderBottom: "1px solid rgba(201, 168, 76, 0.15)",
+  borderRadius: "0 4px 4px 0",
 };
 
 const quoteTextStyle: React.CSSProperties = {
-  fontFamily: "var(--font-cormorant), serif",
+  fontFamily: "var(--font-cormorant), Georgia, serif",
   fontSize: "clamp(20px, 2.2vw, 26px)",
-  fontWeight: 300,
+  fontWeight: 400,
   fontStyle: "italic",
-  color: "var(--cream, #F7F3EC)",
+  color: "var(--indigo, #1C1A4A)",
   lineHeight: 1.45,
   margin: "0 0 12px 0",
 };
@@ -422,9 +428,11 @@ const pillarsGridStyle: React.CSSProperties = {
 };
 
 const pillarCardStyle: React.CSSProperties = {
-  background: "linear-gradient(135deg, rgba(40, 37, 107, 0.45) 0%, rgba(24, 22, 64, 0.7) 100%)",
-  border: "1px solid rgba(201, 168, 76, 0.16)",
+  background: "var(--cream, #F7F3EC)",
+  border: "1px solid rgba(201, 168, 76, 0.22)",
   padding: "24px 20px",
+  borderRadius: 2,
+  boxShadow: "0 2px 10px rgba(28, 26, 74, 0.03)",
 };
 
 const pillarNumberStyle: React.CSSProperties = {
@@ -437,17 +445,17 @@ const pillarNumberStyle: React.CSSProperties = {
 };
 
 const pillarTitleStyle: React.CSSProperties = {
-  fontFamily: "var(--font-cormorant), serif",
+  fontFamily: "var(--font-cormorant), Georgia, serif",
   fontSize: 20,
   fontWeight: 600,
-  color: "var(--cream, #F7F3EC)",
+  color: "var(--indigo, #1C1A4A)",
   margin: "0 0 10px 0",
   lineHeight: 1.25,
 };
 
 const pillarDescStyle: React.CSSProperties = {
-  fontSize: 13.5,
-  color: "rgba(247, 243, 236, 0.7)",
+  fontSize: 14,
+  color: "rgba(44, 40, 37, 0.76)",
   lineHeight: 1.6,
   margin: 0,
 };
@@ -463,8 +471,9 @@ const actionItemStyle: React.CSSProperties = {
   display: "flex",
   gap: 16,
   padding: "20px 24px",
-  background: "rgba(40, 37, 107, 0.35)",
-  border: "1px solid rgba(201, 168, 76, 0.14)",
+  background: "var(--cream, #F7F3EC)",
+  border: "1px solid rgba(201, 168, 76, 0.22)",
+  borderRadius: 2,
   alignItems: "flex-start",
 };
 
@@ -475,9 +484,9 @@ const actionBulletStyle: React.CSSProperties = {
 };
 
 const actionHeadingStyle: React.CSSProperties = {
-  fontFamily: "var(--font-cormorant), serif",
+  fontFamily: "var(--font-cormorant), Georgia, serif",
   fontSize: 19,
-  color: "var(--cream, #F7F3EC)",
+  color: "var(--indigo, #1C1A4A)",
   margin: "0 0 6px 0",
   fontWeight: 600,
 };
@@ -485,7 +494,7 @@ const actionHeadingStyle: React.CSSProperties = {
 const actionTextStyle: React.CSSProperties = {
   fontSize: 14,
   lineHeight: 1.65,
-  color: "rgba(247, 243, 236, 0.72)",
+  color: "rgba(44, 40, 37, 0.78)",
   margin: 0,
 };
 
@@ -496,7 +505,7 @@ const listStyle: React.CSSProperties = {
 
 const listItemStyle: React.CSSProperties = {
   fontSize: 15,
-  color: "rgba(247, 243, 236, 0.78)",
+  color: "rgba(44, 40, 37, 0.82)",
   lineHeight: 1.8,
   marginBottom: 12,
 };
@@ -509,9 +518,10 @@ const transformationGridStyle: React.CSSProperties = {
 };
 
 const transformItemStyle: React.CSSProperties = {
-  background: "rgba(28, 26, 74, 0.5)",
-  border: "1px solid rgba(201, 168, 76, 0.15)",
+  background: "var(--cream, #F7F3EC)",
+  border: "1px solid rgba(201, 168, 76, 0.22)",
   padding: "20px 18px",
+  borderRadius: 2,
 };
 
 const transformTagStyle: React.CSSProperties = {
@@ -525,27 +535,28 @@ const transformTagStyle: React.CSSProperties = {
 };
 
 const transformTitleStyle: React.CSSProperties = {
-  fontFamily: "var(--font-cormorant), serif",
+  fontFamily: "var(--font-cormorant), Georgia, serif",
   fontSize: 18,
-  color: "var(--cream, #F7F3EC)",
+  color: "var(--indigo, #1C1A4A)",
   margin: "0 0 8px 0",
   fontWeight: 600,
 };
 
 const transformDescStyle: React.CSSProperties = {
-  fontSize: 13,
-  color: "rgba(247, 243, 236, 0.68)",
+  fontSize: 13.5,
+  color: "rgba(44, 40, 37, 0.75)",
   lineHeight: 1.6,
   margin: 0,
 };
 
-// ─── Alisa Consulting Strategic Banner ──────────────────────────────────────
+// ─── Alisa Consulting Strategic Banner (Dark Card on White Page) ─────────────
 const alisaBannerStyle: React.CSSProperties = {
   marginTop: 64,
-  padding: "44px 36px",
-  background: "linear-gradient(135deg, rgba(40, 37, 107, 0.65) 0%, rgba(18, 16, 50, 0.95) 100%)",
-  border: "1px solid rgba(201, 168, 76, 0.35)",
-  boxShadow: "0 16px 48px rgba(10, 8, 24, 0.35)",
+  padding: "48px 40px",
+  background: "linear-gradient(135deg, #1C1A4A 0%, #12103A 100%)",
+  border: "1px solid rgba(201, 168, 76, 0.4)",
+  borderRadius: 4,
+  boxShadow: "0 20px 50px rgba(18, 16, 58, 0.25)",
 };
 
 const alisaTagStyle: React.CSSProperties = {
@@ -555,30 +566,30 @@ const alisaTagStyle: React.CSSProperties = {
   textTransform: "uppercase",
   color: "var(--gold, #C9A84C)",
   marginBottom: 12,
-  fontWeight: 500,
+  fontWeight: 600,
 };
 
 const alisaHeadingStyle: React.CSSProperties = {
-  fontFamily: "var(--font-cormorant), serif",
-  fontSize: "clamp(24px, 3.2vw, 34px)",
+  fontFamily: "var(--font-cormorant), Georgia, serif",
+  fontSize: "clamp(26px, 3.4vw, 36px)",
   fontWeight: 400,
-  color: "var(--cream, #F7F3EC)",
+  color: "#FFFFFF",
   margin: "0 0 8px 0",
   lineHeight: 1.2,
 };
 
 const alisaSubtitleStyle: React.CSSProperties = {
-  fontFamily: "var(--font-cormorant), serif",
-  fontSize: 17,
+  fontFamily: "var(--font-cormorant), Georgia, serif",
+  fontSize: 18,
   fontStyle: "italic",
-  color: "var(--gold-muted, #C9A84C)",
+  color: "var(--gold-light, #E8D595)",
   margin: "0 0 20px 0",
 };
 
 const alisaBodyStyle: React.CSSProperties = {
-  fontSize: 14.5,
+  fontSize: 15,
   lineHeight: 1.75,
-  color: "rgba(247, 243, 236, 0.82)",
+  color: "rgba(255, 255, 255, 0.88)",
   marginBottom: 28,
 };
 
@@ -590,9 +601,10 @@ const serviceListStyle: React.CSSProperties = {
 };
 
 const serviceCardStyle: React.CSSProperties = {
-  background: "rgba(24, 22, 64, 0.6)",
-  border: "1px solid rgba(201, 168, 76, 0.16)",
-  padding: "20px 22px",
+  background: "rgba(255, 255, 255, 0.05)",
+  border: "1px solid rgba(201, 168, 76, 0.22)",
+  padding: "22px 24px",
+  borderRadius: 2,
 };
 
 const serviceHeaderStyle: React.CSSProperties = {
@@ -608,28 +620,29 @@ const serviceBadgeStyle: React.CSSProperties = {
   letterSpacing: "2px",
   color: "var(--indigo-deep, #12103A)",
   background: "var(--gold, #C9A84C)",
-  padding: "2px 8px",
+  padding: "3px 8px",
   fontWeight: 700,
   textTransform: "uppercase",
+  borderRadius: 1,
 };
 
 const serviceTitleStyle: React.CSSProperties = {
-  fontFamily: "var(--font-cormorant), serif",
-  fontSize: 19,
+  fontFamily: "var(--font-cormorant), Georgia, serif",
+  fontSize: 20,
   fontWeight: 600,
-  color: "var(--cream, #F7F3EC)",
+  color: "#FFFFFF",
   margin: 0,
 };
 
 const serviceDescStyle: React.CSSProperties = {
-  fontSize: 13.5,
-  color: "rgba(247, 243, 236, 0.72)",
+  fontSize: 14,
+  color: "rgba(255, 255, 255, 0.8)",
   lineHeight: 1.65,
   margin: 0,
 };
 
 const alisaCtaWrapperStyle: React.CSSProperties = {
-  borderTop: "1px solid rgba(201, 168, 76, 0.2)",
+  borderTop: "1px solid rgba(201, 168, 76, 0.25)",
   paddingTop: 28,
   display: "flex",
   flexDirection: "column",
@@ -637,10 +650,10 @@ const alisaCtaWrapperStyle: React.CSSProperties = {
 };
 
 const alisaCtaTextStyle: React.CSSProperties = {
-  fontSize: 14,
-  fontFamily: "var(--font-cormorant), serif",
+  fontSize: 15,
+  fontFamily: "var(--font-cormorant), Georgia, serif",
   fontStyle: "italic",
-  color: "rgba(247, 243, 236, 0.8)",
+  color: "rgba(255, 255, 255, 0.9)",
 };
 
 const alisaBtnRowStyle: React.CSSProperties = {
@@ -650,26 +663,27 @@ const alisaBtnRowStyle: React.CSSProperties = {
 };
 
 const alisaPrimaryBtnStyle: React.CSSProperties = {
-  padding: "14px 28px",
+  padding: "15px 30px",
   background: "linear-gradient(135deg, var(--gold, #C9A84C) 0%, #dfc374 100%)",
   color: "var(--indigo-deep, #12103A)",
   fontFamily: "var(--font-dm-mono), monospace",
-  fontSize: 10,
+  fontSize: 10.5,
   letterSpacing: "2px",
   textTransform: "uppercase",
   fontWeight: 700,
   textDecoration: "none",
   display: "inline-block",
   boxShadow: "0 4px 16px rgba(201, 168, 76, 0.25)",
+  borderRadius: 2,
 };
 
 const alisaSecondaryBtnStyle: React.CSSProperties = {
-  padding: "14px 24px",
+  padding: "15px 26px",
   background: "#0d2e23",
   color: "#e8f5e9",
   border: "1px solid rgba(16, 185, 129, 0.4)",
   fontFamily: "var(--font-dm-mono), monospace",
-  fontSize: 10,
+  fontSize: 10.5,
   letterSpacing: "2px",
   textTransform: "uppercase",
   fontWeight: 600,
@@ -677,6 +691,7 @@ const alisaSecondaryBtnStyle: React.CSSProperties = {
   display: "inline-flex",
   alignItems: "center",
   gap: 8,
+  borderRadius: 2,
 };
 
 const greenDotStyle: React.CSSProperties = {
@@ -689,9 +704,9 @@ const greenDotStyle: React.CSSProperties = {
 };
 
 const closingNoteStyle: React.CSSProperties = {
-  marginTop: 40,
-  padding: "20px 24px",
-  borderLeft: "2px solid rgba(201, 168, 76, 0.25)",
-  background: "rgba(28, 26, 74, 0.3)",
+  marginTop: 48,
+  padding: "24px 28px",
+  borderLeft: "3px solid var(--gold, #C9A84C)",
+  background: "var(--cream, #F7F3EC)",
+  borderRadius: "0 4px 4px 0",
 };
-
