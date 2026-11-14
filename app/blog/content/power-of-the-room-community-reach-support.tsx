@@ -694,3 +694,4 @@ const closingNoteStyle: React.CSSProperties = {
   borderLeft: "2px solid rgba(201, 168, 76, 0.25)",
   background: "rgba(28, 26, 74, 0.3)",
 };
+

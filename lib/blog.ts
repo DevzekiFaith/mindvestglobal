@@ -39,9 +39,9 @@ export const blogPosts: BlogPost[] = [
     date: "November 14, 2026",
     isoDate: "2026-11-14T09:00:00+01:00",
     readTime: "7 min read",
-    heroImage: "/images/blog-hero-human-partnership.jpg",
+    heroImage: "/images/blog-hero-youth-community.jpg",
     heroImageAlt:
-      "Visionary African leaders and executives gathered in a modern architectural boardroom, sharing strategic insights and collaborating with mutual trust.",
+      "A radiant, smiling young African youth seated in a warm, sunlit collaborative innovation lounge, surrounded by engaged peers in a supportive community space.",
     tags: [
       "Community",
       "Human Connection",
