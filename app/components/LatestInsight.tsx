@@ -201,7 +201,7 @@ export default function LatestInsight() {
               <h2
                 style={{
                   fontFamily: "var(--font-cormorant), serif",
-                  fontSize: "clamp(26px, 2.8vw, 40px)",
+                  fontSize: "clamp(34px, 3.8vw, 54px)",
                   fontWeight: 400,
                   lineHeight: 1.15,
                   color: "var(--cream)",

@@ -111,7 +111,7 @@ export default function Divisions() {
             </div>
             <h2 style={{
               fontFamily: "var(--font-cormorant), serif",
-              fontSize: "clamp(40px, 5vw, 70px)",
+              fontSize: "clamp(48px, 6vw, 82px)",
               fontWeight: 300,
               color: "var(--cream)",
               lineHeight: 1.0,

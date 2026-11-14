@@ -68,7 +68,7 @@ export default function Founder() {
 
             <blockquote style={{
               fontFamily: "var(--font-cormorant), serif",
-              fontSize: "clamp(24px, 3.2vw, 42px)",
+              fontSize: "clamp(32px, 4vw, 56px)",
               fontWeight: 300,
               fontStyle: "italic",
               color: "var(--cream)",

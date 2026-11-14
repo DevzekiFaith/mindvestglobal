@@ -53,7 +53,7 @@ export default function Manifesto() {
 
         <h2 style={{
           fontFamily: "var(--font-cormorant), serif",
-          fontSize: "clamp(36px, 4.5vw, 62px)",
+          fontSize: "clamp(44px, 5.5vw, 76px)",
           fontWeight: 300,
           lineHeight: 1.1,
           color: "var(--indigo)",
@@ -105,7 +105,7 @@ function ManifestoLine({
       onMouseLeave={() => setHovered(false)}
       style={{
         fontFamily: "var(--font-cormorant), serif",
-        fontSize: "clamp(20px, 2.8vw, 32px)",
+        fontSize: "clamp(24px, 3.2vw, 40px)",
         fontWeight: 300,
         color: hovered ? "var(--indigo)" : "rgba(44,40,32,0.75)",
         lineHeight: 1.45,

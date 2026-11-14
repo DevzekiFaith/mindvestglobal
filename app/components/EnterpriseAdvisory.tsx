@@ -113,7 +113,7 @@ export default function EnterpriseAdvisory() {
           <h2
             style={{
               fontFamily: "var(--font-cormorant), serif",
-              fontSize: "clamp(30px, 4vw, 52px)",
+              fontSize: "clamp(40px, 5vw, 66px)",
               fontWeight: 300,
               lineHeight: 1.12,
               color: "var(--cream)",
@@ -158,7 +158,7 @@ export default function EnterpriseAdvisory() {
           <h3
             style={{
               fontFamily: "var(--font-cormorant), serif",
-              fontSize: "clamp(24px, 3vw, 36px)",
+              fontSize: "clamp(28px, 3.5vw, 44px)",
               fontWeight: 300,
               color: "var(--cream)",
               marginBottom: 28,
