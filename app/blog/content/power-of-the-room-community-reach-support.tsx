@@ -6,7 +6,198 @@ import Link from "next/link";
 
 export function PowerOfTheRoomContent() {
   return (
-    <article style={articleStyle}>
+    <article className="pr-article" style={articleStyle}>
+      {/* ── Scoped Mobile & Responsive Styles ─────────────── */}
+      <style>{`
+        .pr-article {
+          width: 100%;
+          max-width: 780px;
+          margin: 0 auto;
+          box-sizing: border-box;
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+        }
+
+        .pr-pillars-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px;
+          margin: 32px 0 36px;
+        }
+
+        .pr-pillar-card {
+          background: var(--cream, #F7F3EC);
+          border: 1px solid rgba(201, 168, 76, 0.22);
+          padding: 24px 20px;
+          border-radius: 2px;
+          box-shadow: 0 2px 10px rgba(28, 26, 74, 0.03);
+          box-sizing: border-box;
+        }
+
+        .pr-action-block {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          margin: 32px 0 36px;
+        }
+
+        .pr-action-item {
+          display: flex;
+          gap: 16px;
+          padding: 20px 24px;
+          background: var(--cream, #F7F3EC);
+          border: 1px solid rgba(201, 168, 76, 0.22);
+          border-radius: 2px;
+          align-items: flex-start;
+          box-sizing: border-box;
+        }
+
+        .pr-transform-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px;
+          margin: 32px 0;
+        }
+
+        .pr-transform-item {
+          background: var(--cream, #F7F3EC);
+          border: 1px solid rgba(201, 168, 76, 0.22);
+          padding: 20px 18px;
+          border-radius: 2px;
+          box-sizing: border-box;
+        }
+
+        .pr-alisa-banner {
+          margin-top: 64px;
+          padding: 48px 40px;
+          background: linear-gradient(135deg, #1C1A4A 0%, #12103A 100%);
+          border: 1px solid rgba(201, 168, 76, 0.4);
+          border-radius: 4px;
+          box-shadow: 0 20px 50px rgba(18, 16, 58, 0.25);
+          box-sizing: border-box;
+        }
+
+        .pr-alisa-btn-row {
+          display: flex;
+          gap: 14px;
+          flex-wrap: wrap;
+        }
+
+        .pr-alisa-btn-primary,
+        .pr-alisa-btn-secondary {
+          box-sizing: border-box;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .pr-alisa-btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(201, 168, 76, 0.4);
+        }
+
+        .pr-alisa-btn-secondary:hover {
+          transform: translateY(-2px);
+          background: #134636;
+        }
+
+        .pr-quote-box {
+          margin: 40px 0;
+          padding: 24px 32px;
+          background: rgba(201, 168, 76, 0.08);
+          border-left: 3px solid var(--gold, #C9A84C);
+          border-radius: 0 4px 4px 0;
+          box-sizing: border-box;
+        }
+
+        .pr-closing-box {
+          margin-top: 48px;
+          padding: 24px 28px;
+          border-left: 3px solid var(--gold, #C9A84C);
+          background: var(--cream, #F7F3EC);
+          border-radius: 0 4px 4px 0;
+          box-sizing: border-box;
+        }
+
+        /* ── Tablet screens: ≤860px ────────────────────────── */
+        @media (max-width: 860px) {
+          .pr-pillars-grid {
+            grid-template-columns: 1fr !important;
+            gap: 14px !important;
+          }
+          .pr-transform-grid {
+            grid-template-columns: 1fr !important;
+            gap: 14px !important;
+          }
+          .pr-alisa-banner {
+            padding: 36px 26px !important;
+            margin-top: 48px !important;
+          }
+          .pr-quote-box {
+            padding: 20px 22px !important;
+            margin: 32px 0 !important;
+          }
+          .pr-action-item {
+            padding: 18px 20px !important;
+          }
+        }
+
+        /* ── Mobile screens: ≤600px ─────────────────────────── */
+        @media (max-width: 600px) {
+          .pr-article {
+            font-size: 15px !important;
+            line-height: 1.75 !important;
+          }
+          .pr-alisa-banner {
+            padding: 28px 18px !important;
+            margin-top: 40px !important;
+            border-radius: 2px !important;
+          }
+          .pr-alisa-btn-row {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            gap: 12px !important;
+          }
+          .pr-alisa-btn-primary,
+          .pr-alisa-btn-secondary {
+            width: 100% !important;
+            justify-content: center !important;
+            text-align: center !important;
+            padding: 14px 18px !important;
+            font-size: 10px !important;
+          }
+          .pr-action-item {
+            padding: 16px 16px !important;
+            gap: 12px !important;
+          }
+          .pr-quote-box {
+            padding: 18px 16px !important;
+            margin: 28px 0 !important;
+          }
+          .pr-closing-box {
+            padding: 18px 16px !important;
+            margin-top: 36px !important;
+          }
+        }
+
+        /* ── Small mobile: ≤380px ──────────────────────────── */
+        @media (max-width: 380px) {
+          .pr-alisa-banner {
+            padding: 22px 14px !important;
+          }
+          .pr-pillar-card {
+            padding: 18px 14px !important;
+          }
+          .pr-action-item {
+            padding: 14px 12px !important;
+          }
+          .pr-quote-box {
+            padding: 14px 12px !important;
+          }
+          .pr-closing-box {
+            padding: 14px 12px !important;
+          }
+        }
+      `}</style>
+
       {/* ── Opening ───────────────────────────────────── */}
       <p style={leadStyle}>
         There is a quiet, seductive myth that many dedicated founders, professionals, and
@@ -31,7 +222,7 @@ export function PowerOfTheRoomContent() {
       </p>
 
       {/* ── Pull Quote 1 ──────────────────────────────── */}
-      <blockquote style={quoteStyle}>
+      <blockquote className="pr-quote-box" style={quoteStyle}>
         <p style={quoteTextStyle}>
           &ldquo;When you step into a room of aligned hearts and sharp minds, you don&rsquo;t
           just gain contacts. You gain mirrors that reflect your potential, hands that steady
@@ -57,8 +248,8 @@ export function PowerOfTheRoomContent() {
         happens:
       </p>
 
-      <div style={pillarsGridStyle}>
-        <div style={pillarCardStyle}>
+      <div className="pr-pillars-grid" style={pillarsGridStyle}>
+        <div className="pr-pillar-card" style={pillarCardStyle}>
           <div style={pillarNumberStyle}>01</div>
           <h3 style={pillarTitleStyle}>Shared Goodwill</h3>
           <p style={pillarDescStyle}>
@@ -68,7 +259,7 @@ export function PowerOfTheRoomContent() {
           </p>
         </div>
 
-        <div style={pillarCardStyle}>
+        <div className="pr-pillar-card" style={pillarCardStyle}>
           <div style={pillarNumberStyle}>02</div>
           <h3 style={pillarTitleStyle}>Warm Bridges Over Cold Pitches</h3>
           <p style={pillarDescStyle}>
@@ -78,7 +269,7 @@ export function PowerOfTheRoomContent() {
           </p>
         </div>
 
-        <div style={pillarCardStyle}>
+        <div className="pr-pillar-card" style={pillarCardStyle}>
           <div style={pillarNumberStyle}>03</div>
           <h3 style={pillarTitleStyle}>Unseen Horizons</h3>
           <p style={pillarDescStyle}>
@@ -110,8 +301,8 @@ export function PowerOfTheRoomContent() {
         </strong>
       </p>
 
-      <div style={actionBlockStyle}>
-        <div style={actionItemStyle}>
+      <div className="pr-action-block" style={actionBlockStyle}>
+        <div className="pr-action-item" style={actionItemStyle}>
           <span style={actionBulletStyle}>✦</span>
           <div>
             <h4 style={actionHeadingStyle}>Listen to the Room First</h4>
@@ -123,7 +314,7 @@ export function PowerOfTheRoomContent() {
           </div>
         </div>
 
-        <div style={actionItemStyle}>
+        <div className="pr-action-item" style={actionItemStyle}>
           <span style={actionBulletStyle}>✦</span>
           <div>
             <h4 style={actionHeadingStyle}>Deliver Generous, Low-Friction Value</h4>
@@ -135,7 +326,7 @@ export function PowerOfTheRoomContent() {
           </div>
         </div>
 
-        <div style={actionItemStyle}>
+        <div className="pr-action-item" style={actionItemStyle}>
           <span style={actionBulletStyle}>✦</span>
           <div>
             <h4 style={actionHeadingStyle}>Bring Your Authentic Reality</h4>
@@ -155,7 +346,7 @@ export function PowerOfTheRoomContent() {
       </p>
 
       {/* ── Pull Quote 2 ──────────────────────────────── */}
-      <blockquote style={quoteStyle}>
+      <blockquote className="pr-quote-box" style={quoteStyle}>
         <p style={quoteTextStyle}>
           &ldquo;Reputation is not what you tell the market about yourself. It is what an
           invested community joyfully tells the market on your behalf because they have felt the
@@ -222,8 +413,8 @@ export function PowerOfTheRoomContent() {
         safety, and reciprocal trust internally:
       </p>
 
-      <div style={transformationGridStyle}>
-        <div style={transformItemStyle}>
+      <div className="pr-transform-grid" style={transformationGridStyle}>
+        <div className="pr-transform-item" style={transformItemStyle}>
           <span style={transformTagStyle}>Result 01</span>
           <h4 style={transformTitleStyle}>Departmental Silos Collapse</h4>
           <p style={transformDescStyle}>
@@ -232,7 +423,7 @@ export function PowerOfTheRoomContent() {
           </p>
         </div>
 
-        <div style={transformItemStyle}>
+        <div className="pr-transform-item" style={transformItemStyle}>
           <span style={transformTagStyle}>Result 02</span>
           <h4 style={transformTitleStyle}>Executive Bottlenecks Dissolve</h4>
           <p style={transformDescStyle}>
@@ -241,7 +432,7 @@ export function PowerOfTheRoomContent() {
           </p>
         </div>
 
-        <div style={transformItemStyle}>
+        <div className="pr-transform-item" style={transformItemStyle}>
           <span style={transformTagStyle}>Result 03</span>
           <h4 style={transformTitleStyle}>Unshakeable Market Gravitas</h4>
           <p style={transformDescStyle}>
@@ -259,7 +450,7 @@ export function PowerOfTheRoomContent() {
       </p>
 
       {/* ── Strategic Services: Alisa Consulting ─────── */}
-      <div style={alisaBannerStyle}>
+      <div className="pr-alisa-banner" style={alisaBannerStyle}>
         <div style={alisaTagStyle}>
           Strategic Advisory · Enterprise Governance · Executive Architecture
         </div>
@@ -320,11 +511,12 @@ export function PowerOfTheRoomContent() {
           <div style={alisaCtaTextStyle}>
             Ready to transition from operational friction to unshakeable institutional clarity?
           </div>
-          <div style={alisaBtnRowStyle}>
+          <div className="pr-alisa-btn-row" style={alisaBtnRowStyle}>
             <a
               href="https://calendly.com/mindvestglobalresources/30min"
               target="_blank"
               rel="noopener noreferrer"
+              className="pr-alisa-btn-primary"
               style={alisaPrimaryBtnStyle}
             >
               Book Advisory Discovery Call ↗
@@ -333,6 +525,7 @@ export function PowerOfTheRoomContent() {
               href="https://wa.me/2349119059859?text=Hello%20Alisa%20Consulting%20Desk,%20I%20am%20reaching%20out%20to%20inquire%20about%20Leadership%20and%20Corporate%20Architecture%20advisory."
               target="_blank"
               rel="noopener noreferrer"
+              className="pr-alisa-btn-secondary"
               style={alisaSecondaryBtnStyle}
             >
               <span style={greenDotStyle} />
@@ -343,7 +536,7 @@ export function PowerOfTheRoomContent() {
       </div>
 
       {/* ── Closing Note ──────────────────────────────── */}
-      <div style={closingNoteStyle}>
+      <div className="pr-closing-box" style={closingNoteStyle}>
         <p style={{ margin: 0, fontSize: 15, color: "var(--indigo, #1C1A4A)", fontStyle: "italic", lineHeight: 1.7 }}>
           Every institutional breakthrough begins with an honest human conversation.
           Whether you are seeking personal alignment or corporate architecture, you were
