@@ -26,6 +26,55 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "power-of-the-room-community-reach-support",
+    title: "The Power of the Room: How Authentic Community Shifts Your Reach, Deepens Support, and Multiplies Your Power to Serve",
+    subtitle:
+      "Why You Weren't Meant to Carry the Vision Alone—and How Stepping into an Aligned Community Transforms Isolated Effort into Expansive Reach, Shared Credibility, and Lifelong Human Connection.",
+    excerpt:
+      "When ambitious visionaries build in isolation, their reach is strictly limited to personal energy. Discover how joining a high-trust community accelerates your reach, wraps you in collective credibility, and unlocks authentic human connections that fuel both personal evolution and corporate architecture.",
+    category: "leadership-architecture",
+    categoryLabel: "Personal Evolution · Leadership Architecture · Alisa Consulting Series",
+    author: "Zeki Ubor",
+    authorRole: "Principal & Founder · Human & Systems Architect",
+    date: "November 14, 2026",
+    isoDate: "2026-11-14T09:00:00+01:00",
+    readTime: "7 min read",
+    heroImage: "/images/blog-hero-human-partnership.jpg",
+    heroImageAlt:
+      "Visionary African leaders and executives gathered in a modern architectural boardroom, sharing strategic insights and collaborating with mutual trust.",
+    tags: [
+      "Community",
+      "Human Connection",
+      "Reputation Architecture",
+      "Leadership Architecture",
+      "Alisa Consulting",
+      "Corporate Architecture",
+      "Enterprise Strategy",
+      "Zeki Ubor",
+      "Mindvest Global",
+    ],
+    featured: true,
+    geoRegion: "NG-LA",
+    geoPlacename: "Lagos, Nigeria",
+    faq: [
+      {
+        question: "How does joining a community increase your reach?",
+        answer:
+          "Instead of building visibility in isolation, an aligned community wraps you in shared credibility. Members who experience your value naturally become enthusiastic advocates, opening warm doors and connecting you to relationships that would otherwise take years of cold outreach to access.",
+      },
+      {
+        question: "What is the difference between extractive networking and genuine community?",
+        answer:
+          "Extractive networking focuses on calculating what you can take or whose reputation you can borrow. Genuine community begins with listening, generous service, and bringing your authentic reality to the room—which in turn creates fierce peer loyalty and mutual elevation.",
+      },
+      {
+        question: "How does human connection relate to corporate architecture and Alisa Consulting?",
+        answer:
+          "An enterprise is simply a community organized around a shared mission. Alisa Consulting translates the principles of relational trust and authentic leadership into load-bearing corporate architecture—installing decentralized decision rights, eliminating operational drag, and building high-trust organizational cultures that scale.",
+      },
+    ],
+  },
+  {
     slug: "how-to-make-decisions-expensive-affordable-cheap",
     title: "The Architecture of Decision-Making: Cheap, Affordable, and Expensive",
     subtitle:

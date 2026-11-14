@@ -21,8 +21,10 @@ import { MarketHustleVsLeverageContent } from "../content/market-hustle-vs-archi
 import { BeFruitfulAndMultiplyContent } from "../content/be-fruitful-and-multiply-how-income-multiplies";
 import { HumanPartnershipContent } from "../content/the-architecture-of-profitable-human-partnerships";
 import { DecisionArchitectureContent } from "../content/how-to-make-decisions-expensive-affordable-cheap";
+import { PowerOfTheRoomContent } from "../content/power-of-the-room-community-reach-support";
 
 const contentMap: Record<string, React.FC> = {
+  "power-of-the-room-community-reach-support": PowerOfTheRoomContent,
   "how-to-make-decisions-expensive-affordable-cheap": DecisionArchitectureContent,
   "the-architecture-of-profitable-human-partnerships": HumanPartnershipContent,
   "be-fruitful-and-multiply-how-income-multiplies": BeFruitfulAndMultiplyContent,
