@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function BlogListingPage() {
   const featured = blogPosts.find((p) => p.featured);
-  const rest = blogPosts.filter((p) => !p.featured);
+  const rest = blogPosts.filter((p) => p.slug !== featured?.slug);
 
   return (
     <>
