@@ -14,7 +14,6 @@ import LatestInsight from "./components/LatestInsight";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
 import OriginPopup from "./components/OriginPopup";
-import ElevationPopup from "./components/ElevationPopup";
 
 export default function Home() {
   return (
@@ -37,7 +36,6 @@ export default function Home() {
       </main>
       <Footer />
       <OriginPopup />
-      <ElevationPopup />
     </>
   );
 }

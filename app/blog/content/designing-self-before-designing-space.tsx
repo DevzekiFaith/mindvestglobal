@@ -121,16 +121,7 @@ export function DiasporaPostContent() {
       </h2>
 
       <p style={bodyStyle}>
-        When a diasporian client brings a brief to{" "}
-        <a
-          href="https://www.elevationstudiong.com.ng"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={linkStyle}
-        >
-          Elevation Studio
-        </a>
-        , one of the first things we listen for is not the aesthetic references or the Pinterest
+        When a diasporian client brings an architectural brief to Elevation Studio, one of the first things we listen for is not the aesthetic references or the Pinterest
         boards. We listen for the person behind the brief.
       </p>
 

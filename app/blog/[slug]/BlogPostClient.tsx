@@ -475,34 +475,6 @@ export default function BlogPostClient({ post }: { post: BlogPost }) {
             >
               Explore The Becoming Institute →
             </a>
-            <a
-              href="https://www.elevationstudiong.com.ng"
-              target="_blank"
-              rel="noopener noreferrer"
-              id="blog-cta-elevation"
-              style={{
-                padding: "14px 36px",
-                border: "1px solid rgba(201,168,76,0.3)",
-                color: "rgba(247,243,236,0.7)",
-                fontFamily: "var(--font-dm-mono), monospace",
-                fontSize: 11,
-                letterSpacing: "2px",
-                textTransform: "uppercase",
-                textDecoration: "none",
-                transition: "all 0.25s",
-                display: "inline-block",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = "var(--gold)";
-                (e.currentTarget as HTMLElement).style.color = "var(--cream)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = "rgba(201,168,76,0.3)";
-                (e.currentTarget as HTMLElement).style.color = "rgba(247,243,236,0.7)";
-              }}
-            >
-              Visit Elevation Studio ↗
-            </a>
           </div>
         </div>
       </section>

@@ -138,8 +138,7 @@ const organizationSchema = {
   "sameAs": [
     "https://www.linkedin.com/in/zeki-ubor-268889196?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     "https://youtube.com/@thebecomingwithzekiubor?si=QC9bC_6enotC-g0R",
-    "https://www.origin.com.ng",
-    "https://www.elevationstudiong.com.ng"
+    "https://www.origin.com.ng"
   ],
   "founder": {
     "@type": "Person",

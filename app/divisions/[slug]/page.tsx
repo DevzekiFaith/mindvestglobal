@@ -58,10 +58,6 @@ const leadershipFounderData = {
       href: "https://youtube.com/@thebecomingwithzekiubor?si=QC9bC_6enotC-g0R",
     },
     {
-      label: "Elevation Studio (Spatial Design ↗)",
-      href: "https://www.elevationstudiong.com.ng",
-    },
-    {
       label: "Zeki Ubor (LinkedIn ↗)",
       href: "https://www.linkedin.com/in/zeki-ubor-268889196?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     },
